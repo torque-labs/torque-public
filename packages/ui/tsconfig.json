@@ -1,5 +1,14 @@
 {
-  "extends": "@repo/typescript-config/react-library.json",
-  "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "extends": "@torque-labs/typescript-config/react-library.json",
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "jsx": "react-jsx",
+    "paths": {
+      "@torque-labs/torque-ui/*": ["./src/*"],
+      "@/*": ["./src/*"]
+    }
+  }
 }

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "src/globals.css",
+    "baseColor": "zinc",
+    "cssVariables": true,
+    "prefix": "torque-"
+  },
+  "aliases": {
+    "components": "@torque-labs/torque-ui/components",
+    "ui": "@torque-labs/torque-ui/components/ui",
+    "utils": "@torque-labs/torque-ui/lib/utils",
+    "lib": "@torque-labs/torque-ui/lib",
+    "hooks": "@torque-labs/torque-ui/hooks"
+  }
+}
