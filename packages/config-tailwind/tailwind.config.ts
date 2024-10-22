@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import { Config } from "tailwindcss";
 
 const {
   default: flattenColorPalette,
@@ -7,7 +7,7 @@ const {
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    Object.entries(allColors).map(([key, val]) => [`--torque-${key}`, val])
   );
 
   addBase({
@@ -31,49 +31,49 @@ const config: Omit<Config, "content"> = {
         jakarta: ["Jakarta", "sans-serif"],
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        border: "hsl(var(--torque-border))",
+        input: "hsl(var(--torque-input))",
+        ring: "hsl(var(--torque-ring))",
+        background: "hsl(var(--torque-background))",
+        foreground: "hsl(var(--torque-foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "hsl(var(--torque-primary))",
+          foreground: "hsl(var(--torque-primary-foreground))",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "hsl(var(--torque-secondary))",
+          foreground: "hsl(var(--torque-secondary-foreground))",
         },
         error: {
-          DEFAULT: "hsl(var(--error))",
+          DEFAULT: "hsl(var(--torque-error))",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "hsl(var(--torque-destructive))",
+          foreground: "hsl(var(--torque-destructive-foreground))",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-          background: "hsl(var(--muted-background))",
+          DEFAULT: "hsl(var(--torque-muted))",
+          foreground: "hsl(var(--torque-muted-foreground))",
+          background: "hsl(var(--torque-muted-background))",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "hsl(var(--torque-accent))",
+          foreground: "hsl(var(--torque-accent-foreground))",
         },
-        highlight: "hsl(var(--highlight))",
+        highlight: "hsl(var(--torque-highlight))",
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "hsl(var(--torque-popover))",
+          foreground: "hsl(var(--torque-popover-foreground))",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "hsl(var(--torque-card))",
+          foreground: "hsl(var(--torque-card-foreground))",
         },
       },
       borderRadius: {
         lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        md: "calc(var(--torque-radius) - 2px)",
+        sm: "calc(var(--torque-radius) - 4px)",
       },
       keyframes: {
         "accordion-down": {

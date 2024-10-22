@@ -1,0 +1,3 @@
+{
+  "extends": "@torque-labs/typescript-config/base.json"
+}
