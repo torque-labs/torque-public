@@ -1,22 +1,23 @@
-import { useCallback, useEffect, useState } from "react";
-import {
+import type { ActionGetResponse } from "@solana/actions";
+import type { TransactionResponse } from "@solana/actions-spec";
+import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { VersionedTransaction } from "@solana/web3.js";
+import type { Transaction } from "@solana/web3.js";
+import { TorqueAdminClient } from "@torque-labs/torque-ts-sdk";
+import type {
   ApiRequirement,
-  TorqueAdminClient,
   SafeToken,
   ApiProgressStatus,
 } from "@torque-labs/torque-ts-sdk";
 import { EventType } from "@torque-labs/torque-utils";
-import { ActionGetResponse, ActionPostResponse } from "@solana/actions";
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-import { TransactionResponse } from "@solana/actions-spec";
-import { Transaction, VersionedTransaction } from "@solana/web3.js";
+import { useCallback, useEffect, useState } from "react";
 
-type TokenDetails = {
+interface TokenDetails {
   name: string;
   logo: string;
   decimals: number;
   symbol: string;
-};
+}
 
 function getTokenDetails(
   token: string,
@@ -27,23 +28,19 @@ function getTokenDetails(
       (t) => t.address === "So11111111111111111111111111111111111111112"
     );
     if (specialToken) {
-      console.log(
-        `Special case: Token data found for address: ${specialToken.address}`
-      );
       return {
         name: "SOL",
         logo: specialToken.logoURI,
         decimals: 9,
         symbol: "SOL",
       };
-    } else {
-      return {
-        name: "SOL",
-        logo: "",
-        decimals: 9,
-        symbol: "SOL",
-      };
     }
+    return {
+      name: "SOL",
+      logo: "",
+      decimals: 9,
+      symbol: "SOL",
+    };
   } else if (token === "CAvc2Mr9WcH6HiYQeLYcXG3H9G2rg1sV2EEksMd6gyGS") {
     return {
       name: "Clicky",
@@ -56,8 +53,6 @@ function getTokenDetails(
   const tokenData = tokens.find((t: SafeToken) => t.address === token);
 
   if (tokenData) {
-    console.log(`Token data found for address: ${token}`);
-
     return {
       name: tokenData.name,
       logo: tokenData.logoURI,
@@ -65,8 +60,6 @@ function getTokenDetails(
       symbol: tokenData.symbol,
     };
   }
-
-  return;
 }
 
 function base64ToUint8Array(base64: string) {
@@ -103,8 +96,8 @@ export function TorqueDrawerRequirement({
   const { wallet, publicKey } = useWallet();
   const { connection } = useConnection();
 
-  const [inTokenDetails, setInTokenDetails] = useState<TokenDetails>();
-  const [outTokenDetails, setOutTokenDetails] = useState<TokenDetails>();
+  const [_inTokenDetails, setInTokenDetails] = useState<TokenDetails>();
+  const [_outTokenDetails, setOutTokenDetails] = useState<TokenDetails>();
   const [title, setTitle] = useState<string>();
 
   /**
@@ -114,8 +107,6 @@ export function TorqueDrawerRequirement({
     async (encodedTransaction: string) => {
       if (wallet && publicKey) {
         try {
-          console.log(base64ToUint8Array(encodedTransaction));
-
           const transaction = VersionedTransaction.deserialize(
             base64ToUint8Array(encodedTransaction)
           ) as unknown as Transaction;
@@ -211,7 +202,7 @@ export function TorqueDrawerRequirement({
           "inToken" in requirement.eventConfig &&
           requirement.eventConfig.inToken
         ) {
-          const tokenInDetails = await getTokenDetails(
+          const tokenInDetails = getTokenDetails(
             requirement.eventConfig.inToken,
             fetchedTokens
           );
@@ -223,7 +214,7 @@ export function TorqueDrawerRequirement({
           "outToken" in requirement.eventConfig &&
           requirement.eventConfig.outToken
         ) {
-          const tokenOutDetails = await getTokenDetails(
+          const tokenOutDetails = getTokenDetails(
             requirement.eventConfig.outToken,
             fetchedTokens
           );
@@ -235,7 +226,7 @@ export function TorqueDrawerRequirement({
           "tokenAddress" in requirement.eventConfig &&
           requirement.eventConfig.tokenAddress
         ) {
-          const tokenInDetails = await getTokenDetails(
+          const tokenInDetails = getTokenDetails(
             requirement.eventConfig.tokenAddress,
             fetchedTokens
           );
@@ -273,9 +264,9 @@ export function TorqueDrawerRequirement({
       }
     }
 
-    getTokenData();
-    getNftData();
-    getRealmsData();
+    void getTokenData();
+    void getNftData();
+    void getRealmsData();
   }, [requirement]);
 
   if (requirement.type === EventType.CLICK) {
@@ -319,8 +310,6 @@ export function TorqueDrawerRequirement({
   }
 
   if (requirement.type === EventType.SWAP) {
-    console.log(requirement, step);
-
     if (requirement.eventConfig.inToken && requirement.eventConfig.outToken) {
       return <p>Swap Token</p>;
     } else if (
@@ -344,6 +333,7 @@ export function TorqueDrawerRequirement({
                     await executeAction(result);
                   }
                 }}
+                type="button"
               >
                 Execute
               </button>
@@ -372,6 +362,7 @@ export function TorqueDrawerRequirement({
                     await executeAction(result);
                   }
                 }}
+                type="button"
               >
                 Execute
               </button>

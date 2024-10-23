@@ -1,14 +1,14 @@
 {
   "extends": "@torque-labs/typescript-config/react-library.json",
   "include": ["src"],
-  "exclude": ["node_modules", "dist"],
+  "exclude": ["node_modules", "dist", "tailwind.config.ts"],
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
     "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
-      "@torque-labs/torque-ui/*": ["./src/*"],
-      "@/*": ["./src/*"]
+      "#/*": ["./src/*"]
     }
   }
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import {
   motion,
   useAnimationFrame,
@@ -7,25 +5,22 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion";
-
+import type { ButtonHTMLAttributes } from "react";
 import React, { useRef } from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "#lib/utils.ts";
 
-export const MovingBorder = ({
+export function MovingBorder({
   children,
   duration = 2000,
   rx,
   ry,
   ...otherProps
-}: {
+}: React.SVGProps<SVGSVGElement> & {
   children: React.ReactNode;
   duration?: number;
-  rx?: string;
-  ry?: string;
-  [key: string]: any;
-}) => {
-  const pathRef = useRef<any>();
+}) {
+  const pathRef = useRef<SVGRectElement>(null);
   const progress = useMotionValue<number>(0);
 
   useAnimationFrame((time) => {
@@ -50,20 +45,20 @@ export const MovingBorder = ({
   return (
     <>
       <svg
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="none"
         className="absolute size-full"
-        width="100%"
         height="100%"
+        preserveAspectRatio="none"
+        width="100%"
+        xmlns="http://www.w3.org/2000/svg"
         {...otherProps}
       >
         <rect
           fill="none"
-          width="100%"
           height="100%"
+          ref={pathRef}
           rx={rx}
           ry={ry}
-          ref={pathRef}
+          width="100%"
         />
       </svg>
       <motion.div
@@ -79,36 +74,34 @@ export const MovingBorder = ({
       </motion.div>
     </>
   );
-};
+}
 
 export function TorqueStartButton({
   borderRadius = "1.75rem",
   children,
-  as: Component = "button",
   containerClassName,
   borderClassName,
   duration,
   className,
   ...otherProps
-}: {
+}: ButtonHTMLAttributes<HTMLButtonElement> & {
   borderRadius?: string;
   children: React.ReactNode;
-  as?: any;
   containerClassName?: string;
   borderClassName?: string;
   duration?: number;
   className?: string;
-  [key: string]: any;
 }) {
   return (
-    <Component
+    <button
       className={cn(
         "relative h-10 w-full overflow-hidden bg-transparent p-px text-xl",
         containerClassName
       )}
       style={{
-        borderRadius: borderRadius,
+        borderRadius,
       }}
+      type="button"
       {...otherProps}
     >
       <div
@@ -136,6 +129,6 @@ export function TorqueStartButton({
       >
         {children}
       </div>
-    </Component>
+    </button>
   );
 }

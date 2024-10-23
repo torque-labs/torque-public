@@ -1,3 +1,19 @@
+import { useWallet } from "@solana/wallet-adapter-react";
+import type {
+  ApiCampaign,
+  ApiCampaignJourney,
+  ApiResponse,
+} from "@torque-labs/torque-ts-sdk";
+import {
+  ApiProgressStatus,
+  ApiStatus,
+  TorqueSDK,
+} from "@torque-labs/torque-ts-sdk";
+import { ChevronDown, ChevronUp, Wallet } from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+
+import { Logo } from "#/components/icons";
+import { Button } from "#/components/ui/button";
 import {
   Drawer,
   DrawerClose,
@@ -7,23 +23,11 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
+} from "#/components/ui/drawer";
+import { cn } from "#lib/utils.ts";
 
-import { Button } from "@/components/ui/button";
-import { useCallback, useEffect, useState } from "react";
-import { useWallet } from "@solana/wallet-adapter-react";
-import {
-  ApiCampaign,
-  ApiCampaignJourney,
-  ApiProgressStatus,
-  ApiResponse,
-  TorqueSDK,
-} from "@torque-labs/torque-ts-sdk";
-import { Logo } from "@/components/icons";
 import { TorqueDrawerRequirement } from "./TorqueDrawerRequirement";
 import { TorqueStartButton } from "./TorqueStartButton";
-import { ChevronDown, ChevronUp, Wallet } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 const torqueSDK = new TorqueSDK({
   apiKey: "test",
@@ -39,13 +43,13 @@ export function TorqueDrawer() {
 
   const [campaigns, setCampaigns] = useState<ApiCampaign[]>([]);
   const [journeys, setJourneys] = useState<ApiCampaignJourney[]>([]);
-  const [openCampaigns, setOpenCampaigns] = useState<{
-    [key: string]: boolean;
-  }>({});
+  const [openCampaigns, setOpenCampaigns] = useState<Record<string, boolean>>(
+    {}
+  );
 
   const getCampaigns = useCallback(async () => {
     const request = await fetch(
-      `https://api.coolify.torque.so/offers/${wallet.publicKey}`
+      `https://api.coolify.torque.so/offers/${wallet.publicKey?.toString()}`
     );
 
     if (request.ok) {
@@ -53,10 +57,10 @@ export function TorqueDrawer() {
         campaigns: ApiCampaign[];
       }>;
 
-      if (result.status === "SUCCESS" && torqueSDK && torqueSDK.user) {
+      if (result.status === ApiStatus.SUCCESS && torqueSDK.user) {
         const torqueUser = torqueSDK.user;
 
-        const journeys = (
+        const allJourneys = (
           await Promise.all(
             result.data.campaigns.map(async (campaign) => {
               const journey = await torqueUser.getCampaignJourney(campaign.id);
@@ -68,7 +72,7 @@ export function TorqueDrawer() {
               return null;
             })
           )
-        ).filter((x) => !!x);
+        ).filter((x): x is ApiCampaignJourney => Boolean(x));
 
         /**
          * Sort order:
@@ -79,16 +83,14 @@ export function TorqueDrawer() {
          * 4. Alphabetical
          */
         const campaignOrder = result.data.campaigns.sort((a, b) => {
-          const aCompleted = journeys.find(
+          const aCompleted = allJourneys.find(
             (journey) =>
-              journey &&
               journey.campaignId === a.id &&
               journey.status === ApiProgressStatus.DONE
           );
 
-          const bCompleted = journeys.find(
+          const bCompleted = allJourneys.find(
             (journey) =>
-              journey &&
               journey.campaignId === b.id &&
               journey.status === ApiProgressStatus.DONE
           );
@@ -99,16 +101,14 @@ export function TorqueDrawer() {
             return -1;
           }
 
-          const aStarted = journeys.find(
+          const aStarted = allJourneys.find(
             (journey) =>
-              journey &&
               journey.campaignId === a.id &&
               journey.status === ApiProgressStatus.STARTED
           );
 
-          const bStarted = journeys.find(
+          const bStarted = allJourneys.find(
             (journey) =>
-              journey &&
               journey.campaignId === b.id &&
               journey.status === ApiProgressStatus.STARTED
           );
@@ -124,9 +124,8 @@ export function TorqueDrawer() {
 
         if (
           campaignOrder.length > 0 &&
-          !journeys.find(
+          !allJourneys.find(
             (journey) =>
-              journey &&
               journey.campaignId === campaignOrder[0].id &&
               journey.status === ApiProgressStatus.DONE
           )
@@ -137,14 +136,14 @@ export function TorqueDrawer() {
         }
 
         setCampaigns(campaignOrder);
-        setJourneys(journeys as ApiCampaignJourney[]);
+        setJourneys(allJourneys);
       }
     }
   }, [wallet.publicKey]);
 
   const claimOffer = useCallback(
     async (campaignId: string) => {
-      if (wallet && wallet.publicKey && initialized) {
+      if (wallet.publicKey && initialized) {
         if (torqueSDK.user) {
           await torqueSDK.user.acceptCampaign(campaignId);
 
@@ -157,7 +156,7 @@ export function TorqueDrawer() {
 
   useEffect(() => {
     async function initializeTorque() {
-      if (wallet && wallet.wallet && wallet.publicKey && !initialized) {
+      if (wallet.wallet && wallet.publicKey && !initialized) {
         try {
           await torqueSDK.initialize(wallet.wallet.adapter);
 
@@ -170,7 +169,7 @@ export function TorqueDrawer() {
       }
     }
 
-    initializeTorque();
+    void initializeTorque();
   }, [wallet, wallet.wallet, wallet.publicKey, initialized, getCampaigns]);
 
   return (
@@ -180,7 +179,7 @@ export function TorqueDrawer() {
       <DrawerContent className="left-auto overflow-auto top-0 mt-0 right-0 bottom-0 flex outline-none w-96 rounded-none bg-card">
         <DrawerHeader className="mb-4 p-5 pt-6 flex items-center gap-2 justify-between">
           <DrawerTitle className="text-sm font-normal flex items-center gap-2 border py-1 px-2.5 rounded-md">
-            <Wallet size={16} className="text-muted" />
+            <Wallet className="text-muted" size={16} />
             {wallet.publicKey ? (
               <div>
                 {`${wallet.publicKey
@@ -196,37 +195,39 @@ export function TorqueDrawer() {
 
         <div className="flex flex-col gap-4 px-5 w-full">
           <h3 className="text-lg font-medium">
-            Offers ({campaigns.length ?? 0})
+            Offers ({campaigns.length ? campaigns.length : 0})
           </h3>
           {campaigns.map((campaign) => {
             const journey = journeys.find(
-              (journey) =>
-                journey.campaignId === campaign.id &&
-                journey.status === ApiProgressStatus.STARTED
+              (j) =>
+                j.campaignId === campaign.id &&
+                j.status === ApiProgressStatus.STARTED
             );
 
-            const isStarted = !!journey;
+            const isStarted = Boolean(journey);
 
-            const isDone = !!journeys.find(
-              (journey) =>
-                journey.campaignId === campaign.id &&
-                journey.status === ApiProgressStatus.DONE
+            const isDone = Boolean(
+              journeys.find(
+                (j) =>
+                  j.campaignId === campaign.id &&
+                  j.status === ApiProgressStatus.DONE
+              )
             );
 
-            const isOpen = !!openCampaigns[campaign.id];
+            const isOpen = Boolean(openCampaigns[campaign.id]);
 
             return (
-              <div key={campaign.id} className="rounded border">
+              <div className="rounded border" key={campaign.id}>
                 <h3
                   className={cn(
-                    "text-semibold py-2 px-3 flex items-center gap-2 justify-between cursor-pointer",
-                    { "border-b": isOpen }
+                    "font-semibold py-2 px-3 flex items-center gap-2 justify-between cursor-pointer",
+                    { "border-b": Boolean(isOpen) }
                   )}
                   onClick={() => {
-                    setOpenCampaigns({
-                      ...openCampaigns,
-                      [campaign.id]: !isOpen,
-                    });
+                    setOpenCampaigns((prevOpenCampaigns) => ({
+                      ...prevOpenCampaigns,
+                      [campaign.id]: !prevOpenCampaigns[campaign.id],
+                    }));
                   }}
                 >
                   {campaign.title}
@@ -245,7 +246,7 @@ export function TorqueDrawer() {
                     ) : null}
 
                     {isOpen ? (
-                      <ChevronDown size={20} className="text-white size-5" />
+                      <ChevronDown className="text-white size-5" size={20} />
                     ) : (
                       <ChevronUp size={20} />
                     )}
@@ -259,22 +260,22 @@ export function TorqueDrawer() {
                     </h4>
                     <ul className="flex flex-col gap-1">
                       {campaign.requirements.map((requirement, idx) => {
-                        const step = journey?.userBountySteps?.find((step) => {
-                          return step.bountyStepId === requirement.id;
+                        const step = journey?.userBountySteps?.find((s) => {
+                          return s.bountyStepId === requirement.id;
                         });
 
                         return (
                           <li
-                            key={requirement.id}
                             className="flex items-center justify-between gap-2 text-xs p-2 border border-dashed rounded border-input"
+                            key={requirement.id}
                           >
                             <TorqueDrawerRequirement
-                              index={idx}
-                              step={step}
                               campaignId={campaign.id}
-                              requirement={requirement}
-                              refreshCampaigns={getCampaigns}
+                              index={idx}
                               isStarted={isStarted}
+                              refreshCampaigns={getCampaigns}
+                              requirement={requirement}
+                              step={step}
                             />
                             {step?.status === ApiProgressStatus.DONE ? (
                               <div className="rounded-full text-[10px] bg-green-800 px-2 uppercase">
@@ -293,7 +294,6 @@ export function TorqueDrawer() {
                           className="text-sm text-highlight"
                           duration={3000}
                           onClick={async () => {
-                            console.log("clicked");
                             await claimOffer(campaign.id);
                           }}
                         >
@@ -310,7 +310,7 @@ export function TorqueDrawer() {
 
         <DrawerFooter className="sticky bottom-0 left-0 pt-10 to-100% from-50% flex items-center justify-center bg-gradient-to-t from-card w-full">
           <DrawerClose asChild>
-            <Button variant="outline" className="w-full">
+            <Button className="w-full" variant="outline">
               Close
             </Button>
           </DrawerClose>

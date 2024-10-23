@@ -1,5 +1,5 @@
 import "./globals.css";
-import "@torque-labs/torque-ui/styles.css";
+import "@torque-labs/torque-ui/index.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 

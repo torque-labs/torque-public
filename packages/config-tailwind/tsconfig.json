@@ -1,5 +1,8 @@
 {
   "extends": "@torque-labs/typescript-config/base.json",
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules"]
+  "exclude": ["dist", "build", "node_modules"],
+  "compilerOptions": {
+    "target": "ES2022",
+  }
 }

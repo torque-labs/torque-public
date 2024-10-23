@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 
-import { cn } from "@torque-labs/torque-ui/lib/utils";
+import { cn } from "#/lib/utils.ts";
 
 const Drawer = ({
   shouldScaleBackground = true,
@@ -28,10 +28,7 @@ const DrawerOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Overlay
     ref={ref}
-    className={cn(
-      "torque-fixed torque-inset-0 torque-z-50 torque-bg-black/80",
-      className
-    )}
+    className={cn("fixed inset-0 z-50 bg-black/80", className)}
     {...props}
   />
 ));
@@ -46,12 +43,12 @@ const DrawerContent = React.forwardRef<
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        "torque-fixed torque-inset-x-0 torque-bottom-0 torque-z-50 torque-mt-24 torque-flex torque-h-auto torque-flex-col torque-rounded-t-[10px] torque-border torque-bg-background",
+        "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-background",
         className
       )}
       {...props}
     >
-      <div className="torque-mx-auto torque-mt-4 torque-h-2 torque-w-[100px] torque-rounded-full torque-bg-muted" />
+      <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>
@@ -63,10 +60,7 @@ const DrawerHeader = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
-      "torque-grid torque-gap-1.5 torque-p-4 torque-text-center sm:torque-text-left",
-      className
-    )}
+    className={cn("grid gap-1.5 p-4 text-center sm:text-left", className)}
     {...props}
   />
 );
@@ -77,10 +71,7 @@ const DrawerFooter = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn(
-      "torque-mt-auto torque-flex torque-flex-col torque-gap-2 torque-p-4",
-      className
-    )}
+    className={cn("mt-auto flex flex-col gap-2 p-4", className)}
     {...props}
   />
 );
@@ -93,7 +84,7 @@ const DrawerTitle = React.forwardRef<
   <DrawerPrimitive.Title
     ref={ref}
     className={cn(
-      "torque-text-lg torque-font-semibold torque-leading-none torque-tracking-tight",
+      "text-lg font-semibold leading-none tracking-tight",
       className
     )}
     {...props}
@@ -107,7 +98,7 @@ const DrawerDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description
     ref={ref}
-    className={cn("torque-text-sm torque-text-muted-foreground", className)}
+    className={cn("text-sm text-muted-foreground", className)}
     {...props}
   />
 ));

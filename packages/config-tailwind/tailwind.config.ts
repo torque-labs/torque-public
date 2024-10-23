@@ -71,7 +71,7 @@ const config: Omit<Config, "content"> = {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
+        lg: "var(--torque-radius)",
         md: "calc(var(--torque-radius) - 2px)",
         sm: "calc(var(--torque-radius) - 4px)",
       },

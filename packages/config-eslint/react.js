@@ -32,11 +32,40 @@ module.exports = {
         extensions: [".mjs", ".js", ".jsx", ".ts", ".tsx"],
       },
     },
+    tailwindcss: {
+      callees: ["cn"],
+      config: "tailwind.config.js",
+    },
   },
   ignorePatterns: ["node_modules/", "dist/", ".eslintrc.js", "**/*.css"],
   // add rules configurations here
   rules: {
     "import/no-default-export": "off",
+    "unicorn/filename-case": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "no-console": ["warn", { allow: ["warn", "error"] }],
+    "import/order": [
+      "error",
+      {
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+        groups: ["builtin", "external", "internal", "sibling"],
+        "newlines-between": "always",
+        pathGroups: [
+          {
+            pattern: "#/**",
+            group: "internal",
+            position: "before",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["builtin"],
+      },
+    ],
   },
   overrides: [
     {
