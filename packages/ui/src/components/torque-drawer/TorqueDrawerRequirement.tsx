@@ -78,7 +78,6 @@ export function TorqueDrawerRequirement({
   campaignId,
   index,
   isStarted,
-  refreshCampaigns,
 }: {
   requirement: ApiRequirement;
   step?: {
@@ -91,7 +90,6 @@ export function TorqueDrawerRequirement({
   isStarted: boolean;
   campaignId: string;
   index: number;
-  refreshCampaigns: () => Promise<void>;
 }) {
   const { wallet, publicKey } = useWallet();
   const { connection } = useConnection();
@@ -152,13 +150,13 @@ export function TorqueDrawerRequirement({
 
       if (signature) {
         setTimeout(async () => {
-          await refreshCampaigns();
+          // await refreshCampaigns();
         }, 5000);
       }
 
       return signature;
     },
-    [refreshCampaigns, sendActionTransaction]
+    [sendActionTransaction]
   );
 
   const getSwapTransaction = useCallback(async () => {

@@ -2,8 +2,27 @@
 
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
+import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "#/lib/utils.ts";
+
+const drawerVariants = cva("fixed z-50 flex flex-col bg-background", {
+  variants: {
+    side: {
+      top: "inset-x-0 top-0 border-b",
+      bottom: "inset-x-0 bottom-0 border-t",
+      left: "inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
+      right: "inset-y-0 right-0 h-full w-full max-w-[365px] border-l m-0",
+    },
+  },
+  defaultVariants: {
+    side: "right",
+  },
+});
+
+export interface DrawerContentProps
+  extends React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>,
+    VariantProps<typeof drawerVariants> {}
 
 const Drawer = ({
   shouldScaleBackground = true,
@@ -28,7 +47,7 @@ const DrawerOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Overlay
     ref={ref}
-    className={cn("fixed inset-0 z-50 bg-black/80", className)}
+    className={cn("fixed inset-0 z-50 bg-black/50", className)}
     {...props}
   />
 ));
@@ -36,24 +55,24 @@ DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 
 const DrawerContent = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
->(({ className, children, ...props }, ref) => (
+  DrawerContentProps
+>(({ side = "right", className, children, ...props }, ref) => (
   <DrawerPortal>
     <DrawerOverlay />
     <DrawerPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col rounded-t-[10px] border bg-background",
+        "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col bg-background text-white",
+        drawerVariants({ side }),
         className
       )}
       {...props}
     >
-      <div className="mx-auto mt-4 h-2 w-[100px] rounded-full bg-muted" />
       {children}
     </DrawerPrimitive.Content>
   </DrawerPortal>
 ));
-DrawerContent.displayName = "DrawerContent";
+DrawerContent.displayName = DrawerPrimitive.Content.displayName;
 
 const DrawerHeader = ({
   className,

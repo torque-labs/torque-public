@@ -9,10 +9,14 @@ module.exports = {
   plugins: ["tailwindcss", "prettier", "@typescript-eslint"],
   settings: {
     tailwindcss: {
-      callees: ["cn"],
+      callees: ["cn", "cva"],
       config: "tailwind.config.ts",
     },
   },
-  ignorePatterns: ["node_modules/", "dist/"],
-  ignores: [".eslintrc.js", "*.config.tailwind.ts"],
+  ignorePatterns: [
+    "node_modules/",
+    "dist/",
+    "tailwind.config.ts",
+    ".eslintrc.js",
+  ],
 };
