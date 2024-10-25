@@ -38,3 +38,9 @@
     --torque-radius: 0.5rem;
   }
 }
+
+@layer components {
+  * {
+    @apply border-border;
+  }
+}

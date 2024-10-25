@@ -12,7 +12,13 @@ import type {
   TorqueUserClient,
 } from "@torque-labs/torque-ts-sdk";
 import { TorqueSDK } from "@torque-labs/torque-ts-sdk";
-import { createContext, useContext, useState, useCallback } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useEffect,
+} from "react";
 import type { PropsWithChildren } from "react";
 
 import { API_URL, APP_URL, FUNCTIONS_URL } from "#/constants";
@@ -129,7 +135,7 @@ type TorqueContextState = {
    *
    * @param options - The options for initializing the user
    */
-  initialize: (options: TorqueInitOptions) => Promise<void>;
+  initialize: (options?: TorqueInitOptions) => Promise<void>;
 
   /**
    * Logout the user and clear the Torque SDK instance
@@ -184,57 +190,6 @@ export function TorqueProvider({
   // Data state
   const [userOffers, setUserOffers] = useState<ApiCampaign[]>([]);
   const [userJourneys, setUserJourneys] = useState<ApiCampaignJourney[]>([]);
-
-  /**
-   * Login to torque with the provided wallet.
-   */
-  const initialize = useCallback(
-    async ({ loginInput }: TorqueInitOptions) => {
-      try {
-        setIsLoading(true);
-
-        if (wallet) {
-          const torqueSDK = new TorqueSDK({
-            apiUrl: options?.apiUrl ?? API_URL,
-            appUrl: options?.appUrl ?? APP_URL,
-            functionsUrl: options?.functionsUrl ?? FUNCTIONS_URL,
-            rpc: options?.rpc,
-          });
-
-          await torqueSDK.initialize(wallet.adapter, undefined, loginInput);
-
-          setTorque(torqueSDK);
-
-          if (torqueSDK.user) {
-            setTorqueUserClient(torqueSDK.user);
-            setUser(torqueSDK.user.user);
-          } else {
-            throw new Error("Unable to login and initialize Torque.");
-          }
-        } else {
-          throw new Error(
-            "No wallet found. Please provide a wallet before initializing."
-          );
-        }
-      } catch (e) {
-        console.error("Error initializing torque:", e);
-
-        setIsLoading(false);
-
-        // Forward error to UI
-        if (e instanceof Error) {
-          throw e;
-        }
-      }
-    },
-    [
-      options?.apiUrl,
-      options?.appUrl,
-      options?.functionsUrl,
-      options?.rpc,
-      wallet,
-    ]
-  );
 
   /**
    * Logout the user and clear the torque instance.
@@ -399,9 +354,83 @@ export function TorqueProvider({
     [getRequirementTransaction, sendActionTransaction]
   );
 
+  /**
+   * Initialize Torque UI function
+   */
+  useEffect(() => {
+    refreshOffers()
+      .then()
+      .catch((e) => {
+        console.error(e);
+      });
+  }, [refreshOffers]);
+
+  /**
+   * Login to torque with the provided wallet.
+   */
+  const initialize = useCallback(
+    async (initOptions?: TorqueInitOptions) => {
+      try {
+        setIsLoading(true);
+
+        if (wallet && !torqueUserClient) {
+          const torqueSDK = new TorqueSDK({
+            apiUrl: options?.apiUrl ?? API_URL,
+            appUrl: options?.appUrl ?? APP_URL,
+            functionsUrl: options?.functionsUrl ?? FUNCTIONS_URL,
+            rpc: options?.rpc,
+            publisherHandle: "torqueprotocol",
+          });
+
+          await torqueSDK.initialize(
+            wallet.adapter,
+            undefined,
+            initOptions?.loginInput
+          );
+
+          setTorque(torqueSDK);
+
+          if (torqueSDK.user) {
+            setTorqueUserClient(torqueSDK.user);
+            setUser(torqueSDK.user.user);
+          } else {
+            throw new Error("Unable to login and initialize Torque.");
+          }
+
+          setTimeout(async () => {
+            await refreshOffers();
+          }, 2000);
+        } else {
+          throw new Error(
+            "No wallet found. Please provide a wallet before initializing."
+          );
+        }
+      } catch (e) {
+        console.error("Error initializing torque:", e);
+
+        setIsLoading(false);
+
+        // Forward error to UI
+        if (e instanceof Error) {
+          throw e;
+        }
+      }
+    },
+    [
+      options?.apiUrl,
+      options?.appUrl,
+      options?.functionsUrl,
+      options?.rpc,
+      refreshOffers,
+      torqueUserClient,
+      wallet,
+    ]
+  );
+
   const value: TorqueContextState = {
     torque,
     isLoading,
+    publicKey: user?.pubKey,
 
     // Auth functions
     initialize,

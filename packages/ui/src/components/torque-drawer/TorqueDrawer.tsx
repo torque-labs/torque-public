@@ -1,5 +1,5 @@
 import { ApiProgressStatus } from "@torque-labs/torque-ts-sdk";
-import { ChevronDown, ChevronUp, Wallet } from "lucide-react";
+import { Wallet } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { Logo } from "#/components/icons";
@@ -15,8 +15,8 @@ import {
   DrawerTrigger,
 } from "#/components/ui/drawer";
 
+import { OfferListItem } from "#components/OfferListItem.tsx";
 import { useTorque } from "#components/providers/TorqueProvider.tsx";
-import { cn } from "#lib/utils.ts";
 
 import { TorqueDrawerRequirement } from "./TorqueDrawerRequirement";
 import { TorqueStartButton } from "./TorqueStartButton";
@@ -25,6 +25,8 @@ export function TorqueDrawer() {
   const { offers, journeys, claimOffer, publicKey } = useTorque();
 
   const [openOffers, setOpenOffers] = useState<Record<string, boolean>>({});
+
+  console.log(publicKey);
 
   /**
    * Sort the offers by status
@@ -81,12 +83,12 @@ export function TorqueDrawer() {
       sorted.length > 0 &&
       !journeys.find(
         (journey) =>
-          journey.campaignId === sortedOffers[0].id &&
+          journey.campaignId === sorted[0].id &&
           journey.status === ApiProgressStatus.DONE
       )
     ) {
       setOpenOffers({
-        [sortedOffers[0].id]: true,
+        [sorted[0].id]: true,
       });
     }
 
@@ -97,7 +99,7 @@ export function TorqueDrawer() {
     <Drawer direction="right">
       <DrawerTrigger>Open</DrawerTrigger>
 
-      <DrawerContent className="left-auto overflow-auto top-0 mt-0 right-0 bottom-0 flex outline-none w-96 rounded-none bg-card">
+      <DrawerContent className="left-auto overflow-auto top-0 mt-0 right-0 bottom-0 flex outline-none w-96 rounded-none bg-card text-white">
         <DrawerHeader className="mb-4 p-5 pt-6 flex items-center gap-2 justify-between">
           <DrawerTitle className="text-sm font-normal flex items-center gap-2 border py-1 px-2.5 rounded-md">
             <Wallet className="text-muted" size={16} />
@@ -118,7 +120,7 @@ export function TorqueDrawer() {
           <h3 className="text-lg font-medium">
             Offers ({offers.length ? offers.length : 0})
           </h3>
-          {offers.map((campaign) => {
+          {sortedOffers.map((campaign) => {
             const journey = journeys.find(
               (j) =>
                 j.campaignId === campaign.id &&
@@ -137,48 +139,33 @@ export function TorqueDrawer() {
 
             const isOpen = Boolean(openOffers[campaign.id]);
 
+            const image = campaign.imageUrl ? campaign.imageUrl : undefined;
+            const description = campaign.description
+              ? campaign.description
+              : undefined;
+            const title = campaign.title;
+
             return (
               <div className="rounded border" key={campaign.id}>
-                <h3
-                  className={cn(
-                    "font-semibold py-2 px-3 flex items-center gap-2 justify-between cursor-pointer",
-                    { "border-b": Boolean(isOpen) }
-                  )}
+                <OfferListItem
+                  description={description}
+                  imageSrc={image}
+                  isDone={isDone}
+                  isOpen={isOpen}
+                  isStarted={isStarted}
                   onClick={() => {
                     setOpenOffers((prevOpenCampaigns) => ({
                       ...prevOpenCampaigns,
                       [campaign.id]: !prevOpenCampaigns[campaign.id],
                     }));
                   }}
+                  title={title}
                 >
-                  {campaign.title}
-
-                  <div className="flex items-center gap-2">
-                    {isStarted ? (
-                      <div className="rounded-full text-[10px] bg-foreground text-background px-2 uppercase">
-                        Started
-                      </div>
-                    ) : null}
-
-                    {isDone ? (
-                      <div className="rounded-full text-[10px] bg-green-800 px-2 uppercase">
-                        Completed
-                      </div>
-                    ) : null}
-
-                    {isOpen ? (
-                      <ChevronDown className="text-white size-5" size={20} />
-                    ) : (
-                      <ChevronUp size={20} />
-                    )}
-                  </div>
-                </h3>
-
-                {isOpen ? (
-                  <div className="p-3">
+                  <div>
                     <h4 className="text-xs font-semibold mb-2 uppercase">
                       Requirements
                     </h4>
+
                     <ul className="flex flex-col gap-1">
                       {campaign.requirements.map((requirement, idx) => {
                         const step = journey?.userBountySteps?.find((s) => {
@@ -222,7 +209,7 @@ export function TorqueDrawer() {
                       </div>
                     ) : null}
                   </div>
-                ) : null}
+                </OfferListItem>
               </div>
             );
           })}

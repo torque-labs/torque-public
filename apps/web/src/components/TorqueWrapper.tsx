@@ -7,5 +7,12 @@ import { TorqueProvider } from "@torque-labs/torque-ui";
 export function TorqueWrapper({ children }: PropsWithChildren) {
   const { wallet } = useWallet();
 
-  return <TorqueProvider wallet={wallet}>{children}</TorqueProvider>;
+  return (
+    <TorqueProvider
+      options={{ apiUrl: "https://api.coolify.torque.so" }}
+      wallet={wallet}
+    >
+      {children}
+    </TorqueProvider>
+  );
 }

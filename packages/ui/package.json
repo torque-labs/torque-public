@@ -29,7 +29,7 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "test": "jest",
     "prepack": "npm run build",
-    "ui": "npx shadcn@latest",
+    "ui:add": "npx shadcn@latest add",
     "icons": "npx @svgr/cli --out-dir src/components/icons --typescript --jsx-runtime automatic -- assets"
   },
   "peerDependencies": {
@@ -37,6 +37,7 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@solana/actions": "^1.6.5",

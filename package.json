@@ -3,10 +3,13 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "start": "turbo start",
     "lint": "turbo lint",
     "type-check": "turbo type-check",
     "clean": "turbo clean",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "ui:add": "turbo ui:add --filter=./packages/ui",
+    "ui:build": "turbo build --filter=./packages/ui"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.9",
