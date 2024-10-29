@@ -7,7 +7,7 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "imports": {
-    "#/*": "./src/*"
+    "#*": "./src/*"
   },
   "exports": {
     ".": {
@@ -15,22 +15,23 @@
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
-    "./index.css": "./dist/index.css"
+    "./styles.css": "./dist/styles.css"
   },
   "files": [
     "dist/**"
   ],
   "scripts": {
     "prebuild": "npm run icons",
-    "build": "tsup",
+    "build": "tsup && npm run tailwind",
     "predev": "npm run icons",
-    "dev": "tsup --watch",
+    "dev": "tsup --watch --onSuccess 'npm run tailwind'",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "lint": "eslint \"src/**/*.ts*\"",
     "test": "jest",
     "prepack": "npm run build",
     "ui:add": "npx shadcn@latest add",
-    "icons": "npx @svgr/cli --out-dir src/components/icons --typescript --jsx-runtime automatic -- assets"
+    "icons": "npx @svgr/cli --out-dir src/components/icons --typescript --jsx-runtime automatic -- assets",
+    "tailwind": "tailwindcss -i ./src/globals.css -o ./dist/styles.css"
   },
   "peerDependencies": {
     "react": "^18.0.0",
@@ -47,7 +48,7 @@
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/wallet-adapter-react-ui": "^0.9.35",
     "@solana/web3.js": "^1.95.4",
-    "@torque-labs/torque-ts-sdk": "^0.0.107",
+    "@torque-labs/torque-ts-sdk": "^0.0.108",
     "@torque-labs/torque-utils": "^1.1.43",
     "bs58": "^6.0.0",
     "class-variance-authority": "^0.7.0",
