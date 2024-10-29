@@ -38,7 +38,9 @@
     "react-dom": "^18.0.0"
   },
   "dependencies": {
+    "@dialectlabs/blinks": "^0.14.0",
     "@radix-ui/react-avatar": "^1.1.1",
+    "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@solana/actions": "^1.6.5",
@@ -50,7 +52,7 @@
     "@solana/web3.js": "^1.95.4",
     "@torque-labs/torque-ts-sdk": "^0.0.108",
     "@torque-labs/torque-utils": "^1.1.43",
-    "bs58": "^6.0.0",
+    "bs58": "^5.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^11.11.9",

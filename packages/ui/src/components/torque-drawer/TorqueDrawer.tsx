@@ -154,56 +154,56 @@ export function TorqueDrawer() {
                     }));
                   }}
                   title={title}
-                >
-                  <div>
-                    <h4 className="mb-2 text-xs font-semibold uppercase">
-                      Requirements
-                    </h4>
+                />
 
-                    <ul className="flex flex-col gap-1">
-                      {campaign.requirements.map((requirement, idx) => {
-                        const step = journey?.userBountySteps?.find((s) => {
-                          return s.bountyStepId === requirement.id;
-                        });
+                <div>
+                  <h4 className="mb-2 text-xs font-semibold uppercase">
+                    Requirements
+                  </h4>
 
-                        return (
-                          <li
-                            className="flex items-center justify-between gap-2 rounded border border-dashed border-input p-2 text-xs"
-                            key={requirement.id}
-                          >
-                            <TorqueDrawerRequirement
-                              campaignId={campaign.id}
-                              index={idx}
-                              isStarted={isStarted}
-                              requirement={requirement}
-                              step={step}
-                            />
+                  <ul className="flex flex-col gap-1">
+                    {campaign.requirements.map((requirement, idx) => {
+                      const step = journey?.userBountySteps?.find((s) => {
+                        return s.bountyStepId === requirement.id;
+                      });
 
-                            {step?.status === ApiProgressStatus.DONE ? (
-                              <div className="rounded-full bg-green-800 px-2 text-[10px] uppercase">
-                                Completed
-                              </div>
-                            ) : null}
-                          </li>
-                        );
-                      })}
-                    </ul>
-
-                    {!isStarted && !isDone ? (
-                      <div className="mt-5">
-                        <MovingBorderButton
-                          borderRadius=".5rem"
-                          className="text-sm"
-                          onClick={async () => {
-                            await claimOffer(campaign.id);
-                          }}
+                      return (
+                        <li
+                          className="flex items-center justify-between gap-2 rounded border border-dashed border-input p-2 text-xs"
+                          key={requirement.id}
                         >
-                          Claim Offer
-                        </MovingBorderButton>
-                      </div>
-                    ) : null}
-                  </div>
-                </OfferListItem>
+                          <TorqueDrawerRequirement
+                            campaignId={campaign.id}
+                            index={idx}
+                            isStarted={isStarted}
+                            requirement={requirement}
+                            step={step}
+                          />
+
+                          {step?.status === ApiProgressStatus.DONE ? (
+                            <div className="rounded-full bg-green-800 px-2 text-[10px] uppercase">
+                              Completed
+                            </div>
+                          ) : null}
+                        </li>
+                      );
+                    })}
+                  </ul>
+
+                  {!isStarted && !isDone ? (
+                    <div className="mt-5">
+                      <MovingBorderButton
+                        borderRadius=".5rem"
+                        className="text-sm"
+                        onClick={async () => {
+                          await claimOffer(campaign.id);
+                        }}
+                      >
+                        Claim Offer
+                      </MovingBorderButton>
+                    </div>
+                  ) : null}
+                </div>
               </div>
             );
           })}

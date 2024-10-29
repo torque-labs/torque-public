@@ -1,15 +1,17 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 
 import { Avatar, AvatarImage } from "#/components/ui/avatar";
 import { useOfferStatus } from "#/hooks";
 import { cn } from "#/lib";
 
-interface OfferListItemProps extends React.HTMLAttributes<HTMLDivElement> {
+interface OfferListItemProps {
   campaignId: string;
   imageSrc?: string;
   title: string;
   description?: string;
   isOpen: boolean;
+  className?: string;
+  onClick?: () => void;
 }
 
 export function OfferListItem({
@@ -18,8 +20,6 @@ export function OfferListItem({
   title,
   description,
   className,
-  children,
-  isOpen,
   onClick,
   ...rest
 }: OfferListItemProps) {
@@ -35,24 +35,20 @@ export function OfferListItem({
           tabIndex={0}
         >
           {imageSrc ? (
-            <Avatar className="h-10 w-10 rounded-sm">
+            <Avatar className="h-12 w-12 rounded-sm">
               <AvatarImage alt={`${title} image`} src={imageSrc} />
             </Avatar>
           ) : null}
           <div className="flex-1">
-            <h3 className="flex justify-between text-base leading-none tracking-tight">
-              <span>{title}</span>
-
-              <div>
-                {isOpen ? (
-                  <ChevronDown className="size-5 text-white" size={20} />
-                ) : (
-                  <ChevronUp className="size-5 text-white" size={20} />
-                )}
-              </div>
+            <h3 className="font-semiboldleading-tight flex justify-between text-sm">
+              {title}
             </h3>
           </div>
+
+          <ChevronRight className="size-5 text-white" size={16} />
         </div>
+
+        <p className="mr-5 text-xs text-muted">{description}</p>
 
         {hasStarted ? (
           <div className="self-start rounded-full bg-foreground px-2 text-[10px] uppercase text-background">
@@ -65,16 +61,6 @@ export function OfferListItem({
           </div>
         ) : null}
       </div>
-
-      {isOpen ? (
-        <div className="px-4 pb-4">
-          {description ? (
-            <p className="mb-4 text-xs text-muted">{description}</p>
-          ) : null}
-
-          {children}
-        </div>
-      ) : null}
     </div>
   );
 }
