@@ -16,9 +16,7 @@ module.exports = {
   ignorePatterns: [
     "node_modules/",
     "dist/",
-    "tailwind.config.ts",
     ".eslintrc.js",
-    ".prettierrc.js",
-    "tsup.config.ts"
+    "*.config.*"
   ],
 };

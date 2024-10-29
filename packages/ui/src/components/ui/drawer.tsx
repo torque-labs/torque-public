@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 import { Drawer as DrawerPrimitive } from "vaul";
 
-import { cn } from "#/lib/utils.ts";
+import { cn } from "#/lib";
 
 const drawerVariants = cva("fixed z-50 flex flex-col bg-background", {
   variants: {
@@ -63,9 +63,9 @@ const DrawerContent = React.forwardRef<
     <DrawerOverlay />
     <DrawerPrimitive.Content
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col bg-background text-white border-border",
+        "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col border-border bg-background text-white",
         drawerVariants({ side }),
-        className
+        className,
       )}
       ref={ref}
       {...props}
@@ -109,7 +109,7 @@ const DrawerTitle = React.forwardRef<
   <DrawerPrimitive.Title
     className={cn(
       "text-lg font-semibold leading-none tracking-tight",
-      className
+      className,
     )}
     ref={ref}
     {...props}

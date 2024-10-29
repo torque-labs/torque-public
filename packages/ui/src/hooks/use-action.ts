@@ -36,7 +36,7 @@ export function useAction() {
       if (publicKey) {
         try {
           const transaction = VersionedTransaction.deserialize(
-            base64ToUint8Array(encodedTransaction)
+            base64ToUint8Array(encodedTransaction),
           ) as unknown as Transaction;
 
           console.log("Sending transaction", transaction);
@@ -67,7 +67,7 @@ export function useAction() {
         }
       }
     },
-    [connection, publicKey, sendTransaction]
+    [connection, publicKey, sendTransaction],
   );
 
   /**
@@ -85,7 +85,7 @@ export function useAction() {
           const result = await userClient.confirmActionSignature(
             campaignId,
             index,
-            encodedMessage
+            encodedMessage,
           );
 
           return result;
@@ -96,7 +96,7 @@ export function useAction() {
         }
       }
     },
-    [publicKey, signMessage, userClient]
+    [publicKey, signMessage, userClient],
   );
 
   /**
@@ -118,7 +118,7 @@ export function useAction() {
           const solanaAction = await userClient.getBountyStepAction(
             campaignId,
             index,
-            data
+            data,
           );
 
           // Handle generic click
@@ -128,7 +128,7 @@ export function useAction() {
             await sendActionSignature(
               campaignId,
               index,
-              solanaAction.data as string
+              solanaAction.data as string,
             );
 
             onSuccess({
@@ -138,7 +138,7 @@ export function useAction() {
           } else if (solanaAction.type === "transaction") {
             // Sign transaction and send to actions callback endpoint
             const signature = await sendActionTransaction(
-              solanaAction.transaction
+              solanaAction.transaction,
             );
 
             onSuccess({
@@ -154,12 +154,14 @@ export function useAction() {
           setIsLoading(false);
         }
       } else {
-        onError({ message: "Wallet is not connected." });
+        onError({
+          message: "Wallet is not connected or user is not logged in.",
+        });
 
         setIsLoading(false);
       }
     },
-    [publicKey, sendActionSignature, sendActionTransaction, userClient]
+    [publicKey, sendActionSignature, sendActionTransaction, userClient],
   );
 
   return { isLoading, handleBountyStepAction };
