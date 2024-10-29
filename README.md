@@ -1,58 +1,48 @@
-# Turborepo Tailwind CSS starter
+# Torque Public Repository
 
-This is an official starter Turborepo.
+The official [Turborepo](https://turborepo.org/) repository for public Torque projects.
 
-## Using this example
+### Apps
+- `web`: A Next.js app to demonstrate the Torque UI and SDK integration
 
-Run the following command:
+### Packages
+- `ui`: The official Torque UI Kit library
 
-```sh
-npx create-turbo@latest -e with-tailwind
+### Config Packages
+- `eslint-config`: ESLint configurations for Torque projects
+- `tailwind-config`: Tailwind CSS configurations for Torque projects
+- `typescript-config`: TypeScript configurations for Torque projects
+
+
+## Usage
+### Installing Dependencies
+To install all of the packages, run the following command from the root of the repository:
 ```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `web`: another [Next.js](https://nextjs.org/) app with [Tailwind CSS](https://tailwindcss.com/)
-- `ui`: a stub React component library with [Tailwind CSS](https://tailwindcss.com/) shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Building packages/ui
-
-This example is set up to produce compiled styles for `ui` components into the `dist` directory. The component `.tsx` files are consumed by the Next.js apps directly using `transpilePackages` in `next.config.js`. This was chosen for several reasons:
-
-- Make sharing one `tailwind.config.js` to apps and packages as easy as possible.
-- Make package compilation simple by only depending on the Next.js Compiler and `tailwindcss`.
-- Ensure Tailwind classes do not overwrite each other. The `ui` package uses a `ui-` prefix for it's classes.
-- Maintain clear package export boundaries.
-
-Another option is to consume `packages/ui` directly from source without building. If using this option, you will need to update the `tailwind.config.js` in your apps to be aware of your package locations, so it can find all usages of the `tailwindcss` class names for CSS compilation.
-
-For example, in [tailwind.config.js](packages/tailwind-config/tailwind.config.js):
-
-```js
-  content: [
-    // app content
-    `src/**/*.{js,ts,jsx,tsx}`,
-    // include packages if not transpiling
-    "../../packages/ui/*.{js,ts,jsx,tsx}",
-  ],
+npm install
 ```
+This will install all of the dependencies for every package and app in the repository.
 
-If you choose this strategy, you can remove the `tailwindcss` and `autoprefixer` dependencies from the `ui` package.
+### Development
+To start the development server for all of the apps and packages, run the following command from the root of the repository:
+```
+npm run dev
+```
+To start the development server for a specific package or app, navigate to the package or app directory and run the dev command there (`npm run dev`).
 
-### Utilities
+### Building packages
+To build all of the apps and packages, run the following command from the root of the repository:
+```
+npm run build
+```
+If you want to build a specific package or app, navigate to the package or app directory and run the build command there (`npm run build`).
 
-This Turborepo has some additional tools already setup for you:
+### Running production locally (requires build)
+After building the apps and packages, you can run the production server locally. This will start the Next.js server for each app.
 
-- [Tailwind CSS](https://tailwindcss.com/) for styles
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+To run the production server locally, run the following command from the root of the repository:
+```
+npm run start  
+```
+To run the production server for a specific app, navigate to the package or app directory and run the start command there (`npm run start`).
+
+****NOTE:*** Packages do not have a start command as they are not meant to be run as a standalone server.*
