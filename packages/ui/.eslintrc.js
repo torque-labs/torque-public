@@ -18,5 +18,7 @@ module.exports = {
     "dist/",
     "tailwind.config.ts",
     ".eslintrc.js",
+    ".prettierrc.js",
+    "tsup.config.ts"
   ],
 };

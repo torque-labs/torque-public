@@ -8,11 +8,11 @@ import {
 import type { ButtonHTMLAttributes } from "react";
 import React, { useRef } from "react";
 
-import { cn } from "#lib/utils.ts";
+import { cn } from "#/lib";
 
 export function MovingBorder({
   children,
-  duration = 2000,
+  duration = 3000,
   rx,
   ry,
   ...otherProps
@@ -33,11 +33,11 @@ export function MovingBorder({
 
   const x = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val).x
+    (val) => pathRef.current?.getPointAtLength(val).x,
   );
   const y = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val).y
+    (val) => pathRef.current?.getPointAtLength(val).y,
   );
 
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
@@ -76,12 +76,12 @@ export function MovingBorder({
   );
 }
 
-export function TorqueStartButton({
+export function MovingBorderButton({
   borderRadius = "1.75rem",
   children,
   containerClassName,
   borderClassName,
-  duration,
+  duration = 2000,
   className,
   ...otherProps
 }: ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -96,7 +96,7 @@ export function TorqueStartButton({
     <button
       className={cn(
         "relative h-10 w-full overflow-hidden bg-transparent p-px text-xl",
-        containerClassName
+        containerClassName,
       )}
       style={{
         borderRadius,
@@ -112,7 +112,7 @@ export function TorqueStartButton({
           <div
             className={cn(
               "z-10 size-24 border-2 border-black bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)] opacity-80", // Updated border size and color
-              borderClassName
+              borderClassName,
             )}
           />
         </MovingBorder>
@@ -120,8 +120,8 @@ export function TorqueStartButton({
 
       <div
         className={cn(
-          "relative flex size-full items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-white antialiased backdrop-blur-xl",
-          className
+          "relative flex size-full items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-highlight antialiased backdrop-blur-xl",
+          className,
         )}
         style={{
           borderRadius: `calc(${borderRadius} * 0.96)`,

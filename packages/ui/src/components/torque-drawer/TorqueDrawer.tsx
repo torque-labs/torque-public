@@ -2,7 +2,7 @@ import { ApiProgressStatus } from "@torque-labs/torque-ts-sdk";
 import { Wallet } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { Logo } from "#/components/icons";
+import { Logo, OfferListItem, MovingBorderButton } from "#/components";
 import { Button } from "#/components/ui/button";
 import {
   Drawer,
@@ -14,12 +14,9 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "#/components/ui/drawer";
-
-import { OfferListItem } from "#components/OfferListItem.tsx";
-import { useTorque } from "#components/providers/TorqueProvider.tsx";
+import { useTorque } from "#/hooks";
 
 import { TorqueDrawerRequirement } from "./TorqueDrawerRequirement";
-import { TorqueStartButton } from "./TorqueStartButton";
 
 export function TorqueDrawer() {
   const { offers, journeys, claimOffer, publicKey } = useTorque();
@@ -43,13 +40,13 @@ export function TorqueDrawer() {
       const aCompleted = journeys.find(
         (journey) =>
           journey.campaignId === a.id &&
-          journey.status === ApiProgressStatus.DONE
+          journey.status === ApiProgressStatus.DONE,
       );
 
       const bCompleted = journeys.find(
         (journey) =>
           journey.campaignId === b.id &&
-          journey.status === ApiProgressStatus.DONE
+          journey.status === ApiProgressStatus.DONE,
       );
 
       if (aCompleted && !bCompleted) {
@@ -61,13 +58,13 @@ export function TorqueDrawer() {
       const aStarted = journeys.find(
         (journey) =>
           journey.campaignId === a.id &&
-          journey.status === ApiProgressStatus.STARTED
+          journey.status === ApiProgressStatus.STARTED,
       );
 
       const bStarted = journeys.find(
         (journey) =>
           journey.campaignId === b.id &&
-          journey.status === ApiProgressStatus.STARTED
+          journey.status === ApiProgressStatus.STARTED,
       );
 
       if (aStarted && !bStarted) {
@@ -84,7 +81,7 @@ export function TorqueDrawer() {
       !journeys.find(
         (journey) =>
           journey.campaignId === sorted[0].id &&
-          journey.status === ApiProgressStatus.DONE
+          journey.status === ApiProgressStatus.DONE,
       )
     ) {
       setOpenOffers({
@@ -99,9 +96,9 @@ export function TorqueDrawer() {
     <Drawer direction="right">
       <DrawerTrigger>Open</DrawerTrigger>
 
-      <DrawerContent className="left-auto overflow-auto top-0 mt-0 right-0 bottom-0 flex outline-none w-96 rounded-none bg-card text-white">
-        <DrawerHeader className="mb-4 p-5 pt-6 flex items-center gap-2 justify-between">
-          <DrawerTitle className="text-sm font-normal flex items-center gap-2 border py-1 px-2.5 rounded-md">
+      <DrawerContent className="bottom-0 left-auto right-0 top-0 mt-0 flex w-96 overflow-auto rounded-none bg-card text-white outline-none">
+        <DrawerHeader className="mb-4 flex items-center justify-between gap-2 p-5 pt-6">
+          <DrawerTitle className="flex items-center gap-2 rounded-md border px-2.5 py-1 text-sm font-normal">
             <Wallet className="text-muted" size={16} />
             {publicKey ? (
               <div>
@@ -116,7 +113,7 @@ export function TorqueDrawer() {
           </DrawerDescription>
         </DrawerHeader>
 
-        <div className="flex flex-col gap-4 px-5 w-full">
+        <div className="flex w-full flex-col gap-4 px-5">
           <h3 className="text-lg font-medium">
             Offers ({offers.length ? offers.length : 0})
           </h3>
@@ -124,7 +121,7 @@ export function TorqueDrawer() {
             const journey = journeys.find(
               (j) =>
                 j.campaignId === campaign.id &&
-                j.status === ApiProgressStatus.STARTED
+                j.status === ApiProgressStatus.STARTED,
             );
 
             const isStarted = Boolean(journey);
@@ -133,8 +130,8 @@ export function TorqueDrawer() {
               journeys.find(
                 (j) =>
                   j.campaignId === campaign.id &&
-                  j.status === ApiProgressStatus.DONE
-              )
+                  j.status === ApiProgressStatus.DONE,
+              ),
             );
 
             const isOpen = Boolean(openOffers[campaign.id]);
@@ -148,11 +145,10 @@ export function TorqueDrawer() {
             return (
               <div className="rounded border" key={campaign.id}>
                 <OfferListItem
+                  campaignId={campaign.id}
                   description={description}
                   imageSrc={image}
-                  isDone={isDone}
                   isOpen={isOpen}
-                  isStarted={isStarted}
                   onClick={() => {
                     setOpenOffers((prevOpenCampaigns) => ({
                       ...prevOpenCampaigns,
@@ -162,7 +158,7 @@ export function TorqueDrawer() {
                   title={title}
                 >
                   <div>
-                    <h4 className="text-xs font-semibold mb-2 uppercase">
+                    <h4 className="mb-2 text-xs font-semibold uppercase">
                       Requirements
                     </h4>
 
@@ -174,7 +170,7 @@ export function TorqueDrawer() {
 
                         return (
                           <li
-                            className="flex items-center justify-between gap-2 text-xs p-2 border border-dashed rounded border-input"
+                            className="flex items-center justify-between gap-2 rounded border border-dashed border-input p-2 text-xs"
                             key={requirement.id}
                           >
                             <TorqueDrawerRequirement
@@ -184,8 +180,9 @@ export function TorqueDrawer() {
                               requirement={requirement}
                               step={step}
                             />
+
                             {step?.status === ApiProgressStatus.DONE ? (
-                              <div className="rounded-full text-[10px] bg-green-800 px-2 uppercase">
+                              <div className="rounded-full bg-green-800 px-2 text-[10px] uppercase">
                                 Completed
                               </div>
                             ) : null}
@@ -196,16 +193,15 @@ export function TorqueDrawer() {
 
                     {!isStarted && !isDone ? (
                       <div className="mt-5">
-                        <TorqueStartButton
+                        <MovingBorderButton
                           borderRadius=".5rem"
-                          className="text-sm text-highlight"
-                          duration={3000}
+                          className="text-sm"
                           onClick={async () => {
                             await claimOffer(campaign.id);
                           }}
                         >
                           Claim Offer
-                        </TorqueStartButton>
+                        </MovingBorderButton>
                       </div>
                     ) : null}
                   </div>
@@ -215,7 +211,7 @@ export function TorqueDrawer() {
           })}
         </div>
 
-        <DrawerFooter className="sticky bottom-0 left-0 pt-10 to-100% from-50% flex items-center justify-center bg-gradient-to-t from-card w-full">
+        <DrawerFooter className="sticky bottom-0 left-0 flex w-full items-center justify-center bg-gradient-to-t from-card from-50% to-100% pt-10">
           <DrawerClose asChild>
             <Button className="w-full" variant="outline">
               Close

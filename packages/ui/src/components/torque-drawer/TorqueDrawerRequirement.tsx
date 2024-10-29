@@ -6,78 +6,21 @@ import type { Transaction } from "@solana/web3.js";
 import { TorqueAdminClient } from "@torque-labs/torque-ts-sdk";
 import type {
   ApiRequirement,
-  SafeToken,
   ApiProgressStatus,
 } from "@torque-labs/torque-ts-sdk";
 import { EventType } from "@torque-labs/torque-utils";
 import { useCallback, useEffect, useState } from "react";
 
-interface TokenDetails {
-  name: string;
-  logo: string;
-  decimals: number;
-  symbol: string;
-}
-
-function getTokenDetails(
-  token: string,
-  tokens: SafeToken[]
-): TokenDetails | undefined {
-  if (token === "11111111111111111111111111111111") {
-    const specialToken = tokens.find(
-      (t) => t.address === "So11111111111111111111111111111111111111112"
-    );
-    if (specialToken) {
-      return {
-        name: "SOL",
-        logo: specialToken.logoURI,
-        decimals: 9,
-        symbol: "SOL",
-      };
-    }
-    return {
-      name: "SOL",
-      logo: "",
-      decimals: 9,
-      symbol: "SOL",
-    };
-  } else if (token === "CAvc2Mr9WcH6HiYQeLYcXG3H9G2rg1sV2EEksMd6gyGS") {
-    return {
-      name: "Clicky",
-      logo: "https://torque-assets.s3.us-east-1.amazonaws.com/clicky.png",
-      decimals: 0,
-      symbol: "CLICKY",
-    };
-  }
-
-  const tokenData = tokens.find((t: SafeToken) => t.address === token);
-
-  if (tokenData) {
-    return {
-      name: tokenData.name,
-      logo: tokenData.logoURI,
-      decimals: tokenData.decimals,
-      symbol: tokenData.symbol,
-    };
-  }
-}
-
-function base64ToUint8Array(base64: string) {
-  const binaryString = Buffer.from(base64, "base64").toString("binary");
-  const len = binaryString.length;
-  const bytes = new Uint8Array(len);
-  for (let i = 0; i < len; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
-  }
-  return bytes;
-}
+import { useOfferStatus } from "#/hooks";
+import { base64ToUint8Array } from "#/lib/encoding";
+import { getTokenDetails } from "#/lib/offers";
+import type { TokenDetails } from "#/types";
 
 export function TorqueDrawerRequirement({
   requirement,
   step,
   campaignId,
   index,
-  isStarted,
 }: {
   requirement: ApiRequirement;
   step?: {
@@ -91,6 +34,7 @@ export function TorqueDrawerRequirement({
   campaignId: string;
   index: number;
 }) {
+  const { hasStarted } = useOfferStatus(campaignId);
   const { wallet, publicKey } = useWallet();
   const { connection } = useConnection();
 
@@ -106,7 +50,7 @@ export function TorqueDrawerRequirement({
       if (wallet && publicKey) {
         try {
           const transaction = VersionedTransaction.deserialize(
-            base64ToUint8Array(encodedTransaction)
+            base64ToUint8Array(encodedTransaction),
           ) as unknown as Transaction;
 
           const {
@@ -122,7 +66,7 @@ export function TorqueDrawerRequirement({
             connection,
             {
               minContextSlot,
-            }
+            },
           );
 
           await connection.confirmTransaction({
@@ -139,13 +83,13 @@ export function TorqueDrawerRequirement({
         }
       }
     },
-    [connection, publicKey, wallet]
+    [connection, publicKey, wallet],
   );
 
   const executeAction = useCallback(
     async (actionTransaction: TransactionResponse) => {
       const signature = await sendActionTransaction(
-        actionTransaction.transaction
+        actionTransaction.transaction,
       );
 
       if (signature) {
@@ -156,7 +100,7 @@ export function TorqueDrawerRequirement({
 
       return signature;
     },
-    [sendActionTransaction]
+    [sendActionTransaction],
   );
 
   const getSwapTransaction = useCallback(async () => {
@@ -202,7 +146,7 @@ export function TorqueDrawerRequirement({
         ) {
           const tokenInDetails = getTokenDetails(
             requirement.eventConfig.inToken,
-            fetchedTokens
+            fetchedTokens,
           );
 
           setInTokenDetails(tokenInDetails);
@@ -214,7 +158,7 @@ export function TorqueDrawerRequirement({
         ) {
           const tokenOutDetails = getTokenDetails(
             requirement.eventConfig.outToken,
-            fetchedTokens
+            fetchedTokens,
           );
 
           setOutTokenDetails(tokenOutDetails);
@@ -226,7 +170,7 @@ export function TorqueDrawerRequirement({
         ) {
           const tokenInDetails = getTokenDetails(
             requirement.eventConfig.tokenAddress,
-            fetchedTokens
+            fetchedTokens,
           );
 
           setInTokenDetails(tokenInDetails);
@@ -237,7 +181,7 @@ export function TorqueDrawerRequirement({
     async function getNftData() {
       if (requirement.type === EventType.NFT_BUY_BID) {
         const nftRequest = await fetch(
-          `https://tensor.dial.to/bid/${requirement.eventConfig.mint}`
+          `https://tensor.dial.to/bid/${requirement.eventConfig.mint}`,
         );
 
         const nftData =
@@ -252,7 +196,7 @@ export function TorqueDrawerRequirement({
         const { daoPubKey, proposalPubKey } = requirement.eventConfig;
 
         const realmsRequest = await fetch(
-          `https://realms.dial.to/vote/dao/${daoPubKey}/proposal/${proposalPubKey}`
+          `https://realms.dial.to/vote/dao/${daoPubKey}/proposal/${proposalPubKey}`,
         );
 
         const realmsData =
@@ -262,9 +206,9 @@ export function TorqueDrawerRequirement({
       }
     }
 
-    void getTokenData();
-    void getNftData();
-    void getRealmsData();
+    Promise.all([getTokenData(), getNftData(), getRealmsData()]).catch((e) => {
+      console.error(e);
+    });
   }, [requirement]);
 
   if (requirement.type === EventType.CLICK) {
@@ -316,11 +260,11 @@ export function TorqueDrawerRequirement({
     ) {
       return (
         <>
-          <p className="truncate w-full">
+          <p className="w-full truncate">
             Sell Token: {requirement.eventConfig.inToken}
           </p>
 
-          {!step && isStarted ? (
+          {!step && hasStarted ? (
             <div>
               <button
                 className="btn btn-xs btn-primary"
@@ -345,11 +289,11 @@ export function TorqueDrawerRequirement({
     ) {
       return (
         <>
-          <p className="truncate w-full">
+          <p className="w-full truncate">
             Buy Token: {requirement.eventConfig.outToken}
           </p>
 
-          {!step && isStarted ? (
+          {!step && hasStarted ? (
             <div>
               <button
                 className="btn btn-xs btn-primary"

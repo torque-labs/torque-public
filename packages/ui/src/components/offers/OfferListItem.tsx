@@ -1,66 +1,66 @@
 import { ChevronDown, ChevronUp } from "lucide-react";
 
 import { Avatar, AvatarImage } from "#/components/ui/avatar";
-
-import { cn } from "#lib/utils.ts";
+import { useOfferStatus } from "#/hooks";
+import { cn } from "#/lib";
 
 interface OfferListItemProps extends React.HTMLAttributes<HTMLDivElement> {
+  campaignId: string;
   imageSrc?: string;
   title: string;
   description?: string;
-  isDone: boolean;
-  isStarted: boolean;
   isOpen: boolean;
 }
 
 export function OfferListItem({
+  campaignId,
   imageSrc,
   title,
   description,
   className,
   children,
-  isDone,
-  isStarted,
   isOpen,
   onClick,
   ...rest
 }: OfferListItemProps) {
+  const { hasStarted, hasCompleted } = useOfferStatus(campaignId);
+
   return (
-    <div className={cn("gap-4 bg-background rounded", className)} {...rest}>
-      <div className="p-3 flex flex-col gap-2">
+    <div className={cn("gap-4 rounded bg-background", className)} {...rest}>
+      <div className="flex flex-col gap-2 p-3">
         <div
-          className="w-full flex gap-3 items-center"
+          className="flex w-full items-center gap-3"
           onClick={onClick}
           role="button"
           tabIndex={0}
         >
           {imageSrc ? (
-            <Avatar className="w-10 h-10 rounded-sm">
+            <Avatar className="h-10 w-10 rounded-sm">
               <AvatarImage alt={`${title} image`} src={imageSrc} />
             </Avatar>
           ) : null}
           <div className="flex-1">
-            <h3 className="text-base leading-none tracking-tight flex justify-between">
+            <h3 className="flex justify-between text-base leading-none tracking-tight">
               <span>{title}</span>
 
               <div>
                 {isOpen ? (
-                  <ChevronDown className="text-white size-5" size={20} />
+                  <ChevronDown className="size-5 text-white" size={20} />
                 ) : (
-                  <ChevronUp className="text-white size-5" size={20} />
+                  <ChevronUp className="size-5 text-white" size={20} />
                 )}
               </div>
             </h3>
           </div>
         </div>
 
-        {isStarted ? (
-          <div className="rounded-full text-[10px] bg-foreground text-background px-2 uppercase self-start">
+        {hasStarted ? (
+          <div className="self-start rounded-full bg-foreground px-2 text-[10px] uppercase text-background">
             Started
           </div>
         ) : null}
-        {isDone ? (
-          <div className="rounded-full text-[10px] bg-green-800 px-2 uppercase self-start">
+        {hasCompleted ? (
+          <div className="self-start rounded-full bg-green-800 px-2 text-[10px] uppercase">
             Completed
           </div>
         ) : null}
@@ -69,7 +69,7 @@ export function OfferListItem({
       {isOpen ? (
         <div className="px-4 pb-4">
           {description ? (
-            <p className="text-xs text-muted mb-4">{description}</p>
+            <p className="mb-4 text-xs text-muted">{description}</p>
           ) : null}
 
           {children}

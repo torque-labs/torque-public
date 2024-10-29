@@ -1,8 +1,6 @@
 "use client";
 
-import { useConnection, type Wallet } from "@solana/wallet-adapter-react";
-import type { Transaction } from "@solana/web3.js";
-import { VersionedTransaction } from "@solana/web3.js";
+import { type Wallet } from "@solana/wallet-adapter-react";
 import type {
   ApiCampaign,
   ApiCampaignJourney,
@@ -12,18 +10,10 @@ import type {
   TorqueUserClient,
 } from "@torque-labs/torque-ts-sdk";
 import { TorqueSDK } from "@torque-labs/torque-ts-sdk";
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  useEffect,
-} from "react";
+import { createContext, useState, useCallback, useEffect } from "react";
 import type { PropsWithChildren } from "react";
 
 import { API_URL, APP_URL, FUNCTIONS_URL } from "#/constants";
-
-import { base64ToUint8Array } from "#lib/conversion.ts";
 
 /**
  * TorqueProviderProps
@@ -52,7 +42,7 @@ interface TorqueProviderProps extends PropsWithChildren {
  *
  * Interface for initializing the user
  */
-interface TorqueInitOptions {
+export interface TorqueInitOptions {
   /**
    * (optional) SIWS or basic input and output payloads if user has already signed
    */
@@ -103,32 +93,9 @@ type TorqueContextState = {
   claimOffer: (offerId: string) => Promise<ApiUserJourney | undefined>;
 
   /**
-   * Get the Solana transaction for the bounty step requirement for a given offer
-   *
-   * @param offerId - The ID of the offer to get the transaction for
-   * @param index  - The index of the bounty step requirement to get the transaction for
-   *
-   * @returns - The transaction for the bounty step requirement
+   * Refresh the uesr's offers and journeys
    */
-  getRequirementTransaction: (
-    offerId: string,
-    index?: number
-  ) => Promise<string | undefined>;
-
-  /**
-   * Execute the given transaction and call the onComplete callback with the transaction signature
-   *
-   * @param props - The offer ID, action index, and onComplete callback
-   */
-  executeOfferStep: ({
-    offerId,
-    actionIndex,
-    onComplete,
-  }: {
-    offerId: string;
-    actionIndex: number;
-    onComplete: (signature: string) => void;
-  }) => Promise<void>;
+  refreshOffers: () => Promise<void>;
 
   /**
    * Initialize the user and Torque SDK
@@ -143,21 +110,36 @@ type TorqueContextState = {
   logout: () => Promise<void>;
 } & (
   | {
+      /**
+       * The user object containing the user's public key and other details.
+       */
       user: ApiUser;
+
+      /**
+       * The Torque user client instance.
+       */
+      userClient: TorqueUserClient;
+
+      /**
+       * Flag indicating if the user is initialized.
+       */
       initialized: true;
     }
   | {
       user: undefined;
+      userClient: undefined;
       initialized: false;
     }
 );
 
-const TorqueContext = createContext<TorqueContextState | undefined>(undefined);
+export const TorqueContext = createContext<TorqueContextState | undefined>(
+  undefined
+);
 
 /**
  * TorqueProvider component
  *
- * This component serves as a context provider for the Torque SDK functionality.
+ * This component serves as a context provider for the Torque UI Kit.
  * It manages the state of the Torque SDK, user authentication, and offer-related operations.
  *
  * @returns JSX.Element - The rendered TorqueProvider component.
@@ -177,8 +159,6 @@ export function TorqueProvider({
   options,
   wallet,
 }: TorqueProviderProps) {
-  const { connection } = useConnection();
-
   // SDK state
   const [torque, setTorque] = useState<TorqueSDK>();
   const [torqueUserClient, setTorqueUserClient] = useState<TorqueUserClient>();
@@ -257,101 +237,6 @@ export function TorqueProvider({
       }
     },
     [wallet, torqueUserClient, refreshOffers]
-  );
-
-  const getRequirementTransaction = useCallback(
-    async (offerId: string, index = 0) => {
-      if (torqueUserClient) {
-        const result = await torqueUserClient.getBountyStepTransaction(
-          offerId,
-          index
-        );
-
-        if (result && result.type === "transaction") {
-          return result.transaction;
-        }
-      }
-    },
-    [torqueUserClient]
-  );
-
-  const sendActionTransaction = useCallback(
-    async (encodedTransaction: string) => {
-      if (wallet?.adapter.publicKey) {
-        try {
-          const transaction = VersionedTransaction.deserialize(
-            base64ToUint8Array(encodedTransaction)
-          ) as unknown as Transaction;
-
-          const {
-            context: { slot: minContextSlot },
-            value: { blockhash, lastValidBlockHeight },
-          } = await connection.getLatestBlockhashAndContext();
-
-          transaction.recentBlockhash = blockhash;
-          transaction.feePayer = wallet.adapter.publicKey;
-
-          const signature = await wallet.adapter.sendTransaction(
-            transaction,
-            connection,
-            {
-              minContextSlot,
-            }
-          );
-
-          await connection.confirmTransaction({
-            blockhash,
-            lastValidBlockHeight,
-            signature,
-          });
-
-          return signature;
-        } catch (error) {
-          console.error(error);
-
-          throw new Error("Failed to send transaction.");
-        }
-      }
-    },
-    [connection, wallet]
-  );
-
-  const executeOfferStep = useCallback(
-    async ({
-      offerId,
-      actionIndex = 0,
-      onComplete,
-    }: {
-      offerId: string;
-      actionIndex: number;
-      onComplete: (signature: string) => void;
-    }) => {
-      try {
-        const transaction = await getRequirementTransaction(
-          offerId,
-          actionIndex
-        );
-
-        if (transaction) {
-          const signature = await sendActionTransaction(transaction);
-
-          if (signature) {
-            onComplete(signature);
-          } else {
-            throw new Error("Failed to send transaction.");
-          }
-        } else {
-          throw new Error(
-            "No transaction found for the given offer and action."
-          );
-        }
-      } catch (e) {
-        console.error("Error executing action:", e);
-
-        throw new Error("There was an error executing your transaction.");
-      }
-    },
-    [getRequirementTransaction, sendActionTransaction]
   );
 
   /**
@@ -438,33 +323,17 @@ export function TorqueProvider({
 
     // Offer functions
     claimOffer,
-    getRequirementTransaction,
-    executeOfferStep,
+    refreshOffers,
 
     // User
     offers: userOffers,
     journeys: userJourneys,
-    ...(user
-      ? { user, initialized: true }
-      : { user: undefined, initialized: false }),
+    ...(user && torqueUserClient
+      ? { user, userClient: torqueUserClient, initialized: true }
+      : { user: undefined, userClient: undefined, initialized: false }),
   };
 
   return (
     <TorqueContext.Provider value={value}>{children}</TorqueContext.Provider>
   );
 }
-
-/**
- * The useTorque hook returns the Torque context.
- *
- * @returns The Torque context
- */
-export const useTorque = () => {
-  const context = useContext(TorqueContext);
-
-  if (context === undefined) {
-    throw new Error("useTorque must be used within an TorqueProvider");
-  }
-
-  return context;
-};
