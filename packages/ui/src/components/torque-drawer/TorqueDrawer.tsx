@@ -23,8 +23,6 @@ export function TorqueDrawer() {
 
   const [openOffers, setOpenOffers] = useState<Record<string, boolean>>({});
 
-  console.log(publicKey);
-
   /**
    * Sort the offers by status
    *

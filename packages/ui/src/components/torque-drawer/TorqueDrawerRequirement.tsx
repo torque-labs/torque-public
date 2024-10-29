@@ -12,8 +12,7 @@ import { EventType } from "@torque-labs/torque-utils";
 import { useCallback, useEffect, useState } from "react";
 
 import { useOfferStatus } from "#/hooks";
-import { base64ToUint8Array } from "#/lib/encoding";
-import { getTokenDetails } from "#/lib/offers";
+import { getTokenDetails, truncateAddress, base64ToUint8Array } from "#/lib";
 import type { TokenDetails } from "#/types";
 
 export function TorqueDrawerRequirement({
@@ -38,8 +37,8 @@ export function TorqueDrawerRequirement({
   const { wallet, publicKey } = useWallet();
   const { connection } = useConnection();
 
-  const [_inTokenDetails, setInTokenDetails] = useState<TokenDetails>();
-  const [_outTokenDetails, setOutTokenDetails] = useState<TokenDetails>();
+  const [inTokenDetails, setInTokenDetails] = useState<TokenDetails>();
+  const [outTokenDetails, setOutTokenDetails] = useState<TokenDetails>();
   const [title, setTitle] = useState<string>();
 
   /**
@@ -261,7 +260,9 @@ export function TorqueDrawerRequirement({
       return (
         <>
           <p className="w-full truncate">
-            Sell Token: {requirement.eventConfig.inToken}
+            Sell Token:{" "}
+            {inTokenDetails?.symbol ??
+              truncateAddress(requirement.eventConfig.inToken)}
           </p>
 
           {!step && hasStarted ? (
@@ -290,7 +291,9 @@ export function TorqueDrawerRequirement({
       return (
         <>
           <p className="w-full truncate">
-            Buy Token: {requirement.eventConfig.outToken}
+            Buy Token:{" "}
+            {outTokenDetails?.symbol ??
+              truncateAddress(requirement.eventConfig.outToken)}
           </p>
 
           {!step && hasStarted ? (
