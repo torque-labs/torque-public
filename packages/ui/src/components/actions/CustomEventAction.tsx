@@ -1,110 +1,71 @@
 "use client";
 
-import { CustomEventConfig } from "@torque-labs/torque-utils";
+import type { CustomEventConfig } from "@torque-labs/torque-utils";
 import { SquareArrowOutUpRight } from "lucide-react";
-import Link from "next/link";
-import { useState } from "react";
 
-import { DynamicSchemaForm } from "@/components/forms/DynamicSchemaForm";
-import { useTorque } from "@/components/providers/torque";
-import { Button } from "@/components/ui/button";
-import { submitCustomEvent } from "@/lib/actions/custom-events";
-import { OfferActionProps } from "@/lib/hooks/use-action";
+import { Button } from "#/components/ui/button";
 
-type CustomEventActionProps = OfferActionProps & {
+interface CustomEventActionProps {
   eventConfig: CustomEventConfig;
-};
+}
 
-export function CustomEventAction({
-  campaignId,
-  eventConfig,
-  isLoading,
-  onSubmit,
-}: CustomEventActionProps) {
-  const { publicKey } = useTorque();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
+export function CustomEventAction({ eventConfig }: CustomEventActionProps) {
   const hostname = eventConfig.targetUrl
     ? new URL(eventConfig.targetUrl).hostname
     : "";
 
-  return eventConfig.formEnabled ? (
-    <div>
-      <h3 className="mb-4 text-base">Complete the form</h3>
-      <DynamicSchemaForm
-        config={eventConfig}
-        isLoading={isSubmitting || !!isLoading}
-        onSubmit={async (data) => {
-          setIsSubmitting(true);
-          if (publicKey) {
-            try {
-              await submitCustomEvent(
-                publicKey,
-                campaignId,
-                eventConfig.eventName,
-                data,
-              );
+  const formEnabled = eventConfig.formEnabled;
+  const description = eventConfig.description;
 
-              if (onSubmit) {
-                onSubmit();
-              }
-            } catch (error) {
-              console.error(error);
-
-              throw new Error("Failed to submit custom event.");
-            } finally {
-              setIsSubmitting(false);
-            }
-          } else {
-            setIsSubmitting(false);
-
-            throw new Error("No wallet found.");
-          }
-        }}
-      />
-    </div>
-  ) : (
+  return (
     <div className="flex flex-col gap-3">
-      <h3 className="mb-6 text-base font-semibold">Details</h3>
-
-      {eventConfig.targetUrl ? (
-        <div className="flex w-full flex-col gap-4">
-          <p className="flex flex-wrap items-center gap-1">
-            You can complete this requirement directly on
-            <Link
-              href={eventConfig.targetUrl}
-              target="_blank"
-              className="text-highlight"
-            >
-              {hostname}
-            </Link>
-          </p>
-
-          <Button asChild>
-            <Link
-              href={eventConfig.targetUrl}
-              className="flex items-center gap-2"
-              target="_blank"
-            >
-              Go to {hostname}
-              <SquareArrowOutUpRight size={14} />
-            </Link>
-          </Button>
-        </div>
+      {description ? <p className="mb-4 text-base">{description}</p> : null}
+      {formEnabled ? (
+        <>{/* TODO: Output form here? */}</>
       ) : (
-        eventConfig.fields.map((field) => {
-          return (
-            <div key={`custom-event-field-${field.name}`}>
-              <div>
-                <span className="mr-1 font-mono text-highlight">
-                  {field.name}
-                </span>{" "}
-                <span className="text-xs">({field.type})</span>
-              </div>
-              <pre>{JSON.stringify(field.validation, undefined, 2)}</pre>
-            </div>
-          );
-        })
+        <div className="flex w-full flex-col gap-4">
+          {eventConfig.targetUrl ? (
+            <>
+              <p className="flex flex-wrap items-center gap-1">
+                You can complete this directly on
+                <a
+                  className="text-highlight"
+                  href={eventConfig.targetUrl}
+                  rel="noopener"
+                  target="_blank"
+                >
+                  {hostname}
+                </a>
+              </p>
+
+              <Button asChild>
+                <a
+                  className="flex items-center gap-2"
+                  href={eventConfig.targetUrl}
+                  rel="noopener"
+                  target="_blank"
+                >
+                  Go to {hostname}
+                  <SquareArrowOutUpRight size={14} />
+                </a>
+              </Button>
+            </>
+          ) : (
+            eventConfig.fields.map((field) => {
+              return (
+                <div key={`custom-event-field-${field.name}`}>
+                  <div>
+                    <span className="mr-1 font-mono text-highlight">
+                      {field.name}
+                    </span>{" "}
+                    <span className="text-xs">({field.type})</span>
+                  </div>
+                  <pre>{JSON.stringify(field.validation, undefined, 2)}</pre>
+                </div>
+              );
+            })
+          )}
+        </div>
       )}
     </div>
   );

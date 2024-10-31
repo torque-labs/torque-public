@@ -1,32 +1,37 @@
+import {
+  ApiProgressStatus,
+  type ApiCampaign,
+  type ApiCampaignJourney,
+} from "@torque-labs/torque-ts-sdk";
 import { ChevronRight } from "lucide-react";
 
 import { Avatar, AvatarImage } from "#/components/ui/avatar";
-import { useOfferStatus } from "#/hooks";
+import { Badge } from "#/components/ui/badge";
 import { cn } from "#/lib";
 
 interface OfferListItemProps {
-  campaignId: string;
-  imageSrc?: string;
-  title: string;
-  description?: string;
-  isOpen: boolean;
+  offer: ApiCampaign;
+  journey?: ApiCampaignJourney;
   className?: string;
   onClick?: () => void;
 }
 
 export function OfferListItem({
-  campaignId,
-  imageSrc,
-  title,
-  description,
+  offer,
+  journey,
   className,
   onClick,
   ...rest
 }: OfferListItemProps) {
-  const { hasStarted, hasCompleted } = useOfferStatus(campaignId);
+  const title = offer.title;
+  const description = offer.description;
+  const imageSrc = offer.imageUrl;
+
+  const hasStarted = Boolean(journey?.status === ApiProgressStatus.STARTED);
+  const hasCompleted = Boolean(journey?.status === ApiProgressStatus.DONE);
 
   return (
-    <div className={cn("gap-4 rounded bg-background", className)} {...rest}>
+    <div className={cn("gap-4 rounded border", className)} {...rest}>
       <div className="flex flex-col gap-2 p-3">
         <div
           className="flex w-full items-center gap-3"
@@ -51,14 +56,15 @@ export function OfferListItem({
         <p className="mr-5 text-xs text-muted">{description}</p>
 
         {hasStarted ? (
-          <div className="self-start rounded-full bg-foreground px-2 text-[10px] uppercase text-background">
+          <Badge className="self-start px-2 text-[10px]" variant="default">
             Started
-          </div>
+          </Badge>
         ) : null}
+
         {hasCompleted ? (
-          <div className="self-start rounded-full bg-green-800 px-2 text-[10px] uppercase">
+          <Badge className="self-start px-2 text-[10px]" variant="green">
             Completed
-          </div>
+          </Badge>
         ) : null}
       </div>
     </div>

@@ -1,3 +1,5 @@
 export * from "./OfferListItem";
-export * from "./OfferRequirement";
-export * from "./OfferRequirementRow";
+export * from "./OfferRequirementItem";
+
+// export * from "./OfferRequirement";
+// export * from "./OfferRequirementRow";

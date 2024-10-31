@@ -1,8 +1,10 @@
+import type { ApiCampaign } from "@torque-labs/torque-ts-sdk";
 import { ApiProgressStatus } from "@torque-labs/torque-ts-sdk";
 import { Wallet } from "lucide-react";
 import { useMemo, useState } from "react";
 
-import { Logo, OfferListItem, MovingBorderButton } from "#/components";
+import { Logo, OfferListItem, TorqueDrawerOffer } from "#/components";
+import {} from "#/components/offers";
 import { Button } from "#/components/ui/button";
 import {
   Drawer,
@@ -16,12 +18,10 @@ import {
 } from "#/components/ui/drawer";
 import { useTorque } from "#/hooks";
 
-import { TorqueDrawerRequirement } from "./TorqueDrawerRequirement";
-
 export function TorqueDrawer() {
-  const { offers, journeys, claimOffer, publicKey } = useTorque();
+  const { offers, journeys, publicKey } = useTorque();
 
-  const [openOffers, setOpenOffers] = useState<Record<string, boolean>>({});
+  const [openOffer, setOpenOffer] = useState<ApiCampaign>();
 
   /**
    * Sort the offers by status
@@ -74,28 +74,20 @@ export function TorqueDrawer() {
       return a.title < b.title ? -1 : 1;
     });
 
-    if (
-      sorted.length > 0 &&
-      !journeys.find(
-        (journey) =>
-          journey.campaignId === sorted[0].id &&
-          journey.status === ApiProgressStatus.DONE,
-      )
-    ) {
-      setOpenOffers({
-        [sorted[0].id]: true,
-      });
-    }
-
     return sorted;
   }, [journeys, offers]);
 
   return (
-    <Drawer direction="right">
+    <Drawer
+      direction="right"
+      onClose={() => {
+        setOpenOffer(undefined);
+      }}
+    >
       <DrawerTrigger>Open</DrawerTrigger>
 
       <DrawerContent className="bottom-0 left-auto right-0 top-0 mt-0 flex w-96 overflow-auto rounded-none bg-card text-white outline-none">
-        <DrawerHeader className="mb-4 flex items-center justify-between gap-2 p-5 pt-6">
+        <DrawerHeader className="flex items-center justify-between gap-2 p-4 pt-6">
           <DrawerTitle className="flex items-center gap-2 rounded-md border px-2.5 py-1 text-sm font-normal">
             <Wallet className="text-muted" size={16} />
             {publicKey ? (
@@ -111,103 +103,37 @@ export function TorqueDrawer() {
           </DrawerDescription>
         </DrawerHeader>
 
-        <div className="flex w-full flex-col gap-4 px-5">
-          <h3 className="text-lg font-medium">
-            Offers ({offers.length ? offers.length : 0})
-          </h3>
-          {sortedOffers.map((campaign) => {
-            const journey = journeys.find(
-              (j) =>
-                j.campaignId === campaign.id &&
-                j.status === ApiProgressStatus.STARTED,
-            );
+        {!openOffer ? (
+          <div className="flex w-full flex-col gap-4 p-4">
+            <h3 className="text-lg font-medium">
+              Offers ({offers.length ? offers.length : 0})
+            </h3>
+            {sortedOffers.map((campaign) => {
+              const journey = journeys.find(
+                (j) => j.campaignId === campaign.id,
+              );
 
-            const isStarted = Boolean(journey);
-
-            const isDone = Boolean(
-              journeys.find(
-                (j) =>
-                  j.campaignId === campaign.id &&
-                  j.status === ApiProgressStatus.DONE,
-              ),
-            );
-
-            const isOpen = Boolean(openOffers[campaign.id]);
-
-            const image = campaign.imageUrl ? campaign.imageUrl : undefined;
-            const description = campaign.description
-              ? campaign.description
-              : undefined;
-            const title = campaign.title;
-
-            return (
-              <div className="rounded border" key={campaign.id}>
+              return (
                 <OfferListItem
-                  campaignId={campaign.id}
-                  description={description}
-                  imageSrc={image}
-                  isOpen={isOpen}
+                  journey={journey}
+                  key={`offer-list-item-${campaign.id}`}
+                  offer={campaign}
                   onClick={() => {
-                    setOpenOffers((prevOpenCampaigns) => ({
-                      ...prevOpenCampaigns,
-                      [campaign.id]: !prevOpenCampaigns[campaign.id],
-                    }));
+                    setOpenOffer(campaign);
                   }}
-                  title={title}
                 />
-
-                <div>
-                  <h4 className="mb-2 text-xs font-semibold uppercase">
-                    Requirements
-                  </h4>
-
-                  <ul className="flex flex-col gap-1">
-                    {campaign.requirements.map((requirement, idx) => {
-                      const step = journey?.userBountySteps?.find((s) => {
-                        return s.bountyStepId === requirement.id;
-                      });
-
-                      return (
-                        <li
-                          className="flex items-center justify-between gap-2 rounded border border-dashed border-input p-2 text-xs"
-                          key={requirement.id}
-                        >
-                          <TorqueDrawerRequirement
-                            campaignId={campaign.id}
-                            index={idx}
-                            isStarted={isStarted}
-                            requirement={requirement}
-                            step={step}
-                          />
-
-                          {step?.status === ApiProgressStatus.DONE ? (
-                            <div className="rounded-full bg-green-800 px-2 text-[10px] uppercase">
-                              Completed
-                            </div>
-                          ) : null}
-                        </li>
-                      );
-                    })}
-                  </ul>
-
-                  {!isStarted && !isDone ? (
-                    <div className="mt-5">
-                      <MovingBorderButton
-                        borderRadius=".5rem"
-                        className="text-sm"
-                        onClick={async () => {
-                          await claimOffer(campaign.id);
-                        }}
-                      >
-                        Claim Offer
-                      </MovingBorderButton>
-                    </div>
-                  ) : null}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        ) : (
+          <TorqueDrawerOffer
+            campaign={openOffer}
+            journey={journeys.find((j) => j.campaignId === openOffer.id)}
+            onClose={() => {
+              setOpenOffer(undefined);
+            }}
+          />
+        )}
 
         <DrawerFooter className="sticky bottom-0 left-0 flex w-full items-center justify-center bg-gradient-to-t from-card from-50% to-100% pt-10">
           <DrawerClose asChild>

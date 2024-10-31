@@ -10,7 +10,6 @@ export default defineConfig({
   treeshake: true,
   external: ["react", "react-dom"],
   injectStyle: false,
-  // @ts-expect-error
   minify: process.env.NODE_ENV === "production",
   esbuildOptions(options) {
     options.banner = {

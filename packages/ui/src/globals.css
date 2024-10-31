@@ -43,4 +43,34 @@
   * {
     @apply border-border;
   }
+
+  .torque-blink .blink .text-text-button {
+    background-color: hsl(var(--torque-primary));
+    color: hsl(var(--torque-primary-foreground));
+  }
+
+  .torque-blink .blink .rounded-button {
+    border-radius: 6px;
+  }
+
+  .torque-blink .blink .text-text-button span {
+    font-weight: 400;
+  }
+
+  /* Hide the image block in the large blink */
+  .torque-blink .blink .border .block:first-child {
+    display: none;
+  }
+
+  .torque-blink .blink .border {
+    @apply border-border;
+  }
+
+  .torque-blink .blink .shadow-action {
+    box-shadow: none;
+  }
+
+  .torque-blink .blink .bg-bg-primary {
+    @apply bg-primary/5;
+  }
 }

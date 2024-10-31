@@ -97,7 +97,7 @@ export function TorqueDrawerRequirement({
         }, 5000);
       }
 
-      return signature;
+        return signature;
     },
     [sendActionTransaction],
   );

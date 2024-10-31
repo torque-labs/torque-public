@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
   const { initialize, user } = useTorque();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6">
+    <main className="flex min-h-screen flex-col items-center justify-center backdrop-blur-0 gap-6">
       <h1>Welcome to the Home Page</h1>
 
       <button

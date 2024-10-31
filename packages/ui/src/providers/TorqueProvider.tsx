@@ -16,25 +16,14 @@ import type { PropsWithChildren } from "react";
 import { API_URL, APP_URL, FUNCTIONS_URL } from "#/constants";
 
 /**
- * TorqueProviderProps
- *
- * Interface for the TorqueProvider component
+ * Torque provider options
  */
-interface TorqueProviderProps extends PropsWithChildren {
-  /**
-   * Wallet from Solana wallet adapter to use for Torque
-   */
-  wallet?: Wallet | null;
-
-  /**
-   * Torque SDK options
-   */
-  options?: {
-    apiUrl?: string;
-    appUrl?: string;
-    functionsUrl?: string;
-    rpc?: string;
-  };
+export interface TorqueOptions {
+  apiUrl?: string;
+  appUrl?: string;
+  functionsUrl?: string;
+  rpc?: string;
+  publisherHandle?: string;
 }
 
 /**
@@ -50,7 +39,26 @@ export interface TorqueInitOptions {
 }
 
 /**
+ * TorqueProviderProps
+ *
+ * Interface for the TorqueProvider component
+ */
+interface TorqueProviderProps extends PropsWithChildren {
+  /**
+   * Wallet from Solana wallet adapter to use for Torque
+   */
+  wallet?: Wallet | null;
+
+  /**
+   * Torque SDK options
+   */
+  options?: TorqueOptions;
+}
+
+/**
  * TorqueContextState
+ *
+ * Torque SDK instance and loading state
  */
 type TorqueContextState = {
   /**
@@ -82,6 +90,11 @@ type TorqueContextState = {
    * A list of the user's journeys
    */
   journeys: ApiCampaignJourney[];
+
+  /**
+   * The Torque SDK options that were used by the provider
+   */
+  config?: TorqueOptions;
 
   /**
    * Claim an offer
@@ -132,8 +145,11 @@ type TorqueContextState = {
     }
 );
 
+/**
+ * The TorqueContext is a React context that provides the Torque SDK instance and loading state.
+ */
 export const TorqueContext = createContext<TorqueContextState | undefined>(
-  undefined
+  undefined,
 );
 
 /**
@@ -163,6 +179,7 @@ export function TorqueProvider({
   const [torque, setTorque] = useState<TorqueSDK>();
   const [torqueUserClient, setTorqueUserClient] = useState<TorqueUserClient>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [torqueConfig, setTorqueConfig] = useState<TorqueOptions>();
 
   // User state
   const [user, setUser] = useState<ApiUser>();
@@ -198,7 +215,7 @@ export function TorqueProvider({
           await Promise.all(
             campaigns.map(async (campaign) => {
               const journey = await torqueUserClient.getCampaignJourney(
-                campaign.id
+                campaign.id,
               );
 
               if (journey) {
@@ -206,7 +223,7 @@ export function TorqueProvider({
               }
 
               return null;
-            })
+            }),
           )
         ).filter((x): x is ApiCampaignJourney => Boolean(x));
 
@@ -236,7 +253,7 @@ export function TorqueProvider({
         throw new Error("There was an error claiming your offer.");
       }
     },
-    [wallet, torqueUserClient, refreshOffers]
+    [wallet, torqueUserClient, refreshOffers],
   );
 
   /**
@@ -259,18 +276,22 @@ export function TorqueProvider({
         setIsLoading(true);
 
         if (wallet && !torqueUserClient) {
-          const torqueSDK = new TorqueSDK({
+          const config = {
             apiUrl: options?.apiUrl ?? API_URL,
             appUrl: options?.appUrl ?? APP_URL,
             functionsUrl: options?.functionsUrl ?? FUNCTIONS_URL,
             rpc: options?.rpc,
-            publisherHandle: "torqueprotocol",
-          });
+            publisherHandle: options?.publisherHandle ?? "torqueprotocol",
+          };
+
+          const torqueSDK = new TorqueSDK(config);
+
+          setTorqueConfig(config);
 
           await torqueSDK.initialize(
             wallet.adapter,
             undefined,
-            initOptions?.loginInput
+            initOptions?.loginInput,
           );
 
           setTorque(torqueSDK);
@@ -287,7 +308,7 @@ export function TorqueProvider({
           }, 2000);
         } else {
           throw new Error(
-            "No wallet found. Please provide a wallet before initializing."
+            "No wallet found. Please provide a wallet before initializing.",
           );
         }
       } catch (e) {
@@ -309,13 +330,14 @@ export function TorqueProvider({
       refreshOffers,
       torqueUserClient,
       wallet,
-    ]
+    ],
   );
 
   const value: TorqueContextState = {
     torque,
     isLoading,
     publicKey: user?.pubKey,
+    config: torqueConfig,
 
     // Auth functions
     initialize,

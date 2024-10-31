@@ -1,9 +1,8 @@
-import { ClickAction } from "@torque-labs/torque-utils";
+import type { ClickAction } from "@torque-labs/torque-utils";
 import { LoaderCircle, SquareArrowOutUpRight } from "lucide-react";
-import { useState } from "react";
 
-import { Button } from "@/components/ui/button";
-import { OfferActionProps } from "@/lib/hooks/use-action";
+import { Button } from "#/components/ui/button";
+import type { OfferActionProps } from "#/hooks";
 
 type ClickOfferActionProps = OfferActionProps & {
   eventConfig: ClickAction;

@@ -4,8 +4,11 @@ import type { Config } from "tailwindcss";
 import sharedConfig from "@torque-labs/tailwind-config";
 
 const config: Pick<Config, "content" | "presets"> = {
-  // content: ["'../../packages/ui/**/*.{ts,tsx}',", "./src/app/**/*.tsx"],
-  content: ["./src/app/**/*.tsx"],
+  content: [
+    "'../../packages/ui/**/*.{js,ts,jsx,tsx}',",
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+  ],
+  // content: ["./src/app/**/*.tsx"],
   presets: [sharedConfig],
 };
 

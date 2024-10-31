@@ -20,17 +20,20 @@
   "files": [
     "dist/**"
   ],
+
+
   "scripts": {
     "prebuild": "npm run icons",
     "build": "tsup && npm run tailwind",
     "predev": "npm run icons",
-    "dev": "tsup --watch --onSuccess 'npm run tailwind'",
+    "dev": "tsup --watch --onSuccess 'tailwindcss -i ./src/globals.css -o ./dist/styles.css --watch'",
+    "watch": "tsup --watch --onSuccess 'tailwindcss -i ./src/globals.css -o ./dist/styles.css --watch'",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "lint": "eslint \"src/**/*.ts*\"",
     "test": "jest",
     "prepack": "npm run build",
     "ui:add": "npx shadcn@latest add",
-    "icons": "npx @svgr/cli --out-dir src/components/icons --typescript --jsx-runtime automatic -- assets",
+    "icons": "npx @svgr/cli --out-dir src/components/icons --no-prettier --typescript --jsx-runtime automatic -- assets",
     "tailwind": "tailwindcss -i ./src/globals.css -o ./dist/styles.css"
   },
   "peerDependencies": {
@@ -43,6 +46,7 @@
     "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-toast": "^1.2.2",
     "@solana/actions": "^1.6.5",
     "@solana/actions-spec": "^2.4.1",
     "@solana/spl-token": "^0.4.9",

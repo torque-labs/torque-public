@@ -4,8 +4,14 @@
   "ui": "tui",
   "tasks": {
     "ui:build": {},
+
+    "ui:watch":{
+      "outputs": ["dist/**"]
+    },
+
+
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^ui:watch"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": ["dist/**", ".next/**", "!.next/cache/**"]
     },
