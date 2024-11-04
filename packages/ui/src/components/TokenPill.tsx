@@ -3,14 +3,40 @@ import { formatAmount, cn } from "#/lib";
 import type { TokenDetails } from "#types/tokens.js";
 
 interface TokenPillProps {
+  /**
+   * The action to display (e.g. "LEND", "BUY")
+   */
   action: string;
+
+  /**
+   * The address of the token
+   */
   tokenAddress: string;
+
+  /**
+   * The amount of the token
+   */
   amount: number;
+
+  /**
+   * Additional class names to apply to the component
+   */
   className?: string;
+
+  /**
+   * The details of the token (if available)
+   */
   details?: TokenDetails;
+
+  /**
+   * The name of the token (if available)
+   */
   name?: string;
 }
 
+/**
+ * Displays a token pill with the image, symbol, action and amount of the token
+ */
 export function TokenPill({
   name,
   details,

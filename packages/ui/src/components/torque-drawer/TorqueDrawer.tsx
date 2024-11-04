@@ -4,7 +4,6 @@ import { Wallet } from "lucide-react";
 import { useMemo, useState } from "react";
 
 import { Logo, OfferListItem, TorqueDrawerOffer } from "#/components";
-import {} from "#/components/offers";
 import { Button } from "#/components/ui/button";
 import {
   Drawer,
@@ -17,8 +16,27 @@ import {
   DrawerTrigger,
 } from "#/components/ui/drawer";
 import { useTorque } from "#/hooks";
+import { cn } from "#/lib";
 
-export function TorqueDrawer() {
+interface TorqueDrawerProps {
+  /**
+   * Additional class names to apply to the button which opens the drawer
+   */
+  buttonClassName?: string;
+
+  /**
+   * The label of the button which opens the drawer
+   */
+  buttonLabel?: string;
+}
+
+/**
+ * Display the offers and journeys for the current user in a drawer.
+ */
+export function TorqueDrawer({
+  buttonClassName,
+  buttonLabel,
+}: TorqueDrawerProps) {
   const { offers, journeys, publicKey } = useTorque();
 
   const [openOffer, setOpenOffer] = useState<ApiCampaign>();
@@ -84,7 +102,11 @@ export function TorqueDrawer() {
         setOpenOffer(undefined);
       }}
     >
-      <DrawerTrigger>Open</DrawerTrigger>
+      <DrawerTrigger asChild>
+        <Button className={cn(buttonClassName)} variant="torque">
+          {buttonLabel ?? "Open"}
+        </Button>
+      </DrawerTrigger>
 
       <DrawerContent className="bottom-0 left-auto right-0 top-0 mt-0 flex w-96 overflow-auto rounded-none bg-card text-white outline-none">
         <DrawerHeader className="flex items-center justify-between gap-2 p-4 pt-6">

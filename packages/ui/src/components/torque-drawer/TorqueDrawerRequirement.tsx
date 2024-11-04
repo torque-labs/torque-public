@@ -15,13 +15,15 @@ import { useOfferStatus } from "#/hooks";
 import { getTokenDetails, truncateAddress, base64ToUint8Array } from "#/lib";
 import type { TokenDetails } from "#/types";
 
-export function TorqueDrawerRequirement({
-  requirement,
-  step,
-  campaignId,
-  index,
-}: {
+interface TorqueDrawerRequirementProps {
+  /**
+   * The API requirement to display
+   */
   requirement: ApiRequirement;
+
+  /**
+   * The current user's step for the requirement
+   */
   step?: {
     id?: string;
     bountyStepId: string;
@@ -29,10 +31,32 @@ export function TorqueDrawerRequirement({
     status: ApiProgressStatus;
     transaction?: string;
   };
+
+  /**
+   * Whether the offer has been claimed/started by user
+   */
   isStarted: boolean;
+
+  /**
+   * The campaign ID for the offer
+   */
   campaignId: string;
+
+  /**
+   * The index of the requirement in the offer
+   */
   index: number;
-}) {
+}
+
+/**
+ *
+ */
+export function TorqueDrawerRequirement({
+  requirement,
+  step,
+  campaignId,
+  index,
+}: TorqueDrawerRequirementProps) {
   const { hasStarted } = useOfferStatus(campaignId);
   const { wallet, publicKey } = useWallet();
   const { connection } = useConnection();
@@ -97,7 +121,7 @@ export function TorqueDrawerRequirement({
         }, 5000);
       }
 
-        return signature;
+      return signature;
     },
     [sendActionTransaction],
   );

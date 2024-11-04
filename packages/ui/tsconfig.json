@@ -1,7 +1,7 @@
 {
   "extends": "@torque-labs/typescript-config/react-library.json",
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"],
+  "include": ["src", "declarations"],
+  "exclude": ["node_modules", "dist", "**/*.svg"],
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
@@ -9,6 +9,10 @@
     "baseUrl": ".",
     "paths": {
       "#/*": ["./src/*"]
-    }
+    },
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "dist/types"
   }
 }

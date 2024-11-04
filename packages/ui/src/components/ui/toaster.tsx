@@ -14,11 +14,11 @@ import { useToast, useTorque } from "#/hooks";
 
 export function Toaster() {
   const { toasts } = useToast();
-  const { options } = useTorque();
+  const { config } = useTorque();
 
   const isDevnet = useMemo(() => {
-    return options?.rpc?.includes("devnet");
-  }, [options?.rpc]);
+    return config?.rpc?.includes("devnet");
+  }, [config?.rpc]);
 
   return (
     <ToastProvider>

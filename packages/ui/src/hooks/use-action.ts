@@ -15,13 +15,39 @@ export type OfferActionOnSuccess = (data: {
 export type OfferActionOnError = (data: { message: string }) => void;
 
 interface HandleActionProps {
+  /**
+   * The ID of the offer/campaign to fetch the action for
+   */
   campaignId: string;
+
+  /**
+   * The index of the action to fetch within the offer
+   */
   index: number;
+
+  /**
+   * The data to send with the action
+   */
   data?: Record<string, string>;
+
+  /**
+   * The callback to call on successful action
+   */
   onSuccess: OfferActionOnSuccess;
+
+  /**
+   * The callback to call on error
+   */
   onError: OfferActionOnError;
 }
 
+/**
+ * Utility hook to handle Torque Solana actions returned from the Torque API.
+ * The actions are Solana actions that allow the user to complete a requirement for an offer.
+ * The hook will automatically prompt the user's wallet for their signature.
+ *
+ * @returns The handleBountyStepAction function for handling the actions returned by the API.
+ */
 export function useAction() {
   const { sendTransaction, signMessage, publicKey } = useWallet();
   const { userClient } = useTorque();
@@ -100,7 +126,7 @@ export function useAction() {
   );
 
   /**
-   * Handle offer action
+   * Fetch and handle the offer action
    */
   const handleBountyStepAction = useCallback(
     async ({

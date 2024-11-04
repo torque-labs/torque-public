@@ -48,12 +48,39 @@ const requirementLabelMap: Record<
 } as const;
 
 interface OfferRequirementItemProps {
+  /**
+   * The index of the requirement in the offer
+   */
   index: number;
+
+  /**
+   * The offer/campaign ID
+   */
   campaignId: string;
+
+  /**
+   * The requirement to display
+   */
   requirement: ApiRequirement;
+
+  /**
+   * The user's status for the requirement
+   */
   status: ApiProgressStatus | undefined;
+
+  /**
+   * Additional class names to apply to the component
+   */
   className?: string;
+
+  /**
+   * Whether the requirement should be open by default
+   */
   open?: boolean;
+
+  /**
+   * Whether to show the blink to complete the requirement if it is not completed
+   */
   showAction: boolean;
 }
 

@@ -3,6 +3,13 @@ import { useCallback, useEffect, useState } from "react";
 
 import { useTorque } from "#/hooks";
 
+/**
+ * Utility hook to check the status of an offer for the current user
+ *
+ * @param campaignId - The ID of the campaign to check the status of for the current user
+ *
+ * @returns The status of the offer, plus additional state and functions for re-loading the status.
+ */
 export function useOfferStatus(campaignId: string) {
   const { publicKey, torque, journeys, userClient, offers } = useTorque();
 

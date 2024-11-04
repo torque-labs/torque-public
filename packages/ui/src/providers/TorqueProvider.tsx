@@ -19,10 +19,40 @@ import { API_URL, APP_URL, FUNCTIONS_URL } from "#/constants";
  * Torque provider options
  */
 export interface TorqueOptions {
+  /**
+   * The API URL for the Torque server (default: "https://api.torque.so")
+   *
+   * Note: This is mostly used for development and testing purposes.
+   */
   apiUrl?: string;
+
+  /**
+   * The URL for the Torque app/client (default: "https://app.torque.so")
+   *
+   * This is used for sharing links and link generation.
+   * If you are using the Torque SDK to show and share offers within your app,
+   * you can set this to your app's URL, however, the Torque SDK will still
+   * use the same paths as used by the Torque app.
+   */
   appUrl?: string;
+
+  /**
+   * The URL for Torque functions
+   *
+   * Note: This is mostly used for development and testing purposes.
+   */
   functionsUrl?: string;
+
+  /**
+   * The RPC URL for the Solana network
+   *
+   * Custom RPC endpoint, will otherwise default to built in RPC endpoints for the Solana network.
+   */
   rpc?: string;
+
+  /**
+   * The publisher handle for the Torque
+   */
   publisherHandle?: string;
 }
 
@@ -203,7 +233,6 @@ export function TorqueProvider({
   /**
    * Offer functions
    */
-
   const refreshOffers = useCallback(async () => {
     try {
       if (torqueUserClient) {
@@ -237,6 +266,9 @@ export function TorqueProvider({
     }
   }, [torqueUserClient]);
 
+  /**
+   * Claim an offer
+   */
   const claimOffer = useCallback(
     async (offerId: string) => {
       try {
@@ -326,6 +358,7 @@ export function TorqueProvider({
       options?.apiUrl,
       options?.appUrl,
       options?.functionsUrl,
+      options?.publisherHandle,
       options?.rpc,
       refreshOffers,
       torqueUserClient,

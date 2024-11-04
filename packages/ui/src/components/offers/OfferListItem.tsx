@@ -10,12 +10,30 @@ import { Badge } from "#/components/ui/badge";
 import { cn } from "#/lib";
 
 interface OfferListItemProps {
+  /**
+   * The offer to display
+   */
   offer: ApiCampaign;
+
+  /**
+   * The user's journey for the offer (if available)
+   */
   journey?: ApiCampaignJourney;
+
+  /**
+   * Additional class names to apply to the component
+   */
   className?: string;
+
+  /**
+   * Callback function to handle click events
+   */
   onClick?: () => void;
 }
 
+/**
+ * Displays an offer as a component to be used as part of a list
+ */
 export function OfferListItem({
   offer,
   journey,

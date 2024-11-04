@@ -1,1 +1,3 @@
-export { default as Logo } from './Logo'
+import Logo from "./logo.svg";
+
+export { Logo };

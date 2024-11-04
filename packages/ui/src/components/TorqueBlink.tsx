@@ -8,9 +8,13 @@ import { useConnection } from "@solana/wallet-adapter-react";
 import { Skeleton } from "#/components/ui/skeleton";
 
 interface TorqueBlinkProps {
+  // The URL of the action to be converted into a blink component
   actionUrl: string;
 }
 
+/**
+ * Display a Torque Blink component for a given action URL
+ */
 export function TorqueBlink({ actionUrl }: TorqueBlinkProps) {
   const { connection } = useConnection();
 

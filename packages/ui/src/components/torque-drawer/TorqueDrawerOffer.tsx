@@ -11,11 +11,25 @@ import { Button } from "#/components/ui/button";
 import { useTorque } from "#/hooks";
 
 interface TorqueDrawerOfferProps {
+  /**
+   * The offer to display
+   */
   campaign: ApiCampaign;
+
+  /**
+   * The user's journey for the offer if available
+   */
   journey?: ApiCampaignJourney;
+
+  /**
+   * Callback function when the offer details are closed
+   */
   onClose: () => void;
 }
 
+/**
+ * Shows the details of an offer inside of a drawer.
+ */
 export function TorqueDrawerOffer({
   campaign,
   journey,

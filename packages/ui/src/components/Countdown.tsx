@@ -6,10 +6,20 @@ import { useEffect, useMemo, useState } from "react";
 import { cn } from "#/lib";
 
 interface CountdownProps {
+  /**
+   * The end time for the countdown
+   */
   endTime: Date;
+
+  /**
+   * Additional class names to apply to the component
+   */
   className?: string;
 }
 
+/**
+ * Displays a countdown timer
+ */
 export function Countdown({ endTime, className }: CountdownProps) {
   const [timeDifference, setTimeDifference] = useState(
     endTime.getTime() - Date.now(),

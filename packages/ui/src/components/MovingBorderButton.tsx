@@ -10,6 +10,9 @@ import React, { useRef } from "react";
 
 import { cn } from "#/lib";
 
+/**
+ * Shows a moving border animation
+ */
 export function MovingBorder({
   children,
   duration = 3000,
@@ -76,6 +79,9 @@ export function MovingBorder({
   );
 }
 
+/**
+ * Displays a button with a moving border animation
+ */
 export function MovingBorderButton({
   borderRadius = "1.75rem",
   children,
