@@ -9,7 +9,7 @@ The Torque Drawer is a component that displays a list of available offers and ca
 To use the Torque Drawer, simply import it into your application and render it in your page. (Also ensure that you've set up the TorqueProvider already as a parent to the drawer.)
 
 ```tsx
-import "@torque-labs/torque-ui/styles.css";
+import "@torque-labs/torque-ui/index.css";
 import { TorqueDrawer } from "@torque-labs/torque-ui";
 
 function MyApp() {

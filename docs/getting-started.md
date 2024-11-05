@@ -19,7 +19,7 @@ yarn add @torque-labs/torque-ui
 1. First, import the required styles in your app's entry point:
 
 ```typescript
-import "@torque-labs/torque-ui/styles.css";
+import "@torque-labs/torque-ui/index.css";
 ```
 
 2. Add the TorqueProvider component to your application. The TorqueProvider must be a child of the `WalletProvider` component from the Solana wallet adapter library.
