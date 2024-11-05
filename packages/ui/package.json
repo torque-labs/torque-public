@@ -19,7 +19,7 @@
       "require": "./dist/index.js",
       "import": "./dist/index.mjs"
     },
-    "./styles.css": "./dist/styles.css"
+    "./index.css": "./dist/index.css"
   },
   "files": [
     "dist/**"

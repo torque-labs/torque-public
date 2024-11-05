@@ -1,6 +1,5 @@
 import { formatAmount, cn } from "#/lib";
-
-import type { TokenDetails } from "#types/tokens.js";
+import type { TokenDetails } from "#/types";
 
 interface TokenPillProps {
   /**
