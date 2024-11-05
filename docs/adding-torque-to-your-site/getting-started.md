@@ -8,8 +8,8 @@ description: >-
 
 ### Requirements
 
-* React 18 or higher
-* A Solana wallet adapter implementation
+- React 18 or higher
+- A Solana wallet adapter implementation
 
 ### Installation
 
@@ -28,7 +28,7 @@ yarn add @torque-labs/torque-ui
 1. First, import the required styles in your app's entry point:
 
 ```typescript
-import "@torque-labs/torque-ui/styles.css";
+import "@torque-labs/torque-ui/index.css";
 ```
 
 2. Add the TorqueProvider component to your application. The TorqueProvider must be a child of the `WalletProvider` component from the Solana wallet adapter library.
@@ -76,7 +76,7 @@ function MyApp() {
   return (
     <div>
       <h1>My Solana App</h1>
-      
+
       <TorqueDrawer />
     </div>
   );
@@ -85,8 +85,7 @@ function MyApp() {
 
 The TorqueDrawer component will add a drawer interface that shows available offers and campaigns to your users. A user will be able to:
 
-* View available campaigns
-* Track their progress
-* Complete requirements
-* Claim rewards
-
+- View available campaigns
+- Track their progress
+- Complete requirements
+- Claim rewards
