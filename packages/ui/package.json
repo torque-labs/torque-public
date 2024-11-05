@@ -1,6 +1,10 @@
 {
+  "displayName": "Torque UI Kit",
+  "author": "Torque Labs",
   "name": "@torque-labs/torque-ui",
   "description": "The Official Torque Labs UI Kit",
+  "version": "0.0.1",
+  "license": "MIT",
   "private": false,
   "sideEffects": false,
   "main": "./dist/index.js",
