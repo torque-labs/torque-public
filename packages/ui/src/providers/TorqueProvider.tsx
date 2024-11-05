@@ -80,6 +80,11 @@ interface TorqueProviderProps extends PropsWithChildren {
   wallet?: Wallet | null;
 
   /**
+   * Whether to automatically initialize the user with Torque using Sign-in-with-Solana (SIWS) when a wallet is detected
+   */
+  autoInit?: boolean;
+
+  /**
    * Torque SDK options
    */
   options?: TorqueOptions;
@@ -204,6 +209,7 @@ export function TorqueProvider({
   children,
   options,
   wallet,
+  autoInit = true,
 }: TorqueProviderProps) {
   // SDK state
   const [torque, setTorque] = useState<TorqueSDK>();
@@ -292,11 +298,9 @@ export function TorqueProvider({
    * Initialize Torque UI function
    */
   useEffect(() => {
-    refreshOffers()
-      .then()
-      .catch((e) => {
-        console.error(e);
-      });
+    refreshOffers().catch((e) => {
+      console.error(e);
+    });
   }, [refreshOffers]);
 
   /**
@@ -365,6 +369,17 @@ export function TorqueProvider({
       wallet,
     ],
   );
+
+  /**
+   * Detect wallet and initialize user if autoInit is enabled
+   */
+  useEffect(() => {
+    if (autoInit && wallet && !isLoading && !torqueUserClient) {
+      initialize().catch((e) => {
+        console.error(e);
+      });
+    }
+  }, [autoInit, initialize, isLoading, torqueUserClient, wallet]);
 
   const value: TorqueContextState = {
     torque,
