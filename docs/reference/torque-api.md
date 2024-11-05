@@ -1,7 +1,3 @@
----
-icon: network-wired
----
-
 # Torque API
 
 {% swagger src="https://api.torque.so/docs/json" path="/campaigns/{campaignId}" method="get" %}
