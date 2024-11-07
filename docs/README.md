@@ -1,7 +1,7 @@
 ---
 icon: wrench
-cover: https://gitbookio.github.io/onboarding-template-images/header.png
-coverY: 0
+cover: .gitbook/assets/Twitter-Cover-02.png
+coverY: -145.7282051282051
 layout:
   cover:
     visible: true
