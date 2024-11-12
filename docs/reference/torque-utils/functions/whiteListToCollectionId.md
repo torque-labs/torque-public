@@ -6,7 +6,9 @@
 
 # Function: whiteListToCollectionId()
 
-> **whiteListToCollectionId**(`whitelist`): `Promise`\<`string`\>
+```ts
+function whiteListToCollectionId(whitelist): Promise<string>
+```
 
 ## Parameters
 
@@ -20,4 +22,4 @@
 
 ## Defined in
 
-[lib/tensor-api.ts:137](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L137)
+[lib/tensor-api.ts:137](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/lib/tensor-api.ts#L137)

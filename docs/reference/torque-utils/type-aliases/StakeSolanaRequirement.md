@@ -6,20 +6,25 @@
 
 # Type Alias: StakeSolanaRequirement
 
-> **StakeSolanaRequirement**: `object`
+```ts
+type StakeSolanaRequirement: {
+  requirement: StakeSolanaActionSchema;
+  type: STAKE_SOL;
+};
+```
 
 Stake Solana requirement type
 
 ## Type declaration
 
-| Name | Type | Default value | Description | Defined in |
-| ------ | ------ | ------ | ------ | ------ |
-| `requirement` | `object` | StakeSolanaActionSchema | - | [types/eventConfig/config.ts:204](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L204) |
-| `requirement.amount` | `number` | - | The minimum amount to stake | [types/eventConfig/requirements.ts:398](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L398) |
-| `requirement.epochs` | `number` | - | The minimum number of epochs to stake for | [types/eventConfig/requirements.ts:406](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L406) |
-| `requirement.validator` | `string` | - | The validator to stake with | [types/eventConfig/requirements.ts:402](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L402) |
-| `type` | `STAKE_SOL` | - | - | [types/eventConfig/config.ts:203](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L203) |
+| Name | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `requirement` | \{ `amount`: `number`; `epochs`: `number`; `validator`: `string`; \} | StakeSolanaActionSchema | - |
+| `requirement.amount` | `number` | - | The minimum amount to stake |
+| `requirement.epochs` | `number` | - | The minimum number of epochs to stake for |
+| `requirement.validator` | `string` | - | The validator to stake with |
+| `type` | `STAKE_SOL` | - | - |
 
 ## Defined in
 
-[types/eventConfig/config.ts:210](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L210)
+[types/eventConfig/config.ts:210](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/eventConfig/config.ts#L210)

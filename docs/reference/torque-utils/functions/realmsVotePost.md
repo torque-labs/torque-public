@@ -6,7 +6,9 @@
 
 # Function: realmsVotePost()
 
-> **realmsVotePost**(`realmsVoteAction`, `voteIndex`): `string`
+```ts
+function realmsVotePost(realmsVoteAction, voteIndex): string
+```
 
 ## Parameters
 
@@ -24,4 +26,4 @@
 
 ## Defined in
 
-[solana-actions/buildPost.ts:74](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/solana-actions/buildPost.ts#L74)
+[solana-actions/buildPost.ts:74](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/solana-actions/buildPost.ts#L74)

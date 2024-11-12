@@ -6,16 +6,20 @@
 
 # Type Alias: StakeSolTimeConfig
 
-> **StakeSolTimeConfig**: `object`
+```ts
+type StakeSolTimeConfig: {
+  epochs: number;
+};
+```
 
 Stake solana time config type
 
 ## Type declaration
 
-| Name | Type | Description | Defined in |
-| ------ | ------ | ------ | ------ |
-| `epochs` | `number` | The number of epochs to stake for | [types/timeConfig/requirements.ts:61](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/timeConfig/requirements.ts#L61) |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| `epochs` | `number` | The number of epochs to stake for |
 
 ## Defined in
 
-[types/timeConfig/requirements.ts:67](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/timeConfig/requirements.ts#L67)
+[types/timeConfig/requirements.ts:67](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/timeConfig/requirements.ts#L67)

@@ -6,20 +6,30 @@
 
 # Type Alias: CustomEventRequest
 
-> **CustomEventRequest**: `object`
+```ts
+type CustomEventRequest: {
+  context: null | Record<string, string | number | boolean>;
+  event_data: Record<string, string | number | boolean>;
+  event_name: string;
+  timestamp: string | number;
+  user: {
+     pubKey: string;
+    } & Record<string, string | number | boolean>;
+};
+```
 
 Custom event request type
 
 ## Type declaration
 
-| Name | Type | Defined in |
-| ------ | ------ | ------ |
-| `context`? | `null` \| `Record`\<`string`, `string` \| `number` \| `boolean`\> | [types/events.ts:107](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/events.ts#L107) |
-| `event_data` | `Record`\<`string`, `string` \| `number` \| `boolean`\> | [types/events.ts:106](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/events.ts#L106) |
-| `event_name` | `string` | [types/events.ts:98](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/events.ts#L98) |
-| `timestamp` | `string` \| `number` | [types/events.ts:99](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/events.ts#L99) |
-| `user` | `object` & `Record`\<`string`, `string` \| `number` \| `boolean`\> | [types/events.ts:100](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/events.ts#L100) |
+| Name | Type |
+| ------ | ------ |
+| `context`? | `null` \| `Record`\<`string`, `string` \| `number` \| `boolean`\> |
+| `event_data` | `Record`\<`string`, `string` \| `number` \| `boolean`\> |
+| `event_name` | `string` |
+| `timestamp` | `string` \| `number` |
+| `user` | \{ `pubKey`: `string`; \} & `Record`\<`string`, `string` \| `number` \| `boolean`\> |
 
 ## Defined in
 
-[types/events.ts:115](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/events.ts#L115)
+[types/events.ts:115](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/events.ts#L115)

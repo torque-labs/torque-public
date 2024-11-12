@@ -6,17 +6,22 @@
 
 # Type Alias: DriftDepositAction
 
-> **DriftDepositAction**: `object`
+```ts
+type DriftDepositAction: {
+  minAmount: number;
+  tokenAddress: string;
+};
+```
 
 Dirft deposit action type
 
 ## Type declaration
 
-| Name | Type | Description | Defined in |
-| ------ | ------ | ------ | ------ |
-| `minAmount` | `number` | The minimum amount to deposit | [types/eventConfig/requirements.ts:163](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L163) |
-| `tokenAddress` | `string` | The token address to deposit | [types/eventConfig/requirements.ts:167](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L167) |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| `minAmount` | `number` | The minimum amount to deposit |
+| `tokenAddress` | `string` | The token address to deposit |
 
 ## Defined in
 
-[types/eventConfig/requirements.ts:173](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L173)
+[types/eventConfig/requirements.ts:173](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/eventConfig/requirements.ts#L173)

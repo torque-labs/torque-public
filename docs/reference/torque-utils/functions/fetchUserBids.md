@@ -6,7 +6,9 @@
 
 # Function: fetchUserBids()
 
-> **fetchUserBids**(`userPubKey`): `Promise`\<`any`\>
+```ts
+function fetchUserBids(userPubKey): Promise<any>
+```
 
 Fetches user's active bids
 
@@ -22,4 +24,4 @@ Fetches user's active bids
 
 ## Defined in
 
-[lib/tensor-api.ts:16](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L16)
+[lib/tensor-api.ts:16](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/lib/tensor-api.ts#L16)

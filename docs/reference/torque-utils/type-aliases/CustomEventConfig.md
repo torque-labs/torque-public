@@ -6,20 +6,60 @@
 
 # Type Alias: CustomEventConfig
 
-> **CustomEventConfig**: `object`
+```ts
+type CustomEventConfig: {
+  description: null | string;
+  eventName: string;
+  fields: ({
+     description: null | string;
+     image: null | string;
+     label: null | string;
+     name: string;
+    } & {
+     type: "string";
+     validation: {
+        match: null | string;
+        required: null | boolean;
+       };
+    } | {
+     description: null | string;
+     image: null | string;
+     label: null | string;
+     name: string;
+    } & {
+     type: "number";
+     validation: {
+        max: null | number;
+        min: null | number;
+       };
+    } | {
+     description: null | string;
+     image: null | string;
+     label: null | string;
+     name: string;
+    } & {
+     type: "boolean";
+     validation: {
+        match: null | boolean;
+       };
+    })[];
+  formEnabled: boolean;
+  targetUrl: null | string;
+};
+```
 
 Custom event requirement type
 
 ## Type declaration
 
-| Name | Type | Description | Defined in |
-| ------ | ------ | ------ | ------ |
-| `description`? | `null` \| `string` | A short description to the user of the custom event | [types/custom-events/events.ts:131](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L131) |
-| `eventName` | `string` | The name of the custom event that will be used in the POST request to the API | [types/custom-events/events.ts:127](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L127) |
-| `fields` | (`object` & `object` \| `object` & `object` \| `object` & `object`)[] | Array of custom event property fields and the validation | [types/custom-events/events.ts:145](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L145) |
-| `formEnabled` | `boolean` | Depreceated: Whether it's enabled as a form directly in the UI NOTE: This is depreceated. Use `FORM_SUBMISSION` instead | [types/custom-events/events.ts:137](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L137) |
-| `targetUrl`? | `null` \| `string` | The target URL for more information, or where the requirement can be completed | [types/custom-events/events.ts:141](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L141) |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| `description`? | `null` \| `string` | A short description to the user of the custom event |
+| `eventName` | `string` | The name of the custom event that will be used in the POST request to the API |
+| `fields` | (\{ `description`: `null` \| `string`; `image`: `null` \| `string`; `label`: `null` \| `string`; `name`: `string`; \} & \{ `type`: `"string"`; `validation`: \{ `match`: `null` \| `string`; `required`: `null` \| `boolean`; \}; \} \| \{ `description`: `null` \| `string`; `image`: `null` \| `string`; `label`: `null` \| `string`; `name`: `string`; \} & \{ `type`: `"number"`; `validation`: \{ `max`: `null` \| `number`; `min`: `null` \| `number`; \}; \} \| \{ `description`: `null` \| `string`; `image`: `null` \| `string`; `label`: `null` \| `string`; `name`: `string`; \} & \{ `type`: `"boolean"`; `validation`: \{ `match`: `null` \| `boolean`; \}; \})[] | Array of custom event property fields and the validation |
+| `formEnabled` | `boolean` | Depreceated: Whether it's enabled as a form directly in the UI NOTE: This is depreceated. Use `FORM_SUBMISSION` instead |
+| `targetUrl`? | `null` \| `string` | The target URL for more information, or where the requirement can be completed |
 
 ## Defined in
 
-[types/custom-events/events.ts:157](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L157)
+[types/custom-events/events.ts:157](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/custom-events/events.ts#L157)

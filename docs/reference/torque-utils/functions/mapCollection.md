@@ -6,7 +6,19 @@
 
 # Function: mapCollection()
 
-> **mapCollection**(`collection`): `object`
+```ts
+function mapCollection(collection): {
+  collId: collection.collId;
+  compressed: collection.compressed;
+  imageUri: collection.imageUri;
+  name: collection.name;
+  slugdisplay: collection.slugDisplay;
+  stats: collection.stats;
+  symbol: collection.symbol;
+  tokenStandard: collection.tokenStandard;
+  whitelistPda: collection.whitelistPda;
+}
+```
 
 ## Parameters
 
@@ -16,20 +28,32 @@
 
 ## Returns
 
-`object`
+```ts
+{
+  collId: collection.collId;
+  compressed: collection.compressed;
+  imageUri: collection.imageUri;
+  name: collection.name;
+  slugdisplay: collection.slugDisplay;
+  stats: collection.stats;
+  symbol: collection.symbol;
+  tokenStandard: collection.tokenStandard;
+  whitelistPda: collection.whitelistPda;
+}
+```
 
-| Name | Type | Default value | Defined in |
-| ------ | ------ | ------ | ------ |
-| `collId` | `any` | collection.collId | [lib/tensor-api.ts:67](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L67) |
-| `compressed` | `any` | collection.compressed | [lib/tensor-api.ts:74](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L74) |
-| `imageUri` | `any` | collection.imageUri | [lib/tensor-api.ts:70](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L70) |
-| `name` | `any` | collection.name | [lib/tensor-api.ts:66](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L66) |
-| `slugdisplay` | `any` | collection.slugDisplay | [lib/tensor-api.ts:69](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L69) |
-| `stats` | `any` | collection.stats | [lib/tensor-api.ts:72](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L72) |
-| `symbol` | `any` | collection.symbol | [lib/tensor-api.ts:68](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L68) |
-| `tokenStandard` | `any` | collection.tokenStandard | [lib/tensor-api.ts:73](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L73) |
-| `whitelistPda` | `any` | collection.whitelistPda | [lib/tensor-api.ts:71](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L71) |
+| Name | Type | Default value |
+| ------ | ------ | ------ |
+| `collId` | `any` | collection.collId |
+| `compressed` | `any` | collection.compressed |
+| `imageUri` | `any` | collection.imageUri |
+| `name` | `any` | collection.name |
+| `slugdisplay` | `any` | collection.slugDisplay |
+| `stats` | `any` | collection.stats |
+| `symbol` | `any` | collection.symbol |
+| `tokenStandard` | `any` | collection.tokenStandard |
+| `whitelistPda` | `any` | collection.whitelistPda |
 
 ## Defined in
 
-[lib/tensor-api.ts:64](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/lib/tensor-api.ts#L64)
+[lib/tensor-api.ts:64](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/lib/tensor-api.ts#L64)

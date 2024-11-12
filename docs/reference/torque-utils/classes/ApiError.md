@@ -14,7 +14,9 @@
 
 ### new ApiError()
 
-> **new ApiError**(`__namedParameters`): [`ApiError`](ApiError.md)
+```ts
+new ApiError(__namedParameters): ApiError
+```
 
 #### Parameters
 
@@ -36,331 +38,28 @@
 
 #### Defined in
 
-[types/errors.ts:24](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/errors.ts#L24)
+[types/errors.ts:24](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/errors.ts#L24)
 
 ## Properties
 
-<table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Modifier</th>
-<th>Type</th>
-<th>Description</th>
-<th>Overrides</th>
-<th>Inherited from</th>
-<th>Defined in</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-`cause`
-
-</td>
-<td>
-
-`public`
-
-</td>
-<td>
-
-`any`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-`Error.cause`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-[types/errors.ts:20](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/errors.ts#L20)
-
-</td>
-</tr>
-<tr>
-<td>
-
-`code`
-
-</td>
-<td>
-
-`public`
-
-</td>
-<td>
-
-`number`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-[types/errors.ts:22](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/errors.ts#L22)
-
-</td>
-</tr>
-<tr>
-<td>
-
-`data`
-
-</td>
-<td>
-
-`public`
-
-</td>
-<td>
-
-`any`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-[types/errors.ts:21](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/errors.ts#L21)
-
-</td>
-</tr>
-<tr>
-<td>
-
-`message`
-
-</td>
-<td>
-
-`public`
-
-</td>
-<td>
-
-`string`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-`Error.message`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-[types/errors.ts:19](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/errors.ts#L19)
-
-</td>
-</tr>
-<tr>
-<td>
-
-`name`
-
-</td>
-<td>
-
-`public`
-
-</td>
-<td>
-
-[`ApiErrorNames`](../enumerations/ApiErrorNames.md)
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-`Error.name`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-[types/errors.ts:18](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/errors.ts#L18)
-
-</td>
-</tr>
-<tr>
-<td>
-
-`stack?`
-
-</td>
-<td>
-
-`public`
-
-</td>
-<td>
-
-`string`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-`Error.stack`
-
-</td>
-<td>
-
-node\_modules/typescript/lib/lib.es5.d.ts:1078
-
-</td>
-</tr>
-<tr>
-<td>
-
-`prepareStackTrace?`
-
-</td>
-<td>
-
-`static`
-
-</td>
-<td>
-
-(`err`: `Error`, `stackTraces`: `CallSite`[]) => `any`
-
-</td>
-<td>
-
-Optional override for formatting stack traces
-
-**See**
-
-https://v8.dev/docs/stack-trace-api#customizing-stack-traces
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-`Error.prepareStackTrace`
-
-</td>
-<td>
-
-node\_modules/@types/node/globals.d.ts:98
-
-</td>
-</tr>
-<tr>
-<td>
-
-`stackTraceLimit`
-
-</td>
-<td>
-
-`static`
-
-</td>
-<td>
-
-`number`
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-&hyphen;
-
-</td>
-<td>
-
-`Error.stackTraceLimit`
-
-</td>
-<td>
-
-node\_modules/@types/node/globals.d.ts:100
-
-</td>
-</tr>
-</tbody>
-</table>
+| Property | Type | Description | Overrides | Inherited from |
+| ------ | ------ | ------ | ------ | ------ |
+| `cause` | `any` | - | `Error.cause` | - |
+| `code` | `number` | - | - | - |
+| `data` | `any` | - | - | - |
+| `message` | `string` | - | `Error.message` | - |
+| `name` | [`ApiErrorNames`](../enumerations/ApiErrorNames.md) | - | `Error.name` | - |
+| `stack?` | `string` | - | - | `Error.stack` |
+| `prepareStackTrace?` | (`err`: `Error`, `stackTraces`: `CallSite`[]) => `any` | Optional override for formatting stack traces **See** https://v8.dev/docs/stack-trace-api#customizing-stack-traces | - | `Error.prepareStackTrace` |
+| `stackTraceLimit` | `number` | - | - | `Error.stackTraceLimit` |
 
 ## Methods
 
 ### captureStackTrace()
 
-> `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
+```ts
+static captureStackTrace(targetObject, constructorOpt?): void
+```
 
 Create .stack property on a target object
 

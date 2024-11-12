@@ -6,19 +6,24 @@
 
 # Type Alias: MarginfiLendRequirement
 
-> **MarginfiLendRequirement**: `object`
+```ts
+type MarginfiLendRequirement: {
+  requirement: MarginfiLendActionSchema;
+  type: MARGINFI_LEND;
+};
+```
 
 Marginfi Lend requirement type
 
 ## Type declaration
 
-| Name | Type | Default value | Description | Defined in |
-| ------ | ------ | ------ | ------ | ------ |
-| `requirement` | `object` | MarginfiLendActionSchema | - | [types/eventConfig/config.ts:135](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L135) |
-| `requirement.amount` | `number` | - | The minimum amount to lend | [types/eventConfig/requirements.ts:359](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L359) |
-| `requirement.tokenAddress` | `string` | - | The token address to lend | [types/eventConfig/requirements.ts:355](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L355) |
-| `type` | `MARGINFI_LEND` | - | - | [types/eventConfig/config.ts:134](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L134) |
+| Name | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `requirement` | \{ `amount`: `number`; `tokenAddress`: `string`; \} | MarginfiLendActionSchema | - |
+| `requirement.amount` | `number` | - | The minimum amount to lend |
+| `requirement.tokenAddress` | `string` | - | The token address to lend |
+| `type` | `MARGINFI_LEND` | - | - |
 
 ## Defined in
 
-[types/eventConfig/config.ts:141](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L141)
+[types/eventConfig/config.ts:141](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/eventConfig/config.ts#L141)

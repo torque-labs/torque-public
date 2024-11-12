@@ -6,22 +6,32 @@
 
 # Type Alias: CreateTreasuryInput
 
-> **CreateTreasuryInput**: `object`
+```ts
+type CreateTreasuryInput: {
+  description: null | string;
+  imageUrl: null | string;
+  offerId: string;
+  payouts: number[];
+  payoutsAvailable: number[];
+  title: null | string;
+  tokenAddress: null | string;
+};
+```
 
 Create treasury input type
 
 ## Type declaration
 
-| Name | Type | Description | Defined in |
-| ------ | ------ | ------ | ------ |
-| `description`? | `null` \| `string` | - | [types/lootBox.ts:13](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/lootBox.ts#L13) |
-| `imageUrl`? | `null` \| `string` | - | [types/lootBox.ts:11](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/lootBox.ts#L11) |
-| `offerId` | `string` | The offer ID of the campaign/offer to create the loot box treasury for | [types/lootBox.ts:10](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/lootBox.ts#L10) |
-| `payouts` | `number`[] | - | [types/lootBox.ts:14](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/lootBox.ts#L14) |
-| `payoutsAvailable` | `number`[] | - | [types/lootBox.ts:15](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/lootBox.ts#L15) |
-| `title`? | `null` \| `string` | - | [types/lootBox.ts:12](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/lootBox.ts#L12) |
-| `tokenAddress`? | `null` \| `string` | - | [types/lootBox.ts:16](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/lootBox.ts#L16) |
+| Name | Type | Description |
+| ------ | ------ | ------ |
+| `description`? | `null` \| `string` | - |
+| `imageUrl`? | `null` \| `string` | - |
+| `offerId` | `string` | The offer ID of the campaign/offer to create the loot box treasury for |
+| `payouts` | `number`[] | - |
+| `payoutsAvailable` | `number`[] | - |
+| `title`? | `null` \| `string` | - |
+| `tokenAddress`? | `null` \| `string` | - |
 
 ## Defined in
 
-[types/lootBox.ts:22](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/lootBox.ts#L22)
+[types/lootBox.ts:22](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/lootBox.ts#L22)

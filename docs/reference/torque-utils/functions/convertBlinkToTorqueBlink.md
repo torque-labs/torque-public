@@ -6,7 +6,24 @@
 
 # Function: convertBlinkToTorqueBlink()
 
-> **convertBlinkToTorqueBlink**(`blink`, `eventType`, `eventConfig`, `offerId`, `publisherHandle`, `remainingConversions`?, `userRewardType`?, `userRewardToken`?, `userRewardAmount`?, `raffleRewardType`?, `raffleRewardToken`?, `raffleRewardAmount`?, `holdForSeconds`?, `currentConversions`?, `index`?): `Promise`\<`ActionGetResponse`\>
+```ts
+function convertBlinkToTorqueBlink(
+   blink, 
+   eventType, 
+   eventConfig, 
+   offerId, 
+   publisherHandle, 
+   remainingConversions?, 
+   userRewardType?, 
+   userRewardToken?, 
+   userRewardAmount?, 
+   raffleRewardType?, 
+   raffleRewardToken?, 
+   raffleRewardAmount?, 
+   holdForSeconds?, 
+   currentConversions?, 
+index?): Promise<ActionGetResponse>
+```
 
 ## Parameters
 
@@ -34,4 +51,4 @@
 
 ## Defined in
 
-[solana-actions/buildGet.ts:70](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/solana-actions/buildGet.ts#L70)
+[solana-actions/buildGet.ts:70](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/solana-actions/buildGet.ts#L70)

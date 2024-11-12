@@ -6,18 +6,24 @@
 
 # Type Alias: CustomEventModel
 
-> **CustomEventModel**: `object`
+```ts
+type CustomEventModel: {
+  config: CustomEventDefinitionSchema;
+  id: string;
+  name: string;
+};
+```
 
 Custom event model type
 
 ## Type declaration
 
-| Name | Type | Default value | Description | Defined in |
-| ------ | ------ | ------ | ------ | ------ |
-| `config` | `Record`\<`string`, [`CustomEventFieldType`](../enumerations/CustomEventFieldType.md)\> | CustomEventDefinitionSchema | The custom event defintion as a JSON object. The object should be formatted as follows: `{ "<event property name>": "boolean" | "string" | "number" }` | [types/custom-events/events.ts:204](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L204) |
-| `id` | `string` | - | The internal ID of the custom event | [types/custom-events/events.ts:189](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L189) |
-| `name` | `string` | - | The name of the custom event | [types/custom-events/events.ts:193](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L193) |
+| Name | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `config` | `Record`\<`string`, [`CustomEventFieldType`](../enumerations/CustomEventFieldType.md)\> | CustomEventDefinitionSchema | The custom event defintion as a JSON object. The object should be formatted as follows: `{ "<event property name>": "boolean" | "string" | "number" }` |
+| `id` | `string` | - | The internal ID of the custom event |
+| `name` | `string` | - | The name of the custom event |
 
 ## Defined in
 
-[types/custom-events/events.ts:210](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/custom-events/events.ts#L210)
+[types/custom-events/events.ts:210](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/custom-events/events.ts#L210)

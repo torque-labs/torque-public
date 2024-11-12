@@ -6,14 +6,29 @@
 
 # Function: memoGet()
 
-> **memoGet**(`memoData`, `offerId`, `title`, `publisherHandle`, `remainingConversions`?, `imageUrl`?, `description`?, `userRewardType`?, `userRewardToken`?, `userRewardAmount`?, `raffleRewardType`?, `raffleRewardToken`?, `raffleRewardAmount`?): `Promise`\<`ActionGetResponse`\>
+```ts
+function memoGet(
+   memoData, 
+   offerId, 
+   title, 
+   publisherHandle, 
+   remainingConversions?, 
+   imageUrl?, 
+   description?, 
+   userRewardType?, 
+   userRewardToken?, 
+   userRewardAmount?, 
+   raffleRewardType?, 
+   raffleRewardToken?, 
+raffleRewardAmount?): Promise<ActionGetResponse>
+```
 
 ## Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `memoData` | `object` | - |
-| `memoData.fields` | (`object` & `object` \| `object` & `object` \| `object` & `object`)[] | The fields to collect from the user |
+| `memoData.fields` | (\{ `description`: `null` \| `string`; `image`: `null` \| `string`; `label`: `null` \| `string`; `name`: `string`; \} & \{ `type`: `"string"`; `validation`: \{ `match`: `null` \| `string`; `required`: `null` \| `boolean`; \}; \} \| \{ `description`: `null` \| `string`; `image`: `null` \| `string`; `label`: `null` \| `string`; `name`: `string`; \} & \{ `type`: `"number"`; `validation`: \{ `max`: `null` \| `number`; `min`: `null` \| `number`; \}; \} \| \{ `description`: `null` \| `string`; `image`: `null` \| `string`; `label`: `null` \| `string`; `name`: `string`; \} & \{ `type`: `"boolean"`; `validation`: \{ `match`: `null` \| `boolean`; \}; \})[] | The fields to collect from the user |
 | `offerId` | `string` | - |
 | `title` | `string` | - |
 | `publisherHandle` | `string` | - |
@@ -33,4 +48,4 @@
 
 ## Defined in
 
-[solana-actions/buildGet.ts:328](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/solana-actions/buildGet.ts#L328)
+[solana-actions/buildGet.ts:328](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/solana-actions/buildGet.ts#L328)

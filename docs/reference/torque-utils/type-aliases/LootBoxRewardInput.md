@@ -6,10 +6,21 @@
 
 # Type Alias: LootBoxRewardInput
 
-> **LootBoxRewardInput**: `object` \| `object`
+```ts
+type LootBoxRewardInput: {
+  enabled: true;
+  rewards: {
+     amount: number;
+     users: number;
+    }[];
+  tokenAddress: string;
+ } | {
+  enabled: false;
+};
+```
 
 Loot Box form input type
 
 ## Defined in
 
-[types/campaigns.ts:147](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/campaigns.ts#L147)
+[types/campaigns.ts:147](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/campaigns.ts#L147)

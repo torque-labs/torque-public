@@ -6,18 +6,23 @@
 
 # Type Alias: TensorBidRequirement
 
-> **TensorBidRequirement**: `object`
+```ts
+type TensorBidRequirement: {
+  requirement: TensorActionSchema;
+  type: TENSOR_BID;
+};
+```
 
 Tensor Bid requirement type
 
 ## Type declaration
 
-| Name | Type | Default value | Description | Defined in |
-| ------ | ------ | ------ | ------ | ------ |
-| `requirement` | `object` | TensorActionSchema | - | [types/eventConfig/config.ts:233](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L233) |
-| `requirement.collectionIds` | `string`[] | - | The collection ID of the tension collection for the requirement | [types/eventConfig/requirements.ts:144](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/requirements.ts#L144) |
-| `type` | `TENSOR_BID` | - | - | [types/eventConfig/config.ts:232](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L232) |
+| Name | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `requirement` | \{ `collectionIds`: `string`[]; \} | TensorActionSchema | - |
+| `requirement.collectionIds` | `string`[] | - | The collection ID of the tension collection for the requirement |
+| `type` | `TENSOR_BID` | - | - |
 
 ## Defined in
 
-[types/eventConfig/config.ts:239](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/types/eventConfig/config.ts#L239)
+[types/eventConfig/config.ts:239](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/types/eventConfig/config.ts#L239)

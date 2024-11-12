@@ -6,7 +6,9 @@
 
 # Function: getTensorNameFromCollectionAddress()
 
-> **getTensorNameFromCollectionAddress**(`collectionAddress`, `tensorApiKey`?): `Promise`\<`string`\>
+```ts
+function getTensorNameFromCollectionAddress(collectionAddress, tensorApiKey?): Promise<string>
+```
 
 ## Parameters
 
@@ -21,4 +23,4 @@
 
 ## Defined in
 
-[solana-actions/util.ts:38](https://github.com/torque-labs/torque-utils/blob/c76fb4101d477d1e8e6fb4f5de7a277964527c27/solana-actions/util.ts#L38)
+[solana-actions/util.ts:38](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/solana-actions/util.ts#L38)
