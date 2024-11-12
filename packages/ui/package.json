@@ -3,7 +3,7 @@
   "author": "Torque Labs",
   "name": "@torque-labs/torque-ui",
   "description": "The Official Torque Labs UI Kit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "private": false,
   "sideEffects": false,
@@ -34,7 +34,8 @@
     "prepack": "npm run build",
     "ui:add": "npx shadcn@latest add",
     "styles:build": "tailwindcss -i ./src/globals.css -o ./dist/styles.css",
-    "styles:watch": "tailwindcss -i ./src/globals.css -o ./dist/styles.css --watch"
+    "styles:watch": "tailwindcss -i ./src/globals.css -o ./dist/styles.css --watch",
+    "typecheck": "tsup && tsc --pretty --noEmit"
   },
   "peerDependencies": {
     "react": "^18.0.0",
@@ -54,8 +55,8 @@
     "@solana/wallet-adapter-react": "^0.15.35",
     "@solana/wallet-adapter-react-ui": "^0.9.35",
     "@solana/web3.js": "^1.95.4",
-    "@torque-labs/torque-ts-sdk": "^0.0.108",
-    "@torque-labs/torque-utils": "^1.1.43",
+    "@torque-labs/torque-ts-sdk": "^0.0.117",
+    "@torque-labs/torque-utils": "^1.1.50",
     "bs58": "^5.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

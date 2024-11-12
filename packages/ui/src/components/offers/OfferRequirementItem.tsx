@@ -24,10 +24,9 @@ import { useTorque } from "#/hooks";
 import { getTokenDetails, cn } from "#/lib";
 import type { TokenDetails } from "#/types";
 
-// TODO: Add STAKE_SOL to this map when ready
 // TODO: Add FORM_SUBMISSION to this map when ready
-const requirementLabelMap: Record<
-  Exclude<EventType, EventType.STAKE_SOL | EventType.FORM_SUBMISSION>,
+export const requirementLabelMap: Record<
+  Exclude<EventType, EventType.FORM_SUBMISSION>,
   { label: string }
 > = {
   [EventType.CLICK]: { label: "Click" },
@@ -38,14 +37,26 @@ const requirementLabelMap: Record<
   [EventType.MARGINFI_LEND]: { label: "Marginfi Lend" },
   [EventType.MEMO]: { label: "Memo" },
   [EventType.NFT_BUY_BID]: { label: "NFT Buy Bid" },
-  [EventType.NFT_COLLECTION_TRADE]: {
-    label: "NFT Collection Trade",
-  },
+  [EventType.NFT_COLLECTION_TRADE]: { label: "NFT Collection Trade" },
   [EventType.REALMS_VOTE]: { label: "Realms Vote" },
   [EventType.SWAP]: { label: "Swap" },
   [EventType.TENSOR_BID]: { label: "Tensor Bid" },
   [EventType.TENSOR_BUY]: { label: "Tensor Buy" },
+  [EventType.STAKE_SOL]: { label: "Stake SOL" },
 } as const;
+
+/**
+ * List of events that support blink
+ */
+export const blinkSupportedEvents: EventType[] = [
+  EventType.CLICK,
+  EventType.DRIFT_BET,
+  EventType.NFT_BUY_BID,
+  EventType.NFT_COLLECTION_TRADE,
+  EventType.REALMS_VOTE,
+  EventType.SWAP,
+  EventType.STAKE_SOL,
+];
 
 interface OfferRequirementItemProps {
   /**
@@ -233,7 +244,7 @@ export function OfferRequirementItem({
   const publisherHandle = config?.publisherHandle ?? "torqueprotocol";
 
   // Create action URL to Torque API server
-  const actionUrl = `${config?.apiUrl}/actions/${publisherHandle}/${campaignId}?index=${index}`;
+  const actionUrl = `${config?.apiUrl}/actions/${publisherHandle}/${campaignId}?index=${index}&breakChain=true`;
 
   // Setup flag whether to show action or not
   const actionEnabled = status !== ApiProgressStatus.DONE && showAction;
