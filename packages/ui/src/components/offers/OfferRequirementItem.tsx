@@ -48,7 +48,7 @@ export const requirementLabelMap: Record<
 /**
  * List of events that support blink
  */
-export const blinkSupportedEvents: EventType[] = [
+export const blinkSupportedEvents = [
   EventType.CLICK,
   EventType.DRIFT_BET,
   EventType.NFT_BUY_BID,
@@ -56,7 +56,7 @@ export const blinkSupportedEvents: EventType[] = [
   EventType.REALMS_VOTE,
   EventType.SWAP,
   EventType.STAKE_SOL,
-];
+] as const;
 
 interface OfferRequirementItemProps {
   /**
