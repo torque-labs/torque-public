@@ -16,6 +16,13 @@
 * [Advanced Usage](adding-torque-to-your-site/advanced-usage.md)
 * [Managing Offers using the SDK](adding-torque-to-your-site/managing-offers-using-the-sdk.md)
 
+## Custom Events
+
+* [Overview](custom-events/overview.md)
+* [Requesting an API key](custom-events/requesting-an-api-key.md)
+* [Creating Custom Events](custom-events/creating-custom-events.md)
+* [Sending a Custom Event](custom-events/sending-a-custom-event.md)
+
 ## Basics
 
 * [Editor](basics/editor.md)
