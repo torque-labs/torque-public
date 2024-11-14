@@ -1,45 +1,47 @@
+# Torque TS SDK
+
 **@torque-labs/torque-ts-sdk** • **Docs**
 
----
+***
 
-# Torque Client TypeScript SDK
+## Torque Client TypeScript SDK
 
 The official Torque Client TypeScript SDK.
 
-## Enumerations
+### Enumerations
 
 | Enumeration                                            | Description                                                                |
 | ------------------------------------------------------ | -------------------------------------------------------------------------- |
-| [ActionType](enumerations/ActionType.md)               | The type of action that will be used to filter the addresses for a target. |
-| [ApiProgressStatus](enumerations/ApiProgressStatus.md) | Campaign journey progress status.                                          |
-| [ApiRewardType](enumerations/ApiRewardType.md)         | The rewards type of a campaign.                                            |
-| [ApiStatus](enumerations/ApiStatus.md)                 | The API response success type.                                             |
-| [ApiTxnTypes](enumerations/ApiTxnTypes.md)             | Torque functions that require a wallet signature.                          |
-| [AudienceType](enumerations/AudienceType.md)           | -                                                                          |
-| [Operation](enumerations/Operation.md)                 | The operation type of an audience.                                         |
-| [TargetType](enumerations/TargetType.md)               | The target type of an audience.                                            |
+| [ActionType](enumerations/actiontype.md)               | The type of action that will be used to filter the addresses for a target. |
+| [ApiProgressStatus](enumerations/apiprogressstatus.md) | Campaign journey progress status.                                          |
+| [ApiRewardType](enumerations/apirewardtype.md)         | The rewards type of a campaign.                                            |
+| [ApiStatus](enumerations/apistatus.md)                 | The API response success type.                                             |
+| [ApiTxnTypes](enumerations/apitxntypes.md)             | Torque functions that require a wallet signature.                          |
+| [AudienceType](enumerations/audiencetype.md)           | -                                                                          |
+| [Operation](enumerations/operation.md)                 | The operation type of an audience.                                         |
+| [TargetType](enumerations/targettype.md)               | The target type of an audience.                                            |
 
-## Classes
+### Classes
 
 | Class                                                   | Description                                                                                                                                                                              |
 | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [TorqueAdminClient](classes/TorqueAdminClient.md)       | The TorqueAdminClient class is used to manage admin actions in the Torque API.                                                                                                           |
-| [TorqueAudienceClient](classes/TorqueAudienceClient.md) | The TorqueAudienceClient class is used to manage and verify audiencess for the Torque API.                                                                                               |
-| [TorqueRequestClient](classes/TorqueRequestClient.md)   | The TorqueRequestClient class is used to make requests to the Torque API. It provides methods for performing API requests and handling responses.                                        |
-| [TorqueSDK](classes/TorqueSDK.md)                       | The official Torque Typescript SDK.                                                                                                                                                      |
-| [TorqueUserClient](classes/TorqueUserClient.md)         | The TorqueUserClient class is used to authenticate a user with the Torque API. The user client allows publishers to fetch campaigns and offers that are savailable for the current user. |
+| [TorqueAdminClient](classes/torqueadminclient.md)       | The TorqueAdminClient class is used to manage admin actions in the Torque API.                                                                                                           |
+| [TorqueAudienceClient](classes/torqueaudienceclient.md) | The TorqueAudienceClient class is used to manage and verify audiencess for the Torque API.                                                                                               |
+| [TorqueRequestClient](classes/torquerequestclient.md)   | The TorqueRequestClient class is used to make requests to the Torque API. It provides methods for performing API requests and handling responses.                                        |
+| [TorqueSDK](classes/torquesdk.md)                       | The official Torque Typescript SDK.                                                                                                                                                      |
+| [TorqueUserClient](classes/torqueuserclient.md)         | The TorqueUserClient class is used to authenticate a user with the Torque API. The user client allows publishers to fetch campaigns and offers that are savailable for the current user. |
 
-## Interfaces
+### Interfaces
 
 | Interface                                      | Description                 |
 | ---------------------------------------------- | --------------------------- |
-| [SignatureField](interfaces/SignatureField.md) | Transaction result response |
+| [SignatureField](interfaces/signaturefield.md) | Transaction result response |
 
-## Type Aliases
+### Type Aliases
 
 | Type alias                                                                                   | Description                                                                                   |
 | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| [ActionRequirementsInput](type-aliases/ActionRequirementsInput.md)                           | Action requirements input.                                                                    |
+| [ActionRequirementsInput](type-aliases/actionrequirementsinput.md)                           | Action requirements input.                                                                    |
 | [ActionTarget](type-aliases/ActionTarget.md)                                                 | An action target for an audience.                                                             |
 | [AggreggationCreateInput](type-aliases/AggreggationCreateInput.md)                           | Aggregation create input.                                                                     |
 | [AndOperator](type-aliases/AndOperator.md)                                                   | Aggregation and operator.                                                                     |
