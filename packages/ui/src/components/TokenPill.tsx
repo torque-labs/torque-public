@@ -1,5 +1,8 @@
-import { formatAmount, cn } from "#/lib";
-import type { TokenDetails } from "#/types";
+import { useMemo } from "react";
+
+import { Skeleton } from "#/components/ui/skeleton";
+import { useTokenDetails } from "#/hooks/use-token-details";
+import { formatAmount, cn, truncateAddress } from "#/lib";
 
 interface TokenPillProps {
   /**
@@ -21,37 +24,33 @@ interface TokenPillProps {
    * Additional class names to apply to the component
    */
   className?: string;
-
-  /**
-   * The details of the token (if available)
-   */
-  details?: TokenDetails;
-
-  /**
-   * The name of the token (if available)
-   */
-  name?: string;
 }
 
 /**
  * Displays a token pill with the image, symbol, action and amount of the token
  */
 export function TokenPill({
-  name,
-  details,
   action,
   amount,
   tokenAddress,
   className = "",
 }: TokenPillProps) {
-  const title = details ? details.symbol : name;
-  const nameDisplay = title
-    ? title
-    : `${tokenAddress.slice(0, 4)}....${tokenAddress.slice(-4)}`;
+  const { token, isLoading } = useTokenDetails(tokenAddress);
 
+  // Set the token display name
+  const tokenDisplay = useMemo(() => {
+    if (token) {
+      return token.symbol;
+    }
+    return truncateAddress(tokenAddress);
+  }, [token, tokenAddress]);
+
+  // Format the amount of tokens
   const formattedAmount = formatAmount(amount);
 
-  return (
+  return isLoading ? (
+    <Skeleton className="h-12 w-full max-w-80 rounded-full" />
+  ) : (
     <div
       className={cn(
         "flex items-center justify-center gap-4 rounded-full bg-gray-900 p-2 text-sm",
@@ -67,16 +66,16 @@ export function TokenPill({
         <span className="font-medium">{formattedAmount}</span>
       </div>
       <div className="flex items-center gap-2 rounded-full bg-gray-700 px-3 py-1.5">
-        {details?.logo ? (
+        {token?.logo ? (
           <img
-            alt={`Logo for ${nameDisplay} token`}
-            className="size-4 rounded-full"
+            alt={`Logo for ${tokenDisplay} token`}
+            className="size-4 rounded-full object-cover object-center"
             height={16}
-            src={details.logo}
+            src={token.logo}
             width={16}
           />
         ) : null}
-        <span className="font-medium">{nameDisplay}</span>
+        <span className="font-medium">{tokenDisplay}</span>
       </div>
     </div>
   );

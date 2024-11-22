@@ -61,16 +61,17 @@ export function TorqueDrawerOffer({
         </div>
       ) : null}
 
-      <div className="flex flex-col gap-2">
+      <div className="mb-3 flex flex-col gap-2">
         <div>
           {hasCompleted ? <Badge variant="green">Completed</Badge> : null}
 
           {hasStarted ? <Badge variant="default">Started</Badge> : null}
         </div>
 
-        <h3 className="mb-3 text-base font-semibold leading-snug">
+        <h3 className="text-base font-semibold leading-snug">
           {campaign.title}
         </h3>
+
         <p className="text-xs text-muted">{campaign.description}</p>
       </div>
 

@@ -1,7 +1,7 @@
 import type { ApiCampaign } from "@torque-labs/torque-ts-sdk";
 import { ApiProgressStatus } from "@torque-labs/torque-ts-sdk";
 import { Wallet } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { Logo, OfferListItem, TorqueDrawerOffer } from "#/components";
 import { Button } from "#/components/ui/button";
@@ -28,6 +28,21 @@ interface TorqueDrawerProps {
    * The label of the button which opens the drawer
    */
   buttonLabel?: string;
+
+  /**
+   * Whether the drawer is open
+   */
+  open?: boolean;
+
+  /**
+   * Whether to show the button to open the drawer (default: false)
+   */
+  showButton?: boolean;
+
+  /**
+   * On open change callback
+   */
+  onOpenChange?: (open: boolean) => void;
 }
 
 /**
@@ -36,7 +51,11 @@ interface TorqueDrawerProps {
 export function TorqueDrawer({
   buttonClassName,
   buttonLabel,
+  open,
+  showButton = false,
+  onOpenChange,
 }: TorqueDrawerProps) {
+  const [isOpen, setIsOpen] = useState(open);
   const { offers, journeys, publicKey } = useTorque();
 
   const [openOffer, setOpenOffer] = useState<ApiCampaign>();
@@ -95,18 +114,35 @@ export function TorqueDrawer({
     return sorted;
   }, [journeys, offers]);
 
+  /**
+   * Set isOpen state when open prop changes
+   */
+  useEffect(() => {
+    setIsOpen(open);
+  }, [open]);
+
   return (
     <Drawer
       direction="right"
       onClose={() => {
         setOpenOffer(undefined);
       }}
+      onOpenChange={(val) => {
+        setIsOpen(val);
+
+        if (onOpenChange) {
+          onOpenChange(val);
+        }
+      }}
+      open={isOpen}
     >
-      <DrawerTrigger asChild>
-        <Button className={cn(buttonClassName)} variant="torque">
-          {buttonLabel ?? "Open"}
-        </Button>
-      </DrawerTrigger>
+      {showButton ? (
+        <DrawerTrigger asChild>
+          <Button className={cn(buttonClassName)} variant="torque">
+            {buttonLabel ?? "Open"}
+          </Button>
+        </DrawerTrigger>
+      ) : null}
 
       <DrawerContent className="bottom-0 left-auto right-0 top-0 mt-0 flex w-96 overflow-auto rounded-none bg-card text-white outline-none">
         <DrawerHeader className="flex items-center justify-between gap-2 p-4 pt-6">

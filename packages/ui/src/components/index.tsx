@@ -4,6 +4,7 @@
 export * from "./actions";
 export * from "./icons";
 export * from "./offers";
+export * from "./rewards";
 export * from "./torque-drawer";
 
 /**

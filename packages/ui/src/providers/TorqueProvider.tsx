@@ -1,5 +1,6 @@
 "use client";
 
+import type { WalletAdapter } from "@solana/wallet-adapter-base";
 import { type Wallet } from "@solana/wallet-adapter-react";
 import type {
   ApiCampaign,
@@ -216,6 +217,7 @@ export function TorqueProvider({
   const [torqueUserClient, setTorqueUserClient] = useState<TorqueUserClient>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [torqueConfig, setTorqueConfig] = useState<TorqueOptions>();
+  const [initError, setInitError] = useState<boolean>(false);
 
   // User state
   const [user, setUser] = useState<ApiUser>();
@@ -223,6 +225,15 @@ export function TorqueProvider({
   // Data state
   const [userOffers, setUserOffers] = useState<ApiCampaign[]>([]);
   const [userJourneys, setUserJourneys] = useState<ApiCampaignJourney[]>([]);
+
+  // Adapter state
+  const [adapter, setAdapter] = useState<WalletAdapter | undefined>();
+
+  useEffect(() => {
+    if (wallet?.adapter.publicKey) {
+      setAdapter(wallet.adapter);
+    }
+  }, [wallet?.adapter, wallet?.adapter.publicKey]);
 
   /**
    * Logout the user and clear the torque instance.
@@ -234,6 +245,8 @@ export function TorqueProvider({
 
     setUser(undefined);
     setIsLoading(false);
+    setInitError(false);
+    setTorqueUserClient(undefined);
   }, [torque]);
 
   /**
@@ -278,7 +291,7 @@ export function TorqueProvider({
   const claimOffer = useCallback(
     async (offerId: string) => {
       try {
-        if (wallet && torqueUserClient) {
+        if (adapter && torqueUserClient) {
           const result = await torqueUserClient.acceptCampaign(offerId);
 
           await refreshOffers();
@@ -291,17 +304,12 @@ export function TorqueProvider({
         throw new Error("There was an error claiming your offer.");
       }
     },
-    [wallet, torqueUserClient, refreshOffers],
+    [adapter, torqueUserClient, refreshOffers],
   );
 
   /**
    * Initialize Torque UI function
    */
-  useEffect(() => {
-    refreshOffers().catch((e) => {
-      console.error(e);
-    });
-  }, [refreshOffers]);
 
   /**
    * Login to torque with the provided wallet.
@@ -311,7 +319,7 @@ export function TorqueProvider({
       try {
         setIsLoading(true);
 
-        if (wallet && !torqueUserClient) {
+        if (adapter && !torqueUserClient) {
           const config = {
             apiUrl: options?.apiUrl ?? API_URL,
             appUrl: options?.appUrl ?? APP_URL,
@@ -324,8 +332,10 @@ export function TorqueProvider({
 
           setTorqueConfig(config);
 
+          console.log("Adapter initialized", adapter);
+
           await torqueSDK.initialize(
-            wallet.adapter,
+            adapter,
             undefined,
             initOptions?.loginInput,
           );
@@ -366,7 +376,7 @@ export function TorqueProvider({
       options?.rpc,
       refreshOffers,
       torqueUserClient,
-      wallet,
+      adapter,
     ],
   );
 
@@ -374,12 +384,32 @@ export function TorqueProvider({
    * Detect wallet and initialize user if autoInit is enabled
    */
   useEffect(() => {
-    if (autoInit && wallet && !isLoading && !torqueUserClient) {
+    if (autoInit && adapter && !initError && !isLoading && !torqueUserClient) {
       initialize().catch((e) => {
         console.error(e);
+        setInitError(true);
       });
     }
-  }, [autoInit, initialize, isLoading, torqueUserClient, wallet]);
+  }, [autoInit, adapter, initialize, isLoading, torqueUserClient, initError]);
+
+  /**
+   * Refresh offers every 10 seconds
+   */
+  useEffect(() => {
+    refreshOffers().catch((e) => {
+      console.error(e);
+    });
+
+    const interval = setInterval(() => {
+      refreshOffers().catch((e) => {
+        console.error(e);
+      });
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [refreshOffers]);
 
   const value: TorqueContextState = {
     torque,
