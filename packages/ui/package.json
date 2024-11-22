@@ -3,7 +3,7 @@
   "author": "Torque Labs",
   "name": "@torque-labs/torque-ui",
   "description": "The Official Torque Labs UI Kit",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "private": false,
   "sideEffects": false,
@@ -25,7 +25,7 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "NODE_ENV=production tsup && tsc",
+    "build": "tsup && tsc",
     "dev": "tsup --watch --onSuccess 'npm run styles:watch'",
     "watch": "tsup --watch --onSuccess 'npm run styles:watch'",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
@@ -33,8 +33,8 @@
     "test": "jest",
     "prepack": "npm run build",
     "ui:add": "npx shadcn@latest add",
-    "styles:build": "tailwindcss -i ./src/globals.css -o ./dist/styles.css",
-    "styles:watch": "tailwindcss -i ./src/globals.css -o ./dist/styles.css --watch",
+    "styles:build": "tailwindcss -i ./src/globals.css -o ./dist/index.css",
+    "styles:watch": "tailwindcss -i ./src/globals.css -o ./dist/index.css --watch",
     "typecheck": "tsup && tsc --pretty --noEmit"
   },
   "peerDependencies": {
