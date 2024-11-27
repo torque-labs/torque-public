@@ -61,6 +61,11 @@ export function useAction() {
     async (encodedTransaction: string) => {
       if (publicKey) {
         try {
+          console.log(
+            "Sending encoded transaction",
+            base64ToUint8Array(encodedTransaction),
+          );
+
           const transaction = VersionedTransaction.deserialize(
             base64ToUint8Array(encodedTransaction),
           ) as unknown as Transaction;
@@ -146,6 +151,8 @@ export function useAction() {
             index,
             data,
           );
+
+          console.log(solanaAction);
 
           // Handle generic click
           if (solanaAction.type === "external-link") {

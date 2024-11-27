@@ -6,11 +6,13 @@
  * @returns A Uint8Array containing the decoded binary data
  */
 export function base64ToUint8Array(base64: string) {
-  const binaryString = atob(base64);
+  const binaryString = Buffer.from(base64, "base64").toString("binary");
+  const len = binaryString.length;
+  const bytes = new Uint8Array(len);
 
-  const encoder = new TextEncoder();
+  for (let i = 0; i < len; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
 
-  const uIntArray = encoder.encode(binaryString);
-
-  return uIntArray;
+  return bytes;
 }
