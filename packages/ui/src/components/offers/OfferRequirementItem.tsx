@@ -25,10 +25,7 @@ import { getTokenDetails, cn } from "#/lib";
 import type { TokenDetails } from "#/types";
 
 // TODO: Add FORM_SUBMISSION to this map when ready
-export const requirementLabelMap: Record<
-  Exclude<EventType, EventType.FORM_SUBMISSION>,
-  { label: string }
-> = {
+export const requirementLabelMap: Record<EventType, { label: string }> = {
   [EventType.CLICK]: { label: "Click" },
   [EventType.CUSTOM_EVENT]: { label: "Custom Event" },
   [EventType.DRIFT_BET]: { label: "Drift Bet" },
@@ -43,6 +40,10 @@ export const requirementLabelMap: Record<
   [EventType.TENSOR_BID]: { label: "Tensor Bid" },
   [EventType.TENSOR_BUY]: { label: "Tensor Buy" },
   [EventType.STAKE_SOL]: { label: "Stake SOL" },
+  [EventType.FORM_SUBMISSION]: { label: "Submit Form" },
+  [EventType.PUMP_FUN_BUY]: { label: "" },
+  [EventType.LOCK_TOKEN]: { label: "Lock Token" },
+  [EventType.BURN_TOKEN]: { label: "Burn Token" },
 } as const;
 
 /**
