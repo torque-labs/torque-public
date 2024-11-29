@@ -1,1 +1,2 @@
-export * from "./RewardDisplay";
+export * from "./Rewards";
+export * from "./RewardGroup";

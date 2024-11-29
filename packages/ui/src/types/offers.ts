@@ -1,7 +1,7 @@
 /**
  * Available reward groups for an offer
  */
-export enum RewardGroup {
+export enum RewardGroupType {
   USER = "USER",
   PUBLISHER = "PUBLISHER",
   RAFFLE = "RAFFLE",
@@ -16,7 +16,7 @@ export type RewardDetails =
       /**
        * The reward group type
        */
-      rewardGroup: RewardGroup.USER | RewardGroup.PUBLISHER;
+      rewardGroup: RewardGroupType.USER | RewardGroupType.PUBLISHER;
       /**
        * The token address for the reward
        */
@@ -30,7 +30,7 @@ export type RewardDetails =
       /**
        * The reward group type
        */
-      rewardGroup: RewardGroup.RAFFLE;
+      rewardGroup: RewardGroupType.RAFFLE;
       /**
        * Raffle entries
        */
@@ -49,7 +49,7 @@ export type RewardDetails =
       /**
        * The reward group type
        */
-      rewardGroup: RewardGroup.LOOTBOX;
+      rewardGroup: RewardGroupType.LOOTBOX;
       /**
        * The token address for the reward
        */

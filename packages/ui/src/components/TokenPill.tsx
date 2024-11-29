@@ -2,7 +2,12 @@ import { useMemo } from "react";
 
 import { Skeleton } from "#/components/ui/skeleton";
 import { useTokenDetails } from "#/hooks/use-token-details";
-import { formatAmount, cn, truncateAddress } from "#/lib";
+import {
+  formatAmount,
+  cn,
+  truncateAddress,
+  formatAmountWithDecimals,
+} from "#/lib";
 
 interface TokenPillProps {
   /**
@@ -46,7 +51,13 @@ export function TokenPill({
   }, [token, tokenAddress]);
 
   // Format the amount of tokens
-  const formattedAmount = formatAmount(amount);
+  const formattedAmount = useMemo(() => {
+    if (token) {
+      return formatAmountWithDecimals(tokenAddress, amount, token.decimals);
+    }
+
+    return formatAmount(amount);
+  }, [amount, token, tokenAddress]);
 
   return isLoading ? (
     <Skeleton className="h-12 w-full max-w-80 rounded-full" />

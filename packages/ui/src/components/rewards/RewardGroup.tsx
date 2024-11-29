@@ -1,52 +1,70 @@
 import type { LucideProps } from "lucide-react";
-import { Trophy, Ticket, Package, Users } from "lucide-react";
+import { Users, Ticket, Trophy, Package } from "lucide-react";
 
 import { TokenPill } from "#/components";
+import { cn } from "#/lib";
 import type { RewardDetails } from "#/types";
-import { RewardGroup } from "#/types";
+import { RewardGroupType } from "#/types";
 
 /**
- * Reward display component props
+ * Reward group component props
  */
-interface RewardDisplayProps {
+interface RewardGroupProps {
   /**
    * The reward details to display
    */
   reward: RewardDetails;
+
+  /**
+   * Additional class names to apply to the component
+   */
+  className?: string;
+
+  /**
+   * Additional class names to apply to the header of the reward group
+   */
+  headerClassName?: string;
 }
 
 /**
  * Mapping of reward group to icon component
  */
 const iconMap: Record<
-  RewardGroup,
+  RewardGroupType,
   React.ForwardRefExoticComponent<
     Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
   >
 > = {
-  [RewardGroup.USER]: Users,
-  [RewardGroup.PUBLISHER]: Ticket,
-  [RewardGroup.RAFFLE]: Trophy,
-  [RewardGroup.LOOTBOX]: Package,
+  [RewardGroupType.USER]: Users,
+  [RewardGroupType.PUBLISHER]: Ticket,
+  [RewardGroupType.RAFFLE]: Trophy,
+  [RewardGroupType.LOOTBOX]: Package,
 };
 
 /**
  * Mapping of reward group to title
  */
-const titleMap: Record<RewardGroup, string> = {
-  [RewardGroup.USER]: "User Rewards",
-  [RewardGroup.PUBLISHER]: "Publisher Rewards",
-  [RewardGroup.RAFFLE]: "Raffle Rewards",
-  [RewardGroup.LOOTBOX]: "Lootbox Rewards",
+const titleMap: Record<RewardGroupType, string> = {
+  [RewardGroupType.USER]: "User",
+  [RewardGroupType.PUBLISHER]: "Publisher",
+  [RewardGroupType.RAFFLE]: "Raffle",
+  [RewardGroupType.LOOTBOX]: "Lootbox",
 };
 
-export function RewardDisplayProps({ reward }: RewardDisplayProps) {
+/**
+ * Displays rewards for a single reward group
+ */
+export function RewardGroup({
+  reward,
+  className,
+  headerClassName,
+}: RewardGroupProps) {
   const IconComponent = iconMap[reward.rewardGroup];
   const title = titleMap[reward.rewardGroup];
 
   return (
-    <div className="rounded-md border p-4">
-      <div className="mb-4 flex items-center gap-2">
+    <div className={cn("w-full rounded-md border p-4", className)}>
+      <div className={cn("mb-4 flex items-center gap-2", headerClassName)}>
         <IconComponent size={16} />
         <h4 className="font-semibold">{title}</h4>
       </div>
@@ -54,8 +72,8 @@ export function RewardDisplayProps({ reward }: RewardDisplayProps) {
       <div className="flex flex-col items-start gap-2">
         {
           // Output for user and publisher rewards
-          reward.rewardGroup === RewardGroup.USER ||
-          reward.rewardGroup === RewardGroup.PUBLISHER ? (
+          reward.rewardGroup === RewardGroupType.USER ||
+          reward.rewardGroup === RewardGroupType.PUBLISHER ? (
             <TokenPill
               action="GET"
               amount={reward.amount}
@@ -66,7 +84,7 @@ export function RewardDisplayProps({ reward }: RewardDisplayProps) {
 
         {
           // Output for raffle rewards
-          reward.rewardGroup === RewardGroup.RAFFLE ? (
+          reward.rewardGroup === RewardGroupType.RAFFLE ? (
             <div>
               {reward.entries.map((entry) => (
                 <div key={`${entry.tokenAddress}-${entry.amount}`}>
@@ -83,7 +101,7 @@ export function RewardDisplayProps({ reward }: RewardDisplayProps) {
 
         {
           // Output for lootbox rewards
-          reward.rewardGroup === RewardGroup.LOOTBOX ? (
+          reward.rewardGroup === RewardGroupType.LOOTBOX ? (
             <div>
               {reward.boxes.map((box) => (
                 <div
