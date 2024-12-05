@@ -1,7 +1,10 @@
 "use client";
 
 import type { WalletAdapter } from "@solana/wallet-adapter-base";
-import { type Wallet } from "@solana/wallet-adapter-react";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import type { WalletContextState, Wallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@solana/wallet-adapter-react";
+import { clusterApiUrl } from "@solana/web3.js";
 import type {
   ApiCampaign,
   ApiCampaignJourney,
@@ -11,9 +14,17 @@ import type {
   TorqueUserClient,
 } from "@torque-labs/torque-ts-sdk";
 import { TorqueSDK } from "@torque-labs/torque-ts-sdk";
-import { createContext, useState, useCallback, useEffect } from "react";
-import type { PropsWithChildren } from "react";
+import {
+  createContext,
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+  useMemo,
+} from "react";
+import type { Dispatch, PropsWithChildren, SetStateAction } from "react";
 
+import { TorqueConnectDialog } from "#/components";
 import { API_URL, APP_URL, FUNCTIONS_URL } from "#/constants";
 
 /**
@@ -47,9 +58,9 @@ export interface TorqueOptions {
   /**
    * The RPC URL for the Solana network
    *
-   * Custom RPC endpoint, will otherwise default to built in RPC endpoints for the Solana network.
+   * Custom RPC endpoint, or network, otherwise defaults to built in RPC endpoints for Solana mainnet.
    */
-  rpc?: string;
+  rpc?: `http://${string}` | `https://${string}` | WalletAdapterNetwork;
 
   /**
    * The publisher handle for the Torque
@@ -81,9 +92,20 @@ interface TorqueProviderProps extends PropsWithChildren {
   wallet?: Wallet | null;
 
   /**
-   * Whether to automatically initialize the user with Torque using Sign-in-with-Solana (SIWS) when a wallet is detected
+   * Whether to automatically initialize the user with Torque using
+   * Sign-in-with-Solana (SIWS) when a wallet is connected
    */
   autoInit?: boolean;
+
+  /**
+   * Flag if offers list should be automatically updated (default: false)
+   */
+  autoPollOffers?: boolean;
+
+  /**
+   * Set the polling interval for the offers list (default: 20000)
+   */
+  autoPollInterval?: number;
 
   /**
    * Torque SDK options
@@ -103,6 +125,11 @@ type TorqueContextState = {
   torque?: TorqueSDK;
 
   /**
+   * The RPC endpoint being used
+   */
+  rpcEndpoint: string;
+
+  /**
    * Loading state of the Torque SDK
    */
   isLoading: boolean;
@@ -116,6 +143,11 @@ type TorqueContextState = {
    * User's wallet if logged in
    */
   wallet?: Wallet;
+
+  /**
+   * Wallet context
+   */
+  walletContext: WalletContextState;
 
   /**
    * A list of the user's eligible offers
@@ -133,6 +165,16 @@ type TorqueContextState = {
   config?: TorqueOptions;
 
   /**
+   * The state of the connect modal
+   */
+  connectModalOpen: boolean;
+
+  /**
+   * Flag to set if the user should use transactions for authentication (eg. Ledger)
+   */
+  useTransactionForAuth: boolean;
+
+  /**
    * Claim an offer
    *
    * @param offerId - The ID of the offer to start/claim
@@ -142,9 +184,19 @@ type TorqueContextState = {
   claimOffer: (offerId: string) => Promise<ApiUserJourney | undefined>;
 
   /**
-   * Refresh the uesr's offers and journeys
+   * Refresh the user's offers and journeys
    */
   refreshOffers: () => Promise<void>;
+
+  /**
+   * Start polling the user's offers for updates
+   */
+  startPollingOffers: () => void;
+
+  /**
+   * Stop polling the user's offers for updates
+   */
+  stopPollingOffers: () => void;
 
   /**
    * Initialize the user and Torque SDK
@@ -157,6 +209,16 @@ type TorqueContextState = {
    * Logout the user and clear the Torque SDK instance
    */
   logout: () => Promise<void>;
+
+  /**
+   * Set the visibility of the wallet connect modal
+   */
+  setConnectModalOpen: Dispatch<SetStateAction<boolean>>;
+
+  /**
+   * Set the flag whether to use transactions for authentication
+   */
+  setUseTransactionForAuth: Dispatch<SetStateAction<boolean>>;
 } & (
   | {
       /**
@@ -173,11 +235,17 @@ type TorqueContextState = {
        * Flag indicating if the user is initialized.
        */
       initialized: true;
+
+      /**
+       * Flag indicating if the user is authenticated. (same as initialized)
+       */
+      isAuthenticated: true;
     }
   | {
       user: undefined;
       userClient: undefined;
       initialized: false;
+      isAuthenticated: false;
     }
 );
 
@@ -211,13 +279,20 @@ export function TorqueProvider({
   options,
   wallet,
   autoInit = true,
+  autoPollOffers = false,
+  autoPollInterval = 20000,
 }: TorqueProviderProps) {
+  // Wallet context
+  const walletContext = useWallet();
+
   // SDK state
   const [torque, setTorque] = useState<TorqueSDK>();
   const [torqueUserClient, setTorqueUserClient] = useState<TorqueUserClient>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [torqueConfig, setTorqueConfig] = useState<TorqueOptions>();
   const [initError, setInitError] = useState<boolean>(false);
+  const [connectModalOpen, setConnectModalOpen] = useState(false);
+  const [useTransactionForAuth, setUseTransactionForAuth] = useState(false);
 
   // User state
   const [user, setUser] = useState<ApiUser>();
@@ -225,9 +300,19 @@ export function TorqueProvider({
   // Data state
   const [userOffers, setUserOffers] = useState<ApiCampaign[]>([]);
   const [userJourneys, setUserJourneys] = useState<ApiCampaignJourney[]>([]);
+  const refreshInterval = useRef<ReturnType<typeof setInterval>>();
 
   // Adapter state
   const [adapter, setAdapter] = useState<WalletAdapter | undefined>();
+
+  // RPC endpoint
+  const rpcEndpoint = useMemo(() => {
+    if (options?.rpc && options.rpc.startsWith("http")) {
+      return options.rpc;
+    }
+
+    return clusterApiUrl(WalletAdapterNetwork.Mainnet);
+  }, [options?.rpc]);
 
   useEffect(() => {
     if (wallet?.adapter.publicKey) {
@@ -241,16 +326,21 @@ export function TorqueProvider({
   const logout = useCallback(async () => {
     setIsLoading(true);
 
+    if (adapter) {
+      await adapter.disconnect();
+      setAdapter(undefined);
+    }
+
     await torque?.logout();
 
     setUser(undefined);
     setIsLoading(false);
     setInitError(false);
     setTorqueUserClient(undefined);
-  }, [torque]);
+  }, [torque, adapter]);
 
   /**
-   * Offer functions
+   * Refresh the user's offers
    */
   const refreshOffers = useCallback(async () => {
     try {
@@ -259,31 +349,47 @@ export function TorqueProvider({
 
         const campaigns = result.campaigns;
 
-        const allJourneys = (
-          await Promise.all(
-            campaigns.map(async (campaign) => {
-              const journey = await torqueUserClient.getCampaignJourney(
-                campaign.id,
-              );
-
-              if (journey) {
-                return journey;
-              }
-
-              return null;
-            }),
-          )
-        ).filter((x): x is ApiCampaignJourney => Boolean(x));
-
         setUserOffers(campaigns);
-        setUserJourneys(allJourneys);
       }
     } catch (e) {
       console.error("Error refreshing offers:", e);
 
-      throw new Error("There was an error loading your offers.");
+      throw new Error("There was an error loading offers.");
+    }
+
+    try {
+      if (torqueUserClient) {
+        const allJourneys = await torqueUserClient.getJourneys();
+
+        if (allJourneys) {
+          setUserJourneys(allJourneys);
+        }
+      }
+    } catch (e) {
+      console.error("Error refreshing user journey progress:", e);
+
+      throw new Error("There was an error loading journey progress.");
     }
   }, [torqueUserClient]);
+
+  const stopPollingOffers = useCallback(() => {
+    if (refreshInterval.current) {
+      clearInterval(refreshInterval.current);
+      refreshInterval.current = undefined;
+    }
+  }, []);
+
+  /**
+   *  Starts polling the user's offers for updates
+   */
+  const startPollingOffers = useCallback(() => {
+    stopPollingOffers();
+
+    // Start a new interval
+    refreshInterval.current = setInterval(async () => {
+      await refreshOffers();
+    }, autoPollInterval);
+  }, [refreshOffers, stopPollingOffers, autoPollInterval]);
 
   /**
    * Claim an offer
@@ -331,8 +437,6 @@ export function TorqueProvider({
           const torqueSDK = new TorqueSDK(config);
 
           setTorqueConfig(config);
-
-          console.log("Adapter initialized", adapter);
 
           await torqueSDK.initialize(
             adapter,
@@ -400,40 +504,62 @@ export function TorqueProvider({
       console.error(e);
     });
 
-    const interval = setInterval(() => {
-      refreshOffers().catch((e) => {
-        console.error(e);
-      });
-    }, 10000);
+    if (autoPollOffers) {
+      // Start polling offers
+      startPollingOffers();
+    }
 
     return () => {
-      clearInterval(interval);
+      // Stop polling offers on unmount
+      stopPollingOffers();
     };
-  }, [refreshOffers]);
+  }, [refreshOffers, startPollingOffers, stopPollingOffers, autoPollOffers]);
 
   const value: TorqueContextState = {
     torque,
     isLoading,
     publicKey: user?.pubKey,
     config: torqueConfig,
+    connectModalOpen,
+    useTransactionForAuth,
+    rpcEndpoint,
+    walletContext,
 
     // Auth functions
     initialize,
     logout,
+    setConnectModalOpen,
+    setUseTransactionForAuth,
 
     // Offer functions
     claimOffer,
     refreshOffers,
+    startPollingOffers,
+    stopPollingOffers,
 
     // User
     offers: userOffers,
     journeys: userJourneys,
     ...(user && torqueUserClient
-      ? { user, userClient: torqueUserClient, initialized: true }
-      : { user: undefined, userClient: undefined, initialized: false }),
+      ? {
+          user,
+          userClient: torqueUserClient,
+          initialized: true,
+          isAuthenticated: true,
+        }
+      : {
+          user: undefined,
+          userClient: undefined,
+          initialized: false,
+          isAuthenticated: false,
+        }),
   };
 
   return (
-    <TorqueContext.Provider value={value}>{children}</TorqueContext.Provider>
+    <TorqueContext.Provider value={value}>
+      {children}
+
+      <TorqueConnectDialog />
+    </TorqueContext.Provider>
   );
 }

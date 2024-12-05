@@ -2,6 +2,7 @@
  * Grouped Components
  */
 export * from "./actions";
+export * from "./dialogs";
 export * from "./icons";
 export * from "./offers";
 export * from "./rewards";

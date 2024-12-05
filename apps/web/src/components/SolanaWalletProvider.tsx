@@ -3,6 +3,8 @@
 // This component wraps the application with Solana wallet providers
 // It sets up the wallet adapter configuration and provides the necessary context for wallet interactions
 
+import "@solana/wallet-adapter-react-ui/styles.css";
+
 import { useMemo } from "react";
 import {
   ConnectionProvider,
@@ -12,8 +14,6 @@ import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import { PhantomWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { clusterApiUrl } from "@solana/web3.js";
-import "@solana/wallet-adapter-react-ui/styles.css";
-
 import { TorqueWrapper } from "./TorqueWrapper";
 
 export function SolanaWalletProvider({
