@@ -1,9 +1,6 @@
 import type { ActionGetResponse } from "@solana/actions";
 import type { ApiRequirement } from "@torque-labs/torque-ts-sdk";
-import {
-  TorqueAdminClient,
-  ApiProgressStatus,
-} from "@torque-labs/torque-ts-sdk";
+import { ApiProgressStatus } from "@torque-labs/torque-ts-sdk";
 import {
   EventType,
   getTensorNameFromCollectionAddress,
@@ -24,7 +21,6 @@ import { useTorque } from "#/hooks";
 import { getTokenDetails, cn } from "#/lib";
 import type { TokenDetails } from "#/types";
 
-// TODO: Add FORM_SUBMISSION to this map when ready
 export const requirementLabelMap: Record<EventType, { label: string }> = {
   [EventType.CLICK]: { label: "Click" },
   [EventType.CUSTOM_EVENT]: { label: "Custom Event" },
@@ -105,7 +101,7 @@ export function OfferRequirementItem({
   open,
   showAction,
 }: OfferRequirementItemProps) {
-  const { config } = useTorque();
+  const { config, rpcEndpoint } = useTorque();
 
   const [inTokenDetails, setInTokenDetails] = useState<TokenDetails>();
   const [outTokenDetails, setOutTokenDetails] = useState<TokenDetails>();
@@ -126,15 +122,13 @@ export function OfferRequirementItem({
         ("tokenAddress" in requirement.eventConfig &&
           requirement.eventConfig.tokenAddress)
       ) {
-        const fetchedTokens = await TorqueAdminClient.getSafeTokenList();
-
         if (
           "inToken" in requirement.eventConfig &&
           requirement.eventConfig.inToken
         ) {
-          const tokenInDetails = getTokenDetails(
+          const tokenInDetails = await getTokenDetails(
             requirement.eventConfig.inToken,
-            fetchedTokens,
+            rpcEndpoint,
           );
 
           setInTokenDetails(tokenInDetails);
@@ -144,9 +138,9 @@ export function OfferRequirementItem({
           "outToken" in requirement.eventConfig &&
           requirement.eventConfig.outToken
         ) {
-          const tokenOutDetails = getTokenDetails(
+          const tokenOutDetails = await getTokenDetails(
             requirement.eventConfig.outToken,
-            fetchedTokens,
+            rpcEndpoint,
           );
 
           setOutTokenDetails(tokenOutDetails);
@@ -156,9 +150,9 @@ export function OfferRequirementItem({
           "tokenAddress" in requirement.eventConfig &&
           requirement.eventConfig.tokenAddress
         ) {
-          const tokenInDetails = getTokenDetails(
+          const tokenInDetails = await getTokenDetails(
             requirement.eventConfig.tokenAddress,
-            fetchedTokens,
+            rpcEndpoint,
           );
 
           setInTokenDetails(tokenInDetails);
@@ -220,7 +214,7 @@ export function OfferRequirementItem({
     ]).catch((e) => {
       console.error(e);
     });
-  }, [requirement]);
+  }, [requirement, rpcEndpoint]);
 
   /**
    * Create requirement title

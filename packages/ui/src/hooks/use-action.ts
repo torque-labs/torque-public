@@ -14,6 +14,9 @@ export type OfferActionOnSuccess = (data: {
 
 export type OfferActionOnError = (data: { message: string }) => void;
 
+/**
+ * The props
+ */
 interface HandleActionProps {
   /**
    * The ID of the offer/campaign to fetch the action for
