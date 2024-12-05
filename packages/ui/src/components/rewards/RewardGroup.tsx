@@ -3,8 +3,8 @@ import { Users, Ticket, Trophy, Package } from "lucide-react";
 
 import { TokenPill } from "#/components";
 import { cn } from "#/lib";
-import type { RewardDetails } from "#/types";
 import { RewardGroupType } from "#/types";
+import type { RewardDetails } from "#/types";
 
 /**
  * Reward group component props
@@ -46,9 +46,9 @@ const iconMap: Record<
  */
 const titleMap: Record<RewardGroupType, string> = {
   [RewardGroupType.USER]: "User",
-  [RewardGroupType.PUBLISHER]: "Publisher",
-  [RewardGroupType.RAFFLE]: "Raffle",
-  [RewardGroupType.LOOTBOX]: "Lootbox",
+  [RewardGroupType.PUBLISHER]: "Referrals",
+  [RewardGroupType.RAFFLE]: "Raffles",
+  [RewardGroupType.LOOTBOX]: "Lootboxes",
 };
 
 /**
@@ -94,19 +94,18 @@ export function RewardGroup({
 
         {
           // Output for raffle rewards
-          reward.rewardGroup === RewardGroupType.RAFFLE ? (
-            <div>
-              {reward.entries.map((entry) => (
-                <div key={`${entry.tokenAddress}-${entry.amount}`}>
+          reward.rewardGroup === RewardGroupType.RAFFLE
+            ? reward.entries.map((entry, idx) => (
+                // eslint-disable-next-line -- Use index as key in case of duplicate raffle rewards
+                <div key={`${entry.tokenAddress}-${entry.amount}-${idx}`}>
                   <TokenPill
                     action="ENTRY FOR"
                     amount={entry.amount}
                     tokenAddress={entry.tokenAddress}
                   />
                 </div>
-              ))}
-            </div>
-          ) : null
+              ))
+            : null
         }
 
         {

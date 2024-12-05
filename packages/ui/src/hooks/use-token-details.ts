@@ -1,6 +1,7 @@
-import { TorqueAdminClient } from "@torque-labs/torque-ts-sdk";
 import { useEffect, useState } from "react";
 
+import { useTorque } from "#/hooks";
+import { getTokenDetails } from "#/lib";
 import type { TokenDetails } from "#/types";
 
 /**
@@ -10,51 +11,46 @@ import type { TokenDetails } from "#/types";
  *
  * @returns An object containing the token details, loading state, and error state
  */
-export function useTokenDetails(tokenAddress: string) {
+export function useTokenDetails(tokenAddress?: string) {
+  const { rpcEndpoint } = useTorque();
+
   const [tokenDetails, setTokenDetails] = useState<TokenDetails>();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>();
 
   useEffect(() => {
+    // Reset state on update
+    setTokenDetails(undefined);
+    setIsLoading(false);
+
+    // If no token address, return
+    if (!tokenAddress) {
+      return;
+    }
+
     /**
      * Fetch token details
      */
-    async function fetchTokenDetails() {
+    const fetchTokenDetails = async () => {
       setIsLoading(true);
 
       try {
         // Fetch token list from Torque SDK
-        const tokenList = await TorqueAdminClient.getSafeTokenList();
+        const token = await getTokenDetails(tokenAddress, rpcEndpoint);
 
-        // Find token in token list
-        const token = tokenList.find((t) => t.address === tokenAddress);
-
-        // Set token details if found
-        if (token) {
-          setTokenDetails({
-            name: token.name,
-            logo: token.logoURI,
-            decimals: token.decimals,
-            symbol: token.symbol,
-          });
-        } else {
-          setTokenDetails(undefined);
-          setError("Token not found.");
-        }
+        setTokenDetails(token);
       } catch (e) {
-        console.error(e);
-
         setTokenDetails(undefined);
         setError("Failed to fetch token details.");
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     fetchTokenDetails().catch((e) => {
       console.error(e);
     });
-  }, [tokenAddress]);
+  }, [rpcEndpoint, tokenAddress]);
 
   return {
     token: tokenDetails,

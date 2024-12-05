@@ -3,7 +3,6 @@ import type { TransactionResponse } from "@solana/actions-spec";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { VersionedTransaction } from "@solana/web3.js";
 import type { Transaction } from "@solana/web3.js";
-import { TorqueAdminClient } from "@torque-labs/torque-ts-sdk";
 import type {
   ApiRequirement,
   ApiProgressStatus,
@@ -11,7 +10,7 @@ import type {
 import { EventType } from "@torque-labs/torque-utils";
 import { useCallback, useEffect, useState } from "react";
 
-import { useOfferStatus } from "#/hooks";
+import { useOfferStatus, useTorque } from "#/hooks";
 import { getTokenDetails, truncateAddress, base64ToUint8Array } from "#/lib";
 import type { TokenDetails } from "#/types";
 
@@ -57,6 +56,7 @@ export function TorqueDrawerRequirement({
   campaignId,
   index,
 }: TorqueDrawerRequirementProps) {
+  const { rpcEndpoint } = useTorque();
   const { hasStarted } = useOfferStatus(campaignId);
   const { wallet, publicKey } = useWallet();
   const { connection } = useConnection();
@@ -161,15 +161,13 @@ export function TorqueDrawerRequirement({
         ("tokenAddress" in requirement.eventConfig &&
           requirement.eventConfig.tokenAddress)
       ) {
-        const fetchedTokens = await TorqueAdminClient.getSafeTokenList();
-
         if (
           "inToken" in requirement.eventConfig &&
           requirement.eventConfig.inToken
         ) {
-          const tokenInDetails = getTokenDetails(
+          const tokenInDetails = await getTokenDetails(
             requirement.eventConfig.inToken,
-            fetchedTokens,
+            rpcEndpoint,
           );
 
           setInTokenDetails(tokenInDetails);
@@ -179,9 +177,9 @@ export function TorqueDrawerRequirement({
           "outToken" in requirement.eventConfig &&
           requirement.eventConfig.outToken
         ) {
-          const tokenOutDetails = getTokenDetails(
+          const tokenOutDetails = await getTokenDetails(
             requirement.eventConfig.outToken,
-            fetchedTokens,
+            rpcEndpoint,
           );
 
           setOutTokenDetails(tokenOutDetails);
@@ -191,9 +189,9 @@ export function TorqueDrawerRequirement({
           "tokenAddress" in requirement.eventConfig &&
           requirement.eventConfig.tokenAddress
         ) {
-          const tokenInDetails = getTokenDetails(
+          const tokenInDetails = await getTokenDetails(
             requirement.eventConfig.tokenAddress,
-            fetchedTokens,
+            rpcEndpoint,
           );
 
           setInTokenDetails(tokenInDetails);

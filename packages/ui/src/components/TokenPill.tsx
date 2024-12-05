@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 
 import { Skeleton } from "#/components/ui/skeleton";
 import { useTokenDetails } from "#/hooks/use-token-details";
@@ -58,6 +58,10 @@ export function TokenPill({
 
     return formatAmount(amount);
   }, [amount, token, tokenAddress]);
+
+  useEffect(() => {
+    console.log("token", token);
+  }, [token]);
 
   return isLoading ? (
     <Skeleton className="torque-h-12 torque-w-full torque-max-w-80 torque-rounded-full" />
