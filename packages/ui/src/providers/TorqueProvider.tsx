@@ -12,8 +12,9 @@ import type {
 } from "@torque-labs/torque-ts-sdk";
 import { TorqueSDK } from "@torque-labs/torque-ts-sdk";
 import { createContext, useState, useCallback, useEffect } from "react";
-import type { PropsWithChildren } from "react";
+import type { Dispatch, PropsWithChildren, SetStateAction } from "react";
 
+import { TorqueConnectDialog } from "#/components";
 import { API_URL, APP_URL, FUNCTIONS_URL } from "#/constants";
 
 /**
@@ -133,6 +134,16 @@ type TorqueContextState = {
   config?: TorqueOptions;
 
   /**
+   * The state of the connect modal
+   */
+  connectModalOpen: boolean;
+
+  /**
+   * Flag to set if the user should use transactions for authentication (eg. Ledger)
+   */
+  useTransactionForAuth: boolean;
+
+  /**
    * Claim an offer
    *
    * @param offerId - The ID of the offer to start/claim
@@ -157,6 +168,16 @@ type TorqueContextState = {
    * Logout the user and clear the Torque SDK instance
    */
   logout: () => Promise<void>;
+
+  /**
+   * Set the visibility of the wallet connect modal
+   */
+  setConnectModalOpen: Dispatch<SetStateAction<boolean>>;
+
+  /**
+   * Set the flag whether to use transactions for authentication
+   */
+  setUseTransactionForAuth: Dispatch<SetStateAction<boolean>>;
 } & (
   | {
       /**
@@ -173,11 +194,17 @@ type TorqueContextState = {
        * Flag indicating if the user is initialized.
        */
       initialized: true;
+
+      /**
+       * Flag indicating if the user is authenticated. (same as initialized)
+       */
+      isAuthenticated: true;
     }
   | {
       user: undefined;
       userClient: undefined;
       initialized: false;
+      isAuthenticated: false;
     }
 );
 
@@ -218,6 +245,8 @@ export function TorqueProvider({
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [torqueConfig, setTorqueConfig] = useState<TorqueOptions>();
   const [initError, setInitError] = useState<boolean>(false);
+  const [connectModalOpen, setConnectModalOpen] = useState(false);
+  const [useTransactionForAuth, setUseTransactionForAuth] = useState(false);
 
   // User state
   const [user, setUser] = useState<ApiUser>();
@@ -241,13 +270,18 @@ export function TorqueProvider({
   const logout = useCallback(async () => {
     setIsLoading(true);
 
+    if (adapter) {
+      await adapter.disconnect();
+      setAdapter(undefined);
+    }
+
     await torque?.logout();
 
     setUser(undefined);
     setIsLoading(false);
     setInitError(false);
     setTorqueUserClient(undefined);
-  }, [torque]);
+  }, [torque, adapter]);
 
   /**
    * Offer functions
@@ -332,8 +366,6 @@ export function TorqueProvider({
 
           setTorqueConfig(config);
 
-          console.log("Adapter initialized", adapter);
-
           await torqueSDK.initialize(
             adapter,
             undefined,
@@ -416,10 +448,14 @@ export function TorqueProvider({
     isLoading,
     publicKey: user?.pubKey,
     config: torqueConfig,
+    connectModalOpen,
+    useTransactionForAuth,
 
     // Auth functions
     initialize,
     logout,
+    setConnectModalOpen,
+    setUseTransactionForAuth,
 
     // Offer functions
     claimOffer,
@@ -429,11 +465,25 @@ export function TorqueProvider({
     offers: userOffers,
     journeys: userJourneys,
     ...(user && torqueUserClient
-      ? { user, userClient: torqueUserClient, initialized: true }
-      : { user: undefined, userClient: undefined, initialized: false }),
+      ? {
+          user,
+          userClient: torqueUserClient,
+          initialized: true,
+          isAuthenticated: true,
+        }
+      : {
+          user: undefined,
+          userClient: undefined,
+          initialized: false,
+          isAuthenticated: false,
+        }),
   };
 
   return (
-    <TorqueContext.Provider value={value}>{children}</TorqueContext.Provider>
+    <TorqueContext.Provider value={value}>
+      {children}
+
+      <TorqueConnectDialog />
+    </TorqueContext.Provider>
   );
 }

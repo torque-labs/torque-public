@@ -5,7 +5,11 @@ import type {
 } from "@torque-labs/torque-ts-sdk";
 import { ChevronLeft } from "lucide-react";
 
-import { MovingBorderButton, OfferRequirementItem } from "#/components";
+import {
+  MovingBorderButton,
+  OfferRequirementItem,
+  Rewards,
+} from "#/components";
 import { Badge } from "#/components/ui/badge";
 import { Button } from "#/components/ui/button";
 import { useTorque } from "#/hooks";
@@ -86,6 +90,11 @@ export function TorqueDrawerOffer({
           Claim Offer
         </MovingBorderButton>
       ) : null}
+
+      <div className="mt-6">
+        <h4 className="mb-2">Rewards</h4>
+        <Rewards campaign={campaign} />
+      </div>
 
       <div className="mt-6">
         <h4 className="mb-2">Requirements</h4>
