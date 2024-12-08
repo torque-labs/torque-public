@@ -103,6 +103,7 @@ function TorqueWrapper({
         functionsUrl:
           "https://0tvum434ha.execute-api.us-east-1.amazonaws.com/Prod",
         publisherHandle: "torqueprotocol",
+        rpc: process.env.NEXT_PUBLIC_RPC,
       };
 
   return (
