@@ -11,7 +11,6 @@ import {
   DialogTitle,
 } from "#/components/ui/dialog";
 import { Switch } from "#/components/ui/switch";
-import { APP_URL } from "#/constants";
 import { useTorque } from "#/hooks";
 
 const walletLinkMap = {
@@ -50,7 +49,7 @@ export function TorqueConnectDialog() {
   const walletsList = useMemo(() => {
     return wallets.map((wal) => {
       const linkPrefix = getWalletLink(wal.adapter.name);
-      const url = encodeURIComponent(APP_URL);
+      const url = encodeURIComponent(window.location.href);
       const ref = encodeURIComponent(window.location.origin);
 
       const link = linkPrefix
