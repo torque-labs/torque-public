@@ -41,7 +41,7 @@
 
 @layer components {
   * {
-    @apply border-border;
+    @apply torque-border-border;
   }
 
   .torque-blink .blink .text-text-button {
@@ -63,7 +63,7 @@
   }
 
   .torque-blink .blink .border {
-    @apply border-border;
+    @apply torque-border-border;
   }
 
   .torque-blink .blink .shadow-action {
@@ -71,6 +71,6 @@
   }
 
   .torque-blink .blink .bg-bg-primary {
-    @apply bg-primary/5;
+    @apply torque-bg-primary/5;
   }
 }
