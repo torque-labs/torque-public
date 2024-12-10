@@ -247,6 +247,7 @@ export function TorqueProvider({
   const [initError, setInitError] = useState<boolean>(false);
   const [connectModalOpen, setConnectModalOpen] = useState(false);
   const [useTransactionForAuth, setUseTransactionForAuth] = useState(false);
+  const [autoLogin, setAutoLogin] = useState(autoInit);
 
   // User state
   const [user, setUser] = useState<ApiUser>();
@@ -263,6 +264,10 @@ export function TorqueProvider({
       setAdapter(wallet.adapter);
     }
   }, [wallet?.adapter, wallet?.adapter.publicKey]);
+
+  useEffect(() => {
+    setAutoLogin(autoInit);
+  }, [autoInit]);
 
   /**
    * Logout the user and clear the torque instance.
@@ -291,6 +296,8 @@ export function TorqueProvider({
     if (window?.solana) {
       // eslint-disable-next-line -- Listen for account changes in phantom
       window.solana.on("accountChanged", async (event: bigint) => {
+        setAutoLogin(false);
+
         logout().catch((e) => {
           console.error(e);
         });
@@ -301,6 +308,8 @@ export function TorqueProvider({
     if (window?.solflare) {
       // eslint-disable-next-line -- Listen for account changes in solflare
       window.solflare.on("accountChanged", async (event: bigint) => {
+        setAutoLogin(false);
+
         logout().catch((e) => {
           console.error(e);
         });
@@ -377,6 +386,7 @@ export function TorqueProvider({
     async (initOptions?: TorqueInitOptions) => {
       try {
         setIsLoading(true);
+        setAutoLogin(autoInit);
 
         if (adapter && !torqueUserClient) {
           const config = {
@@ -434,6 +444,7 @@ export function TorqueProvider({
       refreshOffers,
       torqueUserClient,
       adapter,
+      autoInit,
     ],
   );
 
@@ -441,13 +452,13 @@ export function TorqueProvider({
    * Detect wallet and initialize user if autoInit is enabled
    */
   useEffect(() => {
-    if (autoInit && adapter && !initError && !isLoading && !torqueUserClient) {
+    if (autoLogin && adapter && !initError && !isLoading && !torqueUserClient) {
       initialize().catch((e) => {
         console.error(e);
         setInitError(true);
       });
     }
-  }, [autoInit, adapter, initialize, isLoading, torqueUserClient, initError]);
+  }, [autoLogin, adapter, initialize, isLoading, torqueUserClient, initError]);
 
   /**
    * Refresh offers every 10 seconds
