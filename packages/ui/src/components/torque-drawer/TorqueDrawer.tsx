@@ -144,10 +144,10 @@ export function TorqueDrawer({
         </DrawerTrigger>
       ) : null}
 
-      <DrawerContent className="bottom-0 left-auto right-0 top-0 mt-0 flex w-96 overflow-auto rounded-none bg-card text-white outline-none">
-        <DrawerHeader className="flex items-center justify-between gap-2 p-4 pt-6">
-          <DrawerTitle className="flex items-center gap-2 rounded-md border px-2.5 py-1 text-sm font-normal">
-            <Wallet className="text-muted" size={16} />
+      <DrawerContent className="torque-bottom-0 torque-left-auto torque-right-0 torque-top-0 torque-mt-0 torque-flex torque-w-96 torque-overflow-auto torque-rounded-none torque-bg-card torque-text-white torque-outline-none">
+        <DrawerHeader className="torque-flex torque-items-center torque-justify-between torque-gap-2 torque-p-4 torque-pt-6">
+          <DrawerTitle className="torque-flex torque-items-center torque-gap-2 torque-rounded-md torque-border torque-px-2.5 torque-py-1 torque-text-sm torque-font-normal">
+            <Wallet className="torque-text-muted" size={16} />
             {publicKey ? (
               <div>
                 {`${publicKey
@@ -156,14 +156,14 @@ export function TorqueDrawer({
               </div>
             ) : null}
           </DrawerTitle>
-          <DrawerDescription className="flex items-center gap-2 text-[10px]">
-            Powered by <Logo className="w-16" />
+          <DrawerDescription className="torque-flex torque-items-center torque-gap-2 torque-text-[10px]">
+            Powered by <Logo className="torque-w-16" />
           </DrawerDescription>
         </DrawerHeader>
 
         {!openOffer ? (
-          <div className="flex w-full flex-col gap-4 p-4">
-            <h3 className="text-lg font-medium">
+          <div className="torque-flex torque-w-full torque-flex-col torque-gap-4 torque-p-4">
+            <h3 className="torque-text-lg torque-font-medium">
               Offers ({offers.length ? offers.length : 0})
             </h3>
             {sortedOffers.map((campaign) => {
@@ -193,9 +193,9 @@ export function TorqueDrawer({
           />
         )}
 
-        <DrawerFooter className="sticky bottom-0 left-0 flex w-full items-center justify-center bg-gradient-to-t from-card from-50% to-100% pt-10">
+        <DrawerFooter className="torque-sticky torque-bottom-0 torque-left-0 torque-flex torque-w-full torque-items-center torque-justify-center torque-bg-gradient-to-t torque-from-card torque-from-50% torque-to-100% torque-pt-10">
           <DrawerClose asChild>
-            <Button className="w-full" variant="outline">
+            <Button className="torque-w-full" variant="outline">
               Close
             </Button>
           </DrawerClose>

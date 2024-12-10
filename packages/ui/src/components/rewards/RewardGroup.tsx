@@ -63,13 +63,23 @@ export function RewardGroup({
   const title = titleMap[reward.rewardGroup];
 
   return (
-    <div className={cn("w-full rounded-md border p-4", className)}>
-      <div className={cn("mb-4 flex items-center gap-2", headerClassName)}>
+    <div
+      className={cn(
+        "torque-w-full torque-rounded-md torque-border torque-p-4",
+        className,
+      )}
+    >
+      <div
+        className={cn(
+          "torque-mb-4 torque-flex torque-items-center torque-gap-2",
+          headerClassName,
+        )}
+      >
         <IconComponent size={16} />
-        <h4 className="font-semibold">{title}</h4>
+        <h4 className="torque-font-semibold">{title}</h4>
       </div>
 
-      <div className="flex flex-col items-start gap-2">
+      <div className="torque-flex torque-flex-col torque-items-start torque-gap-2">
         {
           // Output for user and publisher rewards
           reward.rewardGroup === RewardGroupType.USER ||
@@ -105,7 +115,7 @@ export function RewardGroup({
             <div>
               {reward.boxes.map((box) => (
                 <div
-                  className="flex items-center gap-2"
+                  className="torque-flex torque-items-center torque-gap-2"
                   key={`box-${box.users}-${box.amount}`}
                 >
                   <span>{box.users}</span>

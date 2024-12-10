@@ -6,19 +6,23 @@ import { Drawer as DrawerPrimitive } from "vaul";
 
 import { cn } from "#/lib";
 
-const drawerVariants = cva("fixed z-50 flex flex-col bg-background", {
-  variants: {
-    side: {
-      top: "inset-x-0 top-0 border-b",
-      bottom: "inset-x-0 bottom-0 border-t",
-      left: "inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-sm",
-      right: "inset-y-0 right-0 h-full w-full max-w-[365px] border-l m-0",
+const drawerVariants = cva(
+  "torque-fixed torque-z-50 torque-flex torque-flex-col torque-bg-background",
+  {
+    variants: {
+      side: {
+        top: "torque-inset-x-0 torque-top-0 torque-border-b",
+        bottom: "torque-inset-x-0 torque-bottom-0 torque-border-t",
+        left: "torque-inset-y-0 torque-left-0 torque-h-full torque-w-3/4 torque-border-r sm:torque-max-w-sm",
+        right:
+          "torque-inset-y-0 torque-right-0 torque-h-full torque-w-full torque-max-w-[365px] torque-border-l torque-m-0",
+      },
+    },
+    defaultVariants: {
+      side: "right",
     },
   },
-  defaultVariants: {
-    side: "right",
-  },
-});
+);
 
 export interface DrawerContentProps
   extends React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>,
@@ -48,7 +52,10 @@ const DrawerOverlay = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Overlay>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Overlay
-    className={cn("fixed inset-0 z-50 bg-black/50", className)}
+    className={cn(
+      "torque-fixed torque-inset-0 torque-z-50 torque-bg-black/50",
+      className,
+    )}
     ref={ref}
     {...props}
   />
@@ -63,7 +70,7 @@ const DrawerContent = React.forwardRef<
     <DrawerOverlay />
     <DrawerPrimitive.Content
       className={cn(
-        "fixed inset-x-0 bottom-0 z-50 mt-24 flex h-auto flex-col border-border bg-background text-white",
+        "torque-fixed torque-inset-x-0 torque-bottom-0 torque-z-50 torque-mt-24 torque-flex torque-h-auto torque-flex-col torque-border-border torque-bg-background torque-text-white",
         drawerVariants({ side }),
         className,
       )}
@@ -82,7 +89,10 @@ function DrawerHeader({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("grid gap-1.5 p-4 text-center sm:text-left", className)}
+      className={cn(
+        "torque-grid torque-gap-1.5 torque-p-4 torque-text-center sm:torque-text-left",
+        className,
+      )}
       {...props}
     />
   );
@@ -95,7 +105,10 @@ function DrawerFooter({
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("mt-auto flex flex-col gap-2 p-4", className)}
+      className={cn(
+        "torque-mt-auto torque-flex torque-flex-col torque-gap-2 torque-p-4",
+        className,
+      )}
       {...props}
     />
   );
@@ -108,7 +121,7 @@ const DrawerTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
     className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "torque-text-lg torque-font-semibold torque-leading-none torque-tracking-tight",
       className,
     )}
     ref={ref}
@@ -122,7 +135,7 @@ const DrawerDescription = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("torque-text-sm torque-text-muted-foreground", className)}
     ref={ref}
     {...props}
   />

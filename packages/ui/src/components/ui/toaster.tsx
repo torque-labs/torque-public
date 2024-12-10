@@ -25,7 +25,7 @@ export function Toaster() {
       {toasts.map(({ id, title, description, action, signature, ...props }) => {
         return (
           <Toast key={id} {...props}>
-            <div className="grid gap-1">
+            <div className="torque-grid torque-gap-1">
               {title ? <ToastTitle>{title}</ToastTitle> : null}
               {description ? (
                 <ToastDescription>{description}</ToastDescription>

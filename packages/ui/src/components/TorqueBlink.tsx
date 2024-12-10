@@ -27,7 +27,7 @@ export function TorqueBlink({ actionUrl }: TorqueBlinkProps) {
   return action ? (
     <div className="torque-blink">
       {isLoading ? (
-        <Skeleton className="h-44 w-full" />
+        <Skeleton className="torque-h-44 torque-w-full" />
       ) : (
         <Blink
           action={action}

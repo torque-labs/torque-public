@@ -18,18 +18,20 @@ export function CustomEventAction({ eventConfig }: CustomEventActionProps) {
   const description = eventConfig.description;
 
   return (
-    <div className="flex flex-col gap-3">
-      {description ? <p className="mb-4 text-base">{description}</p> : null}
+    <div className="torque-flex torque-flex-col torque-gap-3">
+      {description ? (
+        <p className="torque-mb-4 torque-text-base">{description}</p>
+      ) : null}
       {formEnabled ? (
         <>{/* TODO: Output form here? */}</>
       ) : (
-        <div className="flex w-full flex-col gap-4">
+        <div className="torque-flex torque-w-full torque-flex-col torque-gap-4">
           {eventConfig.targetUrl ? (
             <>
-              <p className="flex flex-wrap items-center gap-1">
+              <p className="torque-flex torque-flex-wrap torque-items-center torque-gap-1">
                 You can complete this directly on
                 <a
-                  className="text-highlight"
+                  className="torque-text-highlight"
                   href={eventConfig.targetUrl}
                   rel="noopener"
                   target="_blank"
@@ -40,7 +42,7 @@ export function CustomEventAction({ eventConfig }: CustomEventActionProps) {
 
               <Button asChild>
                 <a
-                  className="flex items-center gap-2"
+                  className="torque-flex torque-items-center torque-gap-2"
                   href={eventConfig.targetUrl}
                   rel="noopener"
                   target="_blank"
@@ -55,10 +57,10 @@ export function CustomEventAction({ eventConfig }: CustomEventActionProps) {
               return (
                 <div key={`custom-event-field-${field.name}`}>
                   <div>
-                    <span className="mr-1 font-mono text-highlight">
+                    <span className="torque-mr-1 torque-font-mono torque-text-highlight">
                       {field.name}
                     </span>{" "}
-                    <span className="text-xs">({field.type})</span>
+                    <span className="torque-text-xs">({field.type})</span>
                   </div>
                   <pre>{JSON.stringify(field.validation, undefined, 2)}</pre>
                 </div>

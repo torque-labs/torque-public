@@ -86,7 +86,12 @@ export function Rewards({ campaign, className }: RewardsProps) {
   }, [campaign.lootBoxRewards]);
 
   return (
-    <div className={cn("flex w-full flex-col gap-4", className)}>
+    <div
+      className={cn(
+        "torque-flex torque-w-full torque-flex-col torque-gap-4",
+        className,
+      )}
+    >
       {userRewards ? (
         <RewardGroup
           reward={{

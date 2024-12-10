@@ -58,28 +58,33 @@ export function Countdown({ endTime, className }: CountdownProps) {
   );
 
   return (
-    <div className={cn("flex items-center justify-center text-xl", className)}>
-      <div className="grid auto-cols-max grid-flow-col gap-5 text-center">
-        <div className="flex flex-col">
-          <span className="countdown font-mono text-inherit">
+    <div
+      className={cn(
+        "torque-flex torque-items-center torque-justify-center torque-text-xl",
+        className,
+      )}
+    >
+      <div className="torque-grid torque-auto-cols-max torque-grid-flow-col torque-gap-5 torque-text-center">
+        <div className="torque-flex torque-flex-col">
+          <span className="torque-countdown torque-font-mono torque-text-inherit">
             <span style={{ "--value": timeLeft.days } as CSSProperties} />
           </span>
           days
         </div>
-        <div className="flex flex-col">
-          <span className="countdown font-mono text-inherit">
+        <div className="torque-flex torque-flex-col">
+          <span className="torque-countdown torque-font-mono torque-text-inherit">
             <span style={{ "--value": timeLeft.hours } as CSSProperties} />
           </span>
           hours
         </div>
-        <div className="flex flex-col">
-          <span className="countdown font-mono text-inherit">
+        <div className="torque-flex torque-flex-col">
+          <span className="torque-countdown torque-font-mono torque-text-inherit">
             <span style={{ "--value": timeLeft.minutes } as CSSProperties} />
           </span>
           min
         </div>
-        <div className="flex flex-col">
-          <span className="countdown font-mono text-inherit">
+        <div className="torque-flex torque-flex-col">
+          <span className="torque-countdown torque-font-mono torque-text-inherit">
             <span style={{ "--value": timeLeft.seconds } as CSSProperties} />
           </span>
           sec

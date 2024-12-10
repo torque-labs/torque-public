@@ -45,44 +45,46 @@ export function TorqueDrawerOffer({
   const hasCompleted = Boolean(journey?.status === ApiProgressStatus.DONE);
 
   return (
-    <div className="flex w-full flex-col p-4 pt-2">
+    <div className="torque-flex torque-w-full torque-flex-col torque-p-4 torque-pt-2">
       <Button
-        className="mb-3 flex items-center self-start py-1 pl-0 text-sm font-normal hover:bg-transparent"
+        className="torque-mb-3 torque-flex torque-items-center torque-self-start torque-py-1 torque-pl-0 torque-text-sm torque-font-normal hover:torque-bg-transparent"
         onClick={onClose}
         variant="ghost"
       >
-        <ChevronLeft className="size-4" size={16} />
+        <ChevronLeft className="torque-size-4" size={16} />
         <span>Back</span>
       </Button>
 
       {campaign.imageUrl ? (
-        <div className="mb-4 w-full">
+        <div className="torque-mb-4 torque-w-full">
           <img
             alt={campaign.title}
-            className="aspect-square w-full overflow-hidden rounded-md object-cover"
+            className="torque-aspect-square torque-w-full torque-overflow-hidden torque-rounded-md torque-object-cover"
             src={campaign.imageUrl}
           />
         </div>
       ) : null}
 
-      <div className="mb-3 flex flex-col gap-2">
+      <div className="torque-mb-3 torque-flex torque-flex-col torque-gap-2">
         <div>
           {hasCompleted ? <Badge variant="green">Completed</Badge> : null}
 
           {hasStarted ? <Badge variant="default">Started</Badge> : null}
         </div>
 
-        <h3 className="text-base font-semibold leading-snug">
+        <h3 className="torque-text-base torque-font-semibold torque-leading-snug">
           {campaign.title}
         </h3>
 
-        <p className="text-xs text-muted">{campaign.description}</p>
+        <p className="torque-text-xs torque-text-muted">
+          {campaign.description}
+        </p>
       </div>
 
       {!journey ? (
         <MovingBorderButton
           borderRadius=".5rem"
-          className="text-sm"
+          className="torque-text-sm"
           onClick={async () => {
             await claimOffer(campaign.id);
           }}
@@ -91,14 +93,14 @@ export function TorqueDrawerOffer({
         </MovingBorderButton>
       ) : null}
 
-      <div className="mt-6">
-        <h4 className="mb-2">Rewards</h4>
+      <div className="torque-mt-6">
+        <h4 className="torque-mb-2">Rewards</h4>
         <Rewards campaign={campaign} />
       </div>
 
-      <div className="mt-6">
-        <h4 className="mb-2">Requirements</h4>
-        <ul className="flex flex-col gap-2">
+      <div className="torque-mt-6">
+        <h4 className="torque-mb-2">Requirements</h4>
+        <ul className="torque-flex torque-flex-col torque-gap-2">
           {campaign.requirements.map((requirement, idx) => {
             const step = journey?.userBountySteps?.find((s) => {
               return s.bountyStepId === requirement.id;

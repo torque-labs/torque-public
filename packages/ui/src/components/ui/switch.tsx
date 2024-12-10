@@ -1,7 +1,7 @@
 "use client";
 
-import * as SwitchPrimitives from "@radix-ui/react-switch";
 import * as React from "react";
+import * as SwitchPrimitives from "@radix-ui/react-switch";
 
 import { cn } from "#/lib/utils";
 
@@ -11,7 +11,7 @@ const Switch = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SwitchPrimitives.Root
     className={cn(
-      "peer inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
+      "torque-peer torque-inline-flex torque-h-6 torque-w-11 torque-shrink-0 torque-cursor-pointer torque-items-center torque-rounded-full torque-border-2 torque-border-transparent torque-transition-colors focus-visible:torque-outline-none focus-visible:torque-ring-2 focus-visible:torque-ring-ring focus-visible:torque-ring-offset-2 focus-visible:torque-ring-offset-background disabled:torque-cursor-not-allowed disabled:torque-opacity-50 data-[state=checked]:torque-bg-primary data-[state=unchecked]:torque-bg-input",
       className,
     )}
     {...props}
@@ -19,7 +19,7 @@ const Switch = React.forwardRef<
   >
     <SwitchPrimitives.Thumb
       className={cn(
-        "pointer-events-none block size-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0",
+        "torque-pointer-events-none torque-block torque-h-5 torque-w-5 torque-rounded-full torque-bg-background torque-shadow-lg torque-ring-0 torque-transition-transform data-[state=checked]:torque-translate-x-5 data-[state=unchecked]:torque-translate-x-0",
       )}
     />
   </SwitchPrimitives.Root>

@@ -2,35 +2,37 @@ import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
 
-import { cn } from "#/lib";
+import { cn } from "#/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-40",
+  "torque-inline-flex torque-items-center torque-justify-center torque-gap-2 torque-whitespace-nowrap torque-rounded-md torque-text-sm torque-font-medium torque-ring-offset-background torque-transition-colors focus-visible:torque-outline-none focus-visible:torque-ring-2 focus-visible:torque-ring-ring focus-visible:torque-ring-offset-2 disabled:torque-pointer-events-none disabled:torque-opacity-50 [&_svg]:torque-pointer-events-none [&_svg]:torque-size-4 [&_svg]:torque-shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default:
+          "torque-bg-primary torque-text-primary-foreground hover:torque-bg-primary/90",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+          "torque-bg-destructive torque-text-destructive-foreground hover:torque-bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "torque-border torque-border-input torque-bg-background hover:torque-bg-accent hover:torque-text-accent-foreground",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-        blue: "text-white bg-blue-700 hover:bg-blue-600",
-        torque: "bg-secondary text-highlight hover:bg-secondary/80",
+          "torque-bg-secondary torque-text-secondary-foreground hover:torque-bg-secondary/80",
+        ghost: "hover:torque-bg-accent hover:torque-text-accent-foreground",
+        link: "torque-text-primary torque-underline-offset-4 hover:torque-underline",
+        blue: "torque-text-white torque-bg-blue-700 hover:torque-bg-blue-600",
+        torque:
+          "torque-bg-secondary torque-text-highlight hover:torque-bg-secondary/80",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-12 rounded-md px-8",
-        icon: "size-10",
+        default: "torque-h-10 torque-px-4 torque-py-2",
+        sm: "torque-h-9 torque-rounded-md torque-px-3",
+        lg: "torque-h-11 torque-rounded-md torque-px-8",
+        icon: "torque-h-10 torque-w-10",
       },
       display: {
-        default: "w-auto",
-        block: "block w-full",
-        full: "w-full",
+        default: "torque-w-auto",
+        block: "torque-block torque-w-full",
+        full: "torque-w-full",
       },
     },
     defaultVariants: {
@@ -47,11 +49,11 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, display, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, display, className }))}
+        className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       />

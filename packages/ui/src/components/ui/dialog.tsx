@@ -20,7 +20,7 @@ const DialogOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Overlay
     className={cn(
-      "fixed inset-0 z-50 bg-black/70 backdrop-blur-sm data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+      "torque-fixed torque-inset-0 torque-z-50 torque-bg-black/80 torque-backdrop-blur-sm data-[state=open]:torque-animate-in data-[state=closed]:torque-animate-out data-[state=closed]:torque-fade-out-0 data-[state=open]:torque-fade-in-0",
       className,
     )}
     ref={ref}
@@ -29,32 +29,25 @@ const DialogOverlay = React.forwardRef<
 ));
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
 
-interface DialogContentProps
-  extends React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
-  showCloseButton?: boolean;
-}
-
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  DialogContentProps
->(({ className, showCloseButton = true, children, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+>(({ className, children, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
     <DialogPrimitive.Content
       className={cn(
-        "fixed left-1/2 top-1/2 z-50 grid w-full max-w-lg -translate-x-1/2 -translate-y-1/2 gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] sm:rounded-lg",
+        "torque-fixed torque-left-[50%] torque-top-[50%] torque-z-50 torque-grid torque-w-full torque-max-w-lg torque-translate-x-[-50%] torque-translate-y-[-50%] torque-gap-4 torque-border torque-bg-background torque-p-6 torque-shadow-lg torque-duration-200 data-[state=open]:torque-animate-in data-[state=closed]:torque-animate-out data-[state=closed]:torque-fade-out-0 data-[state=open]:torque-fade-in-0 data-[state=closed]:torque-zoom-out-95 data-[state=open]:torque-zoom-in-95 data-[state=closed]:torque-slide-out-to-left-1/2 data-[state=closed]:torque-slide-out-to-top-[48%] data-[state=open]:torque-slide-in-from-left-1/2 data-[state=open]:torque-slide-in-from-top-[48%] sm:torque-rounded-lg",
         className,
       )}
       ref={ref}
       {...props}
     >
       {children}
-      {showCloseButton ? (
-        <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-          <X className="size-4" />
-          <span className="sr-only">Close</span>
-        </DialogPrimitive.Close>
-      ) : null}
+      <DialogPrimitive.Close className="torque-absolute torque-right-4 torque-top-4 torque-rounded-sm torque-opacity-70 torque-ring-offset-background torque-transition-opacity hover:torque-opacity-100 focus:torque-outline-none focus:torque-ring-2 focus:torque-ring-ring focus:torque-ring-offset-2 disabled:torque-pointer-events-none data-[state=open]:torque-bg-accent data-[state=open]:torque-text-muted-foreground">
+        <X className="torque-h-4 torque-w-4" />
+        <span className="torque-sr-only">Close</span>
+      </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </DialogPortal>
 ));
@@ -67,7 +60,7 @@ function DialogHeader({
   return (
     <div
       className={cn(
-        "flex flex-col space-y-1.5 text-center sm:text-left",
+        "torque-flex torque-flex-col torque-space-y-1.5 torque-text-center sm:torque-text-left",
         className,
       )}
       {...props}
@@ -83,7 +76,7 @@ function DialogFooter({
   return (
     <div
       className={cn(
-        "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
+        "torque-flex torque-flex-col-reverse sm:torque-flex-row sm:torque-justify-end sm:torque-space-x-2",
         className,
       )}
       {...props}
@@ -98,7 +91,7 @@ const DialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     className={cn(
-      "text-lg font-semibold leading-none tracking-tight",
+      "torque-text-lg torque-font-semibold torque-leading-none torque-tracking-tight",
       className,
     )}
     ref={ref}
@@ -112,7 +105,7 @@ const DialogDescription = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("torque-text-sm torque-text-muted-foreground", className)}
     ref={ref}
     {...props}
   />

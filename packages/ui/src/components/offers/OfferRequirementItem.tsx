@@ -258,34 +258,38 @@ export function OfferRequirementItem({
     >
       <div
         className={cn(
-          "flex w-full flex-col rounded-md border border-dashed",
+          "torque-flex torque-w-full torque-flex-col torque-rounded-md torque-border torque-border-dashed",
           className,
         )}
       >
         <CollapsibleTrigger asChild>
           <Button
             className={cn(
-              "relative flex h-auto w-full items-center justify-between gap-4 rounded-none p-4 hover:bg-transparent",
-              { "cursor-default": !actionEnabled },
+              "torque-relative torque-flex torque-h-auto torque-w-full torque-items-center torque-justify-between torque-gap-4 torque-rounded-none torque-p-4 hover:torque-bg-transparent",
+              { "torque-cursor-default": !actionEnabled },
             )}
             variant="ghost"
           >
-            <span className="flex-1 text-left">{fullTitle}</span>
+            <span className="torque-flex-1 torque-text-left">{fullTitle}</span>
 
             {actionEnabled ? (
-              <div className="ml-auto">
+              <div className="torque-ml-auto">
                 {isOpen ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
               </div>
             ) : null}
 
             {status === ApiProgressStatus.DONE ? (
-              <Badge className="text-[8px]" variant="green">
+              <Badge className="torque-text-[8px]" variant="green">
                 Completed
               </Badge>
             ) : null}
 
             {status === ApiProgressStatus.PENDING ? (
-              <Badge className="text-[8px]" color="purple" variant="default">
+              <Badge
+                className="torque-text-[8px]"
+                color="purple"
+                variant="default"
+              >
                 Pending
               </Badge>
             ) : null}
@@ -293,7 +297,7 @@ export function OfferRequirementItem({
         </CollapsibleTrigger>
 
         {actionEnabled ? (
-          <CollapsibleContent className="w-full p-4 pt-0">
+          <CollapsibleContent className="torque-w-full torque-p-4 torque-pt-0">
             {requirement.type !== EventType.CUSTOM_EVENT ? (
               <TorqueBlink actionUrl={actionUrl} />
             ) : null}

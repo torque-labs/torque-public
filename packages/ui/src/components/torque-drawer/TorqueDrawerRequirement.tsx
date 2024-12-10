@@ -283,7 +283,7 @@ export function TorqueDrawerRequirement({
     ) {
       return (
         <>
-          <p className="w-full truncate">
+          <p className="torque-w-full torque-truncate">
             Sell Token:{" "}
             {inTokenDetails?.symbol ??
               truncateAddress(requirement.eventConfig.inToken)}
@@ -292,7 +292,7 @@ export function TorqueDrawerRequirement({
           {!step && hasStarted ? (
             <div>
               <button
-                className="btn btn-xs btn-primary"
+                className="torque-btn torque-btn-xs torque-btn-primary"
                 onClick={async () => {
                   const result = await getSwapTransaction();
 
@@ -314,7 +314,7 @@ export function TorqueDrawerRequirement({
     ) {
       return (
         <>
-          <p className="w-full truncate">
+          <p className="torque-w-full torque-truncate">
             Buy Token:{" "}
             {outTokenDetails?.symbol ??
               truncateAddress(requirement.eventConfig.outToken)}
@@ -323,7 +323,7 @@ export function TorqueDrawerRequirement({
           {!step && hasStarted ? (
             <div>
               <button
-                className="btn btn-xs btn-primary"
+                className="torque-btn torque-btn-xs torque-btn-primary"
                 onClick={async () => {
                   const result = await getSwapTransaction();
 

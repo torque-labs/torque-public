@@ -60,33 +60,35 @@ export function TokenPill({
   }, [amount, token, tokenAddress]);
 
   return isLoading ? (
-    <Skeleton className="h-12 w-full max-w-80 rounded-full" />
+    <Skeleton className="torque-h-12 torque-w-full torque-max-w-80 torque-rounded-full" />
   ) : (
     <div
       className={cn(
-        "flex items-center justify-center gap-4 rounded-full bg-gray-900 p-2 text-sm",
+        "torque-flex torque-items-center torque-justify-center torque-gap-4 torque-rounded-full torque-bg-gray-900 torque-p-2 torque-text-sm",
         className,
       )}
     >
       {action ? (
-        <div className="flex items-center gap-2 rounded-full bg-gray-700 px-3 py-1.5">
-          <span className="font-medium text-highlight">{action}</span>
+        <div className="torque-flex torque-items-center torque-gap-2 torque-rounded-full torque-bg-gray-700 torque-px-3 torque-py-1.5">
+          <span className="torque-font-medium torque-text-highlight">
+            {action}
+          </span>
         </div>
       ) : null}
-      <div className="flex items-center gap-2 rounded-full bg-gray-700 px-3 py-1.5">
-        <span className="font-medium">{formattedAmount}</span>
+      <div className="torque-flex torque-items-center torque-gap-2 torque-rounded-full torque-bg-gray-700 torque-px-3 torque-py-1.5">
+        <span className="torque-font-medium">{formattedAmount}</span>
       </div>
-      <div className="flex items-center gap-2 rounded-full bg-gray-700 px-3 py-1.5">
+      <div className="torque-flex torque-items-center torque-gap-2 torque-rounded-full torque-bg-gray-700 torque-px-3 torque-py-1.5">
         {token?.logo ? (
           <img
             alt={`Logo for ${tokenDisplay} token`}
-            className="size-4 rounded-full object-cover object-center"
+            className="torque-size-4 torque-rounded-full torque-object-cover torque-object-center"
             height={16}
             src={token.logo}
             width={16}
           />
         ) : null}
-        <span className="font-medium">{tokenDisplay}</span>
+        <span className="torque-font-medium">{tokenDisplay}</span>
       </div>
     </div>
   );

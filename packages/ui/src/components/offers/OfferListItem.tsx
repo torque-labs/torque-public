@@ -49,38 +49,49 @@ export function OfferListItem({
   const hasCompleted = Boolean(journey?.status === ApiProgressStatus.DONE);
 
   return (
-    <div className={cn("gap-4 rounded border", className)} {...rest}>
-      <div className="flex flex-col gap-2 p-3">
+    <div
+      className={cn("torque-gap-4 torque-rounded torque-border", className)}
+      {...rest}
+    >
+      <div className="torque-flex torque-flex-col torque-gap-2 torque-p-3">
         <div
-          className="flex w-full items-center gap-3"
+          className="torque-flex torque-w-full torque-items-center torque-gap-3"
           onClick={onClick}
           role="button"
           tabIndex={0}
         >
           {imageSrc ? (
-            <Avatar className="h-12 w-12 rounded-sm">
+            <Avatar className="torque-h-12 torque-w-12 torque-rounded-sm">
               <AvatarImage alt={`${title} image`} src={imageSrc} />
             </Avatar>
           ) : null}
-          <div className="flex-1">
-            <h3 className="font-semiboldleading-tight flex justify-between text-sm">
+          <div className="torque-flex-1">
+            <h3 className="torque-font-semibold torque-leading-tight torque-flex torque-justify-between torque-text-sm">
               {title}
             </h3>
           </div>
 
-          <ChevronRight className="size-5 text-white" size={16} />
+          <ChevronRight className="torque-size-5 torque-text-white" size={16} />
         </div>
 
-        <p className="mr-5 text-xs text-muted">{description}</p>
+        <p className="torque-mr-5 torque-text-xs torque-text-muted">
+          {description}
+        </p>
 
         {hasStarted ? (
-          <Badge className="self-start px-2 text-[10px]" variant="default">
+          <Badge
+            className="torque-self-start torque-px-2 torque-text-[10px]"
+            variant="default"
+          >
             Started
           </Badge>
         ) : null}
 
         {hasCompleted ? (
-          <Badge className="self-start px-2 text-[10px]" variant="green">
+          <Badge
+            className="torque-self-start torque-px-2 torque-text-[10px]"
+            variant="green"
+          >
             Completed
           </Badge>
         ) : null}

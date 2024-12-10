@@ -48,7 +48,7 @@ export function MovingBorder({
   return (
     <>
       <svg
-        className="absolute size-full"
+        className="torque-absolute torque-size-full"
         height="100%"
         preserveAspectRatio="none"
         width="100%"
@@ -101,7 +101,7 @@ export function MovingBorderButton({
   return (
     <button
       className={cn(
-        "relative h-10 w-full overflow-hidden bg-transparent p-px text-xl",
+        "torque-relative torque-h-10 torque-w-full torque-overflow-hidden torque-bg-transparent torque-p-px torque-text-xl",
         containerClassName,
       )}
       style={{
@@ -111,13 +111,13 @@ export function MovingBorderButton({
       {...otherProps}
     >
       <div
-        className="absolute inset-0"
+        className="torque-absolute torque-inset-0"
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
       >
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
-              "z-10 size-24 border-2 border-black bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)] opacity-80", // Updated border size and color
+              "torque-z-10 torque-size-24 torque-border-2 torque-border-black torque-bg-[radial-gradient(var(--sky-500)_40%,transparent_60%)] torque-opacity-80", // Updated border size and color
               borderClassName,
             )}
           />
@@ -126,7 +126,7 @@ export function MovingBorderButton({
 
       <div
         className={cn(
-          "relative flex size-full items-center justify-center border border-slate-800 bg-slate-900/[0.8] text-sm text-highlight antialiased backdrop-blur-xl",
+          "torque-relative torque-flex torque-size-full torque-items-center torque-justify-center torque-border torque-border-slate-800 torque-bg-slate-900/[0.8] torque-text-sm torque-text-highlight torque-antialiased torque-backdrop-blur-xl",
           className,
         )}
         style={{

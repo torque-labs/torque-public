@@ -100,16 +100,16 @@ export function TorqueConnectDialog() {
       open={connectModalOpen ? !isAuthenticated : false}
     >
       <DialogContent>
-        <DialogHeader className="mb-4">
+        <DialogHeader className="torque-mb-4">
           <DialogTitle>Connect your Wallet</DialogTitle>
           <DialogDescription>
             Select your wallet bellow to connect and login to Torque.
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex flex-col gap-4">
+        <div className="torque-flex torque-flex-col torque-gap-4">
           {showLedgerSwitch ? (
-            <div className="flex items-center gap-2">
+            <div className="torque-flex torque-items-center torque-gap-2">
               <Switch
                 checked={useTransactionForAuth}
                 onCheckedChange={setUseTransactionForAuth}
@@ -122,7 +122,7 @@ export function TorqueConnectDialog() {
           {walletsList.map((wal) =>
             wal.enabled ? (
               <Button
-                className="w-full gap-2"
+                className="torque-w-full torque-gap-2"
                 key={`wallet-picker-${wal.name}`}
                 onClick={async () => {
                   await connectToWallet(wal.name);
@@ -131,19 +131,25 @@ export function TorqueConnectDialog() {
                 variant="outline"
               >
                 {wal.icon ? (
-                  <img alt={wal.name} className="size-4" src={wal.icon} />
+                  <img
+                    alt={wal.name}
+                    className="torque-size-4"
+                    src={wal.icon}
+                  />
                 ) : null}
 
-                <div className="flex items-center gap-2">
+                <div className="torque-flex torque-items-center torque-gap-2">
                   <span>Connect with {wal.name}</span>
 
-                  <span className="text-[10px] text-muted">(detected)</span>
+                  <span className="torque-text-[10px] torque-text-muted">
+                    (detected)
+                  </span>
                 </div>
               </Button>
             ) : (
               <Button
                 asChild
-                className="w-full gap-2"
+                className="torque-w-full torque-gap-2"
                 key={`wallet-picker-${wal.name}`}
                 size="lg"
                 variant="outline"
@@ -155,10 +161,14 @@ export function TorqueConnectDialog() {
                   target="_blank"
                 >
                   {wal.icon ? (
-                    <img alt={wal.name} className="size-4" src={wal.icon} />
+                    <img
+                      alt={wal.name}
+                      className="torque-size-4"
+                      src={wal.icon}
+                    />
                   ) : null}
 
-                  <div className="flex items-center gap-2">
+                  <div className="torque-flex torque-items-center torque-gap-2">
                     <span>Connect with {wal.name}</span>
                   </div>
                 </a>
