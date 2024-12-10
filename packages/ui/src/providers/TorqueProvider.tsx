@@ -284,6 +284,31 @@ export function TorqueProvider({
   }, [torque, adapter]);
 
   /**
+   * Monitor for account changes
+   */
+  useEffect(() => {
+    // eslint-disable-next-line -- Ignore window being always truthy
+    if (window?.solana) {
+      // eslint-disable-next-line -- Listen for account changes in phantom
+      window.solana.on("accountChanged", async (event: bigint) => {
+        logout().catch((e) => {
+          console.error(e);
+        });
+      });
+    }
+
+    // eslint-disable-next-line -- Ignore window being always truthy
+    if (window?.solflare) {
+      // eslint-disable-next-line -- Listen for account changes in solflare
+      window.solflare.on("accountChanged", async (event: bigint) => {
+        logout().catch((e) => {
+          console.error(e);
+        });
+      });
+    }
+  }, [logout, torque?.user]);
+
+  /**
    * Offer functions
    */
   const refreshOffers = useCallback(async () => {
