@@ -3,7 +3,7 @@
   "author": "Torque Labs",
   "name": "@torque-labs/torque-ui",
   "description": "The Official Torque Labs UI Kit",
-  "version": "0.0.8-dev.3",
+  "version": "0.0.9-dev.0",
   "license": "MIT",
   "private": false,
   "sideEffects": false,
