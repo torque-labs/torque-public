@@ -18,28 +18,28 @@ import {
   CollapsibleTrigger,
 } from "#/components/ui/collapsible";
 import { useTorque } from "#/hooks";
-import { getTokenDetails, cn } from "#/lib";
+import { getTokenDetails, cn, formatAmount } from "#/lib";
 import type { TokenDetails } from "#/types";
 
 export const requirementLabelMap: Record<EventType, { label: string }> = {
+  [EventType.BURN_TOKEN]: { label: "Burn Token" },
   [EventType.CLICK]: { label: "Click" },
   [EventType.CUSTOM_EVENT]: { label: "Custom Event" },
   [EventType.DRIFT_BET]: { label: "Drift Bet" },
   [EventType.DRIFT_DEPOSIT]: { label: "Drift Deposit" },
+  [EventType.FORM_SUBMISSION]: { label: "Submit Form" },
   [EventType.KAMINO_LEND]: { label: "Kamino Lend" },
+  [EventType.LOCK_TOKEN]: { label: "Lock" },
   [EventType.MARGINFI_LEND]: { label: "Marginfi Lend" },
   [EventType.MEMO]: { label: "Memo" },
   [EventType.NFT_BUY_BID]: { label: "NFT Buy Bid" },
   [EventType.NFT_COLLECTION_TRADE]: { label: "NFT Collection Trade" },
+  [EventType.PUMP_FUN_BUY]: { label: "" },
   [EventType.REALMS_VOTE]: { label: "Realms Vote" },
+  [EventType.STAKE_SOL]: { label: "Stake SOL" },
   [EventType.SWAP]: { label: "Swap" },
   [EventType.TENSOR_BID]: { label: "Tensor Bid" },
   [EventType.TENSOR_BUY]: { label: "Tensor Buy" },
-  [EventType.STAKE_SOL]: { label: "Stake SOL" },
-  [EventType.FORM_SUBMISSION]: { label: "Submit Form" },
-  [EventType.PUMP_FUN_BUY]: { label: "" },
-  [EventType.LOCK_TOKEN]: { label: "Lock Token" },
-  [EventType.BURN_TOKEN]: { label: "Burn Token" },
 } as const;
 
 /**
@@ -48,11 +48,12 @@ export const requirementLabelMap: Record<EventType, { label: string }> = {
 export const blinkSupportedEvents = [
   EventType.CLICK,
   EventType.DRIFT_BET,
+  EventType.LOCK_TOKEN,
   EventType.NFT_BUY_BID,
   EventType.NFT_COLLECTION_TRADE,
   EventType.REALMS_VOTE,
-  EventType.SWAP,
   EventType.STAKE_SOL,
+  EventType.SWAP,
 ] as const;
 
 interface OfferRequirementItemProps {
@@ -232,8 +233,18 @@ export function OfferRequirementItem({
       }
     }
 
+    if (requirement.type === EventType.LOCK_TOKEN) {
+      return `${reqLabel}: ${formatAmount(requirement.eventConfig.amount)} ${inTokenDetails?.symbol} tokens`;
+    }
+
     return `${reqLabel}${titleDetail ? `: ${titleDetail}` : ""}`;
-  }, [requirement.type, titleDetail, inTokenDetails, outTokenDetails]);
+  }, [
+    requirement.type,
+    requirement.eventConfig,
+    titleDetail,
+    inTokenDetails,
+    outTokenDetails,
+  ]);
 
   // Set default publisher handle if not provided
   const publisherHandle = config?.publisherHandle ?? "torqueprotocol";
