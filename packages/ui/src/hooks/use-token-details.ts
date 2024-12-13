@@ -7,14 +7,22 @@ import type { TokenDetails } from "#/types";
 /**
  * Utility hook to fetch token details using the Torque SDK
  *
- * @param tokenAddress - The address of the token to fetch details for
+ * @param tokenAddresses - The address or addresses of the token to fetch details for
  *
  * @returns An object containing the token details, loading state, and error state
  */
-export function useTokenDetails(tokenAddress?: string) {
+export function useTokenDetails<T extends string | string[]>(
+  tokenAddresses: T,
+): T extends string
+  ? { token: TokenDetails | undefined; isLoading: boolean; error: string }
+  : { tokens: TokenDetails[] | undefined; isLoading: boolean; error: string };
+
+export function useTokenDetails(tokenAddresses?: string | string[]) {
   const { rpcEndpoint } = useTorque();
 
-  const [tokenDetails, setTokenDetails] = useState<TokenDetails>();
+  const [tokenDetails, setTokenDetails] = useState<
+    TokenDetails | TokenDetails[]
+  >();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>();
 
@@ -24,7 +32,7 @@ export function useTokenDetails(tokenAddress?: string) {
     setIsLoading(false);
 
     // If no token address, return
-    if (!tokenAddress) {
+    if (!tokenAddresses) {
       return;
     }
 
@@ -36,7 +44,7 @@ export function useTokenDetails(tokenAddress?: string) {
 
       try {
         // Fetch token list from Torque SDK
-        const token = await getTokenDetails(tokenAddress, rpcEndpoint);
+        const token = await getTokenDetails(tokenAddresses, rpcEndpoint);
 
         setTokenDetails(token);
       } catch (e) {
@@ -50,10 +58,12 @@ export function useTokenDetails(tokenAddress?: string) {
     fetchTokenDetails().catch((e) => {
       console.error(e);
     });
-  }, [rpcEndpoint, tokenAddress]);
+  }, [rpcEndpoint, tokenAddresses]);
 
   return {
-    token: tokenDetails,
+    ...(Array.isArray(tokenAddresses)
+      ? { token: tokenDetails }
+      : { tokens: tokenDetails }),
     isLoading,
     error,
   };

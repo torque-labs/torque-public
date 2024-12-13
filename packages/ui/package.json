@@ -3,7 +3,7 @@
   "author": "Torque Labs",
   "name": "@torque-labs/torque-ui",
   "description": "The Official Torque Labs UI Kit",
-  "version": "0.0.9-dev.0",
+  "version": "0.0.9-dev.1",
   "license": "MIT",
   "private": false,
   "sideEffects": false,
@@ -64,6 +64,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^11.11.9",
+    "helius-sdk": "^1.4.0",
     "lucide-react": "^0.453.0",
     "tailwind-merge": "^2.0.0",
     "vaul": "^1.1.1"

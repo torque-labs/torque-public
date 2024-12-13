@@ -1,3 +1,5 @@
+import type { DAS } from "helius-sdk";
+
 import type { TokenDetails } from "#/types";
 
 export const CLICKY_ADDRESS = "CAvc2Mr9WcH6HiYQeLYcXG3H9G2rg1sV2EEksMd6gyGS";
@@ -10,20 +12,20 @@ export const CLICKY_ADDRESS = "CAvc2Mr9WcH6HiYQeLYcXG3H9G2rg1sV2EEksMd6gyGS";
  *
  * @returns The details of the token
  */
-export async function getTokenDetails(
-  tokenAddress: string,
+export async function getTokenDetails<T extends string | string[]>(
+  tokenAddresses: T,
   rpcUrl: string,
-): Promise<TokenDetails> {
-  if (tokenAddress === CLICKY_ADDRESS) {
-    return {
-      name: "Clicky",
-      logo: "https://torque-assets.s3.us-east-1.amazonaws.com/clicky.png",
-      decimals: 0,
-      symbol: "CLICKY",
-    };
-  }
+): Promise<T extends string ? TokenDetails : TokenDetails[]>;
 
+export async function getTokenDetails(
+  tokenAddresses: string | string[],
+  rpcUrl: string,
+) {
   try {
+    const assetIds = Array.isArray(tokenAddresses)
+      ? tokenAddresses
+      : [tokenAddresses];
+
     const fetchRequest = await fetch(rpcUrl, {
       method: "POST",
       headers: {
@@ -32,53 +34,34 @@ export async function getTokenDetails(
       body: JSON.stringify({
         jsonrpc: "2.0",
         id: "string",
-        method: "getAsset",
+        method: "getAssetBatch",
         params: {
-          id: tokenAddress,
+          ids: assetIds,
         },
       }),
     });
 
     const fetchResult = (await fetchRequest.json()) as unknown as {
-      result:
-        | {
-            content: {
-              metadata: {
-                name: string;
-                symbol: string;
-                token_standard?: string;
-              };
-              links: {
-                image: string;
-              };
-            };
-            token_info: {
-              decimals?: number;
-              price_info: {
-                currency?: string;
-                price_per_token: number;
-              };
-            };
-            compression: {
-              compressed: boolean;
-            };
-          }
-        | undefined;
+      result: DAS.GetAssetResponse[];
     };
 
-    if (fetchResult.result) {
+    const results = fetchResult.result.map((asset) => {
       return {
-        name: fetchResult.result.content.metadata.name,
-        symbol: fetchResult.result.content.metadata.symbol,
-        logo: fetchResult.result.content.links.image,
-        decimals: fetchResult.result.token_info.decimals ?? 0,
+        name: asset.content?.metadata.name,
+        logo: asset.content?.links?.image,
+        decimals: asset.token_info?.decimals ?? 0,
+        symbol: asset.content?.metadata.symbol,
       };
+    });
+
+    if (Array.isArray(tokenAddresses)) {
+      return results;
     }
+
+    return results[0];
   } catch (e) {
     console.error(e);
 
     throw new Error("Unable to fetch token details.");
   }
-
-  throw new Error("Token not found.");
 }

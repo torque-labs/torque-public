@@ -53,6 +53,7 @@ export function TokenPill({
     if (token) {
       return token.symbol;
     }
+
     return truncateAddress(tokenAddress);
   }, [token, tokenAddress]);
 
