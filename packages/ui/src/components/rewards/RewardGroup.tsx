@@ -99,7 +99,6 @@ export function RewardGroup({
                 // eslint-disable-next-line -- Use index as key in case of duplicate raffle rewards
                 <div key={`${entry.tokenAddress}-${entry.amount}-${idx}`}>
                   <TokenPill
-                    action="ENTRY FOR"
                     amount={entry.amount}
                     tokenAddress={entry.tokenAddress}
                   />

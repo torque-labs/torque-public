@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useMemo } from "react";
 
 import { Skeleton } from "#/components/ui/skeleton";
 import { useTokenDetails } from "#/hooks/use-token-details";
@@ -6,14 +6,14 @@ import {
   formatAmount,
   cn,
   truncateAddress,
-  formatAmountWithDecimals,
+  formatTokenAmountWithDecimals,
 } from "#/lib";
 
 interface TokenPillProps {
   /**
    * The action to display (e.g. "LEND", "BUY")
    */
-  action: string;
+  action?: string;
 
   /**
    * The address of the token
@@ -24,6 +24,11 @@ interface TokenPillProps {
    * The amount of the token
    */
   amount: number;
+
+  /**
+   * Whether the amount is already converted to the token's decimals. Defaults to true.
+   */
+  isAmountConverted?: boolean;
 
   /**
    * Additional class names to apply to the component
@@ -38,6 +43,7 @@ export function TokenPill({
   action,
   amount,
   tokenAddress,
+  isAmountConverted = true,
   className = "",
 }: TokenPillProps) {
   const { token, isLoading } = useTokenDetails(tokenAddress);
@@ -52,16 +58,16 @@ export function TokenPill({
 
   // Format the amount of tokens
   const formattedAmount = useMemo(() => {
-    if (token) {
-      return formatAmountWithDecimals(tokenAddress, amount, token.decimals);
+    if (!isAmountConverted && token) {
+      return formatTokenAmountWithDecimals(
+        tokenAddress,
+        amount,
+        token.decimals,
+      );
     }
 
     return formatAmount(amount);
-  }, [amount, token, tokenAddress]);
-
-  useEffect(() => {
-    console.log("token", token);
-  }, [token]);
+  }, [amount, isAmountConverted, token, tokenAddress]);
 
   return isLoading ? (
     <Skeleton className="torque-h-12 torque-w-full torque-max-w-80 torque-rounded-full" />
