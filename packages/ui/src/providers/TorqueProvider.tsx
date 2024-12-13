@@ -1,7 +1,7 @@
 "use client";
 
 import type { WalletAdapter } from "@solana/wallet-adapter-base";
-import { type Wallet } from "@solana/wallet-adapter-react";
+import type { Wallet } from "@solana/wallet-adapter-react";
 import type {
   ApiCampaign,
   ApiCampaignJourney,
@@ -289,33 +289,30 @@ export function TorqueProvider({
   }, [torque, adapter]);
 
   /**
-   * Monitor for account changes
+   * Event handler when the wallet adapter disconnects or changes accounts
+   */
+  const handleDisconnect = useCallback(async () => {
+    setAutoLogin(false);
+
+    try {
+      await logout();
+    } catch (e) {
+      console.error(e);
+    }
+  }, [logout]);
+
+  /**
+   * Monitor if account changes or disconnects using the wallet adapter
    */
   useEffect(() => {
-    // eslint-disable-next-line -- Ignore window being always truthy
-    if (window?.solana) {
-      // eslint-disable-next-line -- Listen for account changes in phantom
-      window.solana.on("accountChanged", async (event: bigint) => {
-        setAutoLogin(false);
-
-        logout().catch((e) => {
-          console.error(e);
-        });
-      });
+    if (wallet?.adapter) {
+      wallet.adapter.on("disconnect", handleDisconnect);
     }
 
-    // eslint-disable-next-line -- Ignore window being always truthy
-    if (window?.solflare) {
-      // eslint-disable-next-line -- Listen for account changes in solflare
-      window.solflare.on("accountChanged", async (event: bigint) => {
-        setAutoLogin(false);
-
-        logout().catch((e) => {
-          console.error(e);
-        });
-      });
-    }
-  }, [logout, torque?.user]);
+    return () => {
+      wallet?.adapter.off("disconnect", handleDisconnect);
+    };
+  }, [handleDisconnect, wallet?.adapter]);
 
   /**
    * Offer functions

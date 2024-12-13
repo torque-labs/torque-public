@@ -14,8 +14,8 @@ module.exports = {
     },
   },
   ignorePatterns: [
-    "node_modules/",
-    "dist/",
+    "node_modules",
+    "dist",
     ".eslintrc.js",
     "*.config.*"
   ],
