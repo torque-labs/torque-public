@@ -119,7 +119,6 @@ export function RewardGroup({
                   <span>{box.users}</span>
                   <span>&times;</span>
                   <TokenPill
-                    action="ENTRY FOR"
                     amount={box.amount}
                     tokenAddress={reward.tokenAddress}
                   />
