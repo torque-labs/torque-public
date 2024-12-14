@@ -1,5 +1,5 @@
 import type { LucideProps } from "lucide-react";
-import { Users, Ticket, Trophy, Package } from "lucide-react";
+import { Users, Ticket, Package, MessageCircleReply } from "lucide-react";
 
 import { TokenPill } from "#/components";
 import { cn } from "#/lib";
@@ -36,8 +36,8 @@ const iconMap: Record<
   >
 > = {
   [RewardGroupType.USER]: Users,
-  [RewardGroupType.PUBLISHER]: Ticket,
-  [RewardGroupType.RAFFLE]: Trophy,
+  [RewardGroupType.PUBLISHER]: MessageCircleReply,
+  [RewardGroupType.RAFFLE]: Ticket,
   [RewardGroupType.LOOTBOX]: Package,
 };
 
@@ -87,6 +87,7 @@ export function RewardGroup({
             <TokenPill
               action="GET"
               amount={reward.amount}
+              isAmountConverted={false}
               tokenAddress={reward.tokenAddress}
             />
           ) : null
@@ -100,6 +101,7 @@ export function RewardGroup({
                 <div key={`${entry.tokenAddress}-${entry.amount}-${idx}`}>
                   <TokenPill
                     amount={entry.amount}
+                    isAmountConverted={false}
                     tokenAddress={entry.tokenAddress}
                   />
                 </div>
@@ -120,6 +122,7 @@ export function RewardGroup({
                   <span>&times;</span>
                   <TokenPill
                     amount={box.amount}
+                    isAmountConverted={false}
                     tokenAddress={reward.tokenAddress}
                   />
                 </div>

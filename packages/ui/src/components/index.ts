@@ -15,3 +15,4 @@ export * from "./Countdown";
 export * from "./TorqueBlink";
 export * from "./MovingBorderButton";
 export * from "./TokenPill";
+export * from "./TransactionLink";
