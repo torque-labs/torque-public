@@ -50,7 +50,7 @@ export function TokenPill({
 
   // Set the token display name
   const tokenDisplay = useMemo(() => {
-    if (token) {
+    if (token && token.symbol.length > 0) {
       return token.symbol;
     }
 

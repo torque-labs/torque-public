@@ -18,7 +18,7 @@ import {
   CollapsibleTrigger,
 } from "#/components/ui/collapsible";
 import { useTorque } from "#/hooks";
-import { getTokenDetails, cn, formatAmount } from "#/lib";
+import { cn, formatAmount, getSingleTokenDetails } from "#/lib";
 import type { TokenDetails } from "#/types";
 
 export const requirementLabelMap: Record<EventType, { label: string }> = {
@@ -127,7 +127,7 @@ export function OfferRequirementItem({
           "inToken" in requirement.eventConfig &&
           requirement.eventConfig.inToken
         ) {
-          const tokenInDetails = await getTokenDetails(
+          const tokenInDetails = await getSingleTokenDetails(
             requirement.eventConfig.inToken,
             rpcEndpoint,
           );
@@ -139,7 +139,7 @@ export function OfferRequirementItem({
           "outToken" in requirement.eventConfig &&
           requirement.eventConfig.outToken
         ) {
-          const tokenOutDetails = await getTokenDetails(
+          const tokenOutDetails = await getSingleTokenDetails(
             requirement.eventConfig.outToken,
             rpcEndpoint,
           );
@@ -151,7 +151,7 @@ export function OfferRequirementItem({
           "tokenAddress" in requirement.eventConfig &&
           requirement.eventConfig.tokenAddress
         ) {
-          const tokenInDetails = await getTokenDetails(
+          const tokenInDetails = await getSingleTokenDetails(
             requirement.eventConfig.tokenAddress,
             rpcEndpoint,
           );

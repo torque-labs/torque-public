@@ -3,23 +3,22 @@
   "author": "Torque Labs",
   "name": "@torque-labs/torque-ui",
   "description": "The Official Torque Labs UI Kit",
-  "version": "0.0.9-dev.10",
+  "version": "0.0.9-dev.13",
   "license": "MIT",
   "private": false,
   "sideEffects": false,
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
   "type": "module",
   "imports": {
-    "#*": "./src/*"
+    "#/*": "./src/*"
   },
   "exports": {
-    "./package.json": "./package.json",
     ".": {
       "types": "./dist/types/index.d.ts",
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/esm/index.js"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
     "./index.css": "./dist/index.css"
   },
@@ -27,10 +26,9 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsc && tsc-alias -p tsconfig.json && npm run styles:build",
-    "postbuild": "esm2cjs --in dist/esm --out dist/cjs -l error",
-    "dev": "tsc --watch && tsc-alias -p tsconfig.json & npm run styles:watch",
-    "watch": "tsc --watch && tsc-alias -p tsconfig.json & npm run styles:watch",
+    "build": "tsup && tsc && npm run styles:build",
+    "dev": "tsup --watch --onSuccess 'tsc && npm run styles:watch'",
+    "watch": "tsup --watch --onSuccess 'tsc && npm run styles:watch'",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "lint": "eslint \"src/**/*.ts*\"",
     "test": "jest",

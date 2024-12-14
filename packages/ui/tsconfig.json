@@ -1,31 +1,18 @@
 {
   "extends": "@torque-labs/typescript-config/react-library.json",
   "compilerOptions": {
-    "strict": true,
-    "lib":["ES2022", "DOM"],
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "module": "ES2022",
-    "target": "ES2022",
-    "isolatedModules": true,
-    "outDir": "./dist/esm",
+    "outDir": "./dist",
     "rootDir": "./src",
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "#*": ["./src/*"]
+      "#/*": ["./src/*"]
     },
     "noEmit": false,
     "declaration": true,
     "declarationDir": "dist/types",
-    "declarationMap": true,
-    "allowImportingTsExtensions": false,
-    "sourceMap": true,
-    "noImplicitOverride": true,
-  },
-  "tsc-alias": {
-    "resolveFullPaths": true,
-    "verbose": true
+    "emitDeclarationOnly": true,
+    "declarationMap": true
   },
   "include": ["./src/**/*.ts", "./src/**/*.tsx", "./declarations/**/*.d.ts"],
   "exclude": ["./node_modules", "./dist", "./**/*.svg"]

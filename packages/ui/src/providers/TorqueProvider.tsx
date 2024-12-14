@@ -361,14 +361,30 @@ export function TorqueProvider({
    * Monitor if account changes or disconnects using the wallet adapter
    */
   useEffect(() => {
-    if (wallet?.adapter) {
-      wallet.adapter.on("disconnect", handleDisconnect);
+    if (window.solflare) {
+      window.solflare.on("accountChanged", handleDisconnect);
+    }
+
+    if (window.phantom?.solana || window.solana) {
+      const phantom = (window.phantom?.solana ||
+        window.solana) as Window["solanaWallet"];
+
+      phantom.on("accountChanged", handleDisconnect);
     }
 
     return () => {
-      wallet?.adapter.off("disconnect", handleDisconnect);
+      if (window.solflare) {
+        window.solflare.off("accountChanged", handleDisconnect);
+      }
+
+      if (window.phantom?.solana || window.solana) {
+        const phantom = (window.phantom?.solana ||
+          window.solana) as Window["solanaWallet"];
+
+        phantom.off("accountChanged", handleDisconnect);
+      }
     };
-  }, [handleDisconnect, wallet?.adapter]);
+  }, [handleDisconnect]);
 
   /**
    * Refresh the user's offers

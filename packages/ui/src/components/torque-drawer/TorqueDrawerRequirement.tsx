@@ -11,7 +11,11 @@ import { EventType } from "@torque-labs/torque-utils";
 import { useCallback, useEffect, useState } from "react";
 
 import { useOfferStatus, useTorque } from "#/hooks";
-import { getTokenDetails, truncateAddress, base64ToUint8Array } from "#/lib";
+import {
+  truncateAddress,
+  base64ToUint8Array,
+  getSingleTokenDetails,
+} from "#/lib";
 import type { TokenDetails } from "#/types";
 
 interface TorqueDrawerRequirementProps {
@@ -165,7 +169,7 @@ export function TorqueDrawerRequirement({
           "inToken" in requirement.eventConfig &&
           requirement.eventConfig.inToken
         ) {
-          const tokenInDetails = await getTokenDetails(
+          const tokenInDetails = await getSingleTokenDetails(
             requirement.eventConfig.inToken,
             rpcEndpoint,
           );
@@ -177,7 +181,7 @@ export function TorqueDrawerRequirement({
           "outToken" in requirement.eventConfig &&
           requirement.eventConfig.outToken
         ) {
-          const tokenOutDetails = await getTokenDetails(
+          const tokenOutDetails = await getSingleTokenDetails(
             requirement.eventConfig.outToken,
             rpcEndpoint,
           );
@@ -189,7 +193,7 @@ export function TorqueDrawerRequirement({
           "tokenAddress" in requirement.eventConfig &&
           requirement.eventConfig.tokenAddress
         ) {
-          const tokenInDetails = await getTokenDetails(
+          const tokenInDetails = await getSingleTokenDetails(
             requirement.eventConfig.tokenAddress,
             rpcEndpoint,
           );
