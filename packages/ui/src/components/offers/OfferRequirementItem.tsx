@@ -8,7 +8,7 @@ import {
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
-import { TorqueBlink } from "#/components";
+import { Countdown, TorqueBlink, TransactionLink } from "#/components";
 import { CustomEventAction } from "#/components/actions";
 import { Badge } from "#/components/ui/badge";
 import { Button } from "#/components/ui/button";
@@ -23,23 +23,23 @@ import type { TokenDetails } from "#/types";
 
 export const requirementLabelMap: Record<EventType, { label: string }> = {
   [EventType.BURN_TOKEN]: { label: "Burn Token" },
-  [EventType.CLICK]: { label: "Click" },
+  [EventType.CLICK]: { label: "Visit a Link" },
   [EventType.CUSTOM_EVENT]: { label: "Custom Event" },
-  [EventType.DRIFT_BET]: { label: "Drift Bet" },
-  [EventType.DRIFT_DEPOSIT]: { label: "Drift Deposit" },
-  [EventType.FORM_SUBMISSION]: { label: "Submit Form" },
-  [EventType.KAMINO_LEND]: { label: "Kamino Lend" },
-  [EventType.LOCK_TOKEN]: { label: "Lock" },
-  [EventType.MARGINFI_LEND]: { label: "Marginfi Lend" },
-  [EventType.MEMO]: { label: "Memo" },
-  [EventType.NFT_BUY_BID]: { label: "NFT Buy Bid" },
-  [EventType.NFT_COLLECTION_TRADE]: { label: "NFT Collection Trade" },
-  [EventType.PUMP_FUN_BUY]: { label: "" },
-  [EventType.REALMS_VOTE]: { label: "Realms Vote" },
+  [EventType.DRIFT_BET]: { label: "Place a Bet on Drift" },
+  [EventType.DRIFT_DEPOSIT]: { label: "Deposit on Drift" },
+  [EventType.FORM_SUBMISSION]: { label: "Complete a Form" },
+  [EventType.KAMINO_LEND]: { label: "Lend on Kamino" },
+  [EventType.LOCK_TOKEN]: { label: "Lock a Token" },
+  [EventType.MARGINFI_LEND]: { label: "Lend on Marginfi" },
+  [EventType.MEMO]: { label: "Send a Memo transaction" },
+  [EventType.NFT_BUY_BID]: { label: "Bid on or Buy an NFT" },
+  [EventType.NFT_COLLECTION_TRADE]: { label: "Trade on a NFT collection" },
+  [EventType.PUMP_FUN_BUY]: { label: "Buy on PumpFun" },
+  [EventType.REALMS_VOTE]: { label: "Vote on Realms" },
   [EventType.STAKE_SOL]: { label: "Stake SOL" },
   [EventType.SWAP]: { label: "Swap" },
-  [EventType.TENSOR_BID]: { label: "Tensor Bid" },
-  [EventType.TENSOR_BUY]: { label: "Tensor Buy" },
+  [EventType.TENSOR_BID]: { label: "Bid on Tensor" },
+  [EventType.TENSOR_BUY]: { label: "Buy on Tensor" },
 } as const;
 
 /**
@@ -88,6 +88,16 @@ interface OfferRequirementItemProps {
   open?: boolean;
 
   /**
+   * The start time of the requirement (eg. for locks or holds)
+   */
+  stepStart?: Date;
+
+  /**
+   * The transaction signature for the completion of the requirement
+   */
+  transaction?: string;
+
+  /**
    * Whether to show the blink to complete the requirement if it is not completed
    */
   showAction: boolean;
@@ -100,6 +110,8 @@ export function OfferRequirementItem({
   status,
   className,
   open,
+  stepStart,
+  transaction,
   showAction,
 }: OfferRequirementItemProps) {
   const { config, rpcEndpoint } = useTorque();
@@ -224,12 +236,20 @@ export function OfferRequirementItem({
     const reqLabel = requirementLabelMap[requirement.type].label;
 
     if (requirement.type === EventType.SWAP) {
+      const inAmount = requirement.eventConfig.inAmount
+        ? formatAmount(requirement.eventConfig.inAmount)
+        : "";
+
+      const outAmount = requirement.eventConfig.outAmount
+        ? formatAmount(requirement.eventConfig.outAmount)
+        : "";
+
       if (inTokenDetails && outTokenDetails) {
-        return `${reqLabel}: ${inTokenDetails.symbol} to ${outTokenDetails.symbol}`;
+        return `${reqLabel} ${inTokenDetails.symbol} for ${outAmount} ${outTokenDetails.symbol}`;
       } else if (inTokenDetails) {
-        return `Sell ${inTokenDetails.symbol}`;
+        return `Sell ${inAmount} ${inTokenDetails.symbol}`;
       } else if (outTokenDetails) {
-        return `Buy ${outTokenDetails.symbol}`;
+        return `Buy ${outAmount} ${outTokenDetails.symbol}`;
       }
     }
 
@@ -245,6 +265,24 @@ export function OfferRequirementItem({
     inTokenDetails,
     outTokenDetails,
   ]);
+
+  /**
+   * Get the pending time for the requirement if applicable
+   */
+  const pendingTime = useMemo(() => {
+    if (
+      status === ApiProgressStatus.PENDING &&
+      requirement.timeConfig &&
+      requirement.timeConfig.duration > 0 &&
+      stepStart
+    ) {
+      return new Date(
+        stepStart.getTime() + requirement.timeConfig.duration * 1000,
+      );
+    }
+
+    return;
+  }, [requirement.timeConfig, status, stepStart]);
 
   // Set default publisher handle if not provided
   const publisherHandle = config?.publisherHandle ?? "torqueprotocol";
@@ -275,29 +313,42 @@ export function OfferRequirementItem({
             )}
             variant="ghost"
           >
-            <span className="torque-flex-1 torque-text-left">{fullTitle}</span>
+            <span className="torque-text-left">{fullTitle}</span>
 
-            {actionEnabled ? (
-              <div className="torque-ml-auto">
-                {isOpen ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
-              </div>
-            ) : null}
+            <div className="torque-ml-auto torque-mr-2 torque-flex torque-items-center torque-gap-3">
+              {transaction ? (
+                <TransactionLink transaction={transaction} />
+              ) : null}
 
-            {status === ApiProgressStatus.DONE ? (
-              <Badge className="torque-text-[8px]" variant="green">
-                Completed
-              </Badge>
-            ) : null}
+              {status === ApiProgressStatus.DONE ? (
+                <div>
+                  <Badge variant="green">Completed</Badge>
+                </div>
+              ) : null}
 
-            {status === ApiProgressStatus.PENDING ? (
-              <Badge
-                className="torque-text-[8px]"
-                color="purple"
-                variant="default"
-              >
-                Pending
-              </Badge>
-            ) : null}
+              {status === ApiProgressStatus.PENDING ? (
+                <div className="torque-flex torque-items-center torque-gap-2">
+                  {pendingTime ? (
+                    <Countdown
+                      className="torque-text-[8px] torque-leading-none"
+                      size="torque-text-[11px]"
+                      endTime={pendingTime}
+                      countdownClassName="torque-gap-2"
+                    />
+                  ) : null}
+
+                  <Badge variant="default" color="purple">
+                    Pending
+                  </Badge>
+                </div>
+              ) : null}
+
+              {actionEnabled ? (
+                <>
+                  {isOpen ? <ChevronDown size={16} /> : <ChevronUp size={16} />}
+                </>
+              ) : null}
+            </div>
           </Button>
         </CollapsibleTrigger>
 

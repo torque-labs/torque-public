@@ -12,20 +12,40 @@ interface CountdownProps {
   endTime: Date;
 
   /**
-   * Additional class names to apply to the component
+   * Additional class names to apply to the container
    */
   className?: string;
+
+  /**
+   * Additional class names to apply to the countdown element
+   */
+  countdownClassName?: string;
+
+  /**
+   * The font size class of the numbers element
+   */
+  size?: string;
 }
 
 /**
  * Displays a countdown timer
  */
-export function Countdown({ endTime, className }: CountdownProps) {
+export function Countdown({
+  endTime,
+  className,
+  countdownClassName,
+  size,
+}: CountdownProps) {
+  const [isClient, setIsClient] = useState(false);
   const [timeDifference, setTimeDifference] = useState(
     endTime.getTime() - Date.now(),
   );
 
   useEffect(() => {
+    // Set isClient state to true once the component is mounted
+    setIsClient(true);
+
+    // Create the interval
     const interval = setInterval(() => {
       if (timeDifference <= 0) {
         clearInterval(interval);
@@ -39,6 +59,9 @@ export function Countdown({ endTime, className }: CountdownProps) {
     };
   }, [endTime, timeDifference]);
 
+  /**
+   * Format the time left based on the time difference
+   */
   const timeLeft = useMemo(
     () =>
       timeDifference > 0
@@ -57,6 +80,10 @@ export function Countdown({ endTime, className }: CountdownProps) {
     [timeDifference],
   );
 
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <div
       className={cn(
@@ -64,27 +91,52 @@ export function Countdown({ endTime, className }: CountdownProps) {
         className,
       )}
     >
-      <div className="torque-grid torque-auto-cols-max torque-grid-flow-col torque-gap-5 torque-text-center">
+      <div
+        className={cn(
+          "torque-grid torque-auto-cols-max torque-grid-flow-col torque-gap-5 torque-text-center",
+          countdownClassName,
+        )}
+      >
         <div className="torque-flex torque-flex-col">
-          <span className="torque-countdown torque-font-mono torque-text-inherit">
+          <span
+            className={cn(
+              "torque-countdown torque-font-mono torque-text-inherit",
+              size,
+            )}
+          >
             <span style={{ "--value": timeLeft.days } as CSSProperties} />
           </span>
           days
         </div>
         <div className="torque-flex torque-flex-col">
-          <span className="torque-countdown torque-font-mono torque-text-inherit">
+          <span
+            className={cn(
+              "torque-countdown torque-font-mono torque-text-inherit",
+              size,
+            )}
+          >
             <span style={{ "--value": timeLeft.hours } as CSSProperties} />
           </span>
           hours
         </div>
         <div className="torque-flex torque-flex-col">
-          <span className="torque-countdown torque-font-mono torque-text-inherit">
+          <span
+            className={cn(
+              "torque-countdown torque-font-mono torque-text-inherit",
+              size,
+            )}
+          >
             <span style={{ "--value": timeLeft.minutes } as CSSProperties} />
           </span>
           min
         </div>
         <div className="torque-flex torque-flex-col">
-          <span className="torque-countdown torque-font-mono torque-text-inherit">
+          <span
+            className={cn(
+              "torque-countdown torque-font-mono torque-text-inherit",
+              size,
+            )}
+          >
             <span style={{ "--value": timeLeft.seconds } as CSSProperties} />
           </span>
           sec

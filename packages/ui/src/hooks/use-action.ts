@@ -200,5 +200,5 @@ export function useAction() {
     [publicKey, sendActionSignature, sendActionTransaction, userClient],
   );
 
-  return { isLoading, handleBountyStepAction };
+  return { isLoading, handleBountyStepAction, sendActionTransaction };
 }
