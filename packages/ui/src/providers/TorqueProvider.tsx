@@ -512,12 +512,13 @@ export function TorqueProvider({
       } catch (e) {
         console.error("Error initializing torque:", e);
 
-        setIsLoading(false);
-
         // Forward error to UI
         if (e instanceof Error) {
           throw e;
         }
+      } finally {
+        // Set loading state to false
+        setIsLoading(false);
       }
     },
     [
