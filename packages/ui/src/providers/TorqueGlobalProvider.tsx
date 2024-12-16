@@ -1,7 +1,5 @@
 "use client";
 
-import "@solana/wallet-adapter-react-ui/styles.css";
-
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import {
   ConnectionProvider,
@@ -29,15 +27,12 @@ export function TorqueGlobalProvider({
   options,
 }: PropsWithChildren<{ options?: TorqueOptions }>) {
   // Set to 'devnet' for development, 'mainnet-beta' for production
-  const network = WalletAdapterNetwork.Devnet;
+  const network = WalletAdapterNetwork.Mainnet;
 
   // You can also provide a custom RPC endpoint
   const endpoint = useMemo(
-    () =>
-      process.env.NEXT_PUBLIC_RPC
-        ? process.env.NEXT_PUBLIC_RPC
-        : clusterApiUrl(network),
-    [network],
+    () => (options?.rpc ? options.rpc : clusterApiUrl(network)),
+    [network, options?.rpc],
   );
 
   const tipLinkOptions = {
@@ -46,7 +41,7 @@ export function TorqueGlobalProvider({
       : "Torque",
     clientId: process.env.NEXT_PUBLIC_TIPLINK_CLIENT
       ? process.env.NEXT_PUBLIC_TIPLINK_CLIENT
-      : "",
+      : "807a0df7-4524-48d0-ac99-b52117339bd4",
     theme: "dark",
   } as const;
 
@@ -65,6 +60,7 @@ export function TorqueGlobalProvider({
   const [searchParams, setSearchParams] = useState<URLSearchParams | object>(
     {},
   );
+
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -95,16 +91,15 @@ function TorqueWrapper({
 }: PropsWithChildren<{ options?: TorqueOptions }>) {
   const { wallet } = useWallet();
 
-  const torqueOptions: TorqueOptions = options
-    ? options
-    : {
-        apiUrl: "https://api.torque.so",
-        appUrl: "https://app.torque.so",
-        functionsUrl:
-          "https://0tvum434ha.execute-api.us-east-1.amazonaws.com/Prod",
-        publisherHandle: "torqueprotocol",
-        rpc: process.env.NEXT_PUBLIC_RPC,
-      };
+  const torqueOptions: TorqueOptions = {
+    apiUrl: options?.apiUrl ?? "https://api.torque.so",
+    appUrl: options?.appUrl ?? "https://app.torque.so",
+    functionsUrl:
+      options?.functionsUrl ??
+      "https://0tvum434ha.execute-api.us-east-1.amazonaws.com/Prod",
+    rpc: options?.rpc,
+    publisherHandle: options?.publisherHandle ?? "torqueprotocol",
+  };
 
   return (
     <TorqueProvider options={torqueOptions} wallet={wallet}>

@@ -1,63 +1,114 @@
-import { TorqueAdminClient } from "@torque-labs/torque-ts-sdk";
 import { useEffect, useState } from "react";
 
+import { useTorque } from "#/hooks";
+import { getSingleTokenDetails, getTokenDetails } from "#/lib";
 import type { TokenDetails } from "#/types";
 
 /**
  * Utility hook to fetch token details using the Torque SDK
  *
- * @param tokenAddress - The address of the token to fetch details for
+ * @param tokenAddresses - The address or addresses of the token to fetch details for
  *
  * @returns An object containing the token details, loading state, and error state
  */
-export function useTokenDetails(tokenAddress: string) {
+export function useTokenDetails(tokenAddresses?: string) {
+  const { rpcEndpoint } = useTorque();
+
   const [tokenDetails, setTokenDetails] = useState<TokenDetails>();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string>();
 
   useEffect(() => {
+    // Reset state on update
+    setTokenDetails(undefined);
+    setIsLoading(false);
+
+    // If no token address, return
+    if (!tokenAddresses) {
+      return;
+    }
+
     /**
      * Fetch token details
      */
-    async function fetchTokenDetails() {
+    const fetchTokenDetails = async () => {
       setIsLoading(true);
 
       try {
         // Fetch token list from Torque SDK
-        const tokenList = await TorqueAdminClient.getSafeTokenList();
+        const token = await getSingleTokenDetails(tokenAddresses, rpcEndpoint);
 
-        // Find token in token list
-        const token = tokenList.find((t) => t.address === tokenAddress);
-
-        // Set token details if found
-        if (token) {
-          setTokenDetails({
-            name: token.name,
-            logo: token.logoURI,
-            decimals: token.decimals,
-            symbol: token.symbol,
-          });
-        } else {
-          setTokenDetails(undefined);
-          setError("Token not found.");
-        }
+        setTokenDetails(token);
       } catch (e) {
-        console.error(e);
-
         setTokenDetails(undefined);
         setError("Failed to fetch token details.");
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     fetchTokenDetails().catch((e) => {
       console.error(e);
     });
-  }, [tokenAddress]);
+  }, [rpcEndpoint, tokenAddresses]);
 
   return {
     token: tokenDetails,
+    isLoading,
+    error,
+  };
+}
+
+/**
+ * Utility hook to fetch the details of multiple tokens
+ *
+ * @param tokenAddresses - The addresses of the tokens to fetch details for
+ *
+ * @returns An object containing the token details, loading state, and error state
+ */
+export function useMultiTokenDetails(tokenAddresses?: string[]) {
+  const { rpcEndpoint } = useTorque();
+
+  const [tokenDetails, setTokenDetails] = useState<TokenDetails[]>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string>();
+
+  useEffect(() => {
+    // Reset state on update
+    setTokenDetails(undefined);
+    setIsLoading(false);
+
+    // If no token address, return
+    if (!tokenAddresses) {
+      return;
+    }
+
+    /**
+     * Fetch token details
+     */
+    const fetchTokenDetails = async () => {
+      setIsLoading(true);
+
+      try {
+        // Fetch token list from Torque SDK
+        const token = await getTokenDetails(tokenAddresses, rpcEndpoint);
+
+        setTokenDetails(token);
+      } catch (e) {
+        setTokenDetails(undefined);
+        setError("Failed to fetch token details.");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchTokenDetails().catch((e) => {
+      console.error(e);
+    });
+  }, [rpcEndpoint, tokenAddresses]);
+
+  return {
+    tokens: tokenDetails,
     isLoading,
     error,
   };
