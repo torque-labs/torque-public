@@ -2,7 +2,7 @@
 
 ***
 
-[Torque Platform](../README.md) / @torque-labs/sdk
+[Torque Platform SDK](../README.md) / @torque-labs/sdk
 
 # `@torque-labs/sdk`
 
