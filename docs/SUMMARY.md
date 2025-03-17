@@ -242,6 +242,6 @@
 
 ## Platform Reference
 
-* [Torque Labs](reference/platform/README.md)
-* [Torque Labs SDK](reference/platform/sdk/README.md)
-* [Torque Labs Utils](reference/platform/react/README.md)
+* [Torque Platform](reference/platform/README.md)
+* [Torque Platform SDK](reference/platform/sdk/README.md)
+* [Torque Platform React ](reference/platform/react/README.md)
