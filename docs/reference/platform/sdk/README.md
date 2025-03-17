@@ -21,8 +21,8 @@
 | [TorqueOffersModule](./classes/torqueoffersmodule.md) | The TorqueOffersModule class is used to interact with the offers endpoints of the Torque API. |
 | [TorqueSDK](./classes/torquesdk.md) | The TorqueSDK class is used to interact with the Torque API. |
 | [TorqueSDKError](./classes/torquesdkerror.md) | Torque SDK Custom Error Class |
-| [TorqueTransactionsModule](./classes/TorqueTransactionsModule.md) | The TorqueTransactionsModule class is used to handle transactions for the Torque SDK. It provides methods for creating, signing, and sending transactions. |
-| [TorqueUserModule](./classes/TorqueUserModule.md) | The TorqueUserModule class is used to handle user authentication for the Torque SDK as well as user management. |
+| [TorqueTransactionsModule](./classes/torquetransactionsmodule.md) | The TorqueTransactionsModule class is used to handle transactions for the Torque SDK. It provides methods for creating, signing, and sending transactions. |
+| [TorqueUserModule](./classes/torqueusermodule.md) | The TorqueUserModule class is used to handle user authentication for the Torque SDK as well as user management. |
 
 ## Interfaces
 
