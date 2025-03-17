@@ -1,10 +1,12 @@
-[**@torque-labs/torque-utils**](../README.md) • **Docs**
+# Function: fetchSingleCollectionDetails
+
+[**@torque-labs/torque-utils**](../) • **Docs**
 
 ***
 
-[@torque-labs/torque-utils](../README.md) / fetchSingleCollectionDetails
+[@torque-labs/torque-utils](../) / fetchSingleCollectionDetails
 
-# Function: fetchSingleCollectionDetails()
+## Function: fetchSingleCollectionDetails()
 
 ```ts
 function fetchSingleCollectionDetails(collectionId): Promise<{
@@ -23,40 +25,29 @@ function fetchSingleCollectionDetails(collectionId): Promise<{
 
 Fetches single collection details
 
-## Parameters
+### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
+| Parameter      | Type     |
+| -------------- | -------- |
 | `collectionId` | `string` |
 
-## Returns
+### Returns
 
-`Promise`\<\{
-  `collId`: `collection.collId`;
-  `compressed`: `collection.compressed`;
-  `imageUri`: `collection.imageUri`;
-  `metadataProgram`: `any`;
-  `name`: `collection.name`;
-  `slugdisplay`: `collection.slugDisplay`;
-  `stats`: `collection.stats`;
-  `symbol`: `collection.symbol`;
-  `tokenStandard`: `collection.tokenStandard`;
-  `whitelistPda`: `collection.whitelistPda`;
- \}\>
+`Promise`<{ `collId`: `collection.collId`; `compressed`: `collection.compressed`; `imageUri`: `collection.imageUri`; `metadataProgram`: `any`; `name`: `collection.name`; `slugdisplay`: `collection.slugDisplay`; `stats`: `collection.stats`; `symbol`: `collection.symbol`; `tokenStandard`: `collection.tokenStandard`; `whitelistPda`: `collection.whitelistPda`; }>
 
-| Name | Type | Default value |
-| ------ | ------ | ------ |
-| `collId` | `any` | collection.collId |
-| `compressed` | `any` | collection.compressed |
-| `imageUri` | `any` | collection.imageUri |
-| `metadataProgram` | `any` | - |
-| `name` | `any` | collection.name |
-| `slugdisplay` | `any` | collection.slugDisplay |
-| `stats` | `any` | collection.stats |
-| `symbol` | `any` | collection.symbol |
-| `tokenStandard` | `any` | collection.tokenStandard |
-| `whitelistPda` | `any` | collection.whitelistPda |
+| Name              | Type  | Default value            |
+| ----------------- | ----- | ------------------------ |
+| `collId`          | `any` | collection.collId        |
+| `compressed`      | `any` | collection.compressed    |
+| `imageUri`        | `any` | collection.imageUri      |
+| `metadataProgram` | `any` | -                        |
+| `name`            | `any` | collection.name          |
+| `slugdisplay`     | `any` | collection.slugDisplay   |
+| `stats`           | `any` | collection.stats         |
+| `symbol`          | `any` | collection.symbol        |
+| `tokenStandard`   | `any` | collection.tokenStandard |
+| `whitelistPda`    | `any` | collection.whitelistPda  |
 
-## Defined in
+### Defined in
 
 [lib/tensor-api.ts:99](https://github.com/torque-labs/torque-utils/blob/3bd29ca22f900f1cf2686f7f240bf82e15337207/lib/tensor-api.ts#L99)
