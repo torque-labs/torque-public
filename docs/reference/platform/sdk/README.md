@@ -2,7 +2,7 @@
 
 ***
 
-[Torque Platform](./../../README.md) / @torque-labs/sdk
+[Torque Platform](../../README.md) / @torque-labs/sdk
 
 # `@torque-labs/sdk`
 
@@ -10,17 +10,17 @@
 
 | Enumeration | Description |
 | ------ | ------ |
-| [EventType](./enumerations/EventType.md) | - |
-| [TorqueSDKErrorTypes](./enumerations/TorqueSDKErrorTypes.md) | - |
+| [EventType](./enumerations/eventtype.md) | - |
+| [TorqueSDKErrorTypes](./enumerations/torquesdkerrortypes.md) | - |
 
 ## Classes
 
 | Class | Description |
 | ------ | ------ |
-| [TorqueActionsModule](./classes/TorqueActionsModule.md) | The TorqueActionsModule class is used to interact with the actions endpoints of the Torque API. |
-| [TorqueOffersModule](./classes/TorqueOffersModule.md) | The TorqueOffersModule class is used to interact with the offers endpoints of the Torque API. |
-| [TorqueSDK](./classes/TorqueSDK.md) | The TorqueSDK class is used to interact with the Torque API. |
-| [TorqueSDKError](./classes/TorqueSDKError.md) | Torque SDK Custom Error Class |
+| [TorqueActionsModule](./classes/torqueactionsmodule.md) | The TorqueActionsModule class is used to interact with the actions endpoints of the Torque API. |
+| [TorqueOffersModule](./classes/torqueoffersmodule.md) | The TorqueOffersModule class is used to interact with the offers endpoints of the Torque API. |
+| [TorqueSDK](./classes/torquesdk.md) | The TorqueSDK class is used to interact with the Torque API. |
+| [TorqueSDKError](./classes/torquesdkerror.md) | Torque SDK Custom Error Class |
 | [TorqueTransactionsModule](./classes/TorqueTransactionsModule.md) | The TorqueTransactionsModule class is used to handle transactions for the Torque SDK. It provides methods for creating, signing, and sending transactions. |
 | [TorqueUserModule](./classes/TorqueUserModule.md) | The TorqueUserModule class is used to handle user authentication for the Torque SDK as well as user management. |
 
@@ -28,36 +28,36 @@
 
 | Interface | Description |
 | ------ | ------ |
-| [TorqueRequestOptions](./interfaces/TorqueRequestOptions.md) | Interface for the Torque SDK request options |
+| [TorqueRequestOptions](./interfaces/torquerequestoptions.md) | Interface for the Torque SDK request options |
 
 ## Type Aliases
 
 | Type Alias | Description |
 | ------ | ------ |
-| [ActionPostWithCallbackResponse](./type-aliases/ActionPostWithCallbackResponse.md) | - |
-| [ApiResponse](./type-aliases/ApiResponse.md) | Generic response for an API request. |
-| [DistributorInput](./type-aliases/DistributorInput.md) | - |
-| [DistributorResponse](./type-aliases/DistributorResponse.md) | - |
-| [DistributorUpdateInput](./type-aliases/DistributorUpdateInput.md) | - |
-| [LeaderboardResponse](./type-aliases/LeaderboardResponse.md) | - |
-| [OffchainRewardInput](./type-aliases/OffchainRewardInput.md) | - |
-| [OffchainRewardType](./type-aliases/OffchainRewardType.md) | - |
-| [OfferInput](./type-aliases/OfferInput.md) | - |
-| [OfferJourneyReturn](./type-aliases/OfferJourneyReturn.md) | - |
-| [OfferResponse](./type-aliases/OfferResponse.md) | - |
-| [OfferUpdateInput](./type-aliases/OfferUpdateInput.md) | - |
-| [PrivySolanaWallet](./type-aliases/PrivySolanaWallet.md) | - |
-| [ProjectInput](./type-aliases/ProjectInput.md) | - |
-| [ProjectResponse](./type-aliases/ProjectResponse.md) | - |
-| [TorqueAuthInput](./type-aliases/TorqueAuthInput.md) | The auth input required to authenticate the user with the Torque API. |
-| [TorqueAuthOptions](./type-aliases/TorqueAuthOptions.md) | The auth options for the TorqueUserModule |
-| [TorqueSDKOptions](./type-aliases/TorqueSDKOptions.md) | Torque SDK options |
-| [UserWithConnectedAccounts](./type-aliases/UserWithConnectedAccounts.md) | - |
+| [ActionPostWithCallbackResponse](./type-aliases/actionpostwithcallbackresponse.md) | - |
+| [ApiResponse](./type-aliases/apiresponse.md) | Generic response for an API request. |
+| [DistributorInput](./type-aliases/distributorinput.md) | - |
+| [DistributorResponse](./type-aliases/distributorresponse.md) | - |
+| [DistributorUpdateInput](./type-aliases/distributorupdateinput.md) | - |
+| [LeaderboardResponse](./type-aliases/leaderboardresponse.md) | - |
+| [OffchainRewardInput](./type-aliases/offchainrewardinput.md) | - |
+| [OffchainRewardType](./type-aliases/offchainrewardtype.md) | - |
+| [OfferInput](./type-aliases/offerinput.md) | - |
+| [OfferJourneyReturn](./type-aliases/offerjourneyreturn.md) | - |
+| [OfferResponse](./type-aliases/offerresponse.md) | - |
+| [OfferUpdateInput](./type-aliases/offerupdateinput.md) | - |
+| [PrivySolanaWallet](./type-aliases/privysolanawallet.md) | - |
+| [ProjectInput](./type-aliases/projectinput.md) | - |
+| [ProjectResponse](./type-aliases/projectresponse.md) | - |
+| [TorqueAuthInput](./type-aliases/torqueauthinput.md) | The auth input required to authenticate the user with the Torque API. |
+| [TorqueAuthOptions](./type-aliases/torqueauthoptions.md) | The auth options for the TorqueUserModule |
+| [TorqueSDKOptions](./type-aliases/torquesdkoptions.md) | Torque SDK options |
+| [UserWithConnectedAccounts](./type-aliases/userwithconnectedaccounts.md) | - |
 
 ## Functions
 
 | Function | Description |
 | ------ | ------ |
-| [apiFetch](./functions/apiFetch.md) | The full API fetch request function. |
-| [serverActionRequest](./functions/serverActionRequest.md) | Make a request to the Torque API with the action endpoint. |
-| [serverRequest](./functions/serverRequest.md) | Make a request to the Torque API. |
+| [apiFetch](./functions/apifetch.md) | The full API fetch request function. |
+| [serverActionRequest](./functions/serveractionrequest.md) | Make a request to the Torque API with the action endpoint. |
+| [serverRequest](./functions/serverrequest.md) | Make a request to the Torque API. |
