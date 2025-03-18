@@ -2,7 +2,7 @@
 
 ## The Basics
 
-* [Introduction to Torque](README.md)
+* [Welcome to Torque](README.md)
 
 ***
 
@@ -16,12 +16,12 @@
 * [Advanced Usage](adding-torque-to-your-site/advanced-usage.md)
 * [Managing Offers using the SDK](adding-torque-to-your-site/managing-offers-using-the-sdk.md)
 
-## Custom Events
+## Offchain Actions
 
-* [Overview](custom-events/overview.md)
-* [Requesting an API key](custom-events/requesting-an-api-key.md)
-* [Creating Custom Events](custom-events/creating-custom-events.md)
-* [Sending a Custom Event](custom-events/sending-a-custom-event.md)
+* [Overview](offchain-actions/overview.md)
+* [Requesting an API key](offchain-actions/requesting-an-api-key.md)
+* [Creating Offchain Actions](offchain-actions/creating-offchain-actions.md)
+* [Sending a Custom Event](offchain-actions/sending-a-custom-event.md)
 
 ## Basics
 
@@ -244,7 +244,7 @@
 
 * [Torque Platform](reference/platform/README.md)
   * [Torque Platform SDK](reference/platform/sdk/README.md)
-    * [Classes](reference/platform/sdk/classes/README.md)      
+    * [Classes](reference/platform/sdk/classes/README.md)
       * [Class: TorqueActionsModule](reference/platform/sdk/classes/torqueactionsmodule.md)
       * [Class: TorqueOffersModule](reference/platform/sdk/classes/torqueoffersmodule.md)
       * [Class: TorqueSDK](reference/platform/sdk/classes/torquesdk.md)
@@ -255,7 +255,7 @@
       * [Enumeration: EventType](reference/platform/sdk/enumerations/eventtype.md)
       * [Enumeration: TorqueSDKErrorTypes](reference/platform/sdk/enumerations/torquesdkerrortypes.md)
     * [Functions](reference/platform/sdk/functions/README.md)
-      * [Function: apiFetch](reference/platform/sdk/functions/apifetch.md)  
+      * [Function: apiFetch](reference/platform/sdk/functions/apifetch.md)
       * [Function: serverActionRequest](reference/platform/sdk/functions/serveractionrequest.md)
       * [Function: serverRequest](reference/platform/sdk/functions/serverrequest.md)
     * [Interfaces](reference/platform/sdk/interfaces/README.md)
@@ -303,4 +303,3 @@
       * [Function: useXAction](reference/platform/react/functions/usexaction.md)
     * [Type Aliases](reference/platform/react/type-aliases/README.md)
       * [Type Alias: OfferStatus](reference/platform/react/type-aliases/offerstatus.md)
-  

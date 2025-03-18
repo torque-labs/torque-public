@@ -1,12 +1,14 @@
+# Torque Platform
+
 **Torque Platform**
 
 ***
 
-# Torque Platform Documentation
+## Torque Platform Documentation
 
-## Packages
+### Packages
 
-| Package | Description |
-| ------ | ------ |
-| [@torque-labs/react](react/README.md) | The official React library for the Torque Platform |
-| [@torque-labs/sdk](sdk/README.md) | The official SDK for the Torque Platform |
+| Package                              | Description                                        |
+| ------------------------------------ | -------------------------------------------------- |
+| [@torque-labs/react](react/)         | The official React library for the Torque Platform |
+| [@torque-labs/sdk](broken-reference) | The official SDK for the Torque Platform           |
