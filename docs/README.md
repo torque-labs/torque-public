@@ -43,7 +43,7 @@ Torque handles growth infrastructure so your team can focus on your product. Ins
 
 • Community Milestones: Automatically distribute tokens when users collectively achieve defined goals.
 
-• Collaborative Vaults: Allow other teams to enhance your incentives by adding their own rewards, enabling collaborative growth strategies.
+• Collaborative Incentives: Allow other teams to boost your incentives by adding their own rewards, enabling collaborative growth strategies.
 
 • Social Integration: Effortlessly push actions directly to Discord and Telegram communities, with built-in usage monitoring.
 
