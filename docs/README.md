@@ -9,7 +9,7 @@ coverY: -145.7282051282051
 
 ## Introduction
 
-**Torque is a growth protocol which allows any user to launch incentivized actions.**&#x20;
+**Torque is a growth protocol which allows all users to launch incentivized actions.**&#x20;
 
 **Actions** are made up of three parameters:
 
@@ -29,11 +29,11 @@ Torque is designed for maximum flexibility. By collaborating with top teams in S
 
 * Growth works best when it’s deeply integrated into a project’s strategy, rather than added as an afterthought.
 * Teams inevitably build similar token distribution mechanics to drive sustainable engagement.
-* Builders should focus engineering resources on their product—not on manually managing token distribution and marketing campaigns.
+* Developers and their engineering teams should focus their time and resources on building their product—not on manually managing token distribution and marketing campaigns.
 
-**All-in-One Marketing Platform**
+**All-in-One Growth Platform**
 
-The Torque Platform is designed from the ground up to empower both non-technical users and developers. Easily connect on-chain actions via IDL or integrate web-based events directly with on-chain rewards. The platform and SDK seamlessly integrate with Telegram, web apps, and Discord (coming soon).
+The Torque Platform is designed from the ground up to empower non-technical users with no-code solutions and developers with the exact resources they need.  Easily connect on-chain actions via IDL or integrate web-based events directly with on-chain rewards. The platform and SDK seamlessly integrate with Telegram, web apps, and Discord (coming soon).
 
 Much like Zapier, Torque enables builders to quickly set up custom triggers and actions that directly link token distribution to product usage—allowing teams to easily monitor and accelerate growth without requiring heavy engineering resources. This gives your team the ability to tweak token distribution to meet your goals.
 
