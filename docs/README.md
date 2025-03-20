@@ -1,6 +1,5 @@
 ---
 description: Incentivize Any User, for Any Action
-icon: wrench
 cover: .gitbook/assets/Twitter-Cover-02.png
 coverY: -145.7282051282051
 ---
@@ -9,42 +8,40 @@ coverY: -145.7282051282051
 
 ## Introduction
 
-**Torque is a growth protocol which allows all users to launch incentivized actions.**&#x20;
+Torque is a growth protocol that allows teams to effortlessly launch incentivized actions, linking any user behavior directly to rewards like tokens, NFTs, or points.
 
-**Actions** are made up of three parameters:
+Each action has three simple components:
 
-* **Audience** - Defines who can or cannot execute the action, based on public keys.
-* **Incentives** - Rewards such as tokens, NFTs, or points.
-* **Terms** - The conditions that must be met for incentive distribution.
+* Audience: Who can participate, defined by public keys or user segments.
+* Incentives: The reward type users will receive.
+* Terms: Specific conditions users must meet to earn these rewards.
 
-When an action is launched, the incentives are [escrowed into a PDA](https://solana.com/docs/core/pda) and the distribution terms are set. Once these terms are met, the incentives are automatically cranked and distributed to eligible users.
+## Why Use Torque
 
-## Why Use Torque?
+Much like Zapier automates workflows between apps, Torque ties token distribution to user actions—saving valuable time and resources while enabling targeted growth.
 
-Torque's company objective is to help builders find product market fit. We believe the best way to accomplish this is through analytics, experimentation, and token distribution to the right users.&#x20;
+🛠 **For Developers**
 
-**Maximum Flexibility**
+Torque makes it easy to integrate on-chain and off-chain actions into your product and automate reward distribution.
 
-Torque is designed for maximum flexibility. By collaborating with top teams in Solana, we’ve identified key growth challenges and recognized that no campaign or strategy is exactly the same. In doing so, we've seen common patterns emerge across successful teams:
+* Add your onchain actions (via IDL), protocol actions, or offchain events&#x20;
+* Launch incentives that trigger rewards tied to actions when conditions are met.
+* Track & Optimize performance in real time, tweaking incentives instantly.
 
-* Growth works best when it’s deeply integrated into a project’s strategy, rather than added as an afterthought.
-* Teams inevitably build similar token distribution mechanics to drive sustainable engagement.
-* Developers and their engineering teams should focus their time and resources on building their product—not on manually managing token distribution and marketing campaigns.
+Set it up once, and let Torque manage rewards while you focus on building.
 
-**All-in-One Growth Platform**
+With Torque, you can dynamically adjust growth incentives on the fly—no complex setups or manual distribution needed.
 
-The Torque Platform is designed from the ground up to empower non-technical users with no-code solutions and developers with the exact resources they need.  Easily connect on-chain actions via IDL or integrate web-based events directly with on-chain rewards. The platform and SDK seamlessly integrate with Telegram, web apps, and Discord (coming soon).
+📈 **For Marketers**
 
-Much like Zapier, Torque enables builders to quickly set up custom triggers and actions that directly link token distribution to product usage—allowing teams to easily monitor and accelerate growth without requiring heavy engineering resources. This gives your team the ability to tweak token distribution to meet your goals.
+Torque’s intuitive, no-code interface lets marketers launch, test, and optimize incentive campaigns without writing a single line of code. Create powerful user journeys triggered by simple events, automatically distributing tokens, NFTs, or points to drive engagement and accelerate growth.
 
-**A Clear Objective**
+With Torque, your team can:
 
-Torque handles growth infrastructure so your team can focus on your product. Instead of juggling multiple tools to chase vanity metrics, Torque provides an all-in-one platform that simplifies the complexity of incentivizing growth. Key features include:
+• Automate Incentives: Instantly reward users for targeted actions.
 
-• Community Milestones: Automatically distribute tokens when users collectively achieve defined goals.
+• Maximize Flexibility: Easily customize who gets rewarded, how, and when.
 
-• Collaborative Incentives: Allow other teams to boost your incentives by adding their own rewards, enabling collaborative growth strategies.
+• Drive Sustainable Growth: Seamlessly integrate incentives into your product strategy and quickly iterate based on results.
 
-• Social Integration: Effortlessly push actions directly to Discord and Telegram communities, with built-in usage monitoring.
-
-• Leaderboards: Showcase community engagement through customizable leaderboards tied directly to incentivized actions.
+Torque simplifies the complexity of token-based growth, freeing your team to focus entirely on your core product.

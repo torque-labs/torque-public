@@ -3,10 +3,11 @@
 ## The Basics
 
 * [Welcome to Torque](README.md)
+* [How it Works](the-basics/how-it-works.md)
 
 ***
 
-* [Key Concepts](key-concepts.md)
+* [Torque Building Blocks](torque-building-blocks.md)
 
 ## Adding Torque to your Site
 
