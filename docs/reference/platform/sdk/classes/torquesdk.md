@@ -1,12 +1,12 @@
-[**@torque-labs/sdk**](../../../@torque-labs/sdk/README.md)
+[**@torque-labs/sdk**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/sdk](../README.md) / TorqueSDK
+[@torque-labs/sdk](../README.md) / TorqueSDK
 
 # Class: TorqueSDK
 
-Defined in: [packages/sdk/src/modules/main.ts:36](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/main.ts#L36)
+Defined in: [sdk/src/modules/main.ts:36](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L36)
 
 The TorqueSDK class is used to interact with the Torque API.
 
@@ -22,7 +22,7 @@ The options for the SDK
 new TorqueSDK(options): TorqueSDK
 ```
 
-Defined in: [packages/sdk/src/modules/main.ts:67](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/main.ts#L67)
+Defined in: [sdk/src/modules/main.ts:67](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L67)
 
 #### Parameters
 
@@ -36,14 +36,79 @@ Defined in: [packages/sdk/src/modules/main.ts:67](https://github.com/torque-labs
 
 ## Properties
 
-| Property | Type | Description |
-| ------ | ------ | ------ |
-| <a id="_connection"></a> `_connection` | `Connection` | The connection for the SDK instance |
-| <a id="_signer"></a> `_signer` | \| `undefined` \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/PrivySolanaWallet.md) | The signer for the SDK instance |
-| <a id="_transactions"></a> `_transactions` | [`TorqueTransactionsModule`](TorqueTransactionsModule.md) | The tranactions module for the SDK instance |
-| <a id="apiurl"></a> `apiUrl` | `string` | The base URL of the Torque API |
-| <a id="offers"></a> `offers` | [`TorqueOffersModule`](TorqueOffersModule.md) | The offers module for the SDK instance |
-| <a id="user"></a> `user` | `undefined` \| [`TorqueUserModule`](TorqueUserModule.md) | The user module for the SDK instance |
+### \_connection
+
+```ts
+private _connection: Connection;
+```
+
+Defined in: [sdk/src/modules/main.ts:65](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L65)
+
+The connection for the SDK instance
+
+***
+
+### \_signer
+
+```ts
+private _signer: 
+  | undefined
+  | Adapter
+  | Keypair
+  | PrivySolanaWallet;
+```
+
+Defined in: [sdk/src/modules/main.ts:60](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L60)
+
+The signer for the SDK instance
+
+***
+
+### \_transactions
+
+```ts
+private _transactions: TorqueTransactionsModule;
+```
+
+Defined in: [sdk/src/modules/main.ts:50](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L50)
+
+The tranactions module for the SDK instance
+
+***
+
+### apiUrl
+
+```ts
+apiUrl: string;
+```
+
+Defined in: [sdk/src/modules/main.ts:55](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L55)
+
+The base URL of the Torque API
+
+***
+
+### offers
+
+```ts
+offers: TorqueOffersModule;
+```
+
+Defined in: [sdk/src/modules/main.ts:40](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L40)
+
+The offers module for the SDK instance
+
+***
+
+### user
+
+```ts
+user: undefined | TorqueUserModule;
+```
+
+Defined in: [sdk/src/modules/main.ts:45](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L45)
+
+The user module for the SDK instance
 
 ## Methods
 
@@ -56,7 +121,7 @@ authenticate(
 authInput?): Promise<string>
 ```
 
-Defined in: [packages/sdk/src/modules/main.ts:87](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/main.ts#L87)
+Defined in: [sdk/src/modules/main.ts:87](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L87)
 
 Authenticate the user with the API using the provided login data.
 

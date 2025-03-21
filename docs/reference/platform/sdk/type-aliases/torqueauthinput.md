@@ -1,8 +1,8 @@
-[**@torque-labs/sdk**](../../../@torque-labs/sdk/README.md)
+[**@torque-labs/sdk**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/sdk](../README.md) / TorqueAuthInput
+[@torque-labs/sdk](../README.md) / TorqueAuthInput
 
 # Type Alias: TorqueAuthInput
 
@@ -33,7 +33,7 @@ type TorqueAuthInput = {
 };
 ```
 
-Defined in: [packages/sdk/src/modules/user.ts:37](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/user.ts#L37)
+Defined in: [sdk/src/modules/user.ts:31](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/user.ts#L31)
 
 The auth input required to authenticate the user with the Torque API.
 

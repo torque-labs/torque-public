@@ -1,8 +1,8 @@
-[**@torque-labs/sdk**](../../../@torque-labs/sdk/README.md)
+[**@torque-labs/sdk**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/sdk](../README.md) / serverRequest
+[@torque-labs/sdk](../README.md) / serverRequest
 
 # Function: serverRequest()
 
@@ -10,7 +10,7 @@
 function serverRequest<T>(options): Promise<T>
 ```
 
-Defined in: [packages/sdk/src/utils/requests.ts:82](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/utils/requests.ts#L82)
+Defined in: [sdk/src/utils/requests.ts:82](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/utils/requests.ts#L82)
 
 Make a request to the Torque API.
 

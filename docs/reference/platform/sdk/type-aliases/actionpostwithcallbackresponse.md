@@ -1,13 +1,60 @@
-[**@torque-labs/sdk**](../../../@torque-labs/sdk/README.md)
+[**@torque-labs/sdk**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/sdk](../README.md) / ActionPostWithCallbackResponse
+[@torque-labs/sdk](../README.md) / ActionPostWithCallbackResponse
 
 # Type Alias: ActionPostWithCallbackResponse
 
 ```ts
-type ActionPostWithCallbackResponse = z.infer<typeof ActionPostWithCallbackResponseSchema>;
+type ActionPostWithCallbackResponse = {
+  links:   | {
+     next: {
+        href: string;
+        type: "post";
+       };
+    }
+     | null;
+  transaction: string;
+  type: "post" | "transaction" | "message" | "external-link";
+};
 ```
 
-Defined in: [packages/database/src/requests.ts:87](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/database/src/requests.ts#L87)
+Defined in: sdk/src/types/schemaTypes.ts:1433
+
+## Properties
+
+### links?
+
+```ts
+optional links: 
+  | {
+  next: {
+     href: string;
+     type: "post";
+    };
+ }
+  | null;
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:1436
+
+***
+
+### transaction
+
+```ts
+transaction: string;
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:1435
+
+***
+
+### type
+
+```ts
+type: "post" | "transaction" | "message" | "external-link";
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:1434

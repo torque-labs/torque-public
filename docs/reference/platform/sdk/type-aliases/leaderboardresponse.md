@@ -1,13 +1,54 @@
-[**@torque-labs/sdk**](../../../@torque-labs/sdk/README.md)
+[**@torque-labs/sdk**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/sdk](../README.md) / LeaderboardResponse
+[@torque-labs/sdk](../README.md) / LeaderboardResponse
 
 # Type Alias: LeaderboardResponse
 
 ```ts
-type LeaderboardResponse = z.infer<typeof LeaderboardResponseSchema>;
+type LeaderboardResponse = {
+  allocations: {
+     pubKey: string;
+     total: number;
+    }[];
+  pointId: string;
+};
 ```
 
-Defined in: [packages/database/src/offchainReward.ts:26](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/database/src/offchainReward.ts#L26)
+Defined in: sdk/src/types/schemaTypes.ts:602
+
+## Properties
+
+### allocations
+
+```ts
+allocations: {
+  pubKey: string;
+  total: number;
+ }[];
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:604
+
+#### pubKey
+
+```ts
+pubKey: string;
+```
+
+#### total
+
+```ts
+total: number;
+```
+
+***
+
+### pointId
+
+```ts
+pointId: string;
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:603

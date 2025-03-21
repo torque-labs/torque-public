@@ -1,13 +1,528 @@
-[**@torque-labs/sdk**](../../../@torque-labs/sdk/README.md)
+[**@torque-labs/sdk**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/sdk](../README.md) / OfferInput
+[@torque-labs/sdk](../README.md) / OfferInput
 
 # Type Alias: OfferInput
 
 ```ts
-type OfferInput = z.infer<typeof OfferInputSchema>;
+type OfferInput = {
+  audience:   | {
+     name: string;
+    } & 
+     | {
+     addresses: ...;
+     slug: ...;
+     type: "ALLOWLIST";
+    }
+     | {
+     addresses: ...;
+     slug: ...;
+     type: "DENYLIST";
+    }
+     | {
+     address: ...;
+     amount: number;
+     tokenGateType: "NFT" | "SPL";
+     type: "TOKEN_GATE";
+    }
+     | {
+     audienceId: string | null;
+    };
+  endTime: Date;
+  metadata: {
+     backgroundColor: string | null;
+     backgroundImage: string | null;
+     colorMode: "light" | "dark" | null;
+     description: string | null;
+     image: string | null;
+     title: string;
+     url: string | null;
+    };
+  projectId: string | null;
+  requirements:   | {
+     config: {
+        amount: {
+           max: number;
+           min: number;
+           type: "number";
+          };
+        tokenAddress: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOLANA_TX";
+     type: "BURN";
+    }
+     | {
+     config: {
+        amount: {
+           max: number;
+           min: number;
+           type: "number";
+          };
+        tokenAddress: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOLANA_TX";
+     type: "BUY";
+    }
+     | {
+     config: {
+        amount: {
+           max: number;
+           min: number;
+           type: "number";
+          };
+        tokenAddress: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOLANA_TX";
+     type: "SELL";
+    }
+     | {
+     config: {
+        amount: {
+           max: number;
+           min: number;
+           type: "number";
+          };
+        seconds: number;
+        validatorAddress: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOLANA_TX";
+     type: "STAKE_SOL";
+    }
+     | {
+     config: {
+        customProgram: {
+           type: "string";
+           validation: ... | ...;
+           value: string;
+          };
+        dao: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+        proposal: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOLANA_TX";
+     type: "VOTE";
+    }
+     | {
+     config: {
+        message: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "MESSAGE_SIGNATURE";
+     type: "MESSAGE_SIGNATURE";
+    }
+     | {
+     config: {
+        targetId: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOCIAL_MEDIA";
+     type: "X_FOLLOW";
+    }
+     | {
+     config: {
+        targetId: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOCIAL_MEDIA";
+     type: "X_LIKE";
+    }
+     | {
+     config: {
+        targetId: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOCIAL_MEDIA";
+     type: "X_REPOST";
+    }
+     | {
+     config: {
+        targetId: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "SOCIAL_MEDIA";
+     type: "X_COMMENT";
+    }
+     | {
+     config: {
+        eventName: string;
+        fields: (... | ... | ...)[];
+       };
+     oracle: "CUSTOM_EVENT_PROVIDER";
+     type: "CUSTOM";
+    }
+     | {
+     config: {
+        amount: {
+           max: number;
+           min: number;
+           type: "number";
+          };
+        proposal: {
+           type: "string";
+           validation: "exactMatch" | "regEx";
+           value: string;
+          };
+       };
+     oracle: "CUSTOM_EVENT_PROVIDER";
+     type: "META_DAO_BUY";
+    } & {
+     actionUrl: string | null;
+     oracle:   | "TORQUE"
+        | "SOLANA_TX"
+        | "CUSTOM_EVENT_PROVIDER"
+        | "PYTH_MKT_CAP"
+        | "PYTH_MKT_VOLUME"
+        | "MESSAGE_SIGNATURE"
+        | "SOCIAL_MEDIA";
+    }[];
+  startTime: Date;
+};
 ```
 
-Defined in: [packages/database/src/offer.ts:41](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/database/src/offer.ts#L41)
+Defined in: sdk/src/types/schemaTypes.ts:757
+
+## Properties
+
+### audience?
+
+```ts
+optional audience: 
+  | {
+  name: string;
+ } & 
+  | {
+  addresses: ...;
+  slug: ...;
+  type: "ALLOWLIST";
+ }
+  | {
+  addresses: ...;
+  slug: ...;
+  type: "DENYLIST";
+ }
+  | {
+  address: ...;
+  amount: number;
+  tokenGateType: "NFT" | "SPL";
+  type: "TOKEN_GATE";
+ }
+  | {
+  audienceId: string | null;
+};
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:758
+
+***
+
+### endTime
+
+```ts
+endTime: Date;
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:954
+
+***
+
+### metadata
+
+```ts
+metadata: {
+  backgroundColor: string | null;
+  backgroundImage: string | null;
+  colorMode: "light" | "dark" | null;
+  description: string | null;
+  image: string | null;
+  title: string;
+  url: string | null;
+};
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:955
+
+#### backgroundColor?
+
+```ts
+optional backgroundColor: string | null;
+```
+
+#### backgroundImage?
+
+```ts
+optional backgroundImage: string | null;
+```
+
+#### colorMode?
+
+```ts
+optional colorMode: "light" | "dark" | null;
+```
+
+#### description?
+
+```ts
+optional description: string | null;
+```
+
+#### image?
+
+```ts
+optional image: string | null;
+```
+
+#### title
+
+```ts
+title: string;
+```
+
+#### url?
+
+```ts
+optional url: string | null;
+```
+
+***
+
+### projectId?
+
+```ts
+optional projectId: string | null;
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:964
+
+***
+
+### requirements
+
+```ts
+requirements: 
+  | {
+  config: {
+     amount: {
+        max: number;
+        min: number;
+        type: "number";
+       };
+     tokenAddress: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOLANA_TX";
+  type: "BURN";
+ }
+  | {
+  config: {
+     amount: {
+        max: number;
+        min: number;
+        type: "number";
+       };
+     tokenAddress: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOLANA_TX";
+  type: "BUY";
+ }
+  | {
+  config: {
+     amount: {
+        max: number;
+        min: number;
+        type: "number";
+       };
+     tokenAddress: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOLANA_TX";
+  type: "SELL";
+ }
+  | {
+  config: {
+     amount: {
+        max: number;
+        min: number;
+        type: "number";
+       };
+     seconds: number;
+     validatorAddress: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOLANA_TX";
+  type: "STAKE_SOL";
+ }
+  | {
+  config: {
+     customProgram: {
+        type: "string";
+        validation: ... | ...;
+        value: string;
+       };
+     dao: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+     proposal: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOLANA_TX";
+  type: "VOTE";
+ }
+  | {
+  config: {
+     message: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "MESSAGE_SIGNATURE";
+  type: "MESSAGE_SIGNATURE";
+ }
+  | {
+  config: {
+     targetId: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOCIAL_MEDIA";
+  type: "X_FOLLOW";
+ }
+  | {
+  config: {
+     targetId: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOCIAL_MEDIA";
+  type: "X_LIKE";
+ }
+  | {
+  config: {
+     targetId: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOCIAL_MEDIA";
+  type: "X_REPOST";
+ }
+  | {
+  config: {
+     targetId: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "SOCIAL_MEDIA";
+  type: "X_COMMENT";
+ }
+  | {
+  config: {
+     eventName: string;
+     fields: (... | ... | ...)[];
+    };
+  oracle: "CUSTOM_EVENT_PROVIDER";
+  type: "CUSTOM";
+ }
+  | {
+  config: {
+     amount: {
+        max: number;
+        min: number;
+        type: "number";
+       };
+     proposal: {
+        type: "string";
+        validation: "exactMatch" | "regEx";
+        value: string;
+       };
+    };
+  oracle: "CUSTOM_EVENT_PROVIDER";
+  type: "META_DAO_BUY";
+ } & {
+  actionUrl: string | null;
+  oracle:   | "TORQUE"
+     | "SOLANA_TX"
+     | "CUSTOM_EVENT_PROVIDER"
+     | "PYTH_MKT_CAP"
+     | "PYTH_MKT_VOLUME"
+     | "MESSAGE_SIGNATURE"
+     | "SOCIAL_MEDIA";
+ }[];
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:776
+
+***
+
+### startTime
+
+```ts
+startTime: Date;
+```
+
+Defined in: sdk/src/types/schemaTypes.ts:953

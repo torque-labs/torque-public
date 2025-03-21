@@ -1,12 +1,12 @@
-[**@torque-labs/sdk**](../../../@torque-labs/sdk/README.md)
+[**@torque-labs/sdk**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/sdk](../README.md) / TorqueTransactionsModule
+[@torque-labs/sdk](../README.md) / TorqueTransactionsModule
 
 # Class: TorqueTransactionsModule
 
-Defined in: [packages/sdk/src/modules/transactions.ts:16](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/transactions.ts#L16)
+Defined in: [sdk/src/modules/transactions.ts:16](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L16)
 
 The TorqueTransactionsModule class is used to handle transactions for the Torque SDK.
 It provides methods for creating, signing, and sending transactions.
@@ -27,7 +27,7 @@ The RPC connection for the Solana network
 new TorqueTransactionsModule(connection, signer?): TorqueTransactionsModule
 ```
 
-Defined in: [packages/sdk/src/modules/transactions.ts:32](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/transactions.ts#L32)
+Defined in: [sdk/src/modules/transactions.ts:32](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L32)
 
 #### Parameters
 
@@ -42,11 +42,43 @@ Defined in: [packages/sdk/src/modules/transactions.ts:32](https://github.com/tor
 
 ## Properties
 
-| Property | Type | Description |
-| ------ | ------ | ------ |
-| <a id="_connection"></a> `_connection` | `Connection` | The RPC connection for the Solana network |
-| <a id="_publickey"></a> `_publicKey` | `undefined` \| `null` \| `PublicKey` | The public key of the signer |
-| <a id="_signer"></a> `_signer` | \| `undefined` \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/PrivySolanaWallet.md) | The signer for the transactions |
+### \_connection
+
+```ts
+private _connection: Connection;
+```
+
+Defined in: [sdk/src/modules/transactions.ts:20](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L20)
+
+The RPC connection for the Solana network
+
+***
+
+### \_publicKey
+
+```ts
+private _publicKey: undefined | null | PublicKey;
+```
+
+Defined in: [sdk/src/modules/transactions.ts:30](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L30)
+
+The public key of the signer
+
+***
+
+### \_signer
+
+```ts
+private _signer: 
+  | undefined
+  | Adapter
+  | Keypair
+  | PrivySolanaWallet;
+```
+
+Defined in: [sdk/src/modules/transactions.ts:25](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L25)
+
+The signer for the transactions
 
 ## Accessors
 
@@ -58,7 +90,7 @@ Defined in: [packages/sdk/src/modules/transactions.ts:32](https://github.com/tor
 set signer(value): void
 ```
 
-Defined in: [packages/sdk/src/modules/transactions.ts:40](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/transactions.ts#L40)
+Defined in: [sdk/src/modules/transactions.ts:40](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L40)
 
 Set the signer for the transactions
 
@@ -80,7 +112,7 @@ Set the signer for the transactions
 sendTransaction(serializedTx): Promise<string>
 ```
 
-Defined in: [packages/sdk/src/modules/transactions.ts:157](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/transactions.ts#L157)
+Defined in: [sdk/src/modules/transactions.ts:157](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L157)
 
 Send a transaction to the network.
 
@@ -104,7 +136,7 @@ The signature of the completed transaction after confirmation
 private signOrSendTransaction(serializedTx, execute): Promise<string>
 ```
 
-Defined in: [packages/sdk/src/modules/transactions.ts:53](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/transactions.ts#L53)
+Defined in: [sdk/src/modules/transactions.ts:53](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L53)
 
 Execute or sign a transaction from a Solana action.
 
@@ -129,7 +161,7 @@ The signature of the transaction
 signTransaction(serializedTx): Promise<string>
 ```
 
-Defined in: [packages/sdk/src/modules/transactions.ts:146](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/transactions.ts#L146)
+Defined in: [sdk/src/modules/transactions.ts:146](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L146)
 
 Sign and return the transaction signature.
 
@@ -153,7 +185,7 @@ The signature of the signed transaction
 private signWithKeypair(txn): VersionedTransaction
 ```
 
-Defined in: [packages/sdk/src/modules/transactions.ts:170](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/transactions.ts#L170)
+Defined in: [sdk/src/modules/transactions.ts:170](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/transactions.ts#L170)
 
 Signs a transaction with a Keypair.
 

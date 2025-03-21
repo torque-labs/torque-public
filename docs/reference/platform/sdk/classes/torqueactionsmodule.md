@@ -1,12 +1,12 @@
-[**@torque-labs/sdk**](../../../@torque-labs/sdk/README.md)
+[**@torque-labs/sdk**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/sdk](../README.md) / TorqueActionsModule
+[@torque-labs/sdk](../README.md) / TorqueActionsModule
 
 # Class: TorqueActionsModule
 
-Defined in: [packages/sdk/src/modules/actions.ts:22](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/actions.ts#L22)
+Defined in: [sdk/src/modules/actions.ts:16](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L16)
 
 The TorqueActionsModule class is used to interact with the actions endpoints of the Torque API.
 
@@ -34,7 +34,7 @@ new TorqueActionsModule(
    token?): TorqueActionsModule
 ```
 
-Defined in: [packages/sdk/src/modules/actions.ts:28](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/actions.ts#L28)
+Defined in: [sdk/src/modules/actions.ts:22](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L22)
 
 #### Parameters
 
@@ -51,12 +51,43 @@ Defined in: [packages/sdk/src/modules/actions.ts:28](https://github.com/torque-l
 
 ## Properties
 
-| Property | Type |
-| ------ | ------ |
-| <a id="_publickey"></a> `_publicKey` | `undefined` \| `string` |
-| <a id="_token"></a> `_token` | `undefined` \| `string` |
-| <a id="_transactions"></a> `_transactions` | [`TorqueTransactionsModule`](TorqueTransactionsModule.md) |
-| <a id="baseurl"></a> `baseUrl` | `string` |
+### \_publicKey
+
+```ts
+private _publicKey: undefined | string;
+```
+
+Defined in: [sdk/src/modules/actions.ts:19](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L19)
+
+***
+
+### \_token
+
+```ts
+private _token: undefined | string;
+```
+
+Defined in: [sdk/src/modules/actions.ts:18](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L18)
+
+***
+
+### \_transactions
+
+```ts
+private _transactions: TorqueTransactionsModule;
+```
+
+Defined in: [sdk/src/modules/actions.ts:20](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L20)
+
+***
+
+### baseUrl
+
+```ts
+baseUrl: string;
+```
+
+Defined in: [sdk/src/modules/actions.ts:17](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L17)
 
 ## Accessors
 
@@ -68,7 +99,7 @@ Defined in: [packages/sdk/src/modules/actions.ts:28](https://github.com/torque-l
 set publicKey(value): void
 ```
 
-Defined in: [packages/sdk/src/modules/actions.ts:45](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/actions.ts#L45)
+Defined in: [sdk/src/modules/actions.ts:39](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L39)
 
 Set private public key for the actions module
 
@@ -92,7 +123,7 @@ Set private public key for the actions module
 set token(value): void
 ```
 
-Defined in: [packages/sdk/src/modules/actions.ts:38](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/actions.ts#L38)
+Defined in: [sdk/src/modules/actions.ts:32](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L32)
 
 Set private token for the actions module
 
@@ -114,7 +145,7 @@ Set private token for the actions module
 executeAction(offerId, index): Promise<string>
 ```
 
-Defined in: [packages/sdk/src/modules/actions.ts:86](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/actions.ts#L86)
+Defined in: [sdk/src/modules/actions.ts:80](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L80)
 
 Execute an action.
 
@@ -143,7 +174,7 @@ executeXAction(
 source?): Promise<void>
 ```
 
-Defined in: [packages/sdk/src/modules/actions.ts:102](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/actions.ts#L102)
+Defined in: [sdk/src/modules/actions.ts:96](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L96)
 
 Execute an X action
 
@@ -151,10 +182,10 @@ Execute an X action
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `targetType` | \| [`X_FOLLOW`](../enumerations/EventType.md#x_follow) \| [`X_LIKE`](../enumerations/EventType.md#x_like) \| [`X_REPOST`](../enumerations/EventType.md#x_repost) | The type of target |
+| `targetType` | `X_FOLLOW` \| `X_LIKE` \| `X_REPOST` | The type of target |
 | `targetId` | `string` | The id of the target |
 | `telegramId`? | `string` | The id of the telegram user |
-| `source`? | `"telegram"` \| `"web"` | The source of the action |
+| `source`? | `"web"` \| `"telegram"` | The source of the action |
 
 #### Returns
 
@@ -167,20 +198,10 @@ The response from the API
 ### getActionTransaction()
 
 ```ts
-getActionTransaction(offerId, index): Promise<{
-  links:   | null
-     | {
-     next: {
-        href: string;
-        type: "post";
-       };
-    };
-  transaction: string;
-  type: LinkedAction;
-}>
+getActionTransaction(offerId, index): Promise<ActionPostWithCallbackResponse>
 ```
 
-Defined in: [packages/sdk/src/modules/actions.ts:59](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/sdk/src/modules/actions.ts#L59)
+Defined in: [sdk/src/modules/actions.ts:53](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L53)
 
 Get the transaction for an action.
 
@@ -193,17 +214,7 @@ Get the transaction for an action.
 
 #### Returns
 
-`Promise`\<\{
-  `links`:   \| `null`
-     \| \{
-     `next`: \{
-        `href`: `string`;
-        `type`: `"post"`;
-       \};
-    \};
-  `transaction`: `string`;
-  `type`: `LinkedAction`;
- \}\>
+`Promise`\<[`ActionPostWithCallbackResponse`](../type-aliases/ActionPostWithCallbackResponse.md)\>
 
 The transaction for the action
 
