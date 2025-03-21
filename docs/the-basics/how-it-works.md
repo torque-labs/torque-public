@@ -4,8 +4,6 @@ description: Learn How Torque Works
 
 # How it Works
 
-⚙️ How Torque Works
-
 ## 1. Define an Action
 
 Select the user behavior you want to incentivize, such as token purchases, NFT minting, liquidity deposits, or social engagements.
