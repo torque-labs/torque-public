@@ -7,7 +7,7 @@
 
 ***
 
-* [Torque Building Blocks](torque-building-blocks.md)
+* [Designing Incentives with Torque](designing-incentives-with-torque.md)
 
 ## Adding Torque to your Site
 
