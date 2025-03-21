@@ -8,6 +8,7 @@ In Torque, **actions** are user behaviors you want to incentivize, and **distrib
 
 * **One-to-many:** A single action can trigger multiple distributors, each with distinct rewards or conditions.
 * **Many-to-one:** Multiple actions can collectively contribute towards a single distributor that triggers rewards once overall conditions are met.
+* **Many-to-many:** Multiple actions can contribute to multiple distributors which trigger multiple rewards once the conditions are met.
 
 Understanding this flexibility is key to unlocking advanced and highly effective incentive structures.
 
@@ -20,7 +21,7 @@ Understanding this flexibility is key to unlocking advanced and highly effective
 * **Action:** Stake tokens.
 * **Distributors:**
   * Immediate reward distributor: Users earn instant tokens for staking.
-  * Tiered distributor: Early stakers earn higher rewards, later stakers progressively fewer rewards.
+  * Bonding curve distributor: Early stakers earn higher rewards, later stakers progressively fewer rewards.
   * Raffle distributor: Every staker earns a raffle entry for special NFTs.
 * **Why This Works:** Encourages immediate action, sustained participation, and adds excitement through raffles.
 
@@ -29,7 +30,7 @@ Understanding this flexibility is key to unlocking advanced and highly effective
 **Use Case: Community Milestone Achievement**
 
 * **Actions:** Token purchases, liquidity deposits, and social media engagement.
-* **Distributor:** Token airdrop triggered once a community goal (e.g., total actions or specific milestone) is reached.
+* **Distributor:** Token distribution triggered once a community goal (e.g., total actions or specific milestone) is reached.
 * **Why This Works:** Aligns diverse community activities towards achieving a shared growth target.
 
 #### Scenario 3: Complex Combinations
