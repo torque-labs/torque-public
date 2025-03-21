@@ -6,8 +6,6 @@ description: Learn How Torque Works
 
 ⚙️ How Torque Works
 
-Torque is a growth protocol that automates token-based incentives linked directly to user actions—helping teams precisely target and reward users without constant manual management.
-
 ## 1. Define an Action
 
 Select the user behavior you want to incentivize, such as token purchases, NFT minting, liquidity deposits, or social engagements.
@@ -28,9 +26,8 @@ Choose how users are rewarded upon meeting action terms:
 
 Torque fully automates incentive distribution based on rules you set:
 
-• Distribution Rules: Conditions such as minimum conversions, timing, or event-based triggers.
-
-• Dynamic Allocation: Formulas to adjust incentives based on user participation levels, timing, or order.
+* Distribution Rules: Conditions such as minimum conversions, timing, or event-based triggers.
+* Dynamic Allocation: Formulas to adjust incentives based on user participation levels, timing, or order.
 
 Once configured, Torque manages distribution seamlessly, requiring minimal ongoing intervention.
 
@@ -38,20 +35,16 @@ Once configured, Torque manages distribution seamlessly, requiring minimal ongoi
 
 Monitor real-time performance and adjust incentives instantly:
 
-• Adjust reward amounts or conditions mid-campaign.
-
-• Add new incentives dynamically to enhance engagement.
-
-• Refine campaigns continuously using real-time data.
+* Adjust reward amounts or conditions mid-campaign.
+* Add new incentives dynamically to enhance engagement.
+* Refine campaigns continuously using real-time data.
 
 ## 5. Easy Integration
 
 Developers can integrate Torque with minimal engineering overhead:
 
-• On-Chain Integration: Use existing onchain programs OR upload your own.
-
-• Off-Chain Integration: APIs, webhooks, or external triggers.
-
-• SDK & APIs: Quickly build and manage incentive campaigns directly within your product.
+* On-Chain Integration: Use existing onchain programs OR upload your own.
+* Off-Chain Integration: APIs, webhooks, or external triggers.
+* SDK & APIs: Quickly build and manage incentive campaigns directly within your product.
 
 Torque simplifies the end-to-end process of creating and optimizing token-based incentives, enabling your team to focus on driving growth.

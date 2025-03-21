@@ -1,4 +1,4 @@
-# Torque Building Blocks
+# Designing Incentives with Torque
 
 Building on the basics of Torque, this section explains the advanced concepts of how actions and distributors work together as flexible building blocks. By understanding how to combine and structure these components, you can create sophisticated, customized incentive strategies tailored precisely to your goals.
 
