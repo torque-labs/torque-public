@@ -14,7 +14,7 @@ type NumberValidationInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1448
+Defined in: [sdk/src/types/schemaTypes.ts:1973](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1973)
 
 ## Properties
 
@@ -24,7 +24,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1448
 optional max: number;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1451
+Defined in: [sdk/src/types/schemaTypes.ts:1976](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1976)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1451
 optional min: number;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1450
+Defined in: [sdk/src/types/schemaTypes.ts:1975](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1975)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1450
 type: "number";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1449
+Defined in: [sdk/src/types/schemaTypes.ts:1974](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1974)

@@ -16,7 +16,7 @@ type OffchainRewardInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:595
+Defined in: [sdk/src/types/schemaTypes.ts:890](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l890)
 
 ## Properties
 
@@ -26,7 +26,7 @@ Defined in: sdk/src/types/schemaTypes.ts:595
 optional description: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:599
+Defined in: [sdk/src/types/schemaTypes.ts:894](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l894)
 
 ***
 
@@ -36,7 +36,7 @@ Defined in: sdk/src/types/schemaTypes.ts:599
 image: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:598
+Defined in: [sdk/src/types/schemaTypes.ts:893](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l893)
 
 ***
 
@@ -46,7 +46,7 @@ Defined in: sdk/src/types/schemaTypes.ts:598
 name: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:597
+Defined in: [sdk/src/types/schemaTypes.ts:892](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l892)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: sdk/src/types/schemaTypes.ts:597
 optional symbol: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:600
+Defined in: [sdk/src/types/schemaTypes.ts:895](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l895)
 
 ***
 
@@ -66,4 +66,4 @@ Defined in: sdk/src/types/schemaTypes.ts:600
 type: "POINT" | "BADGE";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:596
+Defined in: [sdk/src/types/schemaTypes.ts:891](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l891)

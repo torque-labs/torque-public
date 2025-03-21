@@ -24,7 +24,7 @@ type UserBadgeResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:609
+Defined in: [sdk/src/types/schemaTypes.ts:904](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l904)
 
 ## Properties
 
@@ -43,55 +43,18 @@ badge: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:613
+Defined in: [sdk/src/types/schemaTypes.ts:908](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l908)
 
-#### createdAt?
-
-```ts
-optional createdAt: Date;
-```
-
-#### description?
-
-```ts
-optional description: string | null;
-```
-
-#### id
-
-```ts
-id: string;
-```
-
-#### image
-
-```ts
-image: string;
-```
-
-#### name
-
-```ts
-name: string;
-```
-
-#### symbol?
-
-```ts
-optional symbol: string | null;
-```
-
-#### type
-
-```ts
-type: "POINT" | "BADGE";
-```
-
-#### updatedAt
-
-```ts
-updatedAt: Date;
-```
+| Name | Type |
+| ------ | ------ |
+| `createdAt?` | `Date` |
+| `description?` | `string` \| `null` |
+| `id` | `string` |
+| `image` | `string` |
+| `name` | `string` |
+| `symbol?` | `string` \| `null` |
+| `type` | `"POINT"` \| `"BADGE"` |
+| `updatedAt` | `Date` |
 
 ***
 
@@ -101,7 +64,7 @@ updatedAt: Date;
 optional createdAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:611
+Defined in: [sdk/src/types/schemaTypes.ts:906](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l906)
 
 ***
 
@@ -111,7 +74,7 @@ Defined in: sdk/src/types/schemaTypes.ts:611
 id: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:610
+Defined in: [sdk/src/types/schemaTypes.ts:905](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l905)
 
 ***
 
@@ -121,4 +84,4 @@ Defined in: sdk/src/types/schemaTypes.ts:610
 updatedAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:612
+Defined in: [sdk/src/types/schemaTypes.ts:907](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l907)

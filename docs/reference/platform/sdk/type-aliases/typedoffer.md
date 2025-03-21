@@ -23,7 +23,7 @@ type TypedOffer = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1158
+Defined in: [sdk/src/types/schemaTypes.ts:1589](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1589)
 
 ## Properties
 
@@ -33,7 +33,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1158
 endTime: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1161
+Defined in: [sdk/src/types/schemaTypes.ts:1592](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1592)
 
 ***
 
@@ -51,49 +51,17 @@ metadata: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1162
+Defined in: [sdk/src/types/schemaTypes.ts:1593](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1593)
 
-#### backgroundColor?
-
-```ts
-optional backgroundColor: string | null;
-```
-
-#### backgroundImage?
-
-```ts
-optional backgroundImage: string | null;
-```
-
-#### colorMode?
-
-```ts
-optional colorMode: "light" | "dark" | null;
-```
-
-#### description?
-
-```ts
-optional description: string | null;
-```
-
-#### image?
-
-```ts
-optional image: string | null;
-```
-
-#### title
-
-```ts
-title: string;
-```
-
-#### url?
-
-```ts
-optional url: string | null;
-```
+| Name | Type |
+| ------ | ------ |
+| `backgroundColor?` | `string` \| `null` |
+| `backgroundImage?` | `string` \| `null` |
+| `colorMode?` | `"light"` \| `"dark"` \| `null` |
+| `description?` | `string` \| `null` |
+| `image?` | `string` \| `null` |
+| `title` | `string` |
+| `url?` | `string` \| `null` |
 
 ***
 
@@ -103,7 +71,7 @@ optional url: string | null;
 startTime: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1160
+Defined in: [sdk/src/types/schemaTypes.ts:1591](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1591)
 
 ***
 
@@ -113,4 +81,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1160
 status: "DRAFT" | "ACTIVE" | "CLOSED";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1159
+Defined in: [sdk/src/types/schemaTypes.ts:1590](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1590)

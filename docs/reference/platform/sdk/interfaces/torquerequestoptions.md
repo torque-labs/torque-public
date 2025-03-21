@@ -6,78 +6,17 @@
 
 # Interface: TorqueRequestOptions
 
-Defined in: [sdk/src/utils/requests.ts:9](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/utils/requests.ts#L9)
+Defined in: [sdk/src/utils/requests.ts:9](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/utils/requests.ts#l9)
 
 Interface for the Torque SDK request options
 
 ## Properties
 
-### apiKey?
-
-```ts
-optional apiKey: string;
-```
-
-Defined in: [sdk/src/utils/requests.ts:38](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/utils/requests.ts#L38)
-
-The API key for the request
-
-***
-
-### body?
-
-```ts
-optional body: unknown;
-```
-
-Defined in: [sdk/src/utils/requests.ts:33](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/utils/requests.ts#L33)
-
-The body of the request (if applicable)
-
-***
-
-### headers?
-
-```ts
-optional headers: HeadersInit;
-```
-
-Defined in: [sdk/src/utils/requests.ts:23](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/utils/requests.ts#L23)
-
-The headers for the request
-
-***
-
-### method
-
-```ts
-method: "POST" | "GET" | "PATCH" | "DELETE";
-```
-
-Defined in: [sdk/src/utils/requests.ts:18](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/utils/requests.ts#L18)
-
-The HTTP method of the request
-
-***
-
-### token?
-
-```ts
-optional token: string;
-```
-
-Defined in: [sdk/src/utils/requests.ts:28](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/utils/requests.ts#L28)
-
-The auth token for the request
-
-***
-
-### url
-
-```ts
-url: string;
-```
-
-Defined in: [sdk/src/utils/requests.ts:13](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/utils/requests.ts#L13)
-
-The URL of the request
+| Property | Type | Description |
+| ------ | ------ | ------ |
+| <a id="apikey"></a> `apiKey?` | `string` | The API key for the request |
+| <a id="body"></a> `body?` | `unknown` | The body of the request (if applicable) |
+| <a id="headers"></a> `headers?` | `HeadersInit` | The headers for the request |
+| <a id="method"></a> `method` | `"POST"` \| `"GET"` \| `"PATCH"` \| `"DELETE"` | The HTTP method of the request |
+| <a id="token"></a> `token?` | `string` | The auth token for the request |
+| <a id="url"></a> `url` | `string` | The URL of the request |

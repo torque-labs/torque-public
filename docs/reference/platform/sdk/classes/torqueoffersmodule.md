@@ -6,7 +6,7 @@
 
 # Class: TorqueOffersModule
 
-Defined in: [sdk/src/modules/offers.ts:40](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L40)
+Defined in: [sdk/src/modules/offers.ts:40](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l40)
 
 The TorqueOffersModule class is used to interact with the offers endpoints of the Torque API.
 
@@ -29,14 +29,14 @@ new TorqueOffersModule(
    token?): TorqueOffersModule
 ```
 
-Defined in: [sdk/src/modules/offers.ts:48](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L48)
+Defined in: [sdk/src/modules/offers.ts:48](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l48)
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `url` | `string` |
-| `transactions` | [`TorqueTransactionsModule`](TorqueTransactionsModule.md) |
+| `transactions` | [`TorqueTransactionsModule`](torquetransactionsmodule.md) |
 | `token`? | `string` |
 
 #### Returns
@@ -45,53 +45,13 @@ Defined in: [sdk/src/modules/offers.ts:48](https://github.com/torque-labs/monore
 
 ## Properties
 
-### \_publicKey
-
-```ts
-private _publicKey: undefined | string;
-```
-
-Defined in: [sdk/src/modules/offers.ts:44](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L44)
-
-***
-
-### \_token
-
-```ts
-private _token: undefined | string;
-```
-
-Defined in: [sdk/src/modules/offers.ts:45](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L45)
-
-***
-
-### \_transactions
-
-```ts
-private _transactions: TorqueTransactionsModule;
-```
-
-Defined in: [sdk/src/modules/offers.ts:46](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L46)
-
-***
-
-### actions
-
-```ts
-actions: TorqueActionsModule;
-```
-
-Defined in: [sdk/src/modules/offers.ts:42](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L42)
-
-***
-
-### baseUrl
-
-```ts
-baseUrl: string;
-```
-
-Defined in: [sdk/src/modules/offers.ts:41](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L41)
+| Property | Type |
+| ------ | ------ |
+| <a id="_publickey"></a> `_publicKey` | `undefined` \| `string` |
+| <a id="_token"></a> `_token` | `undefined` \| `string` |
+| <a id="_transactions"></a> `_transactions` | [`TorqueTransactionsModule`](torquetransactionsmodule.md) |
+| <a id="actions"></a> `actions` | [`TorqueActionsModule`](torqueactionsmodule.md) |
+| <a id="baseurl"></a> `baseUrl` | `string` |
 
 ## Accessors
 
@@ -103,7 +63,7 @@ Defined in: [sdk/src/modules/offers.ts:41](https://github.com/torque-labs/monore
 set publicKey(value): void
 ```
 
-Defined in: [sdk/src/modules/offers.ts:67](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L67)
+Defined in: [sdk/src/modules/offers.ts:67](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l67)
 
 Set private public key for the offers module
 
@@ -127,7 +87,7 @@ Set private public key for the offers module
 set token(value): void
 ```
 
-Defined in: [sdk/src/modules/offers.ts:59](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L59)
+Defined in: [sdk/src/modules/offers.ts:59](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l59)
 
 Set private token for the offers module
 
@@ -146,10 +106,10 @@ Set private token for the offers module
 ### addDistributor()
 
 ```ts
-addDistributor(offerId, distributor): Promise<DistributorResponse>
+addDistributor(offerid, distributor): Promise<DistributorResponse>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:223](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L223)
+Defined in: [sdk/src/modules/offers.ts:223](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l223)
 
 Adds a reward distributor to an offer
 
@@ -158,11 +118,11 @@ Adds a reward distributor to an offer
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `offerId` | `string` | The offerId of the offer to add the distributor to |
-| `distributor` | [`DistributorInput`](../type-aliases/DistributorInput.md) | The distributor input parameters |
+| `distributor` | [`DistributorInput`](../type-aliases/distributorinput.md) | The distributor input parameters |
 
 #### Returns
 
-`Promise`\<[`DistributorResponse`](../type-aliases/DistributorResponse.md)\>
+`Promise`\<[`DistributorResponse`](../type-aliases/distributorresponse.md)\>
 
 The created distributor object
 
@@ -171,13 +131,13 @@ The created distributor object
 ### chooseAsymmetricRewardWinner()
 
 ```ts
-chooseAsymmetricRewardWinner(distributorId): Promise<{
+chooseAsymmetricRewardWinner(distributorid): Promise<{
   publicKey: string;
   winner: string;
 }>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:358](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L358)
+Defined in: [sdk/src/modules/offers.ts:358](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l358)
 
 Choose asymmetric reward winner
 
@@ -201,12 +161,12 @@ The winner of the asymmetric reward
 ### closeDistributor()
 
 ```ts
-closeDistributor(offerId, distributorId): Promise<{
+closeDistributor(offerid, distributorid): Promise<{
   signature: string;
 }>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:326](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L326)
+Defined in: [sdk/src/modules/offers.ts:326](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l326)
 
 Closes the distributor for the given offer and distributor IDs
 
@@ -233,7 +193,7 @@ The signature of the transaction
 createOffer(offer): Promise<OfferResponse>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:119](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L119)
+Defined in: [sdk/src/modules/offers.ts:119](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l119)
 
 Create an offer
 
@@ -241,11 +201,11 @@ Create an offer
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `offer` | [`OfferInput`](../type-aliases/OfferInput.md) | The offer input |
+| `offer` | [`OfferInput`](../type-aliases/offerinput.md) | The offer input |
 
 #### Returns
 
-`Promise`\<[`OfferResponse`](../type-aliases/OfferResponse.md)\>
+`Promise`\<[`OfferResponse`](../type-aliases/offerresponse.md)\>
 
 The created offer object
 
@@ -254,10 +214,10 @@ The created offer object
 ### createProject()
 
 ```ts
-createProject(projectData): Promise<ProjectResponse>
+createProject(projectdata): Promise<ProjectResponse>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:394](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L394)
+Defined in: [sdk/src/modules/offers.ts:394](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l394)
 
 Create a project
 
@@ -265,11 +225,11 @@ Create a project
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `projectData` | [`ProjectInput`](../type-aliases/ProjectInput.md) | The project data |
+| `projectData` | [`ProjectInput`](../type-aliases/projectinput.md) | The project data |
 
 #### Returns
 
-`Promise`\<[`ProjectResponse`](../type-aliases/ProjectResponse.md)\>
+`Promise`\<[`ProjectResponse`](../type-aliases/projectresponse.md)\>
 
 The created project object
 
@@ -278,12 +238,12 @@ The created project object
 ### deployDistributor()
 
 ```ts
-deployDistributor(offerId, distributorId): Promise<{
+deployDistributor(offerid, distributorid): Promise<{
   signature: string;
 }>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:286](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L286)
+Defined in: [sdk/src/modules/offers.ts:286](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l286)
 
 Gets the Solana action for deploying a distributor
 
@@ -307,10 +267,10 @@ The serialized transaction for the deploy distributor action
 ### getAsymmetricRewardEntries()
 
 ```ts
-getAsymmetricRewardEntries(distributorId): Promise<Record<string, number>>
+getAsymmetricRewardEntries(distributorid): Promise<Record<string, number>>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:343](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L343)
+Defined in: [sdk/src/modules/offers.ts:343](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l343)
 
 Get the asymmetric reward entries for a distributor
 
@@ -331,10 +291,10 @@ The asymmetric reward entries for the distributor
 ### getLeaderboard()
 
 ```ts
-getLeaderboard(projectId, offchainRewardId): Promise<LeaderboardResponse>
+getLeaderboard(projectid, offchainrewardid): Promise<LeaderboardResponse>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:373](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L373)
+Defined in: [sdk/src/modules/offers.ts:373](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l373)
 
 Fetch a leaderboard for the specific off-chain reward
 
@@ -347,7 +307,7 @@ Fetch a leaderboard for the specific off-chain reward
 
 #### Returns
 
-`Promise`\<[`LeaderboardResponse`](../type-aliases/LeaderboardResponse.md)\>
+`Promise`\<[`LeaderboardResponse`](../type-aliases/leaderboardresponse.md)\>
 
 ***
 
@@ -357,7 +317,7 @@ Fetch a leaderboard for the specific off-chain reward
 getOfferById(id): Promise<OfferResponse>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:83](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L83)
+Defined in: [sdk/src/modules/offers.ts:83](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l83)
 
 Fetch a single offer
 
@@ -369,7 +329,7 @@ Fetch a single offer
 
 #### Returns
 
-`Promise`\<[`OfferResponse`](../type-aliases/OfferResponse.md)\>
+`Promise`\<[`OfferResponse`](../type-aliases/offerresponse.md)\>
 
 a single offer
 
@@ -384,7 +344,7 @@ getOffers(
 projectId?): Promise<OfferResponse[]>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:99](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L99)
+Defined in: [sdk/src/modules/offers.ts:99](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l99)
 
 Fetch the offers with optional filters for status and userId
 
@@ -392,13 +352,13 @@ Fetch the offers with optional filters for status and userId
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `status` | `OfferStatus` | (optional) The status of the offer. Defaults to ACTIVE. |
+| `status` | [`OfferStatus`](../enumerations/offerstatus.md) | (optional) The status of the offer. Defaults to ACTIVE. |
 | `userId`? | `string` | (optional) The userId or public key of the offer creator |
 | `projectId`? | `string` | - |
 
 #### Returns
 
-`Promise`\<[`OfferResponse`](../type-aliases/OfferResponse.md)[]\>
+`Promise`\<[`OfferResponse`](../type-aliases/offerresponse.md)[]\>
 
 a list of offers
 
@@ -407,10 +367,10 @@ a list of offers
 ### getProject()
 
 ```ts
-getProject(projectId, includeOffers?): Promise<ProjectResponse>
+getProject(projectid, includeoffers?): Promise<ProjectResponse>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:419](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L419)
+Defined in: [sdk/src/modules/offers.ts:419](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l419)
 
 Get a project
 
@@ -423,7 +383,7 @@ Get a project
 
 #### Returns
 
-`Promise`\<[`ProjectResponse`](../type-aliases/ProjectResponse.md)\>
+`Promise`\<[`ProjectResponse`](../type-aliases/projectresponse.md)\>
 
 The project object
 
@@ -432,10 +392,10 @@ The project object
 ### getProjects()
 
 ```ts
-getProjects(includeOffers?): Promise<ProjectResponse[]>
+getProjects(includeoffers?): Promise<ProjectResponse[]>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:442](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L442)
+Defined in: [sdk/src/modules/offers.ts:442](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l442)
 
 Get projects
 
@@ -447,7 +407,7 @@ Get projects
 
 #### Returns
 
-`Promise`\<[`ProjectResponse`](../type-aliases/ProjectResponse.md)[]\>
+`Promise`\<[`ProjectResponse`](../type-aliases/projectresponse.md)[]\>
 
 A list of project objects
 
@@ -462,7 +422,7 @@ getUserJourneys(
 status?): Promise<OfferJourneyReturn[]>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:201](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L201)
+Defined in: [sdk/src/modules/offers.ts:201](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l201)
 
 Get user journeys on the offer
 
@@ -472,21 +432,21 @@ Get user journeys on the offer
 | ------ | ------ | ------ |
 | `offerId` | `string` | The offerId of the offer to get the user journeys for |
 | `userPubkey`? | `string` | The public key of the user to get the user journeys for |
-| `status`? | `ProgressStatus` | The status of the user journeys to get |
+| `status`? | [`ProgressStatus`](../enumerations/progressstatus.md) | The status of the user journeys to get |
 
 #### Returns
 
-`Promise`\<[`OfferJourneyReturn`](../type-aliases/OfferJourneyReturn.md)[]\>
+`Promise`\<[`OfferJourneyReturn`](../type-aliases/offerjourneyreturn.md)[]\>
 
 ***
 
 ### startOffer()
 
 ```ts
-startOffer(offerId, referrer?): Promise<void>
+startOffer(offerid, referrer?): Promise<void>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:174](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L174)
+Defined in: [sdk/src/modules/offers.ts:174](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l174)
 
 Accept/start an offer for a user
 
@@ -512,7 +472,7 @@ updateDistributor(
 distributor): Promise<DistributorResponse>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:253](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L253)
+Defined in: [sdk/src/modules/offers.ts:253](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l253)
 
 Update a distributor
 
@@ -522,11 +482,11 @@ Update a distributor
 | ------ | ------ | ------ |
 | `offerId` | `string` | The ID of the offer that contains the distributor |
 | `distributorId` | `string` | The ID of the distributor to update |
-| `distributor` | [`DistributorUpdateInput`](../type-aliases/DistributorUpdateInput.md) | The updated distributor data |
+| `distributor` | [`DistributorUpdateInput`](../type-aliases/distributorupdateinput.md) | The updated distributor data |
 
 #### Returns
 
-`Promise`\<[`DistributorResponse`](../type-aliases/DistributorResponse.md)\>
+`Promise`\<[`DistributorResponse`](../type-aliases/distributorresponse.md)\>
 
 The updated distributor object
 
@@ -535,10 +495,10 @@ The updated distributor object
 ### updateOffer()
 
 ```ts
-updateOffer(offerId, offer): Promise<OfferResponse>
+updateOffer(offerid, offer): Promise<OfferResponse>
 ```
 
-Defined in: [sdk/src/modules/offers.ts:148](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/offers.ts#L148)
+Defined in: [sdk/src/modules/offers.ts:148](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/offers.ts#l148)
 
 Update an offer
 
@@ -547,10 +507,10 @@ Update an offer
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `offerId` | `string` | The ID of the offer to update |
-| `offer` | [`OfferUpdateInput`](../type-aliases/OfferUpdateInput.md) | The updated offer data |
+| `offer` | [`OfferUpdateInput`](../type-aliases/offerupdateinput.md) | The updated offer data |
 
 #### Returns
 
-`Promise`\<[`OfferResponse`](../type-aliases/OfferResponse.md)\>
+`Promise`\<[`OfferResponse`](../type-aliases/offerresponse.md)\>
 
 The updated offer object

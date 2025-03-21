@@ -18,7 +18,7 @@ type ProjectUpdateInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1405
+Defined in: [sdk/src/types/schemaTypes.ts:1924](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1924)
 
 ## Properties
 
@@ -28,7 +28,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1405
 optional description: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1408
+Defined in: [sdk/src/types/schemaTypes.ts:1927](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1927)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1408
 optional discord: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1411
+Defined in: [sdk/src/types/schemaTypes.ts:1930](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1930)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1411
 optional image: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1407
+Defined in: [sdk/src/types/schemaTypes.ts:1926](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1926)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1407
 optional name: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1406
+Defined in: [sdk/src/types/schemaTypes.ts:1925](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1925)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1406
 optional telegram: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1409
+Defined in: [sdk/src/types/schemaTypes.ts:1928](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1928)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1409
 optional twitter: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1410
+Defined in: [sdk/src/types/schemaTypes.ts:1929](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1929)
 
 ***
 
@@ -88,4 +88,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1410
 optional website: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1412
+Defined in: [sdk/src/types/schemaTypes.ts:1931](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1931)

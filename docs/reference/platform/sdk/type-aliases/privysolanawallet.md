@@ -16,7 +16,7 @@ type PrivySolanaWallet = {
 };
 ```
 
-Defined in: [sdk/src/types/wallets.ts:7](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/types/wallets.ts#L7)
+Defined in: [sdk/src/types/wallets.ts:7](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/wallets.ts#l7)
 
 ## Properties
 
@@ -26,7 +26,7 @@ Defined in: [sdk/src/types/wallets.ts:7](https://github.com/torque-labs/monorepo
 disconnect: () => void;
 ```
 
-Defined in: [sdk/src/types/wallets.ts:12](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/types/wallets.ts#L12)
+Defined in: [sdk/src/types/wallets.ts:12](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/wallets.ts#l12)
 
 #### Returns
 
@@ -40,7 +40,7 @@ Defined in: [sdk/src/types/wallets.ts:12](https://github.com/torque-labs/monorep
 publicKey: string;
 ```
 
-Defined in: [sdk/src/types/wallets.ts:8](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/types/wallets.ts#L8)
+Defined in: [sdk/src/types/wallets.ts:8](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/wallets.ts#l8)
 
 ***
 
@@ -50,7 +50,7 @@ Defined in: [sdk/src/types/wallets.ts:8](https://github.com/torque-labs/monorepo
 sendTransaction: WalletAdapterProps["sendTransaction"];
 ```
 
-Defined in: [sdk/src/types/wallets.ts:10](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/types/wallets.ts#L10)
+Defined in: [sdk/src/types/wallets.ts:10](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/wallets.ts#l10)
 
 ***
 
@@ -60,7 +60,7 @@ Defined in: [sdk/src/types/wallets.ts:10](https://github.com/torque-labs/monorep
 signMessage: MessageSignerWalletAdapterProps["signMessage"];
 ```
 
-Defined in: [sdk/src/types/wallets.ts:9](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/types/wallets.ts#L9)
+Defined in: [sdk/src/types/wallets.ts:9](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/wallets.ts#l9)
 
 ***
 
@@ -70,4 +70,4 @@ Defined in: [sdk/src/types/wallets.ts:9](https://github.com/torque-labs/monorepo
 signTransaction: SignerWalletAdapterProps["signTransaction"];
 ```
 
-Defined in: [sdk/src/types/wallets.ts:11](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/types/wallets.ts#L11)
+Defined in: [sdk/src/types/wallets.ts:11](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/wallets.ts#l11)

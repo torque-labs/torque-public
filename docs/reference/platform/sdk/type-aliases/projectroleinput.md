@@ -13,7 +13,7 @@ type ProjectRoleInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1346
+Defined in: [sdk/src/types/schemaTypes.ts:1858](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1858)
 
 ## Properties
 
@@ -23,7 +23,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1346
 role: "ADMIN" | "BUILDER" | "VIEWER";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1348
+Defined in: [sdk/src/types/schemaTypes.ts:1860](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1860)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1348
 userPubKey: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1347
+Defined in: [sdk/src/types/schemaTypes.ts:1859](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1859)

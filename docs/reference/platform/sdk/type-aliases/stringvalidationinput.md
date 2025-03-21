@@ -14,7 +14,7 @@ type StringValidationInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1443
+Defined in: [sdk/src/types/schemaTypes.ts:1968](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1968)
 
 ## Properties
 
@@ -24,7 +24,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1443
 type: "string";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1444
+Defined in: [sdk/src/types/schemaTypes.ts:1969](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1969)
 
 ***
 
@@ -34,7 +34,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1444
 validation: "exactMatch" | "regEx";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1445
+Defined in: [sdk/src/types/schemaTypes.ts:1970](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1970)
 
 ***
 
@@ -44,4 +44,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1445
 value: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1446
+Defined in: [sdk/src/types/schemaTypes.ts:1971](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1971)

@@ -13,7 +13,7 @@ type BooleanValidationInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1453
+Defined in: [sdk/src/types/schemaTypes.ts:1978](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1978)
 
 ## Properties
 
@@ -23,7 +23,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1453
 exact: boolean;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1455
+Defined in: [sdk/src/types/schemaTypes.ts:1980](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1980)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1455
 type: "boolean";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1454
+Defined in: [sdk/src/types/schemaTypes.ts:1979](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1979)

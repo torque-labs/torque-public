@@ -13,7 +13,7 @@ type TorqueAuthOptions = {
 };
 ```
 
-Defined in: [sdk/src/modules/user.ts:78](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/user.ts#L78)
+Defined in: [sdk/src/modules/user.ts:78](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/user.ts#l78)
 
 The auth options for the TorqueUserModule
 
@@ -25,7 +25,7 @@ The auth options for the TorqueUserModule
 optional signInUrl: string;
 ```
 
-Defined in: [sdk/src/modules/user.ts:87](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/user.ts#L87)
+Defined in: [sdk/src/modules/user.ts:87](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/user.ts#l87)
 
 Sign-in URL
 
@@ -37,6 +37,6 @@ Sign-in URL
 optional useTransaction: boolean;
 ```
 
-Defined in: [sdk/src/modules/user.ts:82](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/user.ts#L82)
+Defined in: [sdk/src/modules/user.ts:82](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/user.ts#l82)
 
 Whether to user a signed trasaction hash for login

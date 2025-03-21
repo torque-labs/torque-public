@@ -50,7 +50,7 @@ type OfferJourneyReturn = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1298
+Defined in: [sdk/src/types/schemaTypes.ts:1808](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1808)
 
 ## Properties
 
@@ -78,7 +78,7 @@ optional conversion:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1320
+Defined in: [sdk/src/types/schemaTypes.ts:1830](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1830)
 
 ***
 
@@ -88,7 +88,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1320
 optional conversionId: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1302
+Defined in: [sdk/src/types/schemaTypes.ts:1812](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1812)
 
 ***
 
@@ -98,7 +98,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1302
 optional createdAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1303
+Defined in: [sdk/src/types/schemaTypes.ts:1813](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1813)
 
 ***
 
@@ -108,7 +108,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1303
 id: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1299
+Defined in: [sdk/src/types/schemaTypes.ts:1809](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1809)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1299
 optional index: number;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1300
+Defined in: [sdk/src/types/schemaTypes.ts:1810](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1810)
 
 ***
 
@@ -135,43 +135,16 @@ requirementJourneys: {
  }[];
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1305
+Defined in: [sdk/src/types/schemaTypes.ts:1815](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1815)
 
-#### createdAt?
-
-```ts
-optional createdAt: Date;
-```
-
-#### data?
-
-```ts
-optional data: any | null;
-```
-
-#### id
-
-```ts
-id: string;
-```
-
-#### signature?
-
-```ts
-optional signature: string | null;
-```
-
-#### status
-
-```ts
-status: "STAGED" | "STARTED" | "PENDING" | "FAILED" | "INVALID" | "DONE";
-```
-
-#### updatedAt
-
-```ts
-updatedAt: Date;
-```
+| Name | Type |
+| ------ | ------ |
+| `createdAt?` | `Date` |
+| `data?` | `any` \| `null` |
+| `id` | `string` |
+| `signature?` | `string` \| `null` |
+| `status` | `"STAGED"` \| `"STARTED"` \| `"PENDING"` \| `"FAILED"` \| `"INVALID"` \| `"DONE"` |
+| `updatedAt` | `Date` |
 
 ***
 
@@ -181,7 +154,7 @@ updatedAt: Date;
 status: "STAGED" | "STARTED" | "PENDING" | "FAILED" | "INVALID" | "DONE";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1301
+Defined in: [sdk/src/types/schemaTypes.ts:1811](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1811)
 
 ***
 
@@ -191,7 +164,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1301
 updatedAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1304
+Defined in: [sdk/src/types/schemaTypes.ts:1814](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1814)
 
 ***
 
@@ -207,34 +180,12 @@ user: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1313
+Defined in: [sdk/src/types/schemaTypes.ts:1823](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1823)
 
-#### createdAt?
-
-```ts
-optional createdAt: Date;
-```
-
-#### id
-
-```ts
-id: string;
-```
-
-#### publicKey
-
-```ts
-publicKey: string;
-```
-
-#### updatedAt
-
-```ts
-updatedAt: Date;
-```
-
-#### verified?
-
-```ts
-optional verified: boolean;
-```
+| Name | Type |
+| ------ | ------ |
+| `createdAt?` | `Date` |
+| `id` | `string` |
+| `publicKey` | `string` |
+| `updatedAt` | `Date` |
+| `verified?` | `boolean` |

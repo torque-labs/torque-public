@@ -122,7 +122,7 @@ type TypedDistributor = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:275
+Defined in: [sdk/src/types/schemaTypes.ts:404](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l404)
 
 ## Properties
 
@@ -132,7 +132,7 @@ Defined in: sdk/src/types/schemaTypes.ts:275
 optional closeTxSignature: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:291
+Defined in: [sdk/src/types/schemaTypes.ts:423](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l423)
 
 ***
 
@@ -142,7 +142,7 @@ Defined in: sdk/src/types/schemaTypes.ts:291
 optional conversions: number | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:355
+Defined in: [sdk/src/types/schemaTypes.ts:545](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l545)
 
 ***
 
@@ -152,7 +152,7 @@ Defined in: sdk/src/types/schemaTypes.ts:355
 crankerStatus: "IDLE" | "RUNNING" | "STOPPED";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:279
+Defined in: [sdk/src/types/schemaTypes.ts:408](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l408)
 
 ***
 
@@ -208,83 +208,14 @@ optional crankGuard: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:293
+Defined in: [sdk/src/types/schemaTypes.ts:425](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l425)
 
-#### activation
-
-```ts
-activation: 
-  | {
-  type: "OFFER_START";
- }
-  | {
-  type: "OFFER_CONCLUSION";
- }
-  | {
-  type: "CONVERSION_COUNT";
- }
-  | {
-  amount: number;
-  oracle:   | "TORQUE"
-     | "SOLANA_TX"
-     | "CUSTOM_EVENT_PROVIDER"
-     | "PYTH_MKT_CAP"
-     | "PYTH_MKT_VOLUME"
-     | "MESSAGE_SIGNATURE"
-     | "SOCIAL_MEDIA";
-  type: "EVENT";
- }
-  | {
-  date: Date;
-  type: "DATE";
- } & {
-  requiredConversionCount: number;
-};
-```
-
-##### Type declaration
-
-###### requiredConversionCount?
-
-```ts
-optional requiredConversionCount: number;
-```
-
-#### availability?
-
-```ts
-optional availability: 
-  | {
-  maxConversionsPerRecipient: number | null;
-  maxTotalConversions: number | null;
-  recipientConversionPeriod: ... | null;
- }
-  | null;
-```
-
-#### distributionFunctionInput
-
-```ts
-distributionFunctionInput: 
-  | {
-  type: "CONVERSION_INDEX";
- }
-  | {
-  max: number | null;
-  min: number | null;
-  type: "CONVERSION_DATA";
- }
-  | {
-  aggregationType: "BUY_VOLUME" | "BUY_AVERAGE";
-  type: "AGGREGATION";
-};
-```
-
-#### recipient
-
-```ts
-recipient: "USER" | "PUBLISHER" | "BOTH" | "NONE";
-```
+| Name | Type |
+| ------ | ------ |
+| `activation` | \| \{ `type`: `"OFFER_START"`; \} \| \{ `type`: `"OFFER_CONCLUSION"`; \} \| \{ `type`: `"CONVERSION_COUNT"`; \} \| \{ `amount`: `number`; `oracle`: \| `"TORQUE"` \| `"SOLANA_TX"` \| `"CUSTOM_EVENT_PROVIDER"` \| `"PYTH_MKT_CAP"` \| `"PYTH_MKT_VOLUME"` \| `"MESSAGE_SIGNATURE"` \| `"SOCIAL_MEDIA"`; `type`: `"EVENT"`; \} \| \{ `date`: `Date`; `type`: `"DATE"`; \} & \{ `requiredConversionCount`: `number`; \} |
+| `availability?` | \| \{ `maxConversionsPerRecipient`: `number` \| `null`; `maxTotalConversions`: `number` \| `null`; `recipientConversionPeriod`: ... \| `null`; \} \| `null` |
+| `distributionFunctionInput` | \| \{ `type`: `"CONVERSION_INDEX"`; \} \| \{ `max`: `number` \| `null`; `min`: `number` \| `null`; `type`: `"CONVERSION_DATA"`; \} \| \{ `aggregationType`: `"BUY_VOLUME"` \| `"BUY_AVERAGE"`; `type`: `"AGGREGATION"`; \} |
+| `recipient` | `"USER"` \| `"PUBLISHER"` \| `"BOTH"` \| `"NONE"` |
 
 ***
 
@@ -294,7 +225,7 @@ recipient: "USER" | "PUBLISHER" | "BOTH" | "NONE";
 optional currentBlockHash: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:292
+Defined in: [sdk/src/types/schemaTypes.ts:424](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l424)
 
 ***
 
@@ -304,7 +235,7 @@ Defined in: sdk/src/types/schemaTypes.ts:292
 optional deployTxSignature: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:290
+Defined in: [sdk/src/types/schemaTypes.ts:422](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l422)
 
 ***
 
@@ -357,103 +288,20 @@ optional distributionFunction: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:327
+Defined in: [sdk/src/types/schemaTypes.ts:479](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l479)
 
-#### createdAt?
-
-```ts
-optional createdAt: Date;
-```
-
-#### curveDepth?
-
-```ts
-optional curveDepth: 
-  | 
-  | number
-  | string
-  | {
-  d: number[];
-  e: number;
-  s: number;
- }
-  | null;
-```
-
-#### curveWidth?
-
-```ts
-optional curveWidth: 
-  | 
-  | number
-  | string
-  | {
-  d: number[];
-  e: number;
-  s: number;
- }
-  | null;
-```
-
-#### id
-
-```ts
-id: string;
-```
-
-#### slope?
-
-```ts
-optional slope: 
-  | 
-  | number
-  | string
-  | {
-  d: number[];
-  e: number;
-  s: number;
- }
-  | null;
-```
-
-#### tiers?
-
-```ts
-optional tiers: any | null;
-```
-
-#### trend?
-
-```ts
-optional trend: "NEGATIVE" | "POSITIVE" | null;
-```
-
-#### type
-
-```ts
-type: "CONSTANT" | "LINEAR" | "STEP" | "EXPONENTIAL";
-```
-
-#### updatedAt
-
-```ts
-updatedAt: Date;
-```
-
-#### yIntercept?
-
-```ts
-optional yIntercept: 
-  | 
-  | number
-  | string
-  | {
-  d: number[];
-  e: number;
-  s: number;
- }
-  | null;
-```
+| Name | Type |
+| ------ | ------ |
+| `createdAt?` | `Date` |
+| `curveDepth?` | \| \| `number` \| `string` \| \{ `d`: `number`[]; `e`: `number`; `s`: `number`; \} \| `null` |
+| `curveWidth?` | \| \| `number` \| `string` \| \{ `d`: `number`[]; `e`: `number`; `s`: `number`; \} \| `null` |
+| `id` | `string` |
+| `slope?` | \| \| `number` \| `string` \| \{ `d`: `number`[]; `e`: `number`; `s`: `number`; \} \| `null` |
+| `tiers?` | `any` \| `null` |
+| `trend?` | `"NEGATIVE"` \| `"POSITIVE"` \| `null` |
+| `type` | `"CONSTANT"` \| `"LINEAR"` \| `"STEP"` \| `"EXPONENTIAL"` |
+| `updatedAt` | `Date` |
+| `yIntercept?` | \| \| `number` \| `string` \| \{ `d`: `number`[]; `e`: `number`; `s`: `number`; \} \| `null` |
 
 ***
 
@@ -463,7 +311,7 @@ optional yIntercept:
 emissionType: "SOL" | "TOKENS" | "NFT" | "POINTS";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:281
+Defined in: [sdk/src/types/schemaTypes.ts:410](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l410)
 
 ***
 
@@ -473,7 +321,7 @@ Defined in: sdk/src/types/schemaTypes.ts:281
 index: number;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:277
+Defined in: [sdk/src/types/schemaTypes.ts:406](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l406)
 
 ***
 
@@ -483,7 +331,7 @@ Defined in: sdk/src/types/schemaTypes.ts:277
 pubkey: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:276
+Defined in: [sdk/src/types/schemaTypes.ts:405](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l405)
 
 ***
 
@@ -493,7 +341,7 @@ Defined in: sdk/src/types/schemaTypes.ts:276
 optional serializedDeployTx: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:289
+Defined in: [sdk/src/types/schemaTypes.ts:421](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l421)
 
 ***
 
@@ -503,7 +351,7 @@ Defined in: sdk/src/types/schemaTypes.ts:289
 status: "DRAFT" | "ACTIVE" | "CLOSED";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:278
+Defined in: [sdk/src/types/schemaTypes.ts:407](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l407)
 
 ***
 
@@ -513,7 +361,7 @@ Defined in: sdk/src/types/schemaTypes.ts:278
 optional tokenAddress: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:282
+Defined in: [sdk/src/types/schemaTypes.ts:411](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l411)
 
 ***
 
@@ -523,7 +371,7 @@ Defined in: sdk/src/types/schemaTypes.ts:282
 optional tokenDecimals: number;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:283
+Defined in: [sdk/src/types/schemaTypes.ts:412](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l412)
 
 ***
 
@@ -540,7 +388,7 @@ totalFundAmount:
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:284
+Defined in: [sdk/src/types/schemaTypes.ts:413](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l413)
 
 ***
 
@@ -550,4 +398,4 @@ Defined in: sdk/src/types/schemaTypes.ts:284
 type: "CONVERSION" | "ASYMMETRIC";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:280
+Defined in: [sdk/src/types/schemaTypes.ts:409](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l409)

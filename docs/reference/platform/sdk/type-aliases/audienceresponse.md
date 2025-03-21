@@ -27,7 +27,7 @@ type AudienceResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:19
+Defined in: [sdk/src/types/schemaTypes.ts:23](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l23)
 
 ## Properties
 
@@ -37,7 +37,7 @@ Defined in: sdk/src/types/schemaTypes.ts:19
 optional address: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:24
+Defined in: [sdk/src/types/schemaTypes.ts:28](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l28)
 
 ***
 
@@ -56,7 +56,7 @@ optional amount:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:25
+Defined in: [sdk/src/types/schemaTypes.ts:29](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l29)
 
 ***
 
@@ -66,7 +66,7 @@ Defined in: sdk/src/types/schemaTypes.ts:25
 optional createdAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:30
+Defined in: [sdk/src/types/schemaTypes.ts:43](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l43)
 
 ***
 
@@ -76,7 +76,7 @@ Defined in: sdk/src/types/schemaTypes.ts:30
 id: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:20
+Defined in: [sdk/src/types/schemaTypes.ts:24](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l24)
 
 ***
 
@@ -86,7 +86,7 @@ Defined in: sdk/src/types/schemaTypes.ts:20
 name: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:21
+Defined in: [sdk/src/types/schemaTypes.ts:25](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l25)
 
 ***
 
@@ -96,7 +96,7 @@ Defined in: sdk/src/types/schemaTypes.ts:21
 optional tokenGateType: "NFT" | "SPL" | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:23
+Defined in: [sdk/src/types/schemaTypes.ts:27](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l27)
 
 ***
 
@@ -106,7 +106,7 @@ Defined in: sdk/src/types/schemaTypes.ts:23
 type: "ALLOWLIST" | "DENYLIST" | "TOKEN_GATE";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:22
+Defined in: [sdk/src/types/schemaTypes.ts:26](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l26)
 
 ***
 
@@ -116,4 +116,4 @@ Defined in: sdk/src/types/schemaTypes.ts:22
 updatedAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:31
+Defined in: [sdk/src/types/schemaTypes.ts:44](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l44)

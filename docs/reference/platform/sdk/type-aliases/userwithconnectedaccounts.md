@@ -19,7 +19,7 @@ type UserWithConnectedAccounts = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:2553
+Defined in: [sdk/src/types/schemaTypes.ts:3300](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l3300)
 
 ## Properties
 
@@ -31,13 +31,11 @@ connected: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:2559
+Defined in: [sdk/src/types/schemaTypes.ts:3306](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l3306)
 
-#### x?
-
-```ts
-optional x: string | null;
-```
+| Name | Type |
+| ------ | ------ |
+| `x?` | `string` \| `null` |
 
 ***
 
@@ -47,7 +45,7 @@ optional x: string | null;
 optional createdAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:2557
+Defined in: [sdk/src/types/schemaTypes.ts:3304](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l3304)
 
 ***
 
@@ -57,7 +55,7 @@ Defined in: sdk/src/types/schemaTypes.ts:2557
 id: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:2554
+Defined in: [sdk/src/types/schemaTypes.ts:3301](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l3301)
 
 ***
 
@@ -67,7 +65,7 @@ Defined in: sdk/src/types/schemaTypes.ts:2554
 publicKey: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:2555
+Defined in: [sdk/src/types/schemaTypes.ts:3302](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l3302)
 
 ***
 
@@ -77,7 +75,7 @@ Defined in: sdk/src/types/schemaTypes.ts:2555
 updatedAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:2558
+Defined in: [sdk/src/types/schemaTypes.ts:3305](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l3305)
 
 ***
 
@@ -87,4 +85,4 @@ Defined in: sdk/src/types/schemaTypes.ts:2558
 optional verified: boolean;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:2556
+Defined in: [sdk/src/types/schemaTypes.ts:3303](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l3303)

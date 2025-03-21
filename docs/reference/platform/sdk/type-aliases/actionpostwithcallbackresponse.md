@@ -20,7 +20,7 @@ type ActionPostWithCallbackResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1433
+Defined in: [sdk/src/types/schemaTypes.ts:1956](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1956)
 
 ## Properties
 
@@ -37,7 +37,7 @@ optional links:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1436
+Defined in: [sdk/src/types/schemaTypes.ts:1959](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1959)
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1436
 transaction: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1435
+Defined in: [sdk/src/types/schemaTypes.ts:1958](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1958)
 
 ***
 
@@ -57,4 +57,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1435
 type: "post" | "transaction" | "message" | "external-link";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1434
+Defined in: [sdk/src/types/schemaTypes.ts:1957](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1957)

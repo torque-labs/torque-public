@@ -198,7 +198,7 @@ type OfferUpdateInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:966
+Defined in: [sdk/src/types/schemaTypes.ts:1371](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1371)
 
 ## Properties
 
@@ -208,7 +208,7 @@ Defined in: sdk/src/types/schemaTypes.ts:966
 optional audienceId: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:967
+Defined in: [sdk/src/types/schemaTypes.ts:1372](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1372)
 
 ***
 
@@ -218,7 +218,7 @@ Defined in: sdk/src/types/schemaTypes.ts:967
 endTime: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1146
+Defined in: [sdk/src/types/schemaTypes.ts:1577](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1577)
 
 ***
 
@@ -236,49 +236,17 @@ metadata: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1147
+Defined in: [sdk/src/types/schemaTypes.ts:1578](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1578)
 
-#### backgroundColor?
-
-```ts
-optional backgroundColor: string | null;
-```
-
-#### backgroundImage?
-
-```ts
-optional backgroundImage: string | null;
-```
-
-#### colorMode?
-
-```ts
-optional colorMode: "light" | "dark" | null;
-```
-
-#### description?
-
-```ts
-optional description: string | null;
-```
-
-#### image?
-
-```ts
-optional image: string | null;
-```
-
-#### title
-
-```ts
-title: string;
-```
-
-#### url?
-
-```ts
-optional url: string | null;
-```
+| Name | Type |
+| ------ | ------ |
+| `backgroundColor?` | `string` \| `null` |
+| `backgroundImage?` | `string` \| `null` |
+| `colorMode?` | `"light"` \| `"dark"` \| `null` |
+| `description?` | `string` \| `null` |
+| `image?` | `string` \| `null` |
+| `title` | `string` |
+| `url?` | `string` \| `null` |
 
 ***
 
@@ -288,7 +256,7 @@ optional url: string | null;
 optional projectId: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1156
+Defined in: [sdk/src/types/schemaTypes.ts:1587](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1587)
 
 ***
 
@@ -472,7 +440,7 @@ requirements:
  }[];
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:968
+Defined in: [sdk/src/types/schemaTypes.ts:1373](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1373)
 
 ***
 
@@ -482,4 +450,4 @@ Defined in: sdk/src/types/schemaTypes.ts:968
 startTime: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1145
+Defined in: [sdk/src/types/schemaTypes.ts:1576](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1576)

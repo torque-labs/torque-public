@@ -10,7 +10,7 @@
 type ApiResponse<T> = ApiResponseSuccess<T> | ApiResponseError;
 ```
 
-Defined in: [database/src/requests.ts:35](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/database/src/requests.ts#L35)
+Defined in: [database/src/requests.ts:35](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/database/src/requests.ts#l35)
 
 Generic response for an API request.
 

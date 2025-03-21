@@ -17,7 +17,7 @@ type ProjectRoleResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1338
+Defined in: [sdk/src/types/schemaTypes.ts:1850](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1850)
 
 ## Properties
 
@@ -27,7 +27,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1338
 createdAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1343
+Defined in: [sdk/src/types/schemaTypes.ts:1855](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1855)
 
 ***
 
@@ -37,7 +37,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1343
 id: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1339
+Defined in: [sdk/src/types/schemaTypes.ts:1851](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1851)
 
 ***
 
@@ -47,7 +47,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1339
 projectId: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1340
+Defined in: [sdk/src/types/schemaTypes.ts:1852](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1852)
 
 ***
 
@@ -57,7 +57,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1340
 role: "ADMIN" | "BUILDER" | "VIEWER";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1342
+Defined in: [sdk/src/types/schemaTypes.ts:1854](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1854)
 
 ***
 
@@ -67,7 +67,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1342
 updatedAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1344
+Defined in: [sdk/src/types/schemaTypes.ts:1856](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1856)
 
 ***
 
@@ -77,4 +77,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1344
 userPubKey: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1341
+Defined in: [sdk/src/types/schemaTypes.ts:1853](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1853)

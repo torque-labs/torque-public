@@ -207,7 +207,7 @@ type TypedRequirement = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1659
+Defined in: [sdk/src/types/schemaTypes.ts:2206](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l2206)
 
 ## Type declaration
 

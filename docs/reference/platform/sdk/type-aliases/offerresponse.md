@@ -139,7 +139,7 @@ type OfferResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1172
+Defined in: [sdk/src/types/schemaTypes.ts:1603](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1603)
 
 ## Properties
 
@@ -168,7 +168,7 @@ optional audience:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1188
+Defined in: [sdk/src/types/schemaTypes.ts:1619](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1619)
 
 ***
 
@@ -178,7 +178,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1188
 optional createdAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1186
+Defined in: [sdk/src/types/schemaTypes.ts:1617](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1617)
 
 ***
 
@@ -266,7 +266,7 @@ distributors: {
  }[];
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1211
+Defined in: [sdk/src/types/schemaTypes.ts:1660](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1660)
 
 ***
 
@@ -276,7 +276,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1211
 endTime: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1176
+Defined in: [sdk/src/types/schemaTypes.ts:1607](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1607)
 
 ***
 
@@ -286,7 +286,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1176
 id: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1173
+Defined in: [sdk/src/types/schemaTypes.ts:1604](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1604)
 
 ***
 
@@ -304,49 +304,17 @@ metadata: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1177
+Defined in: [sdk/src/types/schemaTypes.ts:1608](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1608)
 
-#### backgroundColor?
-
-```ts
-optional backgroundColor: string | null;
-```
-
-#### backgroundImage?
-
-```ts
-optional backgroundImage: string | null;
-```
-
-#### colorMode?
-
-```ts
-optional colorMode: "light" | "dark" | null;
-```
-
-#### description?
-
-```ts
-optional description: string | null;
-```
-
-#### image?
-
-```ts
-optional image: string | null;
-```
-
-#### title
-
-```ts
-title: string;
-```
-
-#### url?
-
-```ts
-optional url: string | null;
-```
+| Name | Type |
+| ------ | ------ |
+| `backgroundColor?` | `string` \| `null` |
+| `backgroundImage?` | `string` \| `null` |
+| `colorMode?` | `"light"` \| `"dark"` \| `null` |
+| `description?` | `string` \| `null` |
+| `image?` | `string` \| `null` |
+| `title` | `string` |
+| `url?` | `string` \| `null` |
 
 ***
 
@@ -370,56 +338,17 @@ offerRequirements: {
  }[];
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1202
+Defined in: [sdk/src/types/schemaTypes.ts:1644](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1644)
 
-#### actionUrl?
-
-```ts
-optional actionUrl: string | null;
-```
-
-#### config?
-
-```ts
-optional config: any;
-```
-
-#### createdAt?
-
-```ts
-optional createdAt: Date;
-```
-
-#### id
-
-```ts
-id: string;
-```
-
-#### oracle
-
-```ts
-oracle: 
-  | "TORQUE"
-  | "SOLANA_TX"
-  | "CUSTOM_EVENT_PROVIDER"
-  | "PYTH_MKT_CAP"
-  | "PYTH_MKT_VOLUME"
-  | "MESSAGE_SIGNATURE"
-  | "SOCIAL_MEDIA";
-```
-
-#### type
-
-```ts
-type: string;
-```
-
-#### updatedAt
-
-```ts
-updatedAt: Date;
-```
+| Name | Type |
+| ------ | ------ |
+| `actionUrl?` | `string` \| `null` |
+| `config?` | `any` |
+| `createdAt?` | `Date` |
+| `id` | `string` |
+| `oracle` | \| `"TORQUE"` \| `"SOLANA_TX"` \| `"CUSTOM_EVENT_PROVIDER"` \| `"PYTH_MKT_CAP"` \| `"PYTH_MKT_VOLUME"` \| `"MESSAGE_SIGNATURE"` \| `"SOCIAL_MEDIA"` |
+| `type` | `string` |
+| `updatedAt` | `Date` |
 
 ***
 
@@ -429,7 +358,7 @@ updatedAt: Date;
 startTime: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1175
+Defined in: [sdk/src/types/schemaTypes.ts:1606](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1606)
 
 ***
 
@@ -439,7 +368,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1175
 status: "DRAFT" | "ACTIVE" | "CLOSED";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1174
+Defined in: [sdk/src/types/schemaTypes.ts:1605](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1605)
 
 ***
 
@@ -449,4 +378,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1174
 updatedAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1187
+Defined in: [sdk/src/types/schemaTypes.ts:1618](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1618)

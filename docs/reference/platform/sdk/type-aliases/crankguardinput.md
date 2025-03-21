@@ -56,7 +56,7 @@ type CrankGuardInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:170
+Defined in: [sdk/src/types/schemaTypes.ts:245](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l245)
 
 ## Properties
 
@@ -92,15 +92,13 @@ activation:
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:172
+Defined in: [sdk/src/types/schemaTypes.ts:247](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l247)
 
 #### Type declaration
 
-##### requiredConversionCount?
-
-```ts
-optional requiredConversionCount: number;
-```
+| Name | Type |
+| ------ | ------ |
+| `requiredConversionCount?` | `number` |
 
 ***
 
@@ -116,7 +114,7 @@ optional availability:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:198
+Defined in: [sdk/src/types/schemaTypes.ts:289](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l289)
 
 ***
 
@@ -138,7 +136,7 @@ distributionFunctionInput:
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:188
+Defined in: [sdk/src/types/schemaTypes.ts:276](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l276)
 
 ***
 
@@ -148,4 +146,4 @@ Defined in: sdk/src/types/schemaTypes.ts:188
 recipient: "USER" | "PUBLISHER" | "BOTH" | "NONE";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:171
+Defined in: [sdk/src/types/schemaTypes.ts:246](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l246)

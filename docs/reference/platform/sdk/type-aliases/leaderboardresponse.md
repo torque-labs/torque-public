@@ -16,7 +16,7 @@ type LeaderboardResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:602
+Defined in: [sdk/src/types/schemaTypes.ts:897](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l897)
 
 ## Properties
 
@@ -29,19 +29,12 @@ allocations: {
  }[];
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:604
+Defined in: [sdk/src/types/schemaTypes.ts:899](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l899)
 
-#### pubKey
-
-```ts
-pubKey: string;
-```
-
-#### total
-
-```ts
-total: number;
-```
+| Name | Type |
+| ------ | ------ |
+| `pubKey` | `string` |
+| `total` | `number` |
 
 ***
 
@@ -51,4 +44,4 @@ total: number;
 pointId: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:603
+Defined in: [sdk/src/types/schemaTypes.ts:898](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l898)

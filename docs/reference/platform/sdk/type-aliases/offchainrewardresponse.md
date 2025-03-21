@@ -94,7 +94,7 @@ type OffchainRewardResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:624
+Defined in: [sdk/src/types/schemaTypes.ts:919](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l919)
 
 ## Properties
 
@@ -104,7 +104,7 @@ Defined in: sdk/src/types/schemaTypes.ts:624
 optional createdAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:631
+Defined in: [sdk/src/types/schemaTypes.ts:926](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l926)
 
 ***
 
@@ -114,7 +114,7 @@ Defined in: sdk/src/types/schemaTypes.ts:631
 optional description: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:629
+Defined in: [sdk/src/types/schemaTypes.ts:924](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l924)
 
 ***
 
@@ -169,7 +169,7 @@ optional distributors:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:646
+Defined in: [sdk/src/types/schemaTypes.ts:943](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l943)
 
 ***
 
@@ -179,7 +179,7 @@ Defined in: sdk/src/types/schemaTypes.ts:646
 id: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:625
+Defined in: [sdk/src/types/schemaTypes.ts:920](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l920)
 
 ***
 
@@ -189,7 +189,7 @@ Defined in: sdk/src/types/schemaTypes.ts:625
 image: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:628
+Defined in: [sdk/src/types/schemaTypes.ts:923](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l923)
 
 ***
 
@@ -199,7 +199,7 @@ Defined in: sdk/src/types/schemaTypes.ts:628
 name: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:627
+Defined in: [sdk/src/types/schemaTypes.ts:922](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l922)
 
 ***
 
@@ -223,7 +223,7 @@ optional project:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:633
+Defined in: [sdk/src/types/schemaTypes.ts:928](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l928)
 
 ***
 
@@ -233,7 +233,7 @@ Defined in: sdk/src/types/schemaTypes.ts:633
 optional symbol: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:630
+Defined in: [sdk/src/types/schemaTypes.ts:925](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l925)
 
 ***
 
@@ -243,7 +243,7 @@ Defined in: sdk/src/types/schemaTypes.ts:630
 type: "POINT" | "BADGE";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:626
+Defined in: [sdk/src/types/schemaTypes.ts:921](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l921)
 
 ***
 
@@ -253,7 +253,7 @@ Defined in: sdk/src/types/schemaTypes.ts:626
 updatedAt: Date;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:632
+Defined in: [sdk/src/types/schemaTypes.ts:927](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l927)
 
 ***
 
@@ -279,4 +279,4 @@ optional userBadges:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:732
+Defined in: [sdk/src/types/schemaTypes.ts:1097](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1097)

@@ -40,7 +40,7 @@ type CustomEventRequirementConfig = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1457
+Defined in: [sdk/src/types/schemaTypes.ts:1982](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1982)
 
 ## Properties
 
@@ -76,42 +76,12 @@ config: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1459
+Defined in: [sdk/src/types/schemaTypes.ts:1984](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1984)
 
-#### eventName
-
-```ts
-eventName: string;
-```
-
-#### fields
-
-```ts
-fields: (
-  | {
-  fieldName: string;
-  validation: {
-     type: "string";
-     validation: "exactMatch" | "regEx";
-     value: string;
-    };
- }
-  | {
-  fieldName: string;
-  validation: {
-     max: number;
-     min: number;
-     type: "number";
-    };
- }
-  | {
-  fieldName: string;
-  validation: {
-     exact: boolean;
-     type: "boolean";
-    };
- })[];
-```
+| Name | Type |
+| ------ | ------ |
+| `eventName` | `string` |
+| `fields` | ( \| \{ `fieldname`: `string`; `validation`: \{ `type`: `"string"`; `validation`: `"exactmatch"` \| `"regex"`; `value`: `string`; \}; \} \| \{ `fieldname`: `string`; `validation`: \{ `max`: `number`; `min`: `number`; `type`: `"number"`; \}; \} \| \{ `fieldname`: `string`; `validation`: \{ `exact`: `boolean`; `type`: `"boolean"`; \}; \})[] |
 
 ***
 
@@ -121,7 +91,7 @@ fields: (
 oracle: "CUSTOM_EVENT_PROVIDER";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1483
+Defined in: [sdk/src/types/schemaTypes.ts:2012](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l2012)
 
 ***
 
@@ -131,4 +101,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1483
 type: "CUSTOM";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1458
+Defined in: [sdk/src/types/schemaTypes.ts:1983](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1983)

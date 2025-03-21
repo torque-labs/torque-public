@@ -6,7 +6,7 @@
 
 # Class: TorqueActionsModule
 
-Defined in: [sdk/src/modules/actions.ts:16](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L16)
+Defined in: [sdk/src/modules/actions.ts:16](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/actions.ts#l16)
 
 The TorqueActionsModule class is used to interact with the actions endpoints of the Torque API.
 
@@ -34,14 +34,14 @@ new TorqueActionsModule(
    token?): TorqueActionsModule
 ```
 
-Defined in: [sdk/src/modules/actions.ts:22](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L22)
+Defined in: [sdk/src/modules/actions.ts:22](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/actions.ts#l22)
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `url` | `string` |
-| `transactions` | [`TorqueTransactionsModule`](TorqueTransactionsModule.md) |
+| `transactions` | [`TorqueTransactionsModule`](torquetransactionsmodule.md) |
 | `publicKey`? | `string` |
 | `token`? | `string` |
 
@@ -51,43 +51,12 @@ Defined in: [sdk/src/modules/actions.ts:22](https://github.com/torque-labs/monor
 
 ## Properties
 
-### \_publicKey
-
-```ts
-private _publicKey: undefined | string;
-```
-
-Defined in: [sdk/src/modules/actions.ts:19](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L19)
-
-***
-
-### \_token
-
-```ts
-private _token: undefined | string;
-```
-
-Defined in: [sdk/src/modules/actions.ts:18](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L18)
-
-***
-
-### \_transactions
-
-```ts
-private _transactions: TorqueTransactionsModule;
-```
-
-Defined in: [sdk/src/modules/actions.ts:20](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L20)
-
-***
-
-### baseUrl
-
-```ts
-baseUrl: string;
-```
-
-Defined in: [sdk/src/modules/actions.ts:17](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L17)
+| Property | Type |
+| ------ | ------ |
+| <a id="_publickey"></a> `_publicKey` | `undefined` \| `string` |
+| <a id="_token"></a> `_token` | `undefined` \| `string` |
+| <a id="_transactions"></a> `_transactions` | [`TorqueTransactionsModule`](torquetransactionsmodule.md) |
+| <a id="baseurl"></a> `baseUrl` | `string` |
 
 ## Accessors
 
@@ -99,7 +68,7 @@ Defined in: [sdk/src/modules/actions.ts:17](https://github.com/torque-labs/monor
 set publicKey(value): void
 ```
 
-Defined in: [sdk/src/modules/actions.ts:39](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L39)
+Defined in: [sdk/src/modules/actions.ts:39](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/actions.ts#l39)
 
 Set private public key for the actions module
 
@@ -123,7 +92,7 @@ Set private public key for the actions module
 set token(value): void
 ```
 
-Defined in: [sdk/src/modules/actions.ts:32](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L32)
+Defined in: [sdk/src/modules/actions.ts:32](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/actions.ts#l32)
 
 Set private token for the actions module
 
@@ -142,10 +111,10 @@ Set private token for the actions module
 ### executeAction()
 
 ```ts
-executeAction(offerId, index): Promise<string>
+executeAction(offerid, index): Promise<string>
 ```
 
-Defined in: [sdk/src/modules/actions.ts:80](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L80)
+Defined in: [sdk/src/modules/actions.ts:80](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/actions.ts#l80)
 
 Execute an action.
 
@@ -174,7 +143,7 @@ executeXAction(
 source?): Promise<void>
 ```
 
-Defined in: [sdk/src/modules/actions.ts:96](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L96)
+Defined in: [sdk/src/modules/actions.ts:96](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/actions.ts#l96)
 
 Execute an X action
 
@@ -198,10 +167,10 @@ The response from the API
 ### getActionTransaction()
 
 ```ts
-getActionTransaction(offerId, index): Promise<ActionPostWithCallbackResponse>
+getActionTransaction(offerid, index): Promise<ActionPostWithCallbackResponse>
 ```
 
-Defined in: [sdk/src/modules/actions.ts:53](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/actions.ts#L53)
+Defined in: [sdk/src/modules/actions.ts:53](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/actions.ts#l53)
 
 Get the transaction for an action.
 
@@ -214,7 +183,7 @@ Get the transaction for an action.
 
 #### Returns
 
-`Promise`\<[`ActionPostWithCallbackResponse`](../type-aliases/ActionPostWithCallbackResponse.md)\>
+`Promise`\<[`ActionPostWithCallbackResponse`](../type-aliases/actionpostwithcallbackresponse.md)\>
 
 The transaction for the action
 

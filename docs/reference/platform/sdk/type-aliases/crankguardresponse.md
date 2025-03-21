@@ -60,7 +60,7 @@ type CrankGuardResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:132
+Defined in: [sdk/src/types/schemaTypes.ts:189](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l189)
 
 ## Type declaration
 

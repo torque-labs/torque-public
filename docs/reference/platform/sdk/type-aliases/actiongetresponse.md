@@ -29,7 +29,7 @@ type ActionGetResponse = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1414
+Defined in: [sdk/src/types/schemaTypes.ts:1933](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1933)
 
 ## Properties
 
@@ -39,7 +39,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1414
 description: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1418
+Defined in: [sdk/src/types/schemaTypes.ts:1937](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1937)
 
 ***
 
@@ -49,7 +49,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1418
 optional disabled: boolean;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1420
+Defined in: [sdk/src/types/schemaTypes.ts:1939](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1939)
 
 ***
 
@@ -63,7 +63,7 @@ optional error:
   | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1429
+Defined in: [sdk/src/types/schemaTypes.ts:1950](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1950)
 
 ***
 
@@ -73,7 +73,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1429
 icon: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1416
+Defined in: [sdk/src/types/schemaTypes.ts:1935](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1935)
 
 ***
 
@@ -83,7 +83,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1416
 label: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1419
+Defined in: [sdk/src/types/schemaTypes.ts:1938](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1938)
 
 ***
 
@@ -100,18 +100,11 @@ optional links: {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1421
+Defined in: [sdk/src/types/schemaTypes.ts:1940](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1940)
 
-#### actions
-
-```ts
-actions: {
-  href: string;
-  label: string;
-  parameters: any[];
-  type: "transaction" | "message" | "post" | "external-link";
- }[];
-```
+| Name | Type |
+| ------ | ------ |
+| `actions` | \{ `href`: `string`; `label`: `string`; `parameters`: `any`[]; `type`: `"transaction"` \| `"message"` \| `"post"` \| `"external-link"`; \}[] |
 
 ***
 
@@ -121,7 +114,7 @@ actions: {
 title: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1417
+Defined in: [sdk/src/types/schemaTypes.ts:1936](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1936)
 
 ***
 
@@ -131,4 +124,4 @@ Defined in: sdk/src/types/schemaTypes.ts:1417
 optional type: "action" | "completed";
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1415
+Defined in: [sdk/src/types/schemaTypes.ts:1934](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1934)

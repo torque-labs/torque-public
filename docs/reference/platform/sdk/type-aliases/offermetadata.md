@@ -18,7 +18,7 @@ type OfferMetadata = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:748
+Defined in: [sdk/src/types/schemaTypes.ts:1118](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1118)
 
 ## Properties
 
@@ -28,7 +28,7 @@ Defined in: sdk/src/types/schemaTypes.ts:748
 optional backgroundColor: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:754
+Defined in: [sdk/src/types/schemaTypes.ts:1124](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1124)
 
 ***
 
@@ -38,7 +38,7 @@ Defined in: sdk/src/types/schemaTypes.ts:754
 optional backgroundImage: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:753
+Defined in: [sdk/src/types/schemaTypes.ts:1123](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1123)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: sdk/src/types/schemaTypes.ts:753
 optional colorMode: "light" | "dark" | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:755
+Defined in: [sdk/src/types/schemaTypes.ts:1125](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1125)
 
 ***
 
@@ -58,7 +58,7 @@ Defined in: sdk/src/types/schemaTypes.ts:755
 optional description: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:751
+Defined in: [sdk/src/types/schemaTypes.ts:1121](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1121)
 
 ***
 
@@ -68,7 +68,7 @@ Defined in: sdk/src/types/schemaTypes.ts:751
 optional image: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:750
+Defined in: [sdk/src/types/schemaTypes.ts:1120](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1120)
 
 ***
 
@@ -78,7 +78,7 @@ Defined in: sdk/src/types/schemaTypes.ts:750
 title: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:749
+Defined in: [sdk/src/types/schemaTypes.ts:1119](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1119)
 
 ***
 
@@ -88,4 +88,4 @@ Defined in: sdk/src/types/schemaTypes.ts:749
 optional url: string | null;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:752
+Defined in: [sdk/src/types/schemaTypes.ts:1122](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1122)

@@ -6,7 +6,7 @@
 
 # Class: TorqueSDK
 
-Defined in: [sdk/src/modules/main.ts:36](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L36)
+Defined in: [sdk/src/modules/main.ts:36](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/main.ts#l36)
 
 The TorqueSDK class is used to interact with the Torque API.
 
@@ -22,13 +22,13 @@ The options for the SDK
 new TorqueSDK(options): TorqueSDK
 ```
 
-Defined in: [sdk/src/modules/main.ts:67](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L67)
+Defined in: [sdk/src/modules/main.ts:67](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/main.ts#l67)
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `options` | [`TorqueSDKOptions`](../type-aliases/TorqueSDKOptions.md) |
+| `options` | [`TorqueSDKOptions`](../type-aliases/torquesdkoptions.md) |
 
 #### Returns
 
@@ -36,79 +36,14 @@ Defined in: [sdk/src/modules/main.ts:67](https://github.com/torque-labs/monorepo
 
 ## Properties
 
-### \_connection
-
-```ts
-private _connection: Connection;
-```
-
-Defined in: [sdk/src/modules/main.ts:65](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L65)
-
-The connection for the SDK instance
-
-***
-
-### \_signer
-
-```ts
-private _signer: 
-  | undefined
-  | Adapter
-  | Keypair
-  | PrivySolanaWallet;
-```
-
-Defined in: [sdk/src/modules/main.ts:60](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L60)
-
-The signer for the SDK instance
-
-***
-
-### \_transactions
-
-```ts
-private _transactions: TorqueTransactionsModule;
-```
-
-Defined in: [sdk/src/modules/main.ts:50](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L50)
-
-The tranactions module for the SDK instance
-
-***
-
-### apiUrl
-
-```ts
-apiUrl: string;
-```
-
-Defined in: [sdk/src/modules/main.ts:55](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L55)
-
-The base URL of the Torque API
-
-***
-
-### offers
-
-```ts
-offers: TorqueOffersModule;
-```
-
-Defined in: [sdk/src/modules/main.ts:40](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L40)
-
-The offers module for the SDK instance
-
-***
-
-### user
-
-```ts
-user: undefined | TorqueUserModule;
-```
-
-Defined in: [sdk/src/modules/main.ts:45](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L45)
-
-The user module for the SDK instance
+| Property | Type | Description |
+| ------ | ------ | ------ |
+| <a id="_connection"></a> `_connection` | `Connection` | The connection for the SDK instance |
+| <a id="_signer"></a> `_signer` | \| `undefined` \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) | The signer for the SDK instance |
+| <a id="_transactions"></a> `_transactions` | [`TorqueTransactionsModule`](torquetransactionsmodule.md) | The tranactions module for the SDK instance |
+| <a id="apiurl"></a> `apiUrl` | `string` | The base URL of the Torque API |
+| <a id="offers"></a> `offers` | [`TorqueOffersModule`](torqueoffersmodule.md) | The offers module for the SDK instance |
+| <a id="user"></a> `user` | `undefined` \| [`TorqueUserModule`](torqueusermodule.md) | The user module for the SDK instance |
 
 ## Methods
 
@@ -121,7 +56,7 @@ authenticate(
 authInput?): Promise<string>
 ```
 
-Defined in: [sdk/src/modules/main.ts:87](https://github.com/torque-labs/monorepo/blob/f4ba71b316d908ec6167830d700bbcfae0be65a8/packages/sdk/src/modules/main.ts#L87)
+Defined in: [sdk/src/modules/main.ts:87](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/main.ts#l87)
 
 Authenticate the user with the API using the provided login data.
 
@@ -129,9 +64,9 @@ Authenticate the user with the API using the provided login data.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `signer` | \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/PrivySolanaWallet.md) | The signer to use for the authentication |
-| `authOptions`? | [`TorqueAuthOptions`](../type-aliases/TorqueAuthOptions.md) | The authentication options |
-| `authInput`? | [`TorqueAuthInput`](../type-aliases/TorqueAuthInput.md) | The authentication input |
+| `signer` | \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) | The signer to use for the authentication |
+| `authOptions`? | [`TorqueAuthOptions`](../type-aliases/torqueauthoptions.md) | The authentication options |
+| `authInput`? | [`TorqueAuthInput`](../type-aliases/torqueauthinput.md) | The authentication input |
 
 #### Returns
 

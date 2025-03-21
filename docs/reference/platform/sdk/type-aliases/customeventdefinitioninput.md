@@ -18,7 +18,7 @@ type CustomEventDefinitionInput = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:573
+Defined in: [sdk/src/types/schemaTypes.ts:868](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l868)
 
 ## Properties
 
@@ -28,7 +28,7 @@ Defined in: sdk/src/types/schemaTypes.ts:573
 eventName: string;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:574
+Defined in: [sdk/src/types/schemaTypes.ts:869](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l869)
 
 ***
 
@@ -43,28 +43,11 @@ fields: {
  }[];
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:575
+Defined in: [sdk/src/types/schemaTypes.ts:870](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l870)
 
-#### description?
-
-```ts
-optional description: string | null;
-```
-
-#### fieldName
-
-```ts
-fieldName: string;
-```
-
-#### label?
-
-```ts
-optional label: string | null;
-```
-
-#### type
-
-```ts
-type: "string" | "boolean" | "number";
-```
+| Name | Type |
+| ------ | ------ |
+| `description?` | `string` \| `null` |
+| `fieldName` | `string` |
+| `label?` | `string` \| `null` |
+| `type` | `"string"` \| `"boolean"` \| `"number"` |

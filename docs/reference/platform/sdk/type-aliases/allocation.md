@@ -13,7 +13,7 @@ type Allocation = {
 };
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:1
+Defined in: [sdk/src/types/schemaTypes.ts:1](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l1)
 
 ## Properties
 
@@ -23,7 +23,7 @@ Defined in: sdk/src/types/schemaTypes.ts:1
 input: number;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:2
+Defined in: [sdk/src/types/schemaTypes.ts:2](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l2)
 
 ***
 
@@ -33,4 +33,4 @@ Defined in: sdk/src/types/schemaTypes.ts:2
 output: number;
 ```
 
-Defined in: sdk/src/types/schemaTypes.ts:3
+Defined in: [sdk/src/types/schemaTypes.ts:3](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/types/schematypes.ts#l3)
