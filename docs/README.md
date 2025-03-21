@@ -1,42 +1,47 @@
 ---
-icon: wrench
+description: Incentivize Any User, for Any Action
 cover: .gitbook/assets/Twitter-Cover-02.png
 coverY: -145.7282051282051
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
-# Introduction to Torque
+# Introduction
 
-## Incentivize Any User for Any Action
+## Welcome to Torque
 
+Torque is a growth protocol that allows teams to effortlessly launch incentivized actions, linking any user behavior directly to rewards like tokens, NFTs, or points.
 
+Each action has three simple components:
 
-**Torque Protocol allows anyone to launch an onchain offer to incentivize any on / offchain action or series of actions**.&#x20;
+* Audience: Who can participate, defined by public keys or user segments.
+* Incentives: The reward type users will receive.
+* Terms: Specific conditions users must meet to earn these rewards.
 
-When an offer is launched, the rewards for offer completion are escrowed into a PDA and the conditions for reward distribution are set. Once the conditions have been validated, the reward will automatically be distributed to users satisfying the condition of the reward.&#x20;
+## Why Use Torque
 
-## Why Use Torque?
+Much like Zapier automates workflows between apps, Torque ties token distribution to user actions—saving valuable time and resources while enabling targeted growth.
 
-### For Builders
+🛠 **For Developers**
 
-* Use onchain assets to drive growth for your protocol
-* Control different factors such as duration, reward types & amounts, actions, and audiences
+Torque makes it easy to integrate on-chain and off-chain actions into your product and automate reward distribution.
 
-### For Publishers (Wallets / Apps)
+* Add your onchain actions (via IDL), protocol actions, or offchain events&#x20;
+* Launch incentives that trigger rewards tied to actions when conditions are met.
+* Track & Optimize performance in real time, tweaking incentives instantly.
 
-* Share offers to users and receive rewards when users complete the offers
-* Generate passive revenue when users complete high value actions
+Set it up once, and let Torque manage rewards while you focus on building.
 
+With Torque, you can dynamically adjust growth incentives on the fly—no complex setups or manual distribution needed.
+
+📈 **For Marketers**
+
+Torque’s intuitive, no-code interface lets marketers launch, test, and optimize incentive campaigns without writing a single line of code. Create powerful user journeys triggered by simple events, automatically distributing tokens, NFTs, or points to drive engagement and accelerate growth.
+
+With Torque, your team can:
+
+• Automate Incentives: Instantly reward users for targeted actions.
+
+• Maximize Flexibility: Easily customize who gets rewarded, how, and when.
+
+• Drive Sustainable Growth: Seamlessly integrate incentives into your product strategy and quickly iterate based on results.
+
+Torque simplifies the complexity of token-based growth, freeing your team to focus entirely on your core product.
