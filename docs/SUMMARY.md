@@ -9,13 +9,13 @@
 
 * [Designing Incentives with Torque](torque-building-blocks.md)
 
-## Adding Torque to your Site
+## Embedding Actions
 
-* [Getting Started](adding-torque-to-your-site/getting-started.md)
-* [Torque Drawer](adding-torque-to-your-site/torque-drawer.md)
-* [Using the Hooks](adding-torque-to-your-site/using-the-hooks.md)
-* [Advanced Usage](adding-torque-to-your-site/advanced-usage.md)
-* [Managing Offers using the SDK](adding-torque-to-your-site/managing-offers-using-the-sdk.md)
+* [Getting Started](embedding-actions/getting-started.md)
+* [Torque Drawer](embedding-actions/torque-drawer.md)
+* [Using the Hooks](embedding-actions/using-the-hooks.md)
+* [Advanced Usage](embedding-actions/advanced-usage.md)
+* [Managing Offers using the SDK](embedding-actions/managing-offers-using-the-sdk.md)
 
 ## Offchain Actions
 
