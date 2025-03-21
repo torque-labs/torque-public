@@ -4,9 +4,9 @@ cover: .gitbook/assets/Twitter-Cover-02.png
 coverY: -145.7282051282051
 ---
 
-# Welcome to Torque
+# Introduction
 
-## Introduction
+## Welcome to Torque
 
 Torque is a growth protocol that allows teams to effortlessly launch incentivized actions, linking any user behavior directly to rewards like tokens, NFTs, or points.
 

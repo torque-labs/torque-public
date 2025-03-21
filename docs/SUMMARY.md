@@ -2,7 +2,7 @@
 
 ## The Basics
 
-* [Welcome to Torque](README.md)
+* [Introduction](README.md)
 * [How it Works](the-basics/how-it-works.md)
 
 ***
