@@ -2,17 +2,52 @@
 
 ***
 
-[Torque Platform](../README.md) / @torque-labs/react
-
 # @torque-labs/react
 
 React hooks and utilities for the Torque SDK.
+
+## Interfaces
+
+| Interface | Description |
+| ------ | ------ |
+| [AddDistributorParams](interfaces/adddistributorparams.md) | - |
+| [CloseDistributorParams](interfaces/closedistributorparams.md) | - |
+| [DeployDistributorParams](interfaces/deploydistributorparams.md) | - |
+| [TorqueContextValue](interfaces/torquecontextvalue.md) | The TorqueContextValue interface defines the value of the TorqueContext. |
+| [TorqueProviderProps](interfaces/torqueproviderprops.md) | The TorqueProviderProps interface defines the props for the TorqueProvider component. |
+| [UpdateDistributorParams](interfaces/updatedistributorparams.md) | - |
+| [UpdateOfferParams](interfaces/updateofferparams.md) | - |
+| [UseAddDistributorOptions](interfaces/useadddistributoroptions.md) | - |
+| [UseCloseDistributorOptions](interfaces/useclosedistributoroptions.md) | - |
+| [UseCreateOfferOptions](interfaces/usecreateofferoptions.md) | - |
+| [UseCreateProjectOptions](interfaces/usecreateprojectoptions.md) | - |
+| [UseCurrentUserProps](interfaces/usecurrentuserprops.md) | - |
+| [UseDeployDistributorOptions](interfaces/usedeploydistributoroptions.md) | - |
+| [UseOfferActionOptions](interfaces/useofferactionoptions.md) | - |
+| [UseOfferJourneyOptions](interfaces/useofferjourneyoptions.md) | - |
+| [UseOfferOptions](interfaces/useofferoptions.md) | - |
+| [UseOffersOptions](interfaces/useoffersoptions.md) | - |
+| [UseProjectOptions](interfaces/useprojectoptions.md) | - |
+| [UseProjectsOptions](interfaces/useprojectsoptions.md) | - |
+| [UseStartOfferOptions](interfaces/usestartofferoptions.md) | - |
+| [UseUpdateDistributorOptions](interfaces/useupdatedistributoroptions.md) | - |
+| [UseUpdateOfferOptions](interfaces/useupdateofferoptions.md) | - |
+| [UseXActionProps](interfaces/usexactionprops.md) | - |
 
 ## Type Aliases
 
 | Type Alias | Description |
 | ------ | ------ |
 | [OfferStatus](type-aliases/offerstatus.md) | - |
+| [OfferWithStatus](type-aliases/offerwithstatus.md) | - |
+| [StartOfferParams](type-aliases/startofferparams.md) | - |
+| [XActionParams](type-aliases/xactionparams.md) | - |
+
+## Variables
+
+| Variable | Description |
+| ------ | ------ |
+| [TorqueContext](variables/torquecontext.md) | - |
 
 ## Functions
 

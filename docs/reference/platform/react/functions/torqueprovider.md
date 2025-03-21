@@ -1,8 +1,8 @@
-[**@torque-labs/react**](../../../@torque-labs/react/README.md)
+[**@torque-labs/react**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/react](../README.md) / TorqueProvider
+[@torque-labs/react](../README.md) / TorqueProvider
 
 # Function: TorqueProvider()
 
@@ -10,7 +10,7 @@
 function TorqueProvider(__namedParameters): Element
 ```
 
-Defined in: [packages/react/src/context.tsx:113](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/react/src/context.tsx#L113)
+Defined in: [react/src/context.tsx:127](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/react/src/context.tsx#L127)
 
 Setup the Torque UI library provider with the given options to use the
 Torque SDK in an application.
@@ -19,7 +19,7 @@ Torque SDK in an application.
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | `TorqueProviderProps` |
+| `__namedParameters` | [`TorqueProviderProps`](../interfaces/TorqueProviderProps.md) |
 
 ## Returns
 

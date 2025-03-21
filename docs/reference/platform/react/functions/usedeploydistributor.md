@@ -1,23 +1,27 @@
-[**@torque-labs/react**](../../../@torque-labs/react/README.md)
+[**@torque-labs/react**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/react](../README.md) / useDeployDistributor
+[@torque-labs/react](../README.md) / useDeployDistributor
 
 # Function: useDeployDistributor()
 
 ```ts
-function useDeployDistributor(__namedParameters): UseMutationResult<unknown, Error, DeployDistributorParams, unknown>
+function useDeployDistributor(__namedParameters): UseMutationResult<{
+  signature: string;
+}, Error, DeployDistributorParams, unknown>
 ```
 
-Defined in: [packages/react/src/hooks/useDeployDistributor.ts:15](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/react/src/hooks/useDeployDistributor.ts#L15)
+Defined in: [react/src/hooks/useDeployDistributor.ts:15](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/react/src/hooks/useDeployDistributor.ts#L15)
 
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | `UseDeployDistributorOptions` |
+| `__namedParameters` | [`UseDeployDistributorOptions`](../interfaces/UseDeployDistributorOptions.md) |
 
 ## Returns
 
-`UseMutationResult`\<`unknown`, `Error`, `DeployDistributorParams`, `unknown`\>
+`UseMutationResult`\<\{
+  `signature`: `string`;
+ \}, `Error`, [`DeployDistributorParams`](../interfaces/DeployDistributorParams.md), `unknown`\>

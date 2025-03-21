@@ -1,23 +1,23 @@
-[**@torque-labs/react**](../../../@torque-labs/react/README.md)
+[**@torque-labs/react**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/react](../README.md) / useUpdateDistributor
+[@torque-labs/react](../README.md) / useUpdateDistributor
 
 # Function: useUpdateDistributor()
 
 ```ts
-function useUpdateDistributor(__namedParameters): UseMutationResult<unknown, Error, UpdateDistributorParams, unknown>
+function useUpdateDistributor(__namedParameters): UseMutationResult<DistributorResponse, Error, UpdateDistributorParams, unknown>
 ```
 
-Defined in: [packages/react/src/hooks/useUpdateDistributor.ts:17](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/react/src/hooks/useUpdateDistributor.ts#L17)
+Defined in: [react/src/hooks/useUpdateDistributor.ts:18](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/react/src/hooks/useUpdateDistributor.ts#L18)
 
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | `UseUpdateDistributorOptions` |
+| `__namedParameters` | [`UseUpdateDistributorOptions`](../interfaces/UseUpdateDistributorOptions.md) |
 
 ## Returns
 
-`UseMutationResult`\<`unknown`, `Error`, `UpdateDistributorParams`, `unknown`\>
+`UseMutationResult`\<`DistributorResponse`, `Error`, [`UpdateDistributorParams`](../interfaces/UpdateDistributorParams.md), `unknown`\>

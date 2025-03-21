@@ -1,23 +1,23 @@
-[**@torque-labs/react**](../../../@torque-labs/react/README.md)
+[**@torque-labs/react**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/react](../README.md) / useXAction
+[@torque-labs/react](../README.md) / useXAction
 
 # Function: useXAction()
 
 ```ts
-function useXAction(__namedParameters): UseMutationResult<any, Error, XActionParams, unknown>
+function useXAction(__namedParameters): UseMutationResult<void, Error, XActionParams, unknown>
 ```
 
-Defined in: [packages/react/src/hooks/useXAction.ts:17](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/react/src/hooks/useXAction.ts#L17)
+Defined in: [react/src/hooks/useXAction.ts:18](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/react/src/hooks/useXAction.ts#L18)
 
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | `UseXActionProps` |
+| `__namedParameters` | [`UseXActionProps`](../interfaces/UseXActionProps.md) |
 
 ## Returns
 
-`UseMutationResult`\<`any`, `Error`, `XActionParams`, `unknown`\>
+`UseMutationResult`\<`void`, `Error`, [`XActionParams`](../type-aliases/XActionParams.md), `unknown`\>

@@ -1,8 +1,8 @@
-[**@torque-labs/react**](../../../@torque-labs/react/README.md)
+[**@torque-labs/react**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/react](../README.md) / useTorque
+[@torque-labs/react](../README.md) / useTorque
 
 # Function: useTorque()
 
@@ -10,12 +10,12 @@
 function useTorque(): TorqueContextValue
 ```
 
-Defined in: [packages/react/src/context.tsx:273](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/react/src/context.tsx#L273)
+Defined in: [react/src/context.tsx:303](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/react/src/context.tsx#L303)
 
 Hook to get the Torque context value
 
 ## Returns
 
-`TorqueContextValue`
+[`TorqueContextValue`](../interfaces/TorqueContextValue.md)
 
 The Torque context value

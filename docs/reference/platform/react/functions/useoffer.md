@@ -1,8 +1,8 @@
-[**@torque-labs/react**](../../../@torque-labs/react/README.md)
+[**@torque-labs/react**](../README.md)
 
 ***
 
-[Torque Labs](../../../README.md) / [@torque-labs/react](../README.md) / useOffer
+[@torque-labs/react](../README.md) / useOffer
 
 # Function: useOffer()
 
@@ -10,14 +10,14 @@
 function useOffer(__namedParameters): UseQueryResult<OfferWithStatus, Error>
 ```
 
-Defined in: [packages/react/src/hooks/useOffer.ts:16](https://github.com/torque-labs/monorepo/blob/9238a1f6167cf2d739205996110f18c02ed8a04f/packages/react/src/hooks/useOffer.ts#L16)
+Defined in: [react/src/hooks/useOffer.ts:17](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/react/src/hooks/useOffer.ts#L17)
 
 ## Parameters
 
 | Parameter | Type |
 | ------ | ------ |
-| `__namedParameters` | `UseOfferOptions` |
+| `__namedParameters` | [`UseOfferOptions`](../interfaces/UseOfferOptions.md) |
 
 ## Returns
 
-`UseQueryResult`\<`OfferWithStatus`, `Error`\>
+`UseQueryResult`\<[`OfferWithStatus`](../type-aliases/OfferWithStatus.md), `Error`\>
