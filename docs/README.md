@@ -24,7 +24,7 @@ Much like Zapier automates workflows between apps, Torque ties token distributio
 
 Torque makes it easy to integrate on-chain and off-chain actions into your product and automate reward distribution.
 
-* Add your onchain actions (via IDL), protocol actions, or offchain events&#x20;
+* Add your onchain actions (via IDL), protocol actions, or offchain events.
 * Launch incentives that trigger rewards tied to actions when conditions are met.
 * Track & Optimize performance in real time, tweaking incentives instantly.
 
