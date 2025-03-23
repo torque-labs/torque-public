@@ -3,8 +3,8 @@
 ## Overview
 
 * [Introduction](README.md)
-  * [How it Works](the-basics/how-it-works.md)
-  * [Designing Incentives with Torque](torque-building-blocks.md)
+* [How it Works](overview/how-it-works.md)
+* [Designing Incentives with Torque](overview/torque-building-blocks.md)
 
 ## For Developers
 
