@@ -17,6 +17,7 @@
   * [Requesting an API key](offchain-actions/requesting-an-api-key.md)
   * [Creating Offchain Actions](offchain-actions/creating-offchain-actions.md)
   * [Sending a Custom Event](offchain-actions/sending-a-custom-event.md)
+* [Upload Your IDL](for-developers/upload-your-idl.md)
 
 ## For Users
 
@@ -25,6 +26,10 @@
 ***
 
 * [Create Your First Campaign](create-your-first-campaign.md)
+* [Features](features/README.md)
+  * [Audiences](features/audiences.md)
+  * [Telegram Analytics](features/telegram-analytics.md)
+  * [Recipes](features/recipes.md)
 
 ## Basics
 
