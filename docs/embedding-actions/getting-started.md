@@ -8,8 +8,8 @@ description: >-
 
 ### Requirements
 
-- React 18 or higher
-- A Solana wallet adapter implementation
+* React 18 or higher
+* A Solana wallet adapter implementation
 
 ### Installation
 
@@ -33,9 +33,10 @@ import "@torque-labs/torque-ui/index.css";
 
 2. Add the TorqueProvider component to your application. The TorqueProvider must be a child of the `WalletProvider` component from the Solana wallet adapter library.
 
-<pre class="language-tsx"><code class="lang-tsx">"use client";
-<strong>
-</strong>import { useWallet } from "@solana/wallet-adapter-react";
+```tsx
+"use client";
+
+import { useWallet } from "@solana/wallet-adapter-react";
 import type { PropsWithChildren } from "react";
 import type { TorqueOptions } from "@torque-labs/torque-ui";
 import { TorqueProvider } from "@torque-labs/torque-ui";
@@ -44,16 +45,16 @@ export function TorqueWrapper({ children }: PropsWithChildren) {
   const { wallet } = useWallet();
 
   const torqueOptions: TorqueOptions = {
-    publisherHandle: "&#x3C;your publisher handle>",
+    publisherHandle: "<your publisher handle>",
   };
 
   return (
-    &#x3C;TorqueProvider options={torqueOptions} wallet={wallet}>
+    <TorqueProvider options={torqueOptions} wallet={wallet}>
       {children}
-    &#x3C;/TorqueProvider>
+    </TorqueProvider>
   );
 }
-</code></pre>
+```
 
 _**NOTE:**_ You can get a publisher handle by logging into the Torque application and creating a publisher account.
 
@@ -85,7 +86,7 @@ function MyApp() {
 
 The TorqueDrawer component will add a drawer interface that shows available offers and campaigns to your users. A user will be able to:
 
-- View available campaigns
-- Track their progress
-- Complete requirements
-- Claim rewards
+* View available campaigns
+* Track their progress
+* Complete requirements
+* Claim rewards

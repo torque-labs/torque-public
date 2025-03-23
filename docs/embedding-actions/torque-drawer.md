@@ -1,13 +1,13 @@
 # Torque Drawer
 
-The easiest way to add Torque functionality to your application is to use the `TorqueDrawer` component that comes bundled inside of the Torque UI library.&#x20;
+The easiest way to add Torque functionality to your application is to use the `TorqueDrawer` component that comes bundled inside of the Torque UI library.
 
 A user will be able to:
 
-- View available offers/campaigns
-- Track their progress
-- Complete requirements
-- Claim rewards
+* View available offers/campaigns
+* Track their progress
+* Complete requirements
+* Claim rewards
 
 ### Usage
 

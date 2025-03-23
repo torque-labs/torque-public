@@ -3,24 +3,28 @@
 ## Overview
 
 * [Introduction](README.md)
-  * [How it Works](overview/readme/how-it-works.md)
-  * [Designing Incentives with Torque](overview/readme/torque-building-blocks.md)
+  * [How it Works](the-basics/how-it-works.md)
+  * [Designing Incentives with Torque](torque-building-blocks.md)
 
 ## For Developers
 
-* [Getting Started](for-developers/getting-started/README.md)
-  * [Torque Drawer](for-developers/getting-started/torque-drawer.md)
-  * [Using the Hooks](for-developers/getting-started/using-the-hooks.md)
-  * [Advanced Usage](for-developers/getting-started/advanced-usage.md)
-  * [Managing Offers using the SDK](for-developers/getting-started/managing-offers-using-the-sdk.md)
-* [Offchain Actions](for-developers/overview/README.md)
-  * [Requesting an API key](for-developers/overview/requesting-an-api-key.md)
-  * [Creating Offchain Actions](for-developers/overview/creating-offchain-actions.md)
-  * [Sending a Custom Event](for-developers/overview/sending-a-custom-event.md)
+* [Getting Started](embedding-actions/getting-started.md)
+  * [Torque Drawer](embedding-actions/torque-drawer.md)
+  * [Using the Hooks](embedding-actions/using-the-hooks.md)
+  * [Advanced Usage](embedding-actions/advanced-usage.md)
+  * [Managing Offers using the SDK](embedding-actions/managing-offers-using-the-sdk.md)
+* [Offchain Actions](offchain-actions/overview.md)
+  * [Requesting an API key](offchain-actions/requesting-an-api-key.md)
+  * [Creating Offchain Actions](offchain-actions/creating-offchain-actions.md)
+  * [Sending a Custom Event](offchain-actions/sending-a-custom-event.md)
 
-## For Marketers
+## For Users
 
-* [Getting Started](for-marketers/getting-started.md)
+* [Getting Started](for-users/getting-started.md)
+
+***
+
+* [Create Your First Campaign](create-your-first-campaign.md)
 
 ## Basics
 
