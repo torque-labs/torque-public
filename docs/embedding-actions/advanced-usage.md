@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Advanced Usage
 
 ## Use your own SIWS (Sign-in-with-Solana) implementation
