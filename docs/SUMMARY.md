@@ -21,9 +21,9 @@
   * [Sending a Custom Event](offchain-actions/sending-a-custom-event.md)
 * [Upload Your IDL](for-developers/upload-your-idl.md)
 
-## For Users
+## For Marketers
 
-* [Getting Started](for-users/getting-started.md)
+* [Getting Started](for-marketers/getting-started.md)
 
 ***
 
