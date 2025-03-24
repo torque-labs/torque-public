@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Using the Hooks
 
 The Torque UI library provides a set of React hooks that make it easy to integrate Torque functionality into your Solana application. To use the hooks below, make sure that you've already setup the `TorqueProvider` inside of your app. The hooks can only be used if the Torque context exists.
@@ -44,20 +48,20 @@ function MyComponent() {
 
 #### Returns
 
-| Value         | Type                                                                             | Description                             |
-| ------------- | -------------------------------------------------------------------------------- | --------------------------------------- |
-| offers        | [ApiCampaign](broken-reference)\[]                                               | Array of available offers               |
-| journeys      | [ApiCampaignJourney](broken-reference)\[]                                        | Array of user's progress through offers |
-| publicKey     | PublicKey                                                                        | Connected wallet's public key           |
-| user          | [ApiUser](broken-reference)                                                      | The user's data from the Torque API     |
-| userClient    | [TorqueUserClient](broken-reference)                                             | The Torque user client instance         |
-| config        | [TorqueOptions](using-the-hooks.md#torqueoptions)                                | The Torque configuration                |
-| initialized   | boolean                                                                          | Whether the user is initialized         |
-| isLoading     | boolean                                                                          | Whether it is loading                   |
-| initialize    | (options?: [TorqueInitOptions](using-the-hooks.md#torqueinitoptions)) => Promise | Function to initialize the user         |
-| logout        | () => Promise                                                                    | Function to logout the user             |
-| claimOffer    | (offerId: string) => Promise                                                     | Function to claim an offer              |
-| refreshOffers | () => Promise                                                                    | Function to refresh the user's offers   |
+| Value         | Type                                                                               | Description                             |
+| ------------- | ---------------------------------------------------------------------------------- | --------------------------------------- |
+| offers        | [ApiCampaign](broken-reference)\[]                                                 | Array of available offers               |
+| journeys      | [ApiCampaignJourney](broken-reference)\[]                                          | Array of user's progress through offers |
+| publicKey     | PublicKey                                                                          | Connected wallet's public key           |
+| user          | [ApiUser](broken-reference)                                                        | The user's data from the Torque API     |
+| userClient    | [TorqueUserClient](broken-reference)                                               | The Torque user client instance         |
+| config        | [TorqueOptions](using-the-hooks-1.md#torqueoptions)                                | The Torque configuration                |
+| initialized   | boolean                                                                            | Whether the user is initialized         |
+| isLoading     | boolean                                                                            | Whether it is loading                   |
+| initialize    | (options?: [TorqueInitOptions](using-the-hooks-1.md#torqueinitoptions)) => Promise | Function to initialize the user         |
+| logout        | () => Promise                                                                      | Function to logout the user             |
+| claimOffer    | (offerId: string) => Promise                                                       | Function to claim an offer              |
+| refreshOffers | () => Promise                                                                      | Function to refresh the user's offers   |
 
 ### useOfferStatus
 
@@ -143,10 +147,10 @@ function RequirementComponent({
 
 #### Returns
 
-| Value                  | Type                                                                          | Description                                                             |
-| ---------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| isLoading              | boolean                                                                       | Whether the action is loading                                           |
-| handleBountyStepAction | (props: [HandleActionProps](using-the-hooks.md#handleactionprops)) => Promise | Function to trigger the action for the user to complete the requirement |
+| Value                  | Type                                                                            | Description                                                             |
+| ---------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| isLoading              | boolean                                                                         | Whether the action is loading                                           |
+| handleBountyStepAction | (props: [HandleActionProps](using-the-hooks-1.md#handleactionprops)) => Promise | Function to trigger the action for the user to complete the requirement |
 
 
 

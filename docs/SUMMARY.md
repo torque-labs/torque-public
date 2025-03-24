@@ -9,8 +9,10 @@
 ## For Developers
 
 * [Getting Started](embedding-actions/getting-started.md)
+  * [Usage with React](for-developers/getting-started/usage-with-react.md)
+  * [Using the Hooks](for-developers/getting-started/using-the-hooks.md)
   * [Torque Drawer](embedding-actions/torque-drawer.md)
-  * [Using the Hooks](embedding-actions/using-the-hooks.md)
+  * [Using the Hooks](for-developers/getting-started/using-the-hooks-1.md)
   * [Advanced Usage](embedding-actions/advanced-usage.md)
   * [Managing Offers using the SDK](embedding-actions/managing-offers-using-the-sdk.md)
 * [Offchain Actions](offchain-actions/overview.md)

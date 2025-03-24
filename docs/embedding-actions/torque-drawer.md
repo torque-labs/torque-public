@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # Torque Drawer
 
 The easiest way to add Torque functionality to your application is to use the `TorqueDrawer` component that comes bundled inside of the Torque UI library.
