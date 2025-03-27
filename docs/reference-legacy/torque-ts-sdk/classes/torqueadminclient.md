@@ -31,9 +31,9 @@ Create a new instance of the TorqueAdminClient class with the provided API key.
 
 **Parameters**
 
-| Parameter | Type                                                                      | Description                            |
-| --------- | ------------------------------------------------------------------------- | -------------------------------------- |
-| `options` | [`TorqueAdminClientOptions`](../type-aliases/TorqueAdminClientOptions.md) | The options for the TorqueAdminClient. |
+| Parameter | Type                                                                                                    | Description                            |
+| --------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `options` | [`TorqueAdminClientOptions`](../../../reference/torque-ts-sdk/type-aliases/TorqueAdminClientOptions.md) | The options for the TorqueAdminClient. |
 
 **Returns**
 
@@ -45,12 +45,12 @@ Create a new instance of the TorqueAdminClient class with the provided API key.
 
 ### Properties
 
-| Property     | Type                                                          |
-| ------------ | ------------------------------------------------------------- |
-| `client`     | [`TorqueRequestClient`](torquerequestclient.md)               |
-| `connection` | `Connection`                                                  |
-| `userClient` | `undefined` \| [`TorqueUserClient`](torqueuserclient.md)      |
-| `tokenList`  | `undefined` \| [`SafeToken`](../type-aliases/SafeToken.md)\[] |
+| Property     | Type                                                                                        |
+| ------------ | ------------------------------------------------------------------------------------------- |
+| `client`     | [`TorqueRequestClient`](torquerequestclient.md)                                             |
+| `connection` | `Connection`                                                                                |
+| `userClient` | `undefined` \| [`TorqueUserClient`](torqueuserclient.md)                                    |
+| `tokenList`  | `undefined` \| [`SafeToken`](../../../reference/torque-ts-sdk/type-aliases/SafeToken.md)\[] |
 
 ### Methods
 
@@ -194,13 +194,13 @@ Get a list of all currently active campaigns.
 
 **Returns**
 
-`Promise`<{ `campaigns`: [`ApiCampaign`](../type-aliases/ApiCampaign.md)\[]; }>
+`Promise`<{ `campaigns`: [`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)\[]; }>
 
 A promise that resolves to an array of ApiCampaign objects.
 
-| Name        | Type                                               |
-| ----------- | -------------------------------------------------- |
-| `campaigns` | [`ApiCampaign`](../type-aliases/ApiCampaign.md)\[] |
+| Name        | Type                                                                             |
+| ----------- | -------------------------------------------------------------------------------- |
+| `campaigns` | [`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)\[] |
 
 **Throws**
 
@@ -228,7 +228,7 @@ Get an audience by ID.
 
 **Returns**
 
-`Promise`<[`ApiAudience`](../type-aliases/ApiAudience.md)>
+`Promise`<[`ApiAudience`](../../../reference/torque-ts-sdk/type-aliases/ApiAudience.md)>
 
 A promise that resolves to an array of Audiences.
 
@@ -254,13 +254,13 @@ Get a list of the user's saved audiences.
 
 **Returns**
 
-`Promise`<{ `audiences`: [`ApiAudience`](../type-aliases/ApiAudience.md)\[]; }>
+`Promise`<{ `audiences`: [`ApiAudience`](../../../reference/torque-ts-sdk/type-aliases/ApiAudience.md)\[]; }>
 
 A promise that resolves to an array of Audiences.
 
-| Name        | Type                                               |
-| ----------- | -------------------------------------------------- |
-| `audiences` | [`ApiAudience`](../type-aliases/ApiAudience.md)\[] |
+| Name        | Type                                                                             |
+| ----------- | -------------------------------------------------------------------------------- |
+| `audiences` | [`ApiAudience`](../../../reference/torque-ts-sdk/type-aliases/ApiAudience.md)\[] |
 
 **Throws**
 
@@ -288,7 +288,7 @@ Get the details of a specific campaign.
 
 **Returns**
 
-`Promise`<[`ApiCampaign`](../type-aliases/ApiCampaign.md)>
+`Promise`<[`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)>
 
 A Promise that resolves to the campaign data.
 
@@ -318,7 +318,7 @@ Get the analytics data for a specific campaign.
 
 **Returns**
 
-`Promise`<[`CampaignAnalytics`](../type-aliases/CampaignAnalytics.md)>
+`Promise`<[`CampaignAnalytics`](../../../reference/torque-ts-sdk/type-aliases/CampaignAnalytics.md)>
 
 A Promise that resolves to the analytics data for the campaign.
 
@@ -353,11 +353,11 @@ getCampaigns(params?, includeHistoric?): Promise<{
 
 **Returns**
 
-`Promise`<{ `campaigns`: [`ApiCampaign`](../type-aliases/ApiCampaign.md)\[]; }>
+`Promise`<{ `campaigns`: [`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)\[]; }>
 
-| Name        | Type                                               |
-| ----------- | -------------------------------------------------- |
-| `campaigns` | [`ApiCampaign`](../type-aliases/ApiCampaign.md)\[] |
+| Name        | Type                                                                             |
+| ----------- | -------------------------------------------------------------------------------- |
+| `campaigns` | [`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)\[] |
 
 **Defined in**
 
@@ -387,13 +387,13 @@ Get a list of all historic campaigns.
 
 **Returns**
 
-`Promise`<{ `campaigns`: [`ApiCampaign`](../type-aliases/ApiCampaign.md)\[]; }>
+`Promise`<{ `campaigns`: [`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)\[]; }>
 
 A promise that resolves to an array of ApiCampaign objects.
 
-| Name        | Type                                               |
-| ----------- | -------------------------------------------------- |
-| `campaigns` | [`ApiCampaign`](../type-aliases/ApiCampaign.md)\[] |
+| Name        | Type                                                                             |
+| ----------- | -------------------------------------------------------------------------------- |
+| `campaigns` | [`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)\[] |
 
 **Throws**
 
@@ -421,7 +421,7 @@ Get the leaderboard for a specific campaign.
 
 **Returns**
 
-`Promise`<[`ApiCampaignLeaderboard`](../type-aliases/ApiCampaignLeaderboard.md)>
+`Promise`<[`ApiCampaignLeaderboard`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaignLeaderboard.md)>
 
 A Promise that resolves to the leaderboard data for the campaign.
 
@@ -523,7 +523,7 @@ Get the raffle rewards for a specific campaign.
 
 **Returns**
 
-`Promise`<[`ApiRaffleRewards`](../type-aliases/ApiRaffleRewards.md)>
+`Promise`<[`ApiRaffleRewards`](../../../reference/torque-ts-sdk/type-aliases/ApiRaffleRewards.md)>
 
 **Throws**
 
@@ -547,10 +547,10 @@ Save an audience to the user's account.
 
 **Parameters**
 
-| Parameter  | Type                                                            | Description                                |
-| ---------- | --------------------------------------------------------------- | ------------------------------------------ |
-| `metadata` | [`ApiAudienceMetadata`](../type-aliases/ApiAudienceMetadata.md) | The metadata of the audience.              |
-| `config`?  | [`Audience`](../type-aliases/Audience.md)                       | The configuration of the audience to save. |
+| Parameter  | Type                                                                                          | Description                                |
+| ---------- | --------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `metadata` | [`ApiAudienceMetadata`](../../../reference/torque-ts-sdk/type-aliases/ApiAudienceMetadata.md) | The metadata of the audience.              |
+| `config`?  | [`Audience`](../../../reference/torque-ts-sdk/type-aliases/Audience.md)                       | The configuration of the audience to save. |
 
 **Returns**
 
@@ -587,11 +587,11 @@ Update an existing audience with the provided configuration.
 
 **Parameters**
 
-| Parameter   | Type                                                            | Description                                  |
-| ----------- | --------------------------------------------------------------- | -------------------------------------------- |
-| `id`        | `string`                                                        | The ID of the audience to update.            |
-| `metadata`? | [`ApiAudienceMetadata`](../type-aliases/ApiAudienceMetadata.md) | The metadata of the audience.                |
-| `config`?   | [`Audience`](../type-aliases/Audience.md)                       | The configuration of the audience to update. |
+| Parameter   | Type                                                                                          | Description                                  |
+| ----------- | --------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| `id`        | `string`                                                                                      | The ID of the audience to update.            |
+| `metadata`? | [`ApiAudienceMetadata`](../../../reference/torque-ts-sdk/type-aliases/ApiAudienceMetadata.md) | The metadata of the audience.                |
+| `config`?   | [`Audience`](../../../reference/torque-ts-sdk/type-aliases/Audience.md)                       | The configuration of the audience to update. |
 
 **Returns**
 
@@ -630,7 +630,7 @@ Retrieves the list of safe tokens from the Jupiter ag.
 
 **Returns**
 
-`Promise`<[`SafeToken`](../type-aliases/SafeToken.md)\[]>
+`Promise`<[`SafeToken`](../../../reference/torque-ts-sdk/type-aliases/SafeToken.md)\[]>
 
 A promise that resolves to an array of SafeToken objects.
 

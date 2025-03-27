@@ -35,9 +35,9 @@ Create a new instance of the TorqueUserClient class with the publisher's handle,
 
 **Parameters**
 
-| Parameter | Type                                                                    | Description                           |
-| --------- | ----------------------------------------------------------------------- | ------------------------------------- |
-| `options` | [`TorqueUserClientOptions`](../type-aliases/TorqueUserClientOptions.md) | The options for the TorqueUserClient. |
+| Parameter | Type                                                                                                  | Description                           |
+| --------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `options` | [`TorqueUserClientOptions`](../../../reference/torque-ts-sdk/type-aliases/TorqueUserClientOptions.md) | The options for the TorqueUserClient. |
 
 **Returns**
 
@@ -53,18 +53,18 @@ Throws an error if the user's wallet is not provided.
 
 ### Properties
 
-| Property                 | Type                                                   |
-| ------------------------ | ------------------------------------------------------ |
-| `apiUrl`                 | `string`                                               |
-| `appUrl`                 | `string`                                               |
-| `client`                 | [`TorqueRequestClient`](torquerequestclient.md)        |
-| `connection`             | `Connection`                                           |
-| `initialized`            | `boolean`                                              |
-| `publicKey`              | `string`                                               |
-| `publisherHandle`        | `string`                                               |
-| `signer`                 | `Adapter` \| `Keypair`                                 |
-| `user`                   | `undefined` \| [`ApiUser`](../type-aliases/ApiUser.md) |
-| `PUBLISHER_ACCOUNT_SIZE` | `number`                                               |
+| Property                 | Type                                                                                 |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| `apiUrl`                 | `string`                                                                             |
+| `appUrl`                 | `string`                                                                             |
+| `client`                 | [`TorqueRequestClient`](torquerequestclient.md)                                      |
+| `connection`             | `Connection`                                                                         |
+| `initialized`            | `boolean`                                                                            |
+| `publicKey`              | `string`                                                                             |
+| `publisherHandle`        | `string`                                                                             |
+| `signer`                 | `Adapter` \| `Keypair`                                                               |
+| `user`                   | `undefined` \| [`ApiUser`](../../../reference/torque-ts-sdk/type-aliases/ApiUser.md) |
+| `PUBLISHER_ACCOUNT_SIZE` | `number`                                                                             |
 
 ### Methods
 
@@ -85,7 +85,7 @@ Initiate a user journey to accept a campaign for the current user.
 
 **Returns**
 
-`Promise`<[`ApiUserJourney`](../type-aliases/ApiUserJourney.md)>
+`Promise`<[`ApiUserJourney`](../../../reference/torque-ts-sdk/type-aliases/ApiUserJourney.md)>
 
 A Promise that resolves to the journey data for the campaign.
 
@@ -121,7 +121,7 @@ Links user's telegram account to their Torque account.
 
 **Returns**
 
-`Promise`<[`ApiTelegramAuth`](../type-aliases/ApiTelegramAuth.md)>
+`Promise`<[`ApiTelegramAuth`](../../../reference/torque-ts-sdk/type-aliases/ApiTelegramAuth.md)>
 
 The data associated with the shared link if the request is successful.
 
@@ -280,7 +280,7 @@ Retrieves the user's campaign journey for the specified campaign.
 
 **Returns**
 
-`Promise`<`undefined` | [`ApiCampaignJourney`](../type-aliases/ApiCampaignJourney.md)>
+`Promise`<`undefined` | [`ApiCampaignJourney`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaignJourney.md)>
 
 A Promise that resolves to the user's campaign journey.
 
@@ -304,7 +304,7 @@ Checks to see if the user is already logged into the Torque API.
 
 **Returns**
 
-`Promise`<`undefined` | [`ApiUser`](../type-aliases/ApiUser.md)>
+`Promise`<`undefined` | [`ApiUser`](../../../reference/torque-ts-sdk/type-aliases/ApiUser.md)>
 
 A promise that resolves to the user if they are signed in, otherwise undefined.
 
@@ -356,7 +356,7 @@ Retrieves the user's campaign journeys
 
 **Returns**
 
-`Promise`<`undefined` | [`ApiCampaignJourney`](../type-aliases/ApiCampaignJourney.md)\[]>
+`Promise`<`undefined` | [`ApiCampaignJourney`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaignJourney.md)\[]>
 
 A Promise that resolves to the user's campaign journey.
 
@@ -410,13 +410,13 @@ Retrieves a list of active campaigns from the Torque API that the user is eligib
 
 **Returns**
 
-`Promise`<{ `campaigns`: [`ApiCampaign`](../type-aliases/ApiCampaign.md)\[]; }>
+`Promise`<{ `campaigns`: [`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)\[]; }>
 
 A Promise resolving to an array of `ApiCampaign` objects representing the active campaigns.
 
-| Name        | Type                                               |
-| ----------- | -------------------------------------------------- |
-| `campaigns` | [`ApiCampaign`](../type-aliases/ApiCampaign.md)\[] |
+| Name        | Type                                                                             |
+| ----------- | -------------------------------------------------------------------------------- |
+| `campaigns` | [`ApiCampaign`](../../../reference/torque-ts-sdk/type-aliases/ApiCampaign.md)\[] |
 
 **Throws**
 
@@ -485,7 +485,7 @@ Retrieves the data for an offer link for a specific campaign and handle.
 
 **Returns**
 
-`Promise`<[`ApiShare`](../type-aliases/ApiShare.md)>
+`Promise`<[`ApiShare`](../../../reference/torque-ts-sdk/type-aliases/ApiShare.md)>
 
 The data associated with the shared link if the request is successful.
 
@@ -529,7 +529,7 @@ Retrieves user's payout history from conversions.
 
 **Returns**
 
-`Promise`<[`ApiUserPayout`](../type-aliases/ApiUserPayout.md)>
+`Promise`<[`ApiUserPayout`](../../../reference/torque-ts-sdk/type-aliases/ApiUserPayout.md)>
 
 The data associated with the shared link if the request is successful.
 
@@ -583,13 +583,13 @@ Initializes the TorqueUserClient with the provided options.
 
 **Parameters**
 
-| Parameter   | Type                                                | Description                                                                |
-| ----------- | --------------------------------------------------- | -------------------------------------------------------------------------- |
-| `userAuth`? | [`ApiInputLogin`](../type-aliases/ApiInputLogin.md) | User signature object that is required to authenticate a user with Torque. |
+| Parameter   | Type                                                                              | Description                                                                |
+| ----------- | --------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `userAuth`? | [`ApiInputLogin`](../../../reference/torque-ts-sdk/type-aliases/ApiInputLogin.md) | User signature object that is required to authenticate a user with Torque. |
 
 **Returns**
 
-`Promise`<[`ApiUser`](../type-aliases/ApiUser.md)>
+`Promise`<[`ApiUser`](../../../reference/torque-ts-sdk/type-aliases/ApiUser.md)>
 
 A Promise that resolves when the initialization is complete.
 
@@ -637,13 +637,13 @@ Authenticate the user with the torque API with the provided user signature objec
 
 **Parameters**
 
-| Parameter      | Type                                                | Description                                                                  |
-| -------------- | --------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `loginOptions` | [`ApiInputLogin`](../type-aliases/ApiInputLogin.md) | The verification object that is required to authenticate a user with Torque. |
+| Parameter      | Type                                                                              | Description                                                                  |
+| -------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `loginOptions` | [`ApiInputLogin`](../../../reference/torque-ts-sdk/type-aliases/ApiInputLogin.md) | The verification object that is required to authenticate a user with Torque. |
 
 **Returns**
 
-`Promise`<[`ApiUser`](../type-aliases/ApiUser.md)>
+`Promise`<[`ApiUser`](../../../reference/torque-ts-sdk/type-aliases/ApiUser.md)>
 
 A Promise that resolves to an object containing the user information.
 
@@ -695,7 +695,7 @@ Rereshes the user's information from the Torque API.
 
 **Returns**
 
-`Promise`<`undefined` | [`ApiUser`](../type-aliases/ApiUser.md)>
+`Promise`<`undefined` | [`ApiUser`](../../../reference/torque-ts-sdk/type-aliases/ApiUser.md)>
 
 A promise that resolves to the user if they are signed in, otherwise undefined.
 

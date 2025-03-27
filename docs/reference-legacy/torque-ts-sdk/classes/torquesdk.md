@@ -43,9 +43,9 @@ Initializes the TorqueSDK with the provided options.
 
 **Parameters**
 
-| Parameter | Type                                                      | Description                    |
-| --------- | --------------------------------------------------------- | ------------------------------ |
-| `options` | [`TorqueSDKOptions`](../type-aliases/TorqueSDKOptions.md) | The options for the TorqueSDK. |
+| Parameter | Type                                                                                    | Description                    |
+| --------- | --------------------------------------------------------------------------------------- | ------------------------------ |
+| `options` | [`TorqueSDKOptions`](../../../reference/torque-ts-sdk/type-aliases/TorqueSDKOptions.md) | The options for the TorqueSDK. |
 
 **Returns**
 
@@ -90,11 +90,11 @@ Initializes the TorqueSDK with the provided options.
 
 **Parameters**
 
-| Parameter          | Type                                                    | Description                                                                                       |
-| ------------------ | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `signer`           | `Adapter` \| `Keypair`                                  | The signer used to sign transactions.                                                             |
-| `signTransaction`? | [`SignTransaction`](../type-aliases/SignTransaction.md) | The function used to sign transactions. If provided, it will override the default signing method. |
-| `ApiInputLogin`?   | [`ApiInputLogin`](../type-aliases/ApiInputLogin.md)     | The login options for the user.                                                                   |
+| Parameter          | Type                                                                                  | Description                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `signer`           | `Adapter` \| `Keypair`                                                                | The signer used to sign transactions.                                                             |
+| `signTransaction`? | [`SignTransaction`](../../../reference/torque-ts-sdk/type-aliases/SignTransaction.md) | The function used to sign transactions. If provided, it will override the default signing method. |
+| `ApiInputLogin`?   | [`ApiInputLogin`](../../../reference/torque-ts-sdk/type-aliases/ApiInputLogin.md)     | The login options for the user.                                                                   |
 
 **Returns**
 
@@ -156,9 +156,9 @@ Constructs the body for the login API request based on the authentication type.
 
 **Parameters**
 
-| Parameter | Type                                                | Description                                     |
-| --------- | --------------------------------------------------- | ----------------------------------------------- |
-| `params`  | [`ApiInputLogin`](../type-aliases/ApiInputLogin.md) | The parameters for constructing the login body. |
+| Parameter | Type                                                                              | Description                                     |
+| --------- | --------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `params`  | [`ApiInputLogin`](../../../reference/torque-ts-sdk/type-aliases/ApiInputLogin.md) | The parameters for constructing the login body. |
 
 **Returns**
 
@@ -188,7 +188,7 @@ Retrieves a sample SIWS payload for logging into the Torque API.
 
 **Returns**
 
-`Promise`<[`ApiIdentifyPayload`](../type-aliases/ApiIdentifyPayload.md)>
+`Promise`<[`ApiIdentifyPayload`](../../../reference/torque-ts-sdk/type-aliases/ApiIdentifyPayload.md)>
 
 A Promise that resolves to the payload containing the identification statement, issued at time, and expiration time.
 
@@ -212,14 +212,14 @@ Static method to verify the login options with the Torque API.
 
 **Parameters**
 
-| Parameter      | Type                                                | Description                                                                  |
-| -------------- | --------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `loginOptions` | [`ApiInputLogin`](../type-aliases/ApiInputLogin.md) | The verification object that is required to authenticate a user with Torque. |
-| `apiUrl`       | `string`                                            | The API URL to use for the verification. Defaults to the Torque API URL.     |
+| Parameter      | Type                                                                              | Description                                                                  |
+| -------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `loginOptions` | [`ApiInputLogin`](../../../reference/torque-ts-sdk/type-aliases/ApiInputLogin.md) | The verification object that is required to authenticate a user with Torque. |
+| `apiUrl`       | `string`                                                                          | The API URL to use for the verification. Defaults to the Torque API URL.     |
 
 **Returns**
 
-`Promise`<[`ApiUser`](../type-aliases/ApiUser.md)>
+`Promise`<[`ApiUser`](../../../reference/torque-ts-sdk/type-aliases/ApiUser.md)>
 
 A Promise that resolves to an object containing the user information.
 

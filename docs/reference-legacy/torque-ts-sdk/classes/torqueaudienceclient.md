@@ -31,9 +31,9 @@ Create a new instance of the TorqueAdminClient class with the provided API key.
 
 **Parameters**
 
-| Parameter | Type                                                                            | Description                               |
-| --------- | ------------------------------------------------------------------------------- | ----------------------------------------- |
-| `options` | [`TorqueAudienceClientOptions`](../type-aliases/TorqueAudienceClientOptions.md) | The options for the TorqueAudienceClient. |
+| Parameter | Type                                                                                                          | Description                               |
+| --------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `options` | [`TorqueAudienceClientOptions`](../../../reference/torque-ts-sdk/type-aliases/TorqueAudienceClientOptions.md) | The options for the TorqueAudienceClient. |
 
 **Returns**
 
@@ -62,13 +62,13 @@ Builds an audience with the provided options.
 
 **Parameters**
 
-| Parameter | Type                                                | Description                         |
-| --------- | --------------------------------------------------- | ----------------------------------- |
-| `options` | [`AudienceBuild`](../type-aliases/AudienceBuild.md) | The options for the audience build. |
+| Parameter | Type                                                                              | Description                         |
+| --------- | --------------------------------------------------------------------------------- | ----------------------------------- |
+| `options` | [`AudienceBuild`](../../../reference/torque-ts-sdk/type-aliases/AudienceBuild.md) | The options for the audience build. |
 
 **Returns**
 
-`Promise`<[`AudienceBuildResponse`](../type-aliases/AudienceBuildResponse.md)>
+`Promise`<[`AudienceBuildResponse`](../../../reference/torque-ts-sdk/type-aliases/AudienceBuildResponse.md)>
 
 The response from the API.
 
@@ -108,10 +108,10 @@ Verifies the current user with the provided audience.
 
 **Parameters**
 
-| Parameter    | Type                                      | Description                                |
-| ------------ | ----------------------------------------- | ------------------------------------------ |
-| `audience`   | [`Audience`](../type-aliases/Audience.md) | The options for the audience verification. |
-| `publicKey`? | `string`                                  | -                                          |
+| Parameter    | Type                                                                    | Description                                |
+| ------------ | ----------------------------------------------------------------------- | ------------------------------------------ |
+| `audience`   | [`Audience`](../../../reference/torque-ts-sdk/type-aliases/Audience.md) | The options for the audience verification. |
+| `publicKey`? | `string`                                                                | -                                          |
 
 **Returns**
 

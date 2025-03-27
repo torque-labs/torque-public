@@ -1,6 +1,6 @@
 # Sending a Custom Event
 
-Sending a custom event is as simple as sending a `POST` request to the events endpoint of the Torque API. For an event to be accepted by the Torque API, you must first [create the custom event](creating-offchain-actions.md) and structure.&#x20;
+Sending a custom event is as simple as sending a `POST` request to the events endpoint of the Torque API. For an event to be accepted by the Torque API, you must first [create the custom event](creating-off-chain-actions.md) and structure.&#x20;
 
 **Custom event endpoint**: `https://server.torque.so/event/custom`
 

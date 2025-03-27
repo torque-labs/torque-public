@@ -2,9 +2,10 @@
 description: >-
   The Torque UI library provides React components to easily integrate Torque
   functionality into your Solana application.
+hidden: true
 ---
 
-# Getting Started
+# Getting Started (legacy)
 
 ### Requirements
 
@@ -60,11 +61,11 @@ _**NOTE:**_ You can get a publisher handle by logging into the Torque applicatio
 
 #### Props
 
-| Prop     | Type                                                                                  | Description                                                                                                        |
-| -------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| options  | [TorqueOptions](../for-developers/getting-started/using-the-hooks-1.md#torqueoptions) | The Torque options for the provider.                                                                               |
-| wallet   | Wallet                                                                                | The wallet to use for the provider.                                                                                |
-| autoInit | boolean                                                                               | Whether to automatically initialize the user with Torque using SIWS when a wallet is detected. Defaults to `true`. |
+| Prop     | Type                                              | Description                                                                                                        |
+| -------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| options  | [TorqueOptions](using-the-hooks.md#torqueoptions) | The Torque options for the provider.                                                                               |
+| wallet   | Wallet                                            | The wallet to use for the provider.                                                                                |
+| autoInit | boolean                                           | Whether to automatically initialize the user with Torque using SIWS when a wallet is detected. Defaults to `true`. |
 
 ## Quick Start Guide
 

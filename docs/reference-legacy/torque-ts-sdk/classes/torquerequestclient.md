@@ -30,9 +30,9 @@ Create a new instance of the TorqueRequestClient class.
 
 **Parameters**
 
-| Parameter | Type                                                              |
-| --------- | ----------------------------------------------------------------- |
-| `options` | [`TorqueRequestOptions`](../type-aliases/TorqueRequestOptions.md) |
+| Parameter | Type                                                                                            |
+| --------- | ----------------------------------------------------------------------------------------------- |
+| `options` | [`TorqueRequestOptions`](../../../reference/torque-ts-sdk/type-aliases/TorqueRequestOptions.md) |
 
 **Returns**
 
@@ -48,16 +48,16 @@ Throws an error if a signer is not provided.
 
 ### Properties
 
-| Property          | Type                                                                   |
-| ----------------- | ---------------------------------------------------------------------- |
-| `apiAuthHeader`   | `Record`<`string`, `string`>                                           |
-| `apiKey`          | `undefined` \| `string`                                                |
-| `apiUrl`          | `string`                                                               |
-| `appUrl`          | `string`                                                               |
-| `connection`      | `undefined` \| `Connection`                                            |
-| `functionsUrl`    | `string`                                                               |
-| `signer`          | `undefined` \| `Adapter` \| `Keypair`                                  |
-| `signTransaction` | `undefined` \| [`SignTransaction`](../type-aliases/SignTransaction.md) |
+| Property          | Type                                                                                                 |
+| ----------------- | ---------------------------------------------------------------------------------------------------- |
+| `apiAuthHeader`   | `Record`<`string`, `string`>                                                                         |
+| `apiKey`          | `undefined` \| `string`                                                                              |
+| `apiUrl`          | `string`                                                                                             |
+| `appUrl`          | `string`                                                                                             |
+| `connection`      | `undefined` \| `Connection`                                                                          |
+| `functionsUrl`    | `string`                                                                                             |
+| `signer`          | `undefined` \| `Adapter` \| `Keypair`                                                                |
+| `signTransaction` | `undefined` \| [`SignTransaction`](../../../reference/torque-ts-sdk/type-aliases/SignTransaction.md) |
 
 ### Methods
 
@@ -158,7 +158,7 @@ Executes the serialized transaction using the API.
 
 **Returns**
 
-`Promise`<[`TxnExecuteResponse`](../type-aliases/TxnExecuteResponse.md)>
+`Promise`<[`TxnExecuteResponse`](../../../reference/torque-ts-sdk/type-aliases/TxnExecuteResponse.md)>
 
 A promise that resolves with the signature of the transaction.
 
@@ -262,7 +262,7 @@ Builds and executes the transaction using the Torque API.
 
 **Returns**
 
-`Promise`<[`WithSignature`](../type-aliases/WithSignature.md)<`T`>>
+`Promise`<[`WithSignature`](../../../reference/torque-ts-sdk/type-aliases/WithSignature.md)<`T`>>
 
 A promise that resolves with the signature of the transaction.
 
