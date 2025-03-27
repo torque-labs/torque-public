@@ -2,13 +2,13 @@
 
 Sending a custom event is as simple as sending a `POST` request to the events endpoint of the Torque API. For an event to be accepted by the Torque API, you must first [create the custom event](creating-offchain-actions.md) and structure.&#x20;
 
-**Custom event endpoint**: `https://api.torque.so/events`
+**Custom event endpoint**: `https://server.torque.so/event/custom`
 
 #### Request structure
 
 {% code title="Request:" %}
 ```typescript
-await fetch("https://api.torque.so/events", {
+await fetch("https://server.torque.so/event/custom", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -22,12 +22,10 @@ await fetch("https://api.torque.so/events", {
 {% code title="Request body:" %}
 ```json
 {
-  "timestamp": 1731596206795, // in ms
-  "user": {
-    "pubKey": "<PUB_KEY>"
-  },
-  "event_name": "<event_name>",
-  "event_data": {
+  "timestamp": 1731596206795, // In ms or valid date string
+  "userPubkey": "<PUB_KEY>", // User's pubkey
+  "eventName": "<event_name>", // The name of the event as configured in Settings
+  "data": { 
     "<string_param_name>": "<value>",
     "<number_param_name>": 0,
     "<boolean_param_name>": true || false,
@@ -40,11 +38,13 @@ await fetch("https://api.torque.so/events", {
 
 ### Example request
 
-Let's say that you wanted to create a campaign/offer that requires a user to purchase a specific product (**"item\_123"**) from a store. First, you would create a custom event named `STORE_ORDER` with the following parameters: `itemId`, `orderAmount`, and `isPremiumUser`. Now, when creating a campaign/offer and adding requirements, you can select **"Custom Event"** and then select the `STORE_ORDER` custom event you created. In the custom event configuration, you will be shown the parameters you created for the event and be able to set the validation rules for each parameter. Since the original requirement was for a specific product purchase, you only need to set the **"exact match"** validation rule for the `itemId` parameter to match **"item\_123"**.
+Let's say that you wanted to create a campaign that requires a user to play a specific video game (**"game123"**) from a minimum of 10 hours. First, you would create a custom event named `GAME_PLAYED` with the following parameters: `gameId`, and `hoursPlayed` . Now, when creating a campaign and adding requirements, you can select your **"GAME\_PLAYED"** event. For our example, we would set the `gameId`  requirement to be and **"exact match"** with a value of **"game123"**, and set the minimum value for `hoursPlayed` to be **"10"**.&#x20;
+
+&#x20;In the custom event configuration, you will be shown the parameters you created for the event and be able to set the validation rules for each parameter. Since the original requirement was for a specific product purchase, you only need to set the **"exact match"** validation rule for the `itemId` parameter to match **"item\_123"**.
 
 
 
-**Here is a full example of a custom event request of a store order**:
+**Here is a full example of a custom event request of the event**:
 
 ```typescript
 // Create event payload
@@ -52,24 +52,20 @@ const payload = {
   // Current timestamp in milliseconds
   timestamp: 1731596206795,
 
-  user: {
-    // User's public key
-    pubKey: "<PUB_KEY>",
-  },
+  userPubkey: "<PUB_KEY>",
 
   // Event name
-  event_name: "STORE_ORDER",
+  eventName: "GAME_PLAYED",
 
   // Event data
-  event_data: {
-    itemId: "item_123",
-    orderAmount: 100,
-    isPremiumUser: true,
+  data: {
+    itemId: "game123",
+    hoursPlayed: 14,
   },
 };
 
 // Send request
-await fetch("https://api.torque.so/events", {
+await fetch("https://server.torque.so/event/custom", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -79,4 +75,4 @@ await fetch("https://api.torque.so/events", {
 });
 ```
 
-Our system will validate the event data, and if it is valid, it will be accepted by the Torque API if the user accepted the offer and met the requirements.
+Our system will validate the event data, and will complete the action for the user if they have satisfied the requirement for any offer that you have created.&#x20;

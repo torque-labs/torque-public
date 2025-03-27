@@ -17,7 +17,7 @@
   * [Managing Offers using the SDK](embedding-actions/managing-offers-using-the-sdk.md)
 * [Offchain Actions](offchain-actions/overview.md)
   * [Requesting an API key](offchain-actions/requesting-an-api-key.md)
-  * [Creating Offchain Actions](offchain-actions/creating-offchain-actions.md)
+  * [Creating Off-chain Actions](offchain-actions/creating-offchain-actions.md)
   * [Sending a Custom Event](offchain-actions/sending-a-custom-event.md)
 * [Upload Your IDL](for-developers/upload-your-idl.md)
 
