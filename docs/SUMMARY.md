@@ -11,6 +11,7 @@
 * [Getting Started](for-developers/getting-started/README.md)
   * [Using the Hooks](for-developers/getting-started/using-the-hooks.md)
   * [Managing Offers using the SDK](embedding-actions/managing-offers-using-the-sdk.md)
+  * [Deploying rewards using the SDK](for-developers/getting-started/deploying-rewards-using-the-sdk.md)
 * [Getting Started (legacy)](for-developers/getting-started-legacy/README.md)
   * [Torque Drawer](for-developers/getting-started-legacy/torque-drawer.md)
   * [Using the Hooks](for-developers/getting-started-legacy/using-the-hooks.md)

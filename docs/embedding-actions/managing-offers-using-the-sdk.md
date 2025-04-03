@@ -2,6 +2,7 @@
 description: >-
   This page provides a few examples of how to manage offers using the Torque
   SDK.
+hidden: true
 ---
 
 # Managing Offers using the SDK
