@@ -21,6 +21,7 @@
   * [Creating Off-chain Actions](for-developers/off-chain-actions/creating-off-chain-actions.md)
   * [Sending a Custom Event](for-developers/off-chain-actions/sending-a-custom-event.md)
 * [Upload Your IDL](for-developers/upload-your-idl.md)
+* [Advanced Usage](for-developers/advanced-usage.md)
 
 ## For Marketers
 
