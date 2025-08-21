@@ -9,7 +9,7 @@
   * [Distributors](overview/core-concepts/distributors.md)
 * [How it Works](overview/how-it-works/README.md)
   * [Example DEX Campaign](overview/how-it-works/example-dex-campaign.md)
-  * [Advanced: Designing Incentives with Torque](overview/how-it-works/torque-building-blocks.md)
+  * [Advanced: Designing Real-Time Incentives with Torque](overview/how-it-works/torque-building-blocks.md)
 
 ## For Developers
 
