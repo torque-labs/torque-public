@@ -8,7 +8,8 @@
   * [Incentives](overview/core-concepts/incentives.md)
   * [Distributors](overview/core-concepts/distributors.md)
 * [How it Works](overview/how-it-works/README.md)
-  * [Designing Incentives with Torque](overview/how-it-works/torque-building-blocks.md)
+  * [Example DEX Campaign](overview/how-it-works/example-dex-campaign.md)
+  * [Advanced: Designing Incentives with Torque](overview/how-it-works/torque-building-blocks.md)
 
 ## For Developers
 
