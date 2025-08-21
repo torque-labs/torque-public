@@ -1,27 +1,29 @@
-[**@torque-labs/sdk**](../README.md)
+# TorqueTransactionsModule
+
+[**@torque-labs/sdk**](../)
 
 ***
 
-[@torque-labs/sdk](../README.md) / TorqueTransactionsModule
+[@torque-labs/sdk](../) / TorqueTransactionsModule
 
-# Class: TorqueTransactionsModule
+## Class: TorqueTransactionsModule
 
 Defined in: [sdk/src/modules/transactions.ts:16](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/transactions.ts#l16)
 
-The TorqueTransactionsModule class is used to handle transactions for the Torque SDK.
+The TorqueTransactionsModule class is used to handle transactions for the Torque SDK.\
 It provides methods for creating, signing, and sending transactions.
 
-## Param
+### Param
 
 The signer for the transactions
 
-## Param
+### Param
 
 The RPC connection for the Solana network
 
-## Constructors
+### Constructors
 
-### new TorqueTransactionsModule()
+#### new TorqueTransactionsModule()
 
 ```ts
 new TorqueTransactionsModule(connection, signer?): TorqueTransactionsModule
@@ -29,30 +31,30 @@ new TorqueTransactionsModule(connection, signer?): TorqueTransactionsModule
 
 Defined in: [sdk/src/modules/transactions.ts:32](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/transactions.ts#l32)
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type |
-| ------ | ------ |
-| `connection` | `Connection` |
-| `signer`? | `Adapter` \| `Keypair` |
+| Parameter    | Type                   |
+| ------------ | ---------------------- |
+| `connection` | `Connection`           |
+| `signer`?    | `Adapter` \| `Keypair` |
 
-#### Returns
+**Returns**
 
 `TorqueTransactionsModule`
 
-## Properties
+### Properties
 
-| Property | Type | Description |
-| ------ | ------ | ------ |
-| <a id="_connection"></a> `_connection` | `Connection` | The RPC connection for the Solana network |
-| <a id="_publickey"></a> `_publicKey` | `undefined` \| `null` \| `PublicKey` | The public key of the signer |
-| <a id="_signer"></a> `_signer` | \| `undefined` \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) | The signer for the transactions |
+| Property      | Type                                                                                                    | Description                               |
+| ------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------- |
+| `_connection` | `Connection`                                                                                            | The RPC connection for the Solana network |
+| `_publicKey`  | `undefined` \| `null` \| `PublicKey`                                                                    | The public key of the signer              |
+| `_signer`     | \| `undefined` \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) | The signer for the transactions           |
 
-## Accessors
+### Accessors
 
-### signer
+#### signer
 
-#### Set Signature
+**Set Signature**
 
 ```ts
 set signer(value): void
@@ -62,19 +64,19 @@ Defined in: [sdk/src/modules/transactions.ts:40](https://github.com/torque-labs/
 
 Set the signer for the transactions
 
-##### Parameters
+**Parameters**
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) |
+| Parameter | Type                                                                                     |
+| --------- | ---------------------------------------------------------------------------------------- |
+| `value`   | \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) |
 
-##### Returns
+**Returns**
 
 `void`
 
-## Methods
+### Methods
 
-### sendTransaction()
+#### sendTransaction()
 
 ```ts
 sendTransaction(serializedtx): Promise<string>
@@ -84,21 +86,21 @@ Defined in: [sdk/src/modules/transactions.ts:157](https://github.com/torque-labs
 
 Send a transaction to the network.
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
+| Parameter      | Type     | Description             |
+| -------------- | -------- | ----------------------- |
 | `serializedTx` | `string` | The transaction to send |
 
-#### Returns
+**Returns**
 
-`Promise`\<`string`\>
+`Promise`<`string`>
 
 The signature of the completed transaction after confirmation
 
 ***
 
-### signOrSendTransaction()
+#### signOrSendTransaction()
 
 ```ts
 private signOrSendTransaction(serializedtx, execute): Promise<string>
@@ -108,22 +110,22 @@ Defined in: [sdk/src/modules/transactions.ts:53](https://github.com/torque-labs/
 
 Execute or sign a transaction from a Solana action.
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `serializedTx` | `string` | The serialized transaction |
-| `execute` | `boolean` | Whether to execute the transaction |
+| Parameter      | Type      | Description                        |
+| -------------- | --------- | ---------------------------------- |
+| `serializedTx` | `string`  | The serialized transaction         |
+| `execute`      | `boolean` | Whether to execute the transaction |
 
-#### Returns
+**Returns**
 
-`Promise`\<`string`\>
+`Promise`<`string`>
 
 The signature of the transaction
 
 ***
 
-### signTransaction()
+#### signTransaction()
 
 ```ts
 signTransaction(serializedtx): Promise<string>
@@ -133,21 +135,21 @@ Defined in: [sdk/src/modules/transactions.ts:146](https://github.com/torque-labs
 
 Sign and return the transaction signature.
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
+| Parameter      | Type     | Description             |
+| -------------- | -------- | ----------------------- |
 | `serializedTx` | `string` | The transaction to sign |
 
-#### Returns
+**Returns**
 
-`Promise`\<`string`\>
+`Promise`<`string`>
 
 The signature of the signed transaction
 
 ***
 
-### signWithKeypair()
+#### signWithKeypair()
 
 ```ts
 private signWithKeypair(txn): VersionedTransaction
@@ -157,18 +159,18 @@ Defined in: [sdk/src/modules/transactions.ts:170](https://github.com/torque-labs
 
 Signs a transaction with a Keypair.
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `txn` | `VersionedTransaction` | The versioned transaction to sign with a keypair |
+| Parameter | Type                   | Description                                      |
+| --------- | ---------------------- | ------------------------------------------------ |
+| `txn`     | `VersionedTransaction` | The versioned transaction to sign with a keypair |
 
-#### Returns
+**Returns**
 
 `VersionedTransaction`
 
 The signer transaction
 
-#### Throws
+**Throws**
 
 An error if the signer is not initialized or if there is an issue signing the transaction

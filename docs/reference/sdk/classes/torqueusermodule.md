@@ -1,31 +1,33 @@
-[**@torque-labs/sdk**](../README.md)
+# TorqueUserModule
+
+[**@torque-labs/sdk**](../)
 
 ***
 
-[@torque-labs/sdk](../README.md) / TorqueUserModule
+[@torque-labs/sdk](../) / TorqueUserModule
 
-# Class: TorqueUserModule
+## Class: TorqueUserModule
 
 Defined in: [sdk/src/modules/user.ts:98](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/user.ts#l98)
 
-The TorqueUserModule class is used to handle user authentication
+The TorqueUserModule class is used to handle user authentication\
 for the Torque SDK as well as user management.
 
-## Param
+### Param
 
 The URL of the Torque API server
 
-## Param
+### Param
 
 The signer for the user
 
-## Param
+### Param
 
 The connection to the Solana network
 
-## Constructors
+### Constructors
 
-### new TorqueUserModule()
+#### new TorqueUserModule()
 
 ```ts
 new TorqueUserModule(
@@ -36,33 +38,33 @@ new TorqueUserModule(
 
 Defined in: [sdk/src/modules/user.ts:124](https://github.com/torque-labs/monorepo/blob/2ebf07140779767733d669c69d4b6e369a4193c3/packages/sdk/src/modules/user.ts#l124)
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type |
-| ------ | ------ |
-| `url` | `string` |
-| `signer` | \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) |
-| `connection` | `Connection` |
+| Parameter    | Type                                                                                     |
+| ------------ | ---------------------------------------------------------------------------------------- |
+| `url`        | `string`                                                                                 |
+| `signer`     | \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) |
+| `connection` | `Connection`                                                                             |
 
-#### Returns
+**Returns**
 
 `TorqueUserModule`
 
-## Properties
+### Properties
 
-| Property | Type | Description |
-| ------ | ------ | ------ |
-| <a id="_connection"></a> `_connection` | `Connection` | The solana connection RPC endpoint |
-| <a id="_signer"></a> `_signer` | \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md) | The user's wallet/signer for Solana |
-| <a id="_token"></a> `_token` | `undefined` \| `string` | The user's auth token for the API |
-| <a id="apiurl"></a> `apiUrl` | `string` | The base URL of the Torque API |
-| <a id="currentuser"></a> `currentUser` | \| `undefined` \| [`UserWithConnectedAccounts`](../type-aliases/userwithconnectedaccounts.md) | The current user |
+| Property      | Type                                                                                          | Description                         |
+| ------------- | --------------------------------------------------------------------------------------------- | ----------------------------------- |
+| `_connection` | `Connection`                                                                                  | The solana connection RPC endpoint  |
+| `_signer`     | \| `Adapter` \| `Keypair` \| [`PrivySolanaWallet`](../type-aliases/privysolanawallet.md)      | The user's wallet/signer for Solana |
+| `_token`      | `undefined` \| `string`                                                                       | The user's auth token for the API   |
+| `apiUrl`      | `string`                                                                                      | The base URL of the Torque API      |
+| `currentUser` | \| `undefined` \| [`UserWithConnectedAccounts`](../type-aliases/userwithconnectedaccounts.md) | The current user                    |
 
-## Accessors
+### Accessors
 
-### token
+#### token
 
-#### Get Signature
+**Get Signature**
 
 ```ts
 get token(): undefined | string
@@ -72,11 +74,11 @@ Defined in: [sdk/src/modules/user.ts:133](https://github.com/torque-labs/monorep
 
 Get the auth token
 
-##### Returns
+**Returns**
 
-`undefined` \| `string`
+`undefined` | `string`
 
-#### Set Signature
+**Set Signature**
 
 ```ts
 set token(value): void
@@ -86,19 +88,19 @@ Defined in: [sdk/src/modules/user.ts:140](https://github.com/torque-labs/monorep
 
 Set the auth token
 
-##### Parameters
+**Parameters**
 
-| Parameter | Type |
-| ------ | ------ |
-| `value` | `undefined` \| `string` |
+| Parameter | Type                    |
+| --------- | ----------------------- |
+| `value`   | `undefined` \| `string` |
 
-##### Returns
+**Returns**
 
 `void`
 
-## Methods
+### Methods
 
-### createOffchainReward()
+#### createOffchainReward()
 
 ```ts
 createOffchainReward(data): Promise<OffchainRewardResponse>
@@ -108,21 +110,21 @@ Defined in: [sdk/src/modules/user.ts:391](https://github.com/torque-labs/monorep
 
 Create offchain reward
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `data` | [`OffchainRewardInput`](../type-aliases/offchainrewardinput.md) | The offchain reward data |
+| Parameter | Type                                                            | Description              |
+| --------- | --------------------------------------------------------------- | ------------------------ |
+| `data`    | [`OffchainRewardInput`](../type-aliases/offchainrewardinput.md) | The offchain reward data |
 
-#### Returns
+**Returns**
 
-`Promise`\<[`OffchainRewardResponse`](../type-aliases/offchainrewardresponse.md)\>
+`Promise`<[`OffchainRewardResponse`](../type-aliases/offchainrewardresponse.md)>
 
 The created offchain reward
 
 ***
 
-### deleteOffchainReward()
+#### deleteOffchainReward()
 
 ```ts
 deleteOffchainReward(offchainrewardid): Promise<{
@@ -134,23 +136,22 @@ Defined in: [sdk/src/modules/user.ts:415](https://github.com/torque-labs/monorep
 
 Delete offchain reward
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
+| Parameter          | Type     | Description                             |
+| ------------------ | -------- | --------------------------------------- |
 | `offchainRewardId` | `string` | The id of the offchain reward to delete |
 
-#### Returns
+**Returns**
 
-`Promise`\<\{
-  `message`: `string`;
- \}\>
+`Promise`<{`message`: `string`;\
+}>
 
 The deleted offchain reward
 
 ***
 
-### getBadges()
+#### getBadges()
 
 ```ts
 getBadges(): Promise<UserBadgeResponse & {
@@ -162,17 +163,16 @@ Defined in: [sdk/src/modules/user.ts:455](https://github.com/torque-labs/monorep
 
 Get the user's badges
 
-#### Returns
+**Returns**
 
-`Promise`\<[`UserBadgeResponse`](../type-aliases/userbadgeresponse.md) & \{
-  `badge`: [`OffchainRewardResponse`](../type-aliases/offchainrewardresponse.md);
- \}[]\>
+`Promise`<[`UserBadgeResponse`](../type-aliases/userbadgeresponse.md) & {`badge`: [`OffchainRewardResponse`](../type-aliases/offchainrewardresponse.md);\
+}\[]>
 
 The user's badges
 
 ***
 
-### getCurrentUser()
+#### getCurrentUser()
 
 ```ts
 getCurrentUser(): Promise<UserWithConnectedAccounts>
@@ -182,15 +182,15 @@ Defined in: [sdk/src/modules/user.ts:353](https://github.com/torque-labs/monorep
 
 Get the current user
 
-#### Returns
+**Returns**
 
-`Promise`\<[`UserWithConnectedAccounts`](../type-aliases/userwithconnectedaccounts.md)\>
+`Promise`<[`UserWithConnectedAccounts`](../type-aliases/userwithconnectedaccounts.md)>
 
 The current user
 
 ***
 
-### getOffchainRewards()
+#### getOffchainRewards()
 
 ```ts
 getOffchainRewards(userid?, type?): Promise<OffchainRewardResponse[]>
@@ -200,22 +200,22 @@ Defined in: [sdk/src/modules/user.ts:428](https://github.com/torque-labs/monorep
 
 Get all offchain rewards
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type |
-| ------ | ------ |
-| `userId`? | `string` |
-| `type`? | [`OffchainRewardType`](../enumerations/offchainrewardtype.md) |
+| Parameter | Type                                                          |
+| --------- | ------------------------------------------------------------- |
+| `userId`? | `string`                                                      |
+| `type`?   | [`OffchainRewardType`](../enumerations/offchainrewardtype.md) |
 
-#### Returns
+**Returns**
 
-`Promise`\<[`OffchainRewardResponse`](../type-aliases/offchainrewardresponse.md)[]\>
+`Promise`<[`OffchainRewardResponse`](../type-aliases/offchainrewardresponse.md)\[]>
 
 All offchain rewards
 
 ***
 
-### login()
+#### login()
 
 ```ts
 login(options?, authinput?): Promise<undefined | string>
@@ -225,26 +225,26 @@ Defined in: [sdk/src/modules/user.ts:154](https://github.com/torque-labs/monorep
 
 Authenticate the user with the API using the provided login data.
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `options`? | [`TorqueAuthOptions`](../type-aliases/torqueauthoptions.md) | The authentication options |
-| `authInput`? | [`TorqueAuthInput`](../type-aliases/torqueauthinput.md) | The login input object if you want to manually handle the login process |
+| Parameter    | Type                                                        | Description                                                             |
+| ------------ | ----------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `options`?   | [`TorqueAuthOptions`](../type-aliases/torqueauthoptions.md) | The authentication options                                              |
+| `authInput`? | [`TorqueAuthInput`](../type-aliases/torqueauthinput.md)     | The login input object if you want to manually handle the login process |
 
-#### Returns
+**Returns**
 
-`Promise`\<`undefined` \| `string`\>
+`Promise`<`undefined` | `string`>
 
 The auth token for the API
 
-#### Throws
+**Throws**
 
 If the authentication fails
 
 ***
 
-### logout()
+#### logout()
 
 ```ts
 logout(): Promise<void>
@@ -254,13 +254,13 @@ Defined in: [sdk/src/modules/user.ts:262](https://github.com/torque-labs/monorep
 
 Logout the user from the API.
 
-#### Returns
+**Returns**
 
-`Promise`\<`void`\>
+`Promise`<`void`>
 
 ***
 
-### setOffchainAllocationEndpoint()
+#### setOffchainAllocationEndpoint()
 
 ```ts
 setOffchainAllocationEndpoint(endpoint): Promise<void>
@@ -270,19 +270,19 @@ Defined in: [sdk/src/modules/user.ts:335](https://github.com/torque-labs/monorep
 
 Set offchain allocation endpoint
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
+| Parameter  | Type     | Description                      |
+| ---------- | -------- | -------------------------------- |
 | `endpoint` | `string` | The offchain allocation endpoint |
 
-#### Returns
+**Returns**
 
-`Promise`\<`void`\>
+`Promise`<`void`>
 
 ***
 
-### setXTokens()
+#### setXTokens()
 
 ```ts
 setXTokens(
@@ -297,23 +297,23 @@ Defined in: [sdk/src/modules/user.ts:482](https://github.com/torque-labs/monorep
 
 Set the user's X tokens
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `xAccessToken` | `string` | The user's X access token |
-| `xRefreshToken` | `string` | The user's X refresh token |
-| `privyAccessToken` | `string` | The user's Privy access token |
-| `privyIdentityToken` | `string` | The user's Privy identity token |
+| Parameter                     | Type     | Description                                 |
+| ----------------------------- | -------- | ------------------------------------------- |
+| `xAccessToken`                | `string` | The user's X access token                   |
+| `xRefreshToken`               | `string` | The user's X refresh token                  |
+| `privyAccessToken`            | `string` | The user's Privy access token               |
+| `privyIdentityToken`          | `string` | The user's Privy identity token             |
 | `accessTokenExpiresInSeconds` | `number` | The user's X access token expiry in seconds |
 
-#### Returns
+**Returns**
 
-`Promise`\<`void`\>
+`Promise`<`void`>
 
 ***
 
-### constructLoginBody()
+#### constructLoginBody()
 
 ```ts
 static constructLoginBody(params): 
@@ -340,37 +340,27 @@ Defined in: [sdk/src/modules/user.ts:298](https://github.com/torque-labs/monorep
 
 Constructs the body for the login API request based on the authentication type.
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `params` | [`TorqueAuthInput`](../type-aliases/torqueauthinput.md) | The authentication input object |
+| Parameter | Type                                                    | Description                     |
+| --------- | ------------------------------------------------------- | ------------------------------- |
+| `params`  | [`TorqueAuthInput`](../type-aliases/torqueauthinput.md) | The authentication input object |
 
-#### Returns
+**Returns**
 
-  \| `undefined`
-  \| \{
-  `authType`: `"siws"`;
-  `payload`: \{
-     `input`: `SolanaSignInInput`;
-     `output`: `SolanaSignInOutput`;
-    \};
-  `pubKey`: `string`;
- \}
-  \| \{
-  `authType`: `"basic"`;
-  `payload`: \{
-     `input`: `string`;
-     `output`: `string`;
-    \};
-  `pubKey`: `string`;
- \}
+\| `undefined`\
+\| {`authType`: `"siws"`;`payload`: {`input`: `SolanaSignInInput`;`output`: `SolanaSignInOutput`;\
+};`pubKey`: `string`;\
+}\
+\| {`authType`: `"basic"`;`payload`: {`input`: `string`;`output`: `string`;\
+};`pubKey`: `string`;\
+}
 
 The constructed body for the verify API request, formatted based on the authentication type.
 
 ***
 
-### getLoginPayload()
+#### getLoginPayload()
 
 ```ts
 static getLoginPayload(uri): {
@@ -385,13 +375,13 @@ Defined in: [sdk/src/modules/user.ts:274](https://github.com/torque-labs/monorep
 
 Get the default login payload/message to be signed for authentication.
 
-#### Parameters
+**Parameters**
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `uri` | `string` | URL to use for the login payload. Defaults to `https://app.torque.so`. |
+| Parameter | Type     | Description                                                            |
+| --------- | -------- | ---------------------------------------------------------------------- |
+| `uri`     | `string` | URL to use for the login payload. Defaults to `https://app.torque.so`. |
 
-#### Returns
+**Returns**
 
 ```ts
 {
@@ -404,9 +394,9 @@ Get the default login payload/message to be signed for authentication.
 
 The login payload to be signed for authentication
 
-| Name | Type |
-| ------ | ------ |
+| Name             | Type     |
+| ---------------- | -------- |
 | `expirationTime` | `string` |
-| `issuedAt` | `string` |
-| `statement` | `string` |
-| `uri` | `string` |
+| `issuedAt`       | `string` |
+| `statement`      | `string` |
+| `uri`            | `string` |
