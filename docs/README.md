@@ -22,16 +22,12 @@ Connect real user activity to rewards (tokens, NFTs, points) with pre‑indexed 
 
 ### **Who this is for?**
 
-* **Marketing Teams** who want to drive growth tied to real onchain usage.\
-
+* **Marketing Teams** who want to drive growth tied to real onchain usage.
 * **Developers** who need reliable primitives to connect onchain usage to rewards (and optionally off‑chain rewards via webhook).
 
 ### **What you can build in the next 5 minutes:**
 
-* Weekly trading leaderboards with a fixed prize pool.\
-
-* Net‑new depositor rebates with wash‑trade filtering and caps.\
-
-* Participation raffles with minimum activity thresholds.\
-
+* Weekly trading leaderboards with a fixed prize pool.
+* Net‑new depositor rebates with wash‑trade filtering and caps.
+* Participation raffles with minimum activity thresholds.
 * Action‑gated incentives to provide bonus rewards in real-time
