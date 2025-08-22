@@ -55,9 +55,9 @@ Caps per wallet, total campaign cap, anti‑wash on.
 
 ***
 
-### Why not build this internally?
+### How this helps you?
 
-You’d be rebuilding indexing, audience filters, anti‑abuse, ranking, distribution math, claim surfaces, and analytics. Torque gives you all of that—pre‑indexed data, drag‑and‑drop or code setup, claim/airdrop, and built‑in analytics—so you ship the strategy, not the plumbing.
+Stay focused on building your product so you don't need to build indexing, ranking, claim surfaces, reward measurement, analytics, and targeting. You ship the strategy, not the plumbing.&#x20;
 
 ***
 
