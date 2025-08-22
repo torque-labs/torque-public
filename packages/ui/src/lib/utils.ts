@@ -35,21 +35,28 @@ export function truncateAddress(
  * Format a number for display
  *
  * @param amount - The number to format
+ * @param decimals - The number of decimal places to display
+ * @param notation - The notation to use for the number formatter
  *
  * @returns The formatted amount
  */
-export function formatAmount(amount: number | string) {
+export function formatAmount(
+  amount: number | string,
+  decimals = 2,
+  notation: Intl.NumberFormatOptions["notation"] = "compact",
+) {
   const amountNumber = typeof amount === "string" ? Number(amount) : amount;
 
   const formatter = new Intl.NumberFormat("en-US", {
-    maximumFractionDigits: 2,
+    maximumFractionDigits: decimals,
+    notation,
   });
 
   return formatter.format(amountNumber);
 }
 
 /**
- * Format an amount with decimals
+ * Format a token amount with decimals
  *
  * @param tokenAddress - The address of the token
  * @param amount - The amount to format
@@ -57,7 +64,7 @@ export function formatAmount(amount: number | string) {
  *
  * @returns The formatted amount after accounting for the number of decimal places
  */
-export function formatAmountWithDecimals(
+export function formatTokenAmountWithDecimals(
   tokenAddress: string,
   amount: number,
   decimals: number,

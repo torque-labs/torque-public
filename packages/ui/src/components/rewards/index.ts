@@ -1,2 +1,2 @@
-export * from "./Rewards";
 export * from "./RewardGroup";
+export * from "./Rewards";

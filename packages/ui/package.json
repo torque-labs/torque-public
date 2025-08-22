@@ -3,21 +3,22 @@
   "author": "Torque Labs",
   "name": "@torque-labs/torque-ui",
   "description": "The Official Torque Labs UI Kit",
-  "version": "0.0.7-dev.8",
+  "version": "0.0.9-dev.15",
   "license": "MIT",
   "private": false,
   "sideEffects": false,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/types/index.d.ts",
+  "type": "module",
   "imports": {
     "#/*": "./src/*"
   },
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
     },
     "./index.css": "./dist/index.css"
   },
@@ -26,8 +27,8 @@
   ],
   "scripts": {
     "build": "tsup && tsc && npm run styles:build",
-    "dev": "tsup --watch --onSuccess 'npm run styles:watch'",
-    "watch": "tsup --watch --onSuccess 'npm run styles:watch'",
+    "dev": "tsup --watch --onSuccess 'tsc && npm run styles:watch'",
+    "watch": "tsup --watch --onSuccess 'tsc && npm run styles:watch'",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
     "lint": "eslint \"src/**/*.ts*\"",
     "test": "jest",
@@ -35,14 +36,14 @@
     "ui:add": "npx shadcn@latest add",
     "styles:build": "tailwindcss -i ./src/globals.css -o ./dist/index.css",
     "styles:watch": "tailwindcss -i ./src/globals.css -o ./dist/index.css --watch",
-    "typecheck": "tsup && tsc --pretty --noEmit"
+    "typecheck": "tsc --pretty --noEmit"
   },
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "dependencies": {
-    "@dialectlabs/blinks": "^0.14.0",
+    "@dialectlabs/blinks": "^0.17.7",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-collapsible": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.2",
@@ -54,9 +55,8 @@
     "@solana/spl-token": "^0.4.9",
     "@solana/wallet-adapter-base": "^0.9.23",
     "@solana/wallet-adapter-react": "^0.15.35",
-    "@solana/wallet-adapter-react-ui": "^0.9.35",
     "@solana/wallet-adapter-wallets": "^0.19.32",
-    "@solana/web3.js": "^1.95.5",
+    "@solana/web3.js": "^1.95.8",
     "@tiplink/wallet-adapter": "^2.1.21",
     "@tiplink/wallet-adapter-react-ui": "^1.0.0",
     "@torque-labs/torque-ts-sdk": "^0.0.136",
@@ -65,11 +65,14 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "framer-motion": "^11.11.9",
+    "helius-sdk": "^1.4.0",
     "lucide-react": "^0.453.0",
     "tailwind-merge": "^2.0.0",
+    "tsc-alias": "^1.8.10",
     "vaul": "^1.1.1"
   },
   "devDependencies": {
+    "@alcalzone/esm2cjs": "^1.4.1",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.13.0",
     "@svgr/cli": "^8.1.0",
